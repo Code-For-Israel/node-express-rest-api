@@ -1,0 +1,67 @@
+{
+  "name": "template-rest-api",
+  "version": "0.0.1",
+  "description": "A Code4Israel template for a rest api",
+  "main": "src/index.ts",
+  "author": "Doron Feldman",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ignore-path .gitignore --ext .ts src/",
+    "lint:fix": "yarn lint -- --fix",
+    "build": "tsc",
+    "start:run": "cross-env DOTENV_CONFIG_PATH=.env ts-node -r dotenv/config --transpile-only src/index.ts",
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.3.1",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.2",
+    "envalid": "^7.3.1",
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "http-status-codes": "^2.2.0",
+    "lodash": "^4.17.21",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/helmet": "^4.0.0",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/lodash": "^4.14.184",
+    "@types/node": "^18.7.16",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "eslint": "^8.23.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
+    "prisma": "^4.3.1"
+  },
+  "prettier": {
+    "printWidth": 150,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false,
+    "arrowParens": "avoid"
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2022,
+      "sourceType": "module"
+    },
+    "rules": {}
+  }
+}
