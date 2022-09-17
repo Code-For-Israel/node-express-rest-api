@@ -1,6 +1,6 @@
 {
-  "watch": ["src", ".env", "package.json"],
+  "watch": ["src", "prisma", ".env", "package.json"],
   "ext": "js,ts,json",
   "ignore": ["src/**/*.spec.ts", "src/**/*.test.ts"],
-  "exec": "npm run start:run"
+  "exec": "ts-node -r dotenv/config src/index.ts"
 }

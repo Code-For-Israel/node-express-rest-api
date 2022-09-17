@@ -20,16 +20,17 @@ model User {
   email         String         @unique
   name          String?
   role          Role           @default(User)
+  passwordHash  String
   refreshTokens RefreshToken[]
   createdAt     DateTime       @default(now()) @db.Timestamptz
   updatedAt     DateTime       @updatedAt @db.Timestamptz
 }
 
 model RefreshToken {
-  id            Int      @id @default(autoincrement())
-  token         String   @unique
-  user          User     @relation(fields: [userId], references: [id])
+  id            Int       @id @default(autoincrement())
+  token         String    @unique
+  user          User      @relation(fields: [userId], references: [id])
   userId        Int
-  invalidatedAt DateTime @db.Timestamptz
-  createdAt     DateTime @default(now()) @db.Timestamptz
+  invalidatedAt DateTime? @db.Timestamptz
+  createdAt     DateTime  @default(now()) @db.Timestamptz
 }

@@ -1,10 +1,11 @@
 import { Router } from 'express'
 import { authController } from '../controllers/auth-controller'
 
-export const router = Router()
+export const authRouter = Router()
 
-const basePath = 'auth'
+const basePath = '/auth'
+
 // @ts-ignore
-router.post(`${basePath}/login`, authController.login)
+authRouter.post(`${basePath}/login`, authController.login)
 // @ts-ignore
-router.post(`${basePath}/token`, authController.refreshToken)
+authRouter.post(`${basePath}/token`, authController.refreshToken)

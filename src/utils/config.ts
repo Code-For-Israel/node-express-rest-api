@@ -7,11 +7,9 @@ export enum Environment {
 export const config = cleanEnv(process.env, {
   NODE_ENV: str({ choices: [Environment.Development] }),
   PORT: port(),
-  DB_HOST: str(),
-  DB_PORT: port(),
-  DB_USERNAME: str(),
-  DB_PASSWORD: str(),
-  DB_DATABASE: str(),
   JWT_PUBLIC_KEY: str(),
   JWT_PRIVATE_KEY: str(),
+  JWT_TOKEN_EXPIRY: str(),
+  JWT_REFRESH_TOKEN_EXPIRY: str(),
+  DATABASE_URL: str(),
 })

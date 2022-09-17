@@ -1,6 +1,7 @@
 import { NextFunction, Request, RequestHandler, Response } from 'express'
 import { StatusCodes } from 'http-status-codes'
 import { ApiError } from '../types/api-error'
+import { JwtUser } from '../types/jwt-user'
 import { verifyToken } from '../utils/jwt'
 
 /**
@@ -11,7 +12,7 @@ export const authenticationMiddleware: RequestHandler = async (req: Request, res
     const authHeader = req.headers.authorization ?? ''
     const authParts = authHeader.split(' ')
     if (authParts && authParts.length == 2 && authParts[0] == 'Bearer') {
-      const tokenUser = verifyToken(req, authParts[1])
+      const tokenUser = verifyToken(authParts[1]) as JwtUser
       req.user = tokenUser
       next()
     } else {

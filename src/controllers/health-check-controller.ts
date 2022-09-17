@@ -1,7 +1,18 @@
-import { ApiRequest } from '../types/api-request'
-import { ApiResponse } from '../types/api-response'
+import { Request, Response } from 'express'
+import { StatusCodes } from 'http-status-codes'
+import { prismaClient } from '../db'
+import { logger } from '../utils/logger'
 
-const healthCheck = async (req: ApiRequest<any>, res: ApiResponse<any>) => {}
+const healthCheck = async (req: Request, res: Response) => {
+  try {
+    // A basic health check to see if the database is up
+    await prismaClient.$queryRawUnsafe('SELECT 1')
+    res.status(StatusCodes.OK).send('OK')
+  } catch (e: any) {
+    logger.error(e.message, e)
+    res.status(StatusCodes.SERVICE_UNAVAILABLE).send('SERVICE_UNAVAILABLE')
+  }
+}
 
 export const healthCheckController = {
   healthCheck,

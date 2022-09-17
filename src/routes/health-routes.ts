@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { healthCheckController } from '../controllers/health-check-controller'
 
-export const router = Router()
+export const healthRouter = Router()
 
-router.post(`health-check`, healthCheckController.healthCheck)
+healthRouter.get(`/health-check`, healthCheckController.healthCheck)

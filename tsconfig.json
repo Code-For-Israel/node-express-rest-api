@@ -1,14 +1,14 @@
 {
+  "files": ["src/types.d.ts"],
   "compilerOptions": {
     "target": "es2022",
     "lib": ["es2022"],
     "typeRoots": ["./node_modules/@types"],
-    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
-    "module": "es2022",
+    "module": "node16",
     "pretty": true,
     "sourceMap": true,
     "outDir": "./dist",
@@ -16,6 +16,7 @@
     "allowJs": true,
     "noEmit": false,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
   "include": ["./src/**/*", ".env"],

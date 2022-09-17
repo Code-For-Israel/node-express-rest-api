@@ -18,6 +18,7 @@ node_modules/
 .eslintcache
 
 # Build
+dist/
 build/
 
 .env

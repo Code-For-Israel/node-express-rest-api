@@ -1,8 +1,11 @@
 import { Router } from 'express'
 import { userController } from '../controllers/user-controller'
+import { authenticationMiddleware } from '../middleware/authentication-middleware'
 
-export const router = Router()
+export const userRouter = Router()
+const basePath = '/users'
 
-const basePath = 'user'
-router.post(`${basePath}/register`, userController.register)
-router.get(`${basePath}/me`, userController.getMe)
+// @ts-ignore
+userRouter.post(`${basePath}/register`, userController.register)
+// @ts-ignore
+userRouter.get(`${basePath}/me`, authenticationMiddleware, userController.getMe)

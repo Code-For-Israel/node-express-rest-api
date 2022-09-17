@@ -1,3 +1,15 @@
-export interface UserDto {}
+import type { Role } from '@prisma/client'
 
-export interface RegisterUserRequestDto {}
+export interface UserDto {
+  id: number
+  email: string
+  name: string | null
+  role: Role
+}
+
+export interface RegisterUserRequestDto {
+  email: string
+  password: string
+  verifyPassword: string
+  name?: string | null
+}

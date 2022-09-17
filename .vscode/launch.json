@@ -6,7 +6,7 @@
       "type": "node-terminal",
       "request": "launch",
       "name": "Start",
-      "command": "yarn start"
+      "command": "npm run start"
     }
   ]
 }
