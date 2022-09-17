@@ -56,6 +56,7 @@ $ docker-compose up
 <br> _Notice that without docker-compose you will need to have your own postgres_
 
 ```sh
+$ nvm use # This will use the node version from .nvmrc
 $ npm install
 $ npm run start:dev:migrate # Or run "Debug Locally" in VSCode
 ```
