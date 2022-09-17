@@ -68,3 +68,7 @@ $ npm run migrations:generate <migration-name>
 # Gemerates prisma client again after updating prisma schema
 $ npx prisma generate
 ```
+
+## Need help?
+
+Contact [Doron Feldman](https://github.com/doronfeldman) At [doron@gotech.io](mailto:doron@gotech.io)
