@@ -6,7 +6,7 @@
       "type": "node-terminal",
       "request": "launch",
       "name": "Start",
-      "command": "npm run start"
+      "command": "npm run start:dev:migrate"
     }
   ]
 }

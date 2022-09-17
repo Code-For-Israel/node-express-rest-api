@@ -9,3 +9,4 @@ Dockerfile
 nodemon.json
 dist/
 npm-debug.log
+*.pem
