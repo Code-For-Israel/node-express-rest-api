@@ -23,8 +23,7 @@ JWT_PRIVATE_KEY=<RSA PRIVATE KEY>
 JWT_PUBLIC_KEY=<RSA PUBLIC KEY>
 JWT_TOKEN_EXPIRY=1h
 JWT_REFRESH_TOKEN_EXPIRY=7d
-DATABASE_URL=postgresql://template_db_user:Aa123456@localhost:5432/template_db?schema=public
-" > .env
+DATABASE_URL=postgresql://template_db_user:Aa123456@localhost:5432/template_db?schema=public" > .env
 ```
 
 ### Notice that in the file above requires a RSA public and private keys:
@@ -41,22 +40,29 @@ $ awk -v ORS='\\n' '1' private.pem | pbcopy
 $ awk -v ORS='\\n' '1' public.pem | pbcopy
 ```
 
+---
+
 ## Getting started
 
-Without docker-compose:
-
-```sh
-$ npm install
-$ npm run start:dev:migrate
-```
-
-With docker-compose (creates postgres & pgadmin for you):
+**(RECOMMENDED)** With docker-compose (creates postgres & pgadmin for you):
 
 ```sh
 $ docker-compose up
 ```
 
-## Useful commands
+#### After the server is up, you can attach and debug with VSCode by pressing "Attach Docker Debugger"
+
+<br> Without docker-compose:
+<br> _Notice that without docker-compose you will need to have your own postgres_
+
+```sh
+$ npm install
+$ npm run start:dev:migrate # Or run "Debug Locally" in VSCode
+```
+
+---
+
+## Other useful commands
 
 ```sh
 # Runs pending migrations them starts the server in dev mode with nodemon

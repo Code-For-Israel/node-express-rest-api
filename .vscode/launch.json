@@ -3,9 +3,20 @@
   "resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"],
   "configurations": [
     {
+      "name": "Attach Docker Debugger",
+      "type": "node",
+      "protocol": "inspector",
+      "request": "attach",
+      "port": 9229,
+      "address": "0.0.0.0",
+      "remoteRoot": "/opt/app",
+      "localRoot": "${workspaceFolder}",
+      "restart": true
+    },
+    {
+      "name": "Debug Locally",
       "type": "node-terminal",
       "request": "launch",
-      "name": "Start",
       "command": "npm run start:dev:migrate"
     }
   ]
