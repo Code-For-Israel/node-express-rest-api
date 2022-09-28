@@ -31,13 +31,27 @@ DATABASE_URL=postgresql://template_db_user:Aa123456@localhost:5432/template_db?s
 ```sh
 $ openssl genrsa -out private.pem 2048
 $ openssl rsa -in private.pem -pubout -out public.pem
-
+```
+LINUX: 
+```sh
 # copies the key as 1 line to your clipboard,
 # paste this one instead of <RSA PRIVATE KEY>
 $ awk -v ORS='\\n' '1' private.pem | pbcopy
 
 # paste this one instead of <RSA PUBLIC KEY>
 $ awk -v ORS='\\n' '1' public.pem | pbcopy
+
+```
+
+Windows: :cry:
+```sh
+# copies the key as 1 line to your clipboard,
+# paste this one instead of <RSA PRIVATE KEY>
+$ cat private.pem | tr -d '\n' | clip
+
+# paste this one instead of <RSA PUBLIC KEY>
+$ cat public.pem | tr -d '\n' | clip
+
 ```
 
 ---
