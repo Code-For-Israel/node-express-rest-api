@@ -89,9 +89,18 @@ $ npm run start:dev:migrate
 # Generates a new migration after updating prisma schema
 $ npm run migrations:generate <migration-name>
 
-# Gemerates prisma client again after updating prisma schema
+# Generates prisma client again after updating prisma schema
 $ npx prisma generate
 ```
+
+---
+
+## Possible additions to the template (Please PR if you do)
+
+- [ ] Swagger documentation using jsdoc comments use this [article](https://dev.to/kabartolo/how-to-document-an-express-api-with-swagger-ui-and-jsdoc-50do) for reference
+- [ ] Validation of request DTOs using class-transformer & class-validator
+- [ ] Redis integration as cache
+- [ ] A separate process for running tasks using [Bull](https://github.com/OptimalBits/bull) with integrated UI (this depends on redis)
 
 ---
 
