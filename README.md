@@ -95,7 +95,13 @@ $ npx prisma generate
 
 ---
 
-## Possible additions to the template (Please PR if you do)
+## Still missing:
+
+- [ ] Style guide explaining the different layers of the project and
+
+---
+
+## Possible additions to the template (Please PR):
 
 - [ ] Swagger documentation using jsdoc comments use this [article](https://dev.to/kabartolo/how-to-document-an-express-api-with-swagger-ui-and-jsdoc-50do) for reference
 - [ ] Validation of request DTOs using class-transformer & class-validator

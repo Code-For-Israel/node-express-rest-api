@@ -32,6 +32,6 @@ export const errorMiddleware: ErrorRequestHandler = (error: Error, req: Request,
   } catch (error) {
     next(error)
   } finally {
-    logger.error(error)
+    logger.error(error.message, error)
   }
 }

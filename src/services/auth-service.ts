@@ -40,7 +40,7 @@ const login = async (request: LoginRequestDto): Promise<TokenAndRefreshToken> =>
     },
   })
 
-  const isPasswordValid = comparePassword(request.password, user.passwordHash)
+  const isPasswordValid = await comparePassword(request.password, user.passwordHash)
   if (!isPasswordValid) {
     throw new ApiBadRequestError()
   }

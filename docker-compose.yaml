@@ -38,8 +38,8 @@ services:
       - ./:/opt/app
       - /opt/app/node_modules
     ports:
-      - '3000:3000'
-      - "9229:9229"
+      - '3001:3001'
+      - '9229:9229'
     command: npm run start:dev:migrate
 volumes:
   postgres-data:
