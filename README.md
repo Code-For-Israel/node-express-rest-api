@@ -97,7 +97,7 @@ $ npx prisma generate
 
 ## Still missing:
 
-- [ ] Style guide explaining the different layers of the project and
+- [ ] Style guide explaining the different layers and features of the template
 
 ---
 
