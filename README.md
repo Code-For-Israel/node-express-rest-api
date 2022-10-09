@@ -64,7 +64,8 @@ $ cat public.pem | tr -d '\n' | clip
 **(RECOMMENDED)** With docker-compose (creates postgres & pgadmin for you):
 
 ```sh
-$ docker-compose up
+# --build is necessary on the first time or after the Dockerfile was changed
+$ docker-compose up --build
 ```
 
 #### After the server is up, you can attach and debug with VSCode by pressing "Attach Docker Debugger"
