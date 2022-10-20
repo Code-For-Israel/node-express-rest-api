@@ -1,13 +1,16 @@
 import { User } from '@prisma/client'
+import bcrypt from 'bcrypt'
 import { prismaClient } from '../db'
-import { LoginRequestDto, RefreshTokenRequestDto } from '../dtos/auth-dtos'
+import { LoginRequestDto, RefreshTokenRequestDto, RegisterRequestDto } from '../dtos/auth-dtos'
 import { ApiBadRequestError } from '../types/api-error'
 import { JwtRefreshToken, JwtUser } from '../types/jwt-user'
 import { config } from '../utils/config'
 import { createToken, verifyToken } from '../utils/jwt'
 import { comparePassword } from '../utils/password'
 
+
 type TokenAndRefreshToken = { token: string; refreshToken: string }
+type RegisterSuccess = { name: string | null; email: string, role: string }
 
 const refreshTokenForUserId = async (userId: number): Promise<string> => {
   const tokenBody: JwtRefreshToken = { id: userId }
@@ -48,6 +51,42 @@ const login = async (request: LoginRequestDto): Promise<TokenAndRefreshToken> =>
   return generateTokensForUser(user)
 }
 
+const register = async (request: RegisterRequestDto): Promise<RegisterSuccess> => {
+  const { name, email, password, verifyPassword } = request
+  if (password !== verifyPassword) {
+    throw new ApiBadRequestError('Passwords do not match')
+  }
+  const user = await prismaClient.user.findFirst({
+    where: {
+      OR: [{email: email},{name: name}]
+    },
+  })
+  if (user !== null){
+    if (user.email == email){
+     throw new ApiBadRequestError("This email belongs to an existing user.")
+    }
+    else{
+      throw new ApiBadRequestError("User name is taken.")
+    }
+  }
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g
+  const isPasswordValid = password.match(passwordRegex) != null
+  if (!isPasswordValid) {
+    throw new ApiBadRequestError("Password must contain a minimum of eight characters, at least one letter and one number.")
+  }
+  const createdUser = await prismaClient.user.create({ data: { name: name, email: email, passwordHash: await bcrypt.hash(password, 10) }})
+  if(createdUser){
+    return {
+        name: createdUser.name,
+        email: createdUser.email,
+        role: createdUser.role
+    }
+  }
+  else{
+    throw new ApiBadRequestError("Server error while registering a new user.")
+  }
+}
+
 const refreshToken = async (request: RefreshTokenRequestDto): Promise<TokenAndRefreshToken> => {
   const content = verifyToken(request.refreshToken) as JwtRefreshToken
   const refreshTokenAndUser = await prismaClient.refreshToken.findFirst({
@@ -75,5 +114,6 @@ const refreshToken = async (request: RefreshTokenRequestDto): Promise<TokenAndRe
 
 export const authService = {
   login,
+  register,
   refreshToken,
 }

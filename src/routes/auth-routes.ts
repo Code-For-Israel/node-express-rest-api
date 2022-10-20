@@ -8,4 +8,6 @@ const basePath = '/auth'
 // @ts-ignore
 authRouter.post(`${basePath}/login`, authController.login)
 // @ts-ignore
+authRouter.post(`${basePath}/register`, authController.register)
+// @ts-ignore
 authRouter.post(`${basePath}/token`, authController.refreshToken)
