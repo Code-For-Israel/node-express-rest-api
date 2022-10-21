@@ -11,3 +11,9 @@ export class ApiBadRequestError extends ApiError {
     super(message, StatusCodes.BAD_REQUEST)
   }
 }
+
+export class InternalServerError extends ApiError {
+  constructor(message = 'An error has occurred') {
+    super(message, StatusCodes.INTERNAL_SERVER_ERROR)
+  }
+}

@@ -17,8 +17,19 @@ const userToUserDto = (user: User): UserDto => {
 
 const register = async (req: ApiRequest<RegisterUserRequestDto>, res: ApiResponse<UserDto>) => {
   // A form of validation
+  if (!req.body.email) {
+    throw new ApiBadRequestError('Email is a mandatory field')
+  }
+
   if (req.body.password !== req.body.verifyPassword) {
     throw new ApiBadRequestError('Passwords do not match')
+  }
+
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g
+  const isPasswordValid = req.body.password.match(passwordRegex) != null
+
+  if (!isPasswordValid) {
+    throw new ApiBadRequestError('A password must contain a minimum of 8 characters, at least 1 letter and 1 number')
   }
 
   const user = await userService.register(req.body)

@@ -67,7 +67,7 @@ const repo = new awsx.ecr.Repository('repository', {
   },
 })
 
-// Build and publish our application's container image from ./app to the ECR repository
+// Build and publish our application's container image from ../ to the ECR repository
 const image = new awsx.ecr.Image('image', {
   repositoryUrl: repo.url,
   path: '../',
