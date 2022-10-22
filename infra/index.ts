@@ -19,6 +19,10 @@ const jwtPrivateKey = config.requireSecret('jwtPrivateKey')
 const jwtPublicKey = config.requireSecret('jwtPublicKey')
 
 const prefix = `${pulumi.getProject()}-${pulumi.getStack()}`
+const tags = {
+  'pulumi:project': pulumi.getProject(),
+  'pulumi:stack': pulumi.getStack(),
+}
 
 // Get the default VPC
 const vpc = new awsx.ec2.DefaultVpc('defaultVpc')
@@ -31,6 +35,7 @@ const cluster = new awsx.classic.ecs.Cluster('cluster', {
 // Create a new subnet group for the database.
 const subnetGroup = new aws.rds.SubnetGroup('dbsubnets', {
   subnetIds: vpc.publicSubnetIds,
+  tags,
 })
 
 // Create a new database, using the subnet and cluster groups.
@@ -46,6 +51,7 @@ const db = new aws.rds.Instance('db', {
   skipFinalSnapshot: true,
   dbName: dbName,
   identifier: `${prefix}-db`,
+  tags,
 })
 
 // An ALB to serve the container endpoint to the internet
@@ -57,6 +63,7 @@ const loadbalancer = new awsx.lb.ApplicationLoadBalancer('loadbalancer', {
     protocol: 'HTTP',
     targetType: 'ip',
   },
+  tags,
 })
 
 // An ECR repository to store our application's container image
@@ -65,6 +72,7 @@ const repo = new awsx.ecr.Repository('repository', {
   lifecyclePolicy: {
     rules: [{ tagStatus: 'untagged', maximumAgeLimit: 14, description: 'Remove untagged images older than 14 days' }],
   },
+  tags,
 })
 
 // Build and publish our application's container image from ../ to the ECR repository
@@ -110,6 +118,7 @@ const service = new awsx.ecs.FargateService('service', {
       ],
     },
   },
+  tags,
 })
 
 // The URL at which the container's HTTP endpoint will be available
