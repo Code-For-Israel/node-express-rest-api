@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Setup node v16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: infra
+
+      - name: Create infrastructure and deploy
+        uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: backend-dev
+          cloud-url: s3://pulumi-infra
+          work-dir: infra
+        env:
+          PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
