@@ -111,6 +111,10 @@ $ npx prisma generate
 
 ---
 
+## Infrastructure and Deployment
+
+[Read more](infra/README.md)
+
 ## Need help?
 
 Contact [Doron Feldman](https://github.com/doronfeldman) At [doron@gotech.io](mailto:doron@gotech.io)
