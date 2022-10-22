@@ -40,6 +40,7 @@ Currently the following github actions exist for both frontend and backend
    - AmazonECS_FullAccess
    - AmazonRDSFullAccess
    - CloudWatchFullAccess
+   - IAMFullAccess
 
    **_download the CSV or copy the Access key ID & Secret access key_**
 
