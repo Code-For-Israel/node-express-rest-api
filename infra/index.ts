@@ -62,6 +62,9 @@ const loadbalancer = new awsx.lb.ApplicationLoadBalancer('loadbalancer', {
     port: containerPort,
     protocol: 'HTTP',
     targetType: 'ip',
+    healthCheck: {
+      path: '/health-check',
+    },
   },
   tags,
 })
