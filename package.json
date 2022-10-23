@@ -1,6 +1,6 @@
 {
   "name": "node-express-rest-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Code4Israel template for a rest api",
   "main": "src/index.ts",
   "author": "Doron Feldman",

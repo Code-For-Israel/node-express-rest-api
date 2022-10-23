@@ -102,7 +102,7 @@ const service = new awsx.ecs.FargateService('service', {
         },
       ],
       healthCheck: {
-        command: ['CMD-SHELL', `curl -f http://127.0.0.1:${containerPort}/health-check || exit 1`],
+        command: ['CMD-SHELL', `wget --no-verbose --tries=1 --spider http://127.0.0.1:${containerPort}/health-check || exit 1`],
       },
       environment: [
         { name: 'NODE_ENV', value: nodeEnvironment },
