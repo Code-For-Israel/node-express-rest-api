@@ -18,6 +18,7 @@ It is not in the repo.
 
 ```sh
 echo "NODE_ENV=development
+IS_CLOUD=false
 PORT=3001
 JWT_PRIVATE_KEY=<RSA PRIVATE KEY>
 JWT_PUBLIC_KEY=<RSA PUBLIC KEY>

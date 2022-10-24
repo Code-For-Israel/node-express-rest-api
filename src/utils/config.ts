@@ -1,4 +1,4 @@
-import { cleanEnv, port, str } from 'envalid'
+import { bool, cleanEnv, port, str } from 'envalid'
 
 export enum Environment {
   Development = 'development',
@@ -12,4 +12,5 @@ export const config = cleanEnv(process.env, {
   JWT_TOKEN_EXPIRY: str(),
   JWT_REFRESH_TOKEN_EXPIRY: str(),
   DATABASE_URL: str(),
+  IS_CLOUD: bool({ default: false }),
 })

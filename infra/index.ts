@@ -109,6 +109,7 @@ const service = new awsx.ecs.FargateService('service', {
       },
       environment: [
         { name: 'NODE_ENV', value: nodeEnvironment },
+        { name: 'IS_CLOUD', value: true.toString() },
         { name: 'PORT', value: containerPort.toString() },
         { name: 'JWT_PRIVATE_KEY', value: jwtPrivateKey },
         { name: 'JWT_PUBLIC_KEY', value: jwtPublicKey },
