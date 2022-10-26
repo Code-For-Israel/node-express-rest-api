@@ -93,6 +93,14 @@ $ npm run migrations:generate <migration-name>
 
 # Generates prisma client again after updating prisma schema
 $ npx prisma generate
+
+# SSH into a docker container (without docker-compose)
+$ docker ps
+# Copy you CONTAINER ID from the output of this command
+$ docker exec -it <container id hash> sh
+
+# Alternatively you can just (api is the name in our docker-compose file)
+$ docker-compose run api sh
 ```
 
 ---
