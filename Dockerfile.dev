@@ -1,0 +1,6 @@
+FROM node:16.17.0-alpine as base
+
+USER node
+EXPOSE $PORT
+
+CMD [ "npm", "run", "start:dist:migrate" ]
