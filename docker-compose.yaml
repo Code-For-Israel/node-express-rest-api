@@ -27,6 +27,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
+      args:
+        - PORT=3001
     image: template-api
     depends_on:
       - postgres-db
@@ -36,7 +38,6 @@ services:
       - DATABASE_URL=postgresql://template_db_user:Aa123456@postgres-db:5432/template_db?schema=public
     volumes:
       - ./:/opt/app
-      - /opt/app/node_modules
     ports:
       - '3001:3001'
       - '9229:9229'
