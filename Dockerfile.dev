@@ -6,4 +6,4 @@ WORKDIR /opt/app
 USER node
 EXPOSE $PORT
 
-CMD [ "npm", "run", "start:dist:migrate" ]
+CMD [ "npm", "run", "start:dev:migrate" ]

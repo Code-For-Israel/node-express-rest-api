@@ -35,7 +35,7 @@ services:
     env_file:
       - .env
     environment:
-      - DATABASE_URL=postgresql://template_db_user:Aa123456@postgres-db:5432/template_db?schema=public
+      DATABASE_URL: postgresql://template_db_user:Aa123456@postgres-db:5432/template_db?schema=public
     volumes:
       - ./:/opt/app
     ports:
