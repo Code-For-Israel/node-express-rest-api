@@ -15,8 +15,8 @@ services:
     image: dpage/pgadmin4:6.13
     restart: unless-stopped
     environment:
-      PGADMIN_DEFAULT_EMAIL: 'admin@template.com'
-      PGADMIN_DEFAULT_PASSWORD: 'Aa123456!'
+      PGADMIN_DEFAULT_EMAIL: admin@template.com
+      PGADMIN_DEFAULT_PASSWORD: Aa123456!
     ports:
       - '4000:80'
     depends_on:
@@ -26,17 +26,18 @@ services:
   api:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
+      args:
+        - PORT=3001
     image: template-api
     depends_on:
       - postgres-db
     env_file:
       - .env
     environment:
-      - DATABASE_URL=postgresql://template_db_user:Aa123456@postgres-db:5432/template_db?schema=public
+      DATABASE_URL: postgresql://template_db_user:Aa123456@postgres-db:5432/template_db?schema=public
     volumes:
       - ./:/opt/app
-      - /opt/app/node_modules
     ports:
       - '3001:3001'
       - '9229:9229'
