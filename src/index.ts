@@ -2,10 +2,10 @@ import cors from 'cors'
 import express from 'express'
 import listEndpoints from 'express-list-endpoints'
 import helmet from 'helmet'
+import { authRouter } from './controllers/auth-controller'
+import { healthRouter } from './controllers/health-check-controller'
+import { userRouter } from './controllers/user-controller'
 import { errorMiddleware } from './middleware/error-middleware'
-import { authRouter } from './routes/auth-routes'
-import { healthRouter } from './routes/health-routes'
-import { userRouter } from './routes/user-routes'
 import { wrapApiResponse } from './types/api-response'
 import { config } from './utils/config'
 import { catchAllWrapper } from './utils/error'
@@ -25,8 +25,8 @@ if (config.isDevelopment) {
 
 // Middleware
 app.use(helmet())
-app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
 // Routes
 const routers = [healthRouter, authRouter, userRouter]

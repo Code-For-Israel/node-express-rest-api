@@ -2,10 +2,21 @@
 
 ### The stack
 
-1. node - runtime
-2. express - Framework
-3. prisma - ORM
-4. postgres - DB
+1. TypeScript
+2. node - runtime
+3. express - Framework
+4. prisma - ORM
+5. postgres - DB
+
+---
+
+### The infra (AWS)
+
+1. Pulumi - The infra framework
+2. RDS (Postgres) - DB
+3. ECR - To store your docker images
+4. ECS Task - To run your Rest API container
+5. Load Balancer - To expose your Rest API to the world
 
 ---
 
@@ -113,10 +124,17 @@ $ docker-compose run api sh
 
 ## Possible additions to the template (Please PR):
 
+### Code:
+
 - [ ] Swagger documentation using jsdoc comments use this [article](https://dev.to/kabartolo/how-to-document-an-express-api-with-swagger-ui-and-jsdoc-50do) for reference
 - [ ] Validation of request DTOs using class-transformer & class-validator
 - [ ] Redis integration as cache
-- [ ] A separate process for running tasks using [Bull](https://github.com/OptimalBits/bull) with integrated UI (this depends on redis)
+- [ ] A separate process for running tasks using [BullMQ](https://github.com/taskforcesh/bullmq) with integrated UI (this depends on redis)
+
+### Infra:
+
+- [ ] Change the infra to Terraform
+- [ ] Support separate pipelines github actions for "Release" & "Deploy"
 
 ---
 

@@ -1,4 +1,4 @@
-FROM node:16.17.0-alpine as base
+FROM node:18.16.1-alpine as base
 
 RUN mkdir /opt/app && chown node:node /opt/app
 WORKDIR /opt/app
