@@ -76,6 +76,9 @@ $ cat public.pem | tr -d '\n' | clip
 **(RECOMMENDED)** With docker-compose (creates postgres & pgadmin for you):
 
 ```sh
+$ nvm use # This will use the node version from .nvmrc
+$ npm install
+$ npx prisma generate
 # --build is necessary on the first time or after the Dockerfile was changed
 $ docker-compose up --build
 ```
@@ -88,6 +91,8 @@ $ docker-compose up --build
 ```sh
 $ nvm use # This will use the node version from .nvmrc
 $ npm install
+$ npx prisma generate
+# Don't forget to bring your own postgres and set it in the .env file
 $ npm run start:dev:migrate # Or run "Debug Locally" in VSCode
 ```
 
