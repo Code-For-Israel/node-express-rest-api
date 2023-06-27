@@ -2,5 +2,5 @@
   "watch": ["src", "prisma", ".env", "package.json"],
   "ext": "js,ts,json",
   "ignore": ["src/**/*.spec.ts", "src/**/*.test.ts"],
-  "exec": "node --inspect=0.0.0.0:9229 --require ts-node/register --require dotenv/config src/index.ts"
+  "exec": "node --inspect=0.0.0.0:9229 --require ts-node/register --require dotenv/config index.ts"
 }

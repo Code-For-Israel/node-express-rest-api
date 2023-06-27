@@ -1,3 +1,0 @@
-name: node-rest-api
-description: A containerized rest api service on AWS Fargate with an RDS db
-runtime: nodejs

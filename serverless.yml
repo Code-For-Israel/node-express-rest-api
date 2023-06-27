@@ -1,0 +1,51 @@
+service: haverim-lerefua
+frameworkVersion: '3'
+
+plugins:
+  - serverless-plugin-typescript
+
+custom:
+  profiles:
+    dev: dev
+    prod: prod
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: ${self:custom.profiles.${sls:stage}}
+  #iam:
+    #role:
+      #statements:
+        #- Effect: Allow
+          #Action:
+            #- dynamodb:Query
+            #- dynamodb:Scan
+            #- dynamodb:GetItem
+            #- dynamodb:PutItem
+            #- dynamodb:UpdateItem
+            #- dynamodb:DeleteItem
+          #Resource:
+            #- Fn::GetAtt: [ UsersTable, Arn ]
+  #environment:
+    #USERS_TABLE: ${self:custom.tableName}
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi: '*'
+
+resources:
+  Resources:
+    #UsersTable:
+      #Type: AWS::DynamoDB::Table
+      #DeletionPolicy: Retain
+      #Properties:
+        #AttributeDefinitions:
+          #- AttributeName: userId
+            #AttributeType: S
+        #KeySchema:
+          #- AttributeName: userId
+          #  KeyType: HASH
+        #BillingMode: PAY_PER_REQUEST
+        #TableName: ${self:custom.tableName}
