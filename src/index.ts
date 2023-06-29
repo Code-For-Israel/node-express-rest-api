@@ -2,11 +2,11 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import serverless from 'serverless-http';
-import { healthRouter } from './src/controllers/health-check-controller';
-import { errorMiddleware } from './src/middleware/error-middleware';
-import { wrapApiResponse } from './src/types/api-response';
-import { config } from './src/utils/config';
-import { catchAllWrapper } from './src/utils/error';
+import { healthRouter } from './controllers/health-check-controller';
+import { errorMiddleware } from './middleware/error-middleware';
+import { wrapApiResponse } from './types/api-response';
+import { config } from './utils/config';
+import { catchAllWrapper } from './utils/error';
 
 const app = express();
 
