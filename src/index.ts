@@ -1,5 +1,6 @@
 import cors from 'cors';
 import express from 'express';
+import listEndpoints from 'express-list-endpoints';
 import helmet from 'helmet';
 import serverless from 'serverless-http';
 import { healthRouter } from './controllers/health-check-controller';
@@ -7,6 +8,7 @@ import { errorMiddleware } from './middleware/error-middleware';
 import { wrapApiResponse } from './types/api-response';
 import { config } from './utils/config';
 import { catchAllWrapper } from './utils/error';
+import { logger } from './utils/logger';
 
 const app = express();
 
@@ -37,4 +39,14 @@ for (const router of routers) {
   app.use(router)
 }
 
-module.exports.handler = serverless(app);
+if (config.isDevelopment) {
+  app.listen(config.PORT, () => {
+    logger.info(`Server is running on port ${config.PORT}`)
+    if (config.isDevelopment) {
+      console.table(listEndpoints(app))
+      console.debug('config:', config)
+    }
+  })
+} else {
+  module.exports.handler = serverless(app);
+}
