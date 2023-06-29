@@ -26,4 +26,4 @@ const createToken = (tokenBody: Record<string, unknown>, tokenExpiry: string | n
   return token
 }
 
-export { createToken, verifyToken }
+export { verifyToken, createToken }

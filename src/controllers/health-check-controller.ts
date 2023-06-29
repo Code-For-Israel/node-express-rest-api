@@ -1,5 +1,6 @@
 import { Request, Response, Router } from 'express'
 import { StatusCodes } from 'http-status-codes'
+// import { prismaClient } from '../db'
 import { logger } from '../utils/logger'
 
 export const healthRouter = Router()
