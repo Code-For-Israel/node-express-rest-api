@@ -42,10 +42,8 @@ for (const router of routers) {
 if (config.isDevelopment) {
   app.listen(config.PORT, () => {
     logger.info(`Server is running on port ${config.PORT}`)
-    if (config.isDevelopment) {
-      console.table(listEndpoints(app))
-      console.debug('config:', config)
-    }
+    console.table(listEndpoints(app))
+    console.debug('config:', config)
   })
 } else {
   module.exports.handler = serverless(app);
