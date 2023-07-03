@@ -1,17 +1,37 @@
 import useFormWizard from '@/hooks/useFormWizard'
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Box, Button, Drawer, Stack, Typography } from '@mui/material'
+import { MedicineItemType } from 'MedicineTypes'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import Autocomplete from '../elements/Autocomplete'
 import MedicinePreviewItem from '../elements/MedicinePreviewItem'
+import AddMedicine from '../modules/AddMedicine'
 
 const Names = () => {
   const [searchValue, setSearchValue] = useState('')
-  const { stepTo, formData } = useFormWizard()
+  const { stepTo, formData, updateFormData } = useFormWizard()
   const { medicineQuantity } = formData
+
+  const [selectedMedicine, setSelectedMedicine] = useState<MedicineItemType | null>(null)
+  const [allMedicines, setAllMedicines] = useState<MedicineItemType[]>([])
+
+  const handleClose = () => {
+    setSelectedMedicine(null)
+  }
 
   const handleSearch = (value: string) => {
     setSearchValue(value)
+  }
+
+  const handleSelect = (medicine: MedicineItemType) => {
+    setSelectedMedicine(medicine)
+  }
+
+  const handleSave = (medicine: MedicineItemType, state: string) => {
+    const medWithState = { ...medicine, state }
+    setAllMedicines([...allMedicines, medWithState])
+    updateFormData({ medicines: [...allMedicines, medWithState] })
+    setSelectedMedicine(null)
   }
 
   const handleSkip = () => {
@@ -52,10 +72,24 @@ const Names = () => {
       >
         <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder="שם התרופה בעברית או באנגלית" />
         <Box pt={2}>
-          {hideText && [1, 2, 3, 4, 5].map(m => <MedicinePreviewItem key={m} medicine={{ id: 1, name: 'מירו 30', englishName: 'Miro' }} />)}
+          {hideText &&
+            [1, 2, 3, 4, 5].map(m => (
+              <MedicinePreviewItem onClick={handleSelect} key={m} medicine={{ id: 1, name: 'מירו 30', englishName: 'Miro' }} />
+            ))}
         </Box>
       </Box>
-      <Button variant="text" sx={{ display: hideText ? 'none' : 'block' }} onClick={handleSkip}>
+      <Drawer
+        anchor="bottom"
+        open={!!selectedMedicine}
+        onClose={handleClose}
+        sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '50%' } }}
+      >
+        {selectedMedicine && <AddMedicine onSave={handleSave} medicine={selectedMedicine} />}
+      </Drawer>
+      <Button variant="contained" sx={{ display: allMedicines.length > 0 ? 'block' : 'none' }} onClick={handleSkip}>
+        סיימתי ({allMedicines.length})
+      </Button>
+      <Button variant="text" sx={{ display: hideText || allMedicines.length > 0 ? 'none' : 'block' }} onClick={handleSkip}>
         לא הפעם
       </Button>
     </Stack>

@@ -1,8 +1,43 @@
 # packages
 node_modules
 
+
 # ts compilation
 .build
 
 # Serverless output
 .serverless
+
+#frontend
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.js
+frontend/
+frontend/# testing
+frontend/coverage
+frontend/
+frontend/# next.js
+frontend/.next/
+frontend/out/
+frontend/
+frontend/# production
+frontend/build
+frontend/
+frontend/# misc
+frontend/.DS_Store
+frontend/*.pem
+frontend/
+frontend/# debug
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/
+frontend/# local env files
+frontend/.env*.local
+frontend/
+frontend/# vercel
+frontend/.vercel
+frontend/
+frontend/# typescript
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts

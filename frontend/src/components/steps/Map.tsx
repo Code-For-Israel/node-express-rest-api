@@ -1,9 +1,7 @@
-import { Box, ClickAwayListener, SwipeableDrawer } from '@mui/material'
-import { grey } from '@mui/material/colors'
+import { Box, ClickAwayListener } from '@mui/material'
 import { useState } from 'react'
+import AppDrawer from '../elements/AppDrawer'
 import PlacePreviewItem from '../elements/PlacePreviewItem'
-
-const drawerBleeding = 40
 
 const MapStep = () => {
   const [open, setOpen] = useState(true)
@@ -35,44 +33,7 @@ const MapStep = () => {
           mapStyle="mapbox://styles/mapbox/streets-v9"
         /> */}
       </Box>
-
-      <SwipeableDrawer
-        anchor="bottom"
-        hideBackdrop
-        open={open}
-        onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
-        swipeAreaWidth={drawerBleeding}
-        disableSwipeToOpen={false}
-        ModalProps={{
-          keepMounted: true,
-        }}
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            top: -drawerBleeding,
-            borderTopLeftRadius: 36,
-            borderTopRightRadius: 36,
-            right: 0,
-            left: 0,
-            bgcolor: 'white',
-            height: drawerBleeding,
-            visibility: 'visible',
-          }}
-        >
-          <Box
-            sx={{
-              width: 40,
-              height: 4,
-              backgroundColor: grey[900],
-              borderRadius: 3,
-              position: 'absolute',
-              top: 10,
-              left: 'calc(50% - 20px)',
-            }}
-          />
-        </Box>
+      <AppDrawer hideBackdrop open={open} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)}>
         <ClickAwayListener onClickAway={toggleDrawer(false)}>
           <Box
             sx={{
@@ -99,7 +60,7 @@ const MapStep = () => {
             ))}
           </Box>
         </ClickAwayListener>
-      </SwipeableDrawer>
+      </AppDrawer>
     </>
   )
 }

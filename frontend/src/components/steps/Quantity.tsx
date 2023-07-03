@@ -45,8 +45,8 @@ const Quantity = () => {
         <Controller
           name="medicineQuantity"
           control={control}
-          defaultValue=""
-          rules={{ required: 'This field is required' }}
+          defaultValue={''}
+          rules={{ required: true }}
           render={({ field: { onChange, value } }) => (
             <RadioGroup aria-label="quantity" value={value} onChange={onChange}>
               <FormControlLabel value="1-10" control={<Radio />} label="עד 10 פריטים" />

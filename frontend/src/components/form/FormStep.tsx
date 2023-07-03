@@ -8,7 +8,6 @@ const FormStep = () => {
 
   return (
     <>
-      {/* <FormHeader /> */}
       <Box
         sx={{
           display: 'flex',
