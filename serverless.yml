@@ -1,0 +1,21 @@
+service: haverim-lerefua
+frameworkVersion: '3'
+
+plugins:
+  - serverless-plugin-typescript
+
+custom:
+  profiles:
+    dev: dev
+    prod: prod
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  profile: ${self:custom.profiles.${sls:stage}}
+
+functions:
+  api:
+    handler: src/index.handler
+    events:
+      - httpApi: '*'

@@ -1,16 +1,19 @@
-import { bool, cleanEnv, port, str } from 'envalid'
+import 'dotenv/config';
+import { bool, cleanEnv, port, str } from 'envalid';
 
-export enum Environment {
+const DEFAULT_PORT = 3000;
+
+enum Environment {
   Development = 'development',
+  Production = 'production'
 }
 
 export const config = cleanEnv(process.env, {
-  NODE_ENV: str({ choices: [Environment.Development] }),
-  PORT: port(),
-  JWT_PUBLIC_KEY: str(),
-  JWT_PRIVATE_KEY: str(),
-  JWT_TOKEN_EXPIRY: str(),
-  JWT_REFRESH_TOKEN_EXPIRY: str(),
-  DATABASE_URL: str(),
-  IS_CLOUD: bool({ default: false }),
+  NODE_ENV: str({ choices: Object.values(Environment), default: Environment.Production }),
+  IS_CLOUD: bool({ default: true }),
+  PORT: port({ default: DEFAULT_PORT }),
+  JWT_PUBLIC_KEY: str({ default: '' }),
+  JWT_PRIVATE_KEY: str({ default: '' }),
+  JWT_TOKEN_EXPIRY: str({ default: '' }),
+  JWT_REFRESH_TOKEN_EXPIRY: str({ default: '' }),
 })

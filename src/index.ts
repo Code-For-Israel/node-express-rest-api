@@ -1,35 +1,33 @@
-import cors from 'cors'
-import express from 'express'
-import listEndpoints from 'express-list-endpoints'
-import helmet from 'helmet'
-import { authRouter } from './controllers/auth-controller'
-import { healthRouter } from './controllers/health-check-controller'
-import { userRouter } from './controllers/user-controller'
-import { errorMiddleware } from './middleware/error-middleware'
-import { wrapApiResponse } from './types/api-response'
-import { config } from './utils/config'
-import { catchAllWrapper } from './utils/error'
-import { logger } from './utils/logger'
+import cors from 'cors';
+import express from 'express';
+import listEndpoints from 'express-list-endpoints';
+import helmet from 'helmet';
+import serverless from 'serverless-http';
+import { healthRouter } from './controllers/health-check-controller';
+import { errorMiddleware } from './middleware/error-middleware';
+import { wrapApiResponse } from './types/api-response';
+import { config } from './utils/config';
+import { catchAllWrapper } from './utils/error';
+import { logger } from './utils/logger';
 
-const app = express()
+const app = express();
 
-// This is kind of a hack to extend express.Response
-;(app.response as any).jsonApiResponse = function (data: unknown) {
-  return this.json(wrapApiResponse(data))
-}
-
+// Middlewares
+app.use(helmet());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(errorMiddleware);
 // Allow all cors requests for development
 if (config.isDevelopment) {
   app.use(cors())
-}
-
-// Middleware
-app.use(helmet())
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
+};
+// This is kind of a hack to extend express.Response
+(app.response as any).jsonApiResponse = function (data: unknown) {
+  return this.json(wrapApiResponse(data))
+};
 
 // Routes
-const routers = [healthRouter, authRouter, userRouter]
+const routers = [healthRouter];
 for (const router of routers) {
   // This is a hack to make sure that all routes are wrapped in a try/catch
   for (const layer of router.stack) {
@@ -41,15 +39,12 @@ for (const router of routers) {
   app.use(router)
 }
 
-// Error handling
-app.use(errorMiddleware)
-
-// Start server
-app.listen(config.PORT, () => {
-  logger.info(`Server is running on port ${config.PORT}`)
-
-  if (config.isDevelopment) {
+if (config.isDevelopment) {
+  app.listen(config.PORT, () => {
+    logger.info(`Server is running on port ${config.PORT}`)
     console.table(listEndpoints(app))
     console.debug('config:', config)
-  }
-})
+  })
+} else {
+  module.exports.handler = serverless(app);
+}
