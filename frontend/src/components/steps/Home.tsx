@@ -1,7 +1,8 @@
-import useFormWizard from "@/hooks/useFormWizard";
-import { Button, Icon, Link, Stack, Typography } from "@mui/material";
-import Image from "next/image";
-import CheckIcon from "public/icons/check.svg";
+import useFormWizard from '@/hooks/useFormWizard'
+import { Box, Button, Icon, Link, Stack, Typography } from '@mui/material'
+import Image from 'next/image'
+import BoxHeart from 'public/icons/box-heart.svg'
+import CheckIcon from 'public/icons/check.svg'
 
 const BENEFITS = [
   { text: <span>עוזרים להציל חיים</span> },
@@ -9,59 +10,41 @@ const BENEFITS = [
   {
     text: (
       <span>
-        משתפים פעולה עם{" "}
-        <Link
-          color="primary"
-          href="https://www.haverim.org.il/"
-          target="_blank"
-        >
+        משתפים פעולה עם{' '}
+        <Link color="primary" href="https://www.haverim.org.il/" target="_blank">
           חברים לרפואה
         </Link>
       </span>
     ),
   },
-];
+]
 
 const Home = () => {
-  const { stepTo } = useFormWizard();
-  const startForm = () => stepTo("quantity");
+  const { stepTo } = useFormWizard()
+  const startForm = () => stepTo('quantity')
 
   return (
-    <Stack
-      gap={2}
-      pt={5}
-      pb={2}
-      alignItems={"center"}
-      width={"100%"}
-      justifyContent={"space-between"}
-    >
-      <Stack gap={2} alignItems={"center"}>
+    <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
+      <Stack gap={1} alignItems={'center'}>
+        <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          <Image src={BoxHeart} alt="box" />
+        </Box>
         <Typography variant="h1">יש ברשותך תרופות שאינן בשימוש?</Typography>
-        <Typography variant="body1">
-          נשמח לקבל אותן ולהעביר למי שצריך!
-        </Typography>
+        <Typography variant="body1">נשמח לקבל אותן ולהעביר למי שצריך!</Typography>
       </Stack>
-      <Stack gap={2} flex="1" pt={10} width={"100%"}>
+      <Stack gap={2} flex="1" pt={10} width={'100%'}>
         {BENEFITS.map(({ text }, index) => (
-          <Stack
-            key={index}
-            direction="row"
-            gap={2}
-            width={"100%"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            position={"relative"}
-          >
+          <Stack key={index} direction="row" gap={2} width={'100%'} justifyContent={'center'} alignItems={'center'} position={'relative'}>
             <Icon
               sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
               }}
             >
               <Image src={CheckIcon} alt="check" />
             </Icon>
-            <Typography sx={{ flex: 1, display: "flex" }} variant="body1">
+            <Typography sx={{ flex: 1, display: 'flex' }} variant="body1">
               {text}
             </Typography>
           </Stack>
@@ -74,7 +57,7 @@ const Home = () => {
         רוצה לתרום
       </Button>
     </Stack>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

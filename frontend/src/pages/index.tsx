@@ -1,9 +1,9 @@
-import FormStep from "@/components/form/FormStep";
-import { Box } from "@mui/material";
-import { Assistant } from "next/font/google";
-import Head from "next/head";
+import FormStep from '@/components/form/FormStep'
+import { Box } from '@mui/material'
+import { Assistant } from 'next/font/google'
+import Head from 'next/head'
 
-const assistant = Assistant({ subsets: ["latin"] });
+const assistant = Assistant({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -15,18 +15,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box
-        component={"main"}
+        component={'main'}
         className={assistant.className}
         sx={{
-          py: 4,
-          height: "100svh",
-          width: "100%",
-          position: "relative",
-          background: "linear-gradient(0deg, #FF8600 80%, #F99F4F 100%)",
+          height: '100svh',
+          width: '100%',
+          position: 'relative',
         }}
       >
         <FormStep />
       </Box>
     </>
-  );
+  )
 }

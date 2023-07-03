@@ -1,28 +1,40 @@
-import { Box, ClickAwayListener, SwipeableDrawer } from "@mui/material";
-import { grey } from "@mui/material/colors";
-import { useState } from "react";
-import PlacePreviewItem from "../elements/PlacePreviewItem";
+import { Box, ClickAwayListener, SwipeableDrawer } from '@mui/material'
+import { grey } from '@mui/material/colors'
+import { useState } from 'react'
+import PlacePreviewItem from '../elements/PlacePreviewItem'
 
-const drawerBleeding = 40;
-const Map = () => {
-  const [open, setOpen] = useState(true);
+const drawerBleeding = 40
+
+const MapStep = () => {
+  const [open, setOpen] = useState(true)
 
   const toggleDrawer = (newOpen: boolean) => () => {
-    setOpen(newOpen);
-  };
+    setOpen(newOpen)
+  }
 
   return (
     <>
       <Box
         sx={{
-          position: "absolute",
+          position: 'absolute',
           right: 0,
           top: 0,
-          width: "100%",
-          height: "100%",
-          bgcolor: "lightgray",
+          width: '100%',
+          height: '100%',
+          bgcolor: 'lightgray',
         }}
-      ></Box>
+      >
+        {/* <Map
+          mapboxAccessToken="<Mapbox access token>"
+          initialViewState={{
+            longitude: -122.4,
+            latitude: 37.8,
+            zoom: 14,
+          }}
+          style={{ width: 600, height: 400 }}
+          mapStyle="mapbox://styles/mapbox/streets-v9"
+        /> */}
+      </Box>
 
       <SwipeableDrawer
         anchor="bottom"
@@ -38,15 +50,15 @@ const Map = () => {
       >
         <Box
           sx={{
-            position: "absolute",
+            position: 'absolute',
             top: -drawerBleeding,
             borderTopLeftRadius: 36,
             borderTopRightRadius: 36,
             right: 0,
             left: 0,
-            bgcolor: "white",
+            bgcolor: 'white',
             height: drawerBleeding,
-            visibility: "visible",
+            visibility: 'visible',
           }}
         >
           <Box
@@ -55,9 +67,9 @@ const Map = () => {
               height: 4,
               backgroundColor: grey[900],
               borderRadius: 3,
-              position: "absolute",
+              position: 'absolute',
               top: 10,
-              left: "calc(50% - 20px)",
+              left: 'calc(50% - 20px)',
             }}
           />
         </Box>
@@ -67,20 +79,20 @@ const Map = () => {
               pb: 2,
               pl: 4,
               pr: 3,
-              height: "100%",
-              overflow: "auto",
-              width: "100%",
+              height: '100%',
+              overflow: 'auto',
+              width: '100%',
             }}
           >
             {[...Array(10)].map((_, index) => (
               <PlacePreviewItem
                 key={index}
                 place={{
-                  name: "סופר פארם",
+                  name: 'סופר פארם',
                   id: 1,
-                  address: "מיכאל 12, רמת גן",
+                  address: 'מיכאל 12, רמת גן',
                   distance: 1.2,
-                  type: "pharmacy",
+                  type: 'pharmacy',
                   hasCold: true,
                 }}
               />
@@ -89,7 +101,7 @@ const Map = () => {
         </ClickAwayListener>
       </SwipeableDrawer>
     </>
-  );
-};
+  )
+}
 
-export default Map;
+export default MapStep

@@ -1,35 +1,35 @@
-import { Box } from "@mui/material";
+import { Box } from '@mui/material'
 
-type Props = { progress: number; totalSteps: number };
+type Props = { progress: number; totalSteps: number }
 
 const FormProgress = ({ progress, totalSteps }: Props) => {
-  const progressPercent = (progress / (totalSteps - 1)) * 100;
+  const progressPercent = (progress / (totalSteps - 1)) * 100
 
   return (
     <Box
       sx={{
-        width: "100%",
+        width: '100%',
         height: 10,
-        bgcolor: "#E3E3E3",
-        overflow: "hidden",
-        position: "relative",
+        bgcolor: '#E3E3E3',
+        overflow: 'hidden',
+        position: 'relative',
         borderRadius: 20,
         my: 2,
       }}
     >
       <Box
         sx={{
-          transition: "width 0.5s ease-in-out",
+          transition: 'width 0.5s ease-in-out',
           width: `${progressPercent}%`,
-          position: "absolute",
+          position: 'absolute',
           left: 0,
           height: 10,
           borderRadius: 20,
-          bgcolor: "primary.main",
+          background: 'linear-gradient(180deg, #F99F4F 0, #FF8600 100%)',
         }}
       />
     </Box>
-  );
-};
+  )
+}
 
-export default FormProgress;
+export default FormProgress
