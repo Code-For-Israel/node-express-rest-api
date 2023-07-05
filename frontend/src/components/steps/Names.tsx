@@ -1,11 +1,11 @@
+import Autocomplete from '@/components/elements/Autocomplete'
+import MedicinePreviewItem from '@/components/elements/MedicinePreviewItem'
+import AddMedicine from '@/components/modules/AddMedicine'
 import useFormWizard from '@/hooks/useFormWizard'
 import { Box, Button, Drawer, Stack, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
-import { motion } from 'framer-motion'
+import { easeInOut, motion } from 'framer-motion'
 import { useState } from 'react'
-import Autocomplete from '../elements/Autocomplete'
-import MedicinePreviewItem from '../elements/MedicinePreviewItem'
-import AddMedicine from '../modules/AddMedicine'
 
 const Names = () => {
   const [searchValue, setSearchValue] = useState('')
@@ -61,14 +61,13 @@ const Names = () => {
           כדי שנוכל להיערך לקליטת התרופות, נצטרך לדעת איזה תרופות יש לך
         </Typography>
       </Stack>
-      <Box
-        sx={{
+      <motion.div
+        style={{
           width: '100%',
           flex: 1,
         }}
-        component={motion.div}
         layout
-        transition={{ ease: 'easeInOut', type: 'spring', duration: 0.5 }}
+        transition={{ ease: easeInOut, type: 'spring', duration: 0.5 }}
       >
         <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder="שם התרופה בעברית או באנגלית" />
         <Box pt={2}>
@@ -77,7 +76,7 @@ const Names = () => {
               <MedicinePreviewItem onClick={handleSelect} key={m} medicine={{ id: 1, name: 'מירו 30', englishName: 'Miro' }} />
             ))}
         </Box>
-      </Box>
+      </motion.div>
       <Drawer
         anchor="bottom"
         open={!!selectedMedicine}
