@@ -1,4 +1,4 @@
-name: Node CI
+name: Build
 
 on:
   push:
@@ -20,8 +20,16 @@ jobs:
           node-version: '18.x'
           cache: npm
 
-      - name: Install dependencies
+      - name: Install backend dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build backend
+        run: npm run build --if-present
+
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: frontend
         run: npm run build --if-present
