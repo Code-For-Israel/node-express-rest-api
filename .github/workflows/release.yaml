@@ -1,9 +1,7 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+  workflow_dispatch
 
 jobs:
   release:
@@ -19,14 +17,30 @@ jobs:
           node-version: '18.x'
           cache: npm
 
-      - name: Install dependencies
+      - name: Install backend dependencies
         run: npm ci
         working-directory: src
 
-      - name: Create infrastructure and deploy
+      - name: Create backend infrastructure and deploy
         uses: serverless/github-action@v3.2
         with:
           args: deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Install Dependencies
+        run: npm ci
+        working-directory: frontend
+
+      - name: Build Frontend
+        run: npm run build
+        working-directory: frontend
+
+      - name: Deploy to S3
+        uses: aws-actions/aws-cli@v2
+        with:
+          args: s3 sync frontend/out s3://haverim-app-frontend --delete
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
