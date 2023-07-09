@@ -68,6 +68,7 @@ const useFormWizard = () => {
     formData: formValues,
     submitData,
     loading,
+    stepHistory,
   }
 }
 
