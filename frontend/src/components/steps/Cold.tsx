@@ -1,14 +1,14 @@
 import useFormWizard from '@/hooks/useFormWizard'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, Checkbox, FormControlLabel, Stack, Typography } from '@mui/material'
 import { FormValuesType } from 'FormTypes'
-import { useTranslation } from 'next-i18next'
 import { useForm } from 'react-hook-form'
 
 const Cold = () => {
   const { stepTo, updateFormData, formData, submitData } = useFormWizard()
   const { medicineQuantity } = formData
   const { register, handleSubmit, watch } = useForm()
-  const { t } = useTranslation()
+  const { t } = useStaticTranslation()
 
   const handleNext = (hasCold: boolean) => () => {
     updateFormData({ hasCold: hasCold })

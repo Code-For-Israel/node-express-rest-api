@@ -1,20 +1,7 @@
 import FormStep from '@/components/form/FormStep'
 import { Box, Container } from '@mui/material'
-import { i18n } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Assistant } from 'next/font/google'
 import Head from 'next/head'
-
-export async function getStaticProps({ locale }: any) {
-  if (process.env.NODE_ENV === 'development') {
-    await i18n?.reloadResources()
-  }
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  }
-}
 
 const assistant = Assistant({ subsets: ['latin'] })
 

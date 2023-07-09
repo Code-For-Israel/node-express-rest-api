@@ -1,10 +1,9 @@
 import useFormWizard from '@/hooks/useFormWizard'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, RadioGroup, Stack, Typography } from '@mui/material'
 import { FormValuesType } from 'FormTypes'
-import { useTranslation } from 'next-i18next'
 import { Controller, useForm } from 'react-hook-form'
 import FormRadio from '../elements/FormRadio'
-
 const Quantity = () => {
   const { updateFormData, stepTo } = useFormWizard()
   const {
@@ -13,7 +12,7 @@ const Quantity = () => {
     formState: { isValid },
     watch,
   } = useForm()
-  const { t } = useTranslation()
+  const { t } = useStaticTranslation()
 
   const onSubmit = (data: FormValuesType) => {
     if (!isValid) return

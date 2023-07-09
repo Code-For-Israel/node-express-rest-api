@@ -1,21 +1,49 @@
 import Autocomplete from '@/components/elements/Autocomplete'
 import MedicinePreviewItem from '@/components/elements/MedicinePreviewItem'
 import AddMedicine from '@/components/modules/AddMedicine'
+import useDebounce from '@/hooks/useDebounce'
 import useFormWizard from '@/hooks/useFormWizard'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
+import { secondaryColor } from '@/styles/theme'
 import { Box, Button, Drawer, Stack, Typography } from '@mui/material'
+import { useQuery } from '@tanstack/react-query'
 import { MedicineItemType } from 'MedicineTypes'
+import axios from 'axios'
 import { easeInOut, motion } from 'framer-motion'
-import { useTranslation } from 'next-i18next'
 import { useState } from 'react'
+import { ClipLoader } from 'react-spinners'
+
+const searchMedicines = (query: string) => async () => {
+  const response = await axios.get(`https://dummyjson.com/products/search?q=${query}`).catch(e => {
+    console.log(e)
+  })
+  if (response) {
+    console.log(response.data)
+    return response.data.products
+  }
+  return []
+}
 
 const Names = () => {
   const [searchValue, setSearchValue] = useState('')
+  const debouncedQuery = useDebounce(searchValue, 600)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
   const { medicineQuantity } = formData
-  const { t } = useTranslation()
+  const { t } = useStaticTranslation()
 
   const [selectedMedicine, setSelectedMedicine] = useState<MedicineItemType | null>(null)
   const [allMedicines, setAllMedicines] = useState<MedicineItemType[]>(formData?.medicines || [])
+
+  const {
+    data: medicineData,
+    isFetching,
+    isFetched,
+  } = useQuery(['medicines', debouncedQuery], searchMedicines(debouncedQuery), {
+    enabled: debouncedQuery.trim().length > 0,
+    refetchOnWindowFocus: false,
+    retry: false,
+    initialData: [],
+  })
 
   const handleClose = () => {
     setSelectedMedicine(null)
@@ -87,17 +115,28 @@ const Names = () => {
         transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
       >
         <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
-        <Box pt={2}>
+        <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 150px)', overflowY: 'auto' }}>
+          {isFetching && (
+            <Box sx={{ position: 'absolute', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', right: 0, top: 40 }}>
+              <ClipLoader color={secondaryColor} loading={isFetching} size={50} />
+            </Box>
+          )}
           {hideText &&
-            [1, 2, 3, 4, 5].map((m, i) => (
+            medicineData.length > 0 &&
+            medicineData.map((m: any, i: number) => (
               <MedicinePreviewItem
                 onClick={handleSelect}
                 disabled={isMedicineAdded(i)}
                 key={i}
-                medicine={{ id: i, name: 'מירו 30', englishName: 'Miro' }}
+                medicine={{ id: m.id, name: m.title, englishName: m.brand }}
                 onRemove={isMedicineAdded(i) ? handleRemove : undefined}
               />
             ))}
+          {isFetched && hideText && medicineData.length < 1 && (
+            <Typography variant="body1" textAlign={'center'}>
+              {t('no_medicines_found')}
+            </Typography>
+          )}
         </Box>
       </motion.div>
       <Drawer

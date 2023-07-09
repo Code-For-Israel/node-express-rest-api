@@ -1,15 +1,14 @@
+import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, ClickAwayListener, Dialog, DialogTitle, IconButton, Stack, Typography } from '@mui/material'
-import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import CloseIcon from 'public/icons/close.svg'
 import { useState } from 'react'
 import AppDrawer from '../elements/AppDrawer'
 import PlacePreviewItem from '../elements/PlacePreviewItem'
-
 const MapStep = () => {
   const [openDrawer, setOpenDrawer] = useState(false)
   const [openDialog, setOpenDialog] = useState(true)
-  const { t } = useTranslation()
+  const { t } = useStaticTranslation()
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpenDrawer(newOpen)

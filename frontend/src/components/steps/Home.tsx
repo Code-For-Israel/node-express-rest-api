@@ -1,14 +1,13 @@
 import useFormWizard from '@/hooks/useFormWizard'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, Icon, Link, Stack, Typography } from '@mui/material'
-import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import BoxHeart from 'public/icons/box-heart.svg'
 import CheckIcon from 'public/icons/check.svg'
-
 const Home = () => {
   const { stepTo } = useFormWizard()
   const startForm = () => stepTo('quantity')
-  const { t } = useTranslation()
+  const { t } = useStaticTranslation()
 
   return (
     <Stack gap={2} pb={3} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>

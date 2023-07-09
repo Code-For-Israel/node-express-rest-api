@@ -1,7 +1,7 @@
 import FormRadio from '@/components/elements/FormRadio'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Button, RadioGroup, Stack, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
-import { useTranslation } from 'next-i18next'
 import { Controller, useForm } from 'react-hook-form'
 
 type Props = { medicine: MedicineItemType; onSave: (medicine: MedicineItemType, state: string) => void }
@@ -13,7 +13,7 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
     formState: { isValid },
     watch,
   } = useForm()
-  const { t } = useTranslation()
+  const { t } = useStaticTranslation()
 
   const onSubmit = (data: any) => {
     onSave(medicine, data.expiredState)

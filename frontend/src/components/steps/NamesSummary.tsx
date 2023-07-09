@@ -1,14 +1,13 @@
 import MedicinePreviewItem from '@/components/elements/MedicinePreviewItem'
 import useFormWizard from '@/hooks/useFormWizard'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, Checkbox, FormControlLabel, Stack, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
-import { useTranslation } from 'next-i18next'
 import { ChangeEvent, useState } from 'react'
-
 const NamesSummary = () => {
   const [hasMoreProducts, setHasMoreProducts] = useState(false)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
-  const { t } = useTranslation()
+  const { t } = useStaticTranslation()
 
   const selectedMedicines = formData?.medicines
 

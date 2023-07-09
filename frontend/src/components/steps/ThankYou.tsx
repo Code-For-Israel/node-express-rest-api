@@ -1,10 +1,9 @@
 import useFormWizard from '@/hooks/useFormWizard'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Button, Stack, Typography } from '@mui/material'
-import { useTranslation } from 'next-i18next'
-
 const ThankYou = () => {
   const { stepTo, resetFormData } = useFormWizard()
-  const { t } = useTranslation()
+  const { t } = useStaticTranslation()
   const handleClose = () => {
     resetFormData()
     stepTo('start')

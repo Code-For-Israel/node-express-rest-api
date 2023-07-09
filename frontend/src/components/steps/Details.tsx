@@ -1,14 +1,14 @@
 import useFormWizard from '@/hooks/useFormWizard'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { generatWALink } from '@/util/whatsapp'
 import { Box, Button, Link, Stack, TextField, TextFieldProps, Typography } from '@mui/material'
 import { FormValuesType } from 'FormTypes'
-import { useTranslation } from 'next-i18next'
 import { FieldValues, UseFormRegister, useForm } from 'react-hook-form'
 
 const Details = () => {
   const { stepTo, updateFormData, submitData } = useFormWizard()
   const link = generatWALink()
-  const { t } = useTranslation()
+  const { t } = useStaticTranslation()
   const {
     register,
     handleSubmit,
@@ -45,7 +45,7 @@ const Details = () => {
         <Button type="submit" disabled={!isValid}>
           {t('confirm')}
         </Button>
-        <Link color={'inherit'} href={link}>
+        <Link color={'inherit'} href={link} target="_blank">
           {t('send_on_whatsapp')}
         </Link>
       </Stack>
