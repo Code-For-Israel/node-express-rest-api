@@ -27,7 +27,11 @@ const useFormWizard = () => {
   const stepBack = () => {
     const lastStep = stepHistory.pop()
     const index = steps.findIndex(step => step.path === lastStep)
-    index === -1 ? setActiveStep(0) : setActiveStep(index)
+    if (index === -1) {
+      setActiveStep(0)
+      return
+    }
+    setActiveStep(index)
     router.replace({ query: { step: steps[index].path } }, undefined, { shallow: true })
   }
 

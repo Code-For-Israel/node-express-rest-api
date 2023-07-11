@@ -14,7 +14,7 @@ const FormStep = () => {
     router.beforePopState(({ as }) => {
       const currentPath = router.asPath
       if (as !== currentPath) {
-        window.history.pushState(null, '', as)
+        window.history.replaceState(null, '', as)
         stepBack()
       }
       return true
