@@ -10,7 +10,7 @@ const Home = () => {
   const { t } = useStaticTranslation()
 
   return (
-    <Stack gap={2} pb={3} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
+    <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
       <Stack gap={1} alignItems={'center'}>
         <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
           <Image src={BoxHeart} alt="box" />
@@ -18,7 +18,7 @@ const Home = () => {
         <Typography variant="h1">{t('welcome_title')}</Typography>
         <Typography variant="body1">{t('welcome_subtitle')}</Typography>
       </Stack>
-      <Stack gap={2} flex="1" pt={10} width={'100%'}>
+      <Stack gap={2} flex="1" pt={3} width={'100%'}>
         {['1', '2', '3'].map((num, index) => (
           <Stack key={index} direction="row" gap={2} width={'100%'} justifyContent={'center'} alignItems={'center'} position={'relative'}>
             <Icon

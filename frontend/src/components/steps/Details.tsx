@@ -27,7 +27,7 @@ const Details = () => {
   }
 
   return (
-    <Stack gap={2} pb={3} alignItems={'center'} width={'100%'} justifyContent={'space-between'} component={'form'} onSubmit={handleSubmit(onSubmit)}>
+    <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'} component={'form'} onSubmit={handleSubmit(onSubmit)}>
       <Stack gap={1} alignItems={'center'} textAlign={'center'}>
         <Typography variant="h1">{t('details_page_title')}</Typography>
         <Typography variant="body1">{t('details_page_subtitle')}</Typography>
