@@ -3,7 +3,9 @@ import express from 'express';
 import listEndpoints from 'express-list-endpoints';
 import helmet from 'helmet';
 import serverless from 'serverless-http';
+import { collectionSiteRouter } from './controllers/collection-site-controller';
 import { healthRouter } from './controllers/health-check-controller';
+import { medicineRouter } from './controllers/medicine-controller';
 import { errorMiddleware } from './middleware/error-middleware';
 import { wrapApiResponse } from './types/api-response';
 import { config } from './utils/config';
@@ -27,7 +29,7 @@ if (config.isDevelopment) {
 };
 
 // Routes
-const routers = [healthRouter];
+const routers = [healthRouter, collectionSiteRouter, medicineRouter];
 for (const router of routers) {
   // This is a hack to make sure that all routes are wrapped in a try/catch
   for (const layer of router.stack) {
