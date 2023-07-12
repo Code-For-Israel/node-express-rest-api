@@ -14,6 +14,7 @@ const AppDrawer = ({ children, ...rest }: Props) => {
       ModalProps={{
         keepMounted: true,
       }}
+      sx={{ zIndex: 10000 }}
       {...rest}
     >
       <Box

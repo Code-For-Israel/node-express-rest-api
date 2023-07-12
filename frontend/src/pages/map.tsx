@@ -2,7 +2,7 @@ import AppDrawer from '@/components/elements/AppDrawer'
 import PlacePreviewItem from '@/components/elements/PlacePreviewItem'
 import MapLocationDialog from '@/components/modules/MapLocationDialog'
 import { Box, ClickAwayListener, Container } from '@mui/material'
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api'
+import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api'
 import { useQuery } from '@tanstack/react-query'
 import { PlaceType } from 'PlaceTypes'
 import axios from 'axios'
@@ -10,15 +10,17 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useCallback, useRef, useState } from 'react'
 
-const containerStyle = {
+const mapContainerStyle = {
   width: '100%',
   height: '100%',
 }
 
-const center = {
+const mapCenter = {
   lat: 32.0901294,
   lng: 34.8253887,
 }
+
+const initialZoom = 16
 
 const getPlaces = (filter?: string | string[]) => async () => {
   const query = filter ? `?filter=${filter}` : ''
@@ -41,9 +43,24 @@ const MapPage = () => {
   const mapRef = useRef<google.maps.Map>()
 
   const onLoad = useCallback((map: google.maps.Map) => {
-    const bounds = new window.google.maps.LatLngBounds()
-    mapRef.current = map
-    map.fitBounds(bounds)
+    map.setOptions({
+      disableDefaultUI: true,
+      zoomControl: true,
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_TOP,
+      },
+      clickableIcons: false,
+      styles: [
+        {
+          featureType: 'poi',
+          stylers: [
+            {
+              visibility: 'off',
+            },
+          ],
+        },
+      ],
+    })
   }, [])
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -68,6 +85,7 @@ const MapPage = () => {
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
     mapRef.current?.setCenter({ lat: latitude, lng: longitude })
+    mapRef.current?.setZoom(17)
     closeDialog()
   }
 
@@ -85,7 +103,7 @@ const MapPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container maxWidth="sm" sx={{ boxShadow: 2, position: 'relative' }}>
+      <Container maxWidth={'md'} sx={{ boxShadow: 2, p: 0, position: 'relative' }}>
         <Box
           component={'main'}
           sx={{
@@ -94,21 +112,22 @@ const MapPage = () => {
             position: 'relative',
           }}
         >
-          {isLoaded && (
-            <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10} onLoad={onLoad}>
-              <Marker position={center} />
-            </GoogleMap>
-          )}
           <Box
             sx={{
               position: 'absolute',
               right: 0,
               top: 0,
               width: '100%',
-              height: '100%',
+              height: 'calc(100% - 40px)',
               bgcolor: 'lightgray',
             }}
-          ></Box>
+          >
+            {isLoaded && (
+              <GoogleMap mapContainerStyle={mapContainerStyle} center={mapCenter} zoom={initialZoom} onLoad={onLoad}>
+                <MarkerF position={mapCenter} animation={google.maps.Animation.DROP} clickable={false} />
+              </GoogleMap>
+            )}
+          </Box>
           <MapLocationDialog open={openDialog} onClose={closeDialog} onLocationApproved={handleLocationApproved} />
           <AppDrawer hideBackdrop open={openDrawer} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)}>
             {!openDialog && (
