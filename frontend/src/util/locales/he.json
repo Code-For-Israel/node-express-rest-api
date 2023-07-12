@@ -49,5 +49,7 @@
   "allow_location": "אישור מיקום",
   "not_this_time": "לא הפעם",
   "i_have_more_products_to_donate": "יש לי גם מוצרי ספיגה (טיטולים, תחבושות) או מזון רפואי לתרומה",
-  "no_medicines_found": "לא נמצאו תרופות התואמות לחיפוש שלך"
+  "no_medicines_found": "לא נמצאו תרופות התואמות לחיפוש שלך",
+  "km": "ק\"מ",
+  "store_cold": "איחסון בקירור"
 }

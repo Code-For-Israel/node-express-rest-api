@@ -1,13 +1,14 @@
 import AppDrawer from '@/components/elements/AppDrawer'
 import PlacePreviewItem from '@/components/elements/PlacePreviewItem'
-import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { Box, Button, ClickAwayListener, Container, Dialog, DialogTitle, IconButton, Stack, Typography } from '@mui/material'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api'
+import MapLocationDialog from '@/components/modules/MapLocationDialog'
+import { Box, ClickAwayListener, Container } from '@mui/material'
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api'
+import { useQuery } from '@tanstack/react-query'
+import { PlaceType } from 'PlaceTypes'
+import axios from 'axios'
 import Head from 'next/head'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
-import CloseIcon from 'public/icons/close.svg'
-import { useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
 const containerStyle = {
   width: '100%',
@@ -15,13 +16,17 @@ const containerStyle = {
 }
 
 const center = {
-  lat: -3.745,
-  lng: -38.523,
+  lat: 32.0901294,
+  lng: 34.8253887,
 }
 
-const onLoad = (map: google.maps.Map) => {
-  const bounds = new window.google.maps.LatLngBounds()
-  map.fitBounds(bounds)
+const getPlaces = (filter?: string | string[]) => async () => {
+  const query = filter ? `?filter=${filter}` : ''
+  const res = await axios.get(`/places${query}`)
+  if (res.data) {
+    return res.data
+  }
+  return []
 }
 
 const MapPage = () => {
@@ -29,11 +34,17 @@ const MapPage = () => {
   const {
     query: { filter },
   } = router
-  console.log(filter)
 
   const [openDrawer, setOpenDrawer] = useState(false)
   const [openDialog, setOpenDialog] = useState(true)
-  const { t } = useStaticTranslation()
+  const { data: places, isLoading } = useQuery(['places'], getPlaces(filter), { enabled: false })
+  const mapRef = useRef<google.maps.Map>()
+
+  const onLoad = useCallback((map: google.maps.Map) => {
+    const bounds = new window.google.maps.LatLngBounds()
+    mapRef.current = map
+    map.fitBounds(bounds)
+  }, [])
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpenDrawer(newOpen)
@@ -52,6 +63,19 @@ const MapPage = () => {
     id: 'google-map-script',
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
   })
+
+  const handleLocationApproved = (position: GeolocationPosition) => {
+    const latitude = position.coords.latitude
+    const longitude = position.coords.longitude
+    mapRef.current?.setCenter({ lat: latitude, lng: longitude })
+    closeDialog()
+  }
+
+  const openNavigation = (place: PlaceType) => {
+    const address = encodeURIComponent(place.address)
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${address}`
+    window.open(url, '_blank')
+  }
 
   return (
     <>
@@ -72,7 +96,7 @@ const MapPage = () => {
         >
           {isLoaded && (
             <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10} onLoad={onLoad}>
-              <></>
+              <Marker position={center} />
             </GoogleMap>
           )}
           <Box
@@ -85,43 +109,7 @@ const MapPage = () => {
               bgcolor: 'lightgray',
             }}
           ></Box>
-          <Dialog open={openDialog} onClose={closeDialog} sx={{ '& .MuiPaper-root': { width: '100%', borderRadius: '24px' } }}>
-            <DialogTitle sx={{ m: 0, py: 2.5 }}>
-              <IconButton
-                aria-label="close"
-                onClick={closeDialog}
-                sx={{
-                  position: 'absolute',
-                  right: 18,
-                  top: 18,
-                }}
-              >
-                <Image src={CloseIcon} alt="close" />
-              </IconButton>
-            </DialogTitle>
-            <Stack
-              gap={2}
-              sx={{
-                p: 3,
-                width: '100%',
-                height: '100%',
-                overflow: 'auto',
-                textAlign: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Typography variant="h1">{t('map_dialog_title')}</Typography>
-              <Typography fontSize={17} variant="body1">
-                {t('map_dialog_text')}
-              </Typography>
-              <Button variant="contained" sx={{ mt: 4 }} onClick={closeDialog}>
-                {t('allow_location')}
-              </Button>
-              <Button variant="text" onClick={closeDialog}>
-                {t('not_this_time')}
-              </Button>
-            </Stack>
-          </Dialog>
+          <MapLocationDialog open={openDialog} onClose={closeDialog} onLocationApproved={handleLocationApproved} />
           <AppDrawer hideBackdrop open={openDrawer} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)}>
             {!openDialog && (
               <ClickAwayListener onClickAway={handleClickAway}>
@@ -138,6 +126,7 @@ const MapPage = () => {
                   {[...Array(10)].map((_, index) => (
                     <PlacePreviewItem
                       key={index}
+                      onClick={openNavigation}
                       place={{
                         name: 'סופר פארם',
                         id: 1,

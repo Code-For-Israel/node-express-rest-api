@@ -1,6 +1,9 @@
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Button, Stack, Typography } from '@mui/material'
+import Image from 'next/image'
+import DoneIcon from 'public/icons/done.svg'
+
 const ThankYou = () => {
   const { stepTo, resetFormData } = useFormWizard()
   const { t } = useStaticTranslation()
@@ -14,6 +17,7 @@ const ThankYou = () => {
       <Stack gap={2} alignItems={'center'} textAlign={'center'} width={'100%'}>
         <Typography variant="h1">{t('thank_you_page_title')}</Typography>
         <Typography variant="body1">{t('thank_you_page_subtitle')}</Typography>
+        <Image src={DoneIcon} alt="done" />
       </Stack>
       <Button onClick={handleClose}>{t('done')}</Button>
     </Stack>
