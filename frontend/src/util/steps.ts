@@ -1,7 +1,6 @@
 import Cold from '@/components/steps/Cold'
 import Details from '@/components/steps/Details'
 import Home from '@/components/steps/Home'
-import Map from '@/components/steps/Map'
 import Names from '@/components/steps/Names'
 import NamesSummary from '@/components/steps/NamesSummary'
 import Quantity from '@/components/steps/Quantity'
@@ -51,13 +50,6 @@ const steps: FormStepType[] = [
     progress: 100,
     finalStep: true,
     component: Details,
-  },
-  {
-    path: 'map',
-    showProgress: false,
-    progress: 100,
-    finalStep: true,
-    component: Map,
   },
   {
     path: 'thank-you',

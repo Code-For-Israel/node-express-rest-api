@@ -2,6 +2,7 @@ import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, Checkbox, FormControlLabel, Stack, Typography } from '@mui/material'
 import { FormValuesType } from 'FormTypes'
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 
 const Cold = () => {
@@ -9,6 +10,7 @@ const Cold = () => {
   const { medicineQuantity } = formData
   const { register, handleSubmit, watch } = useForm()
   const { t } = useStaticTranslation()
+  const router = useRouter()
 
   const handleNext = (hasCold: boolean) => () => {
     updateFormData({ hasCold: hasCold })
@@ -16,13 +18,13 @@ const Cold = () => {
       stepTo('names')
     } else {
       submitData('map')
-      stepTo('map')
+      router.push('/map')
     }
   }
 
   if (medicineQuantity && medicineQuantity === '1-10')
     return (
-      <Stack gap={2} pb={3} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
+      <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
         <Box width={'100%'} textAlign={'center'}>
           <Typography variant="h1">{t('cold_page_title_few')}</Typography>
         </Box>
@@ -42,7 +44,7 @@ const Cold = () => {
   }
 
   return (
-    <Stack gap={2} pb={3} alignItems={'center'} width={'100%'} justifyContent={'space-between'} component="form" onSubmit={handleSubmit(onSubmit)}>
+    <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'} component="form" onSubmit={handleSubmit(onSubmit)}>
       <Box width={'100%'} textAlign={'center'}>
         <Typography variant="h1">{t('cold_page_title_many')}</Typography>
       </Box>

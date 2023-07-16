@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>חברים לרפואה</title>
-        <meta name="description" content="חברים לרפואה- תרומת תרופות" />
+        <title>חברים לרפואה - מפת מוקדים</title>
+        <meta name="description" content="חברים לרפואה - מפת מוקדים" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -10,6 +10,7 @@ import { useQuery } from '@tanstack/react-query'
 import { MedicineItemType } from 'MedicineTypes'
 import axios from 'axios'
 import { easeInOut, motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { ClipLoader } from 'react-spinners'
 
@@ -30,6 +31,7 @@ const Names = () => {
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
   const { medicineQuantity } = formData
   const { t } = useStaticTranslation()
+  const router = useRouter()
 
   const [selectedMedicine, setSelectedMedicine] = useState<MedicineItemType | null>(null)
   const [allMedicines, setAllMedicines] = useState<MedicineItemType[]>(formData?.medicines || [])
@@ -77,7 +79,7 @@ const Names = () => {
   const handleSkip = () => {
     if (medicineQuantity && medicineQuantity !== '1-10') {
       submitData('map')
-      stepTo('map')
+      router.push('/map')
     } else {
       stepTo('cold-storage')
     }
@@ -90,7 +92,7 @@ const Names = () => {
   const hideText = searchValue.trim().length > 0
 
   return (
-    <Stack gap={2} pb={3} alignItems={'center'} width={'100%'} position={'relative'} justifyContent={'space-between'}>
+    <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} position={'relative'} justifyContent={'space-between'}>
       <Stack
         gap={2}
         mb={4}

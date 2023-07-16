@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
 const FormStep = () => {
-  const { activeStep, getStepDetails, totalSteps, stepBack } = useFormWizard()
+  const { activeStep, getStepDetails, totalSteps, stepBack, stepHistory } = useFormWizard()
   const { showProgress, component: Component, path } = getStepDetails(activeStep)
   const router = useRouter()
 
@@ -14,7 +14,7 @@ const FormStep = () => {
     router.beforePopState(({ as }) => {
       const currentPath = router.asPath
       if (as !== currentPath) {
-        window.history.pushState(null, '', as)
+        window.history.replaceState(null, '', as)
         stepBack()
       }
       return true
@@ -40,7 +40,7 @@ const FormStep = () => {
           pb: 4,
         }}
       >
-        {showProgress && <FormProgress progress={activeStep} totalSteps={totalSteps} />}
+        {showProgress && <FormProgress progress={stepHistory.length} totalSteps={totalSteps} />}
         <Box
           sx={{
             pt: 4,
