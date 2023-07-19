@@ -43,6 +43,7 @@ const useFormWizard = () => {
 
   const resetFormData = () => {
     setFormValues({})
+    setStepHistory([])
   }
 
   const submitData = async (endStage: string) => {
