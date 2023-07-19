@@ -13,11 +13,13 @@ const ThankYou = () => {
   }
 
   return (
-    <Stack gap={2} pt={5} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
+    <Stack gap={2} pt={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
       <Stack gap={2} alignItems={'center'} textAlign={'center'} width={'100%'}>
         <Typography variant="h1">{t('thank_you_page_title')}</Typography>
-        <Typography variant="body1">{t('thank_you_page_subtitle')}</Typography>
-        <Image src={DoneIcon} alt="done" />
+        <Typography variant="body1" sx={{ mb: 5 }}>
+          {t('thank_you_page_subtitle')}
+        </Typography>
+        <Image src={DoneIcon} alt="done" width={80} height={80} />
       </Stack>
       <Button onClick={handleClose}>{t('done')}</Button>
     </Stack>

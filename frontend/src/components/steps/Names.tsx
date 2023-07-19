@@ -12,7 +12,7 @@ import axios from 'axios'
 import { easeInOut, motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { ClipLoader } from 'react-spinners'
+import { DotLoader } from 'react-spinners'
 
 const searchMedicines = (query: string) => async () => {
   const response = await axios.get(`https://dummyjson.com/products/search?q=${query}`).catch(e => {
@@ -30,6 +30,8 @@ const Names = () => {
   const debouncedQuery = useDebounce(searchValue, 600)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
   const { medicineQuantity } = formData
+  const isManyMedicines = medicineQuantity && medicineQuantity !== '1-10'
+
   const { t } = useStaticTranslation()
   const router = useRouter()
 
@@ -77,7 +79,7 @@ const Names = () => {
   }
 
   const handleSkip = () => {
-    if (medicineQuantity && medicineQuantity !== '1-10') {
+    if (isManyMedicines) {
       submitData('map')
       router.push('/map')
     } else {
@@ -103,9 +105,9 @@ const Names = () => {
           display: hideText ? 'none' : 'flex',
         }}
       >
-        <Typography variant="h1">{t('names_page_title')}</Typography>
+        <Typography variant="h1">{isManyMedicines ? t('names_page_many_title') : t('names_page_title')}</Typography>
         <Typography variant="body1" textAlign={'center'}>
-          {t('names_page_subtitle')}
+          {isManyMedicines ? t('names_page_many_subtitle') : t('names_page_subtitle')}
         </Typography>
       </Stack>
       <motion.div
@@ -117,21 +119,21 @@ const Names = () => {
         transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
       >
         <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
-        <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 150px)', overflowY: 'auto' }}>
+        <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
           {isFetching && (
             <Box sx={{ position: 'absolute', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', right: 0, top: 40 }}>
-              <ClipLoader color={secondaryColor} loading={isFetching} size={50} />
+              <DotLoader color={secondaryColor} loading={isFetching} size={30} speedMultiplier={2} />
             </Box>
           )}
           {hideText &&
             medicineData.length > 0 &&
-            medicineData.map((m: any, i: number) => (
+            medicineData.map((m: any) => (
               <MedicinePreviewItem
                 onClick={handleSelect}
-                disabled={isMedicineAdded(i)}
-                key={i}
+                disabled={isMedicineAdded(m.id)}
+                key={m.id}
                 medicine={{ id: m.id, name: m.title, englishName: m.brand }}
-                onRemove={isMedicineAdded(i) ? handleRemove : undefined}
+                onRemove={isMedicineAdded(m.id) ? handleRemove : undefined}
               />
             ))}
           {isFetched && hideText && medicineData.length < 1 && (
@@ -145,11 +147,16 @@ const Names = () => {
         anchor="bottom"
         open={!!selectedMedicine}
         onClose={handleClose}
-        sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '60%' } }}
+        sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '55%' } }}
       >
         {selectedMedicine && <AddMedicine onSave={handleSave} medicine={selectedMedicine} />}
       </Drawer>
-      <Button variant="contained" disabled={allMedicines.length < 1} sx={{ opacity: allMedicines.length > 0 ? 1 : 0 }} onClick={handleDone}>
+      <Button
+        variant="contained"
+        disabled={allMedicines.length < 1}
+        sx={{ opacity: allMedicines.length > 0 || (allMedicines.length < 1 && hideText) ? 1 : 0 }}
+        onClick={handleDone}
+      >
         {t('im_done')} ({allMedicines.length})
       </Button>
       <Button variant="text" sx={{ display: hideText || allMedicines.length > 0 ? 'none' : 'block' }} onClick={handleSkip}>

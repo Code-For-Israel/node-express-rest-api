@@ -3,6 +3,7 @@ import useFormWizard from '@/hooks/useFormWizard'
 import { Box } from '@mui/material'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import Header from '../modules/Header'
 
 const FormStep = () => {
   const { activeStep, getStepDetails, totalSteps, stepBack, stepHistory } = useFormWizard()
@@ -35,17 +36,17 @@ const FormStep = () => {
           flexDirection: 'column',
           justifyContent: 'space-between',
           alignItems: 'center',
-          pt: 2,
-          px: 2,
+          px: 3,
           pb: 4,
         }}
       >
+        <Header />
         {showProgress && <FormProgress progress={stepHistory.length} totalSteps={totalSteps} />}
         <Box
           sx={{
-            pt: 4,
             display: 'flex',
             width: '100%',
+            position: 'relative',
             flex: 1,
           }}
         >

@@ -9,12 +9,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>חברים לרפואה - מפת מוקדים</title>
-        <meta name="description" content="חברים לרפואה - מפת מוקדים" />
+        <title>חברים לרפואה</title>
+        <meta name="description" content="חברים לרפואה - תרומת תרופות" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container maxWidth="sm" sx={{ boxShadow: 2 }}>
+      <Container maxWidth="sm" sx={{ boxShadow: 2, p: 0 }}>
         <Box
           component={'main'}
           className={assistant.className}

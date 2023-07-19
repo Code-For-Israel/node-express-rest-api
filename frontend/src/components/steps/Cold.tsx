@@ -25,9 +25,10 @@ const Cold = () => {
   if (medicineQuantity && medicineQuantity === '1-10')
     return (
       <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
-        <Box width={'100%'} textAlign={'center'}>
+        <Stack gap={2} textAlign={'center'}>
           <Typography variant="h1">{t('cold_page_title_few')}</Typography>
-        </Box>
+          <Typography variant="body2">{t('cold_page_subtitle_few')}</Typography>
+        </Stack>
         <Stack direction={'row'} gap={2} width={'100%'}>
           <Button variant="outlined" onClick={handleNext(true)}>
             {t('yes')}
