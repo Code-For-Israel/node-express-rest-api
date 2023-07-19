@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "deploy": "serverless deploy",
+    "deploy": "serverless deploy --region eu-central-1",
     "deploy:function": "serverless deploy function --function api",
     "lint": "eslint --ignore-path .gitignore --ext .ts src/",
     "lint:fix": "npm run lint -- --fix",
@@ -31,14 +31,13 @@
     "express-list-endpoints": "^6.0.0",
     "helmet": "^6.0.0",
     "http-status-codes": "^2.2.0",
-    "i18next": "^23.2.6",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
-    "react-i18next": "^13.0.1",
     "serverless-http": "^2.6.1",
     "winston": "^3.8.2"
   },
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.370.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.12",
     "@types/dotenv": "^8.2.0",
@@ -60,7 +59,8 @@
     "prisma": "^4.3.1",
     "serverless-plugin-typescript": "^2.1.4",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "xlsx": "^0.18.5"
   },
   "prettier": {
     "printWidth": 150,

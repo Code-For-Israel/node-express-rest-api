@@ -6,6 +6,7 @@ import serverless from 'serverless-http';
 import { collectionSiteRouter } from './controllers/collection-site-controller';
 import { healthRouter } from './controllers/health-check-controller';
 import { medicineRouter } from './controllers/medicine-controller';
+import { medicineNamesRouter } from './controllers/medicine-names-controller';
 import { errorMiddleware } from './middleware/error-middleware';
 import { wrapApiResponse } from './types/api-response';
 import { config } from './utils/config';
@@ -29,7 +30,7 @@ if (config.isDevelopment) {
 };
 
 // Routes
-const routers = [healthRouter, collectionSiteRouter, medicineRouter];
+const routers = [healthRouter, collectionSiteRouter, medicineRouter, medicineNamesRouter];
 for (const router of routers) {
   // This is a hack to make sure that all routes are wrapped in a try/catch
   for (const layer of router.stack) {
