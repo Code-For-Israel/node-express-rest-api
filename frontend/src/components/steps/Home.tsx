@@ -1,6 +1,6 @@
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { Box, Button, Icon, Link, Stack, Typography } from '@mui/material'
+import { Box, Button, Icon, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import BoxHeart from 'public/icons/box-heart.svg'
 import CheckIcon from 'public/icons/check.svg'
@@ -36,9 +36,6 @@ const Home = () => {
           </Stack>
         ))}
       </Stack>
-      <Typography variant="body2">
-        *{t('welcome_disclaimer_1')} <Link>{t('welcome_disclaimer_2')}</Link>
-      </Typography>
       <Button sx={{ mt: 1 }} onClick={startForm}>
         {t('welcome_start_cta')}
       </Button>

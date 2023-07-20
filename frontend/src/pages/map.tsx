@@ -1,13 +1,16 @@
 import AppDrawer from '@/components/elements/AppDrawer'
 import PlacePreviewItem from '@/components/elements/PlacePreviewItem'
-import MapLocationDialog from '@/components/modules/MapLocationDialog'
-import { Box, ClickAwayListener, Container } from '@mui/material'
-import { GoogleMap, MarkerF, useJsApiLoader } from '@react-google-maps/api'
+import MapFilters from '@/components/map/MapFilters'
+import MapLocationDialog from '@/components/map/MapLocationDialog'
+import { Box, ClickAwayListener, Container, Typography } from '@mui/material'
+import { GoogleMap, OverlayView, OverlayViewF, useJsApiLoader } from '@react-google-maps/api'
 import { useQuery } from '@tanstack/react-query'
 import { PlaceType } from 'PlaceTypes'
 import axios from 'axios'
 import Head from 'next/head'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
+import LocationPinIcon from 'public/icons/location-pin.svg'
 import { useCallback, useRef, useState } from 'react'
 
 const mapContainerStyle = {
@@ -50,6 +53,7 @@ const MapPage = () => {
         position: google.maps.ControlPosition.RIGHT_TOP,
       },
       clickableIcons: false,
+      gestureHandling: 'greedy',
       styles: [
         {
           featureType: 'poi',
@@ -98,8 +102,8 @@ const MapPage = () => {
   return (
     <>
       <Head>
-        <title>חברים לרפואה</title>
-        <meta name="description" content="חברים לרפואה- תרומת תרופות" />
+        <title>חברים לרפואה - מפת מוקדים</title>
+        <meta name="description" content="חברים לרפואה - מפת מוקדים" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -122,9 +126,28 @@ const MapPage = () => {
               bgcolor: 'lightgray',
             }}
           >
+            <MapFilters />
             {isLoaded && (
               <GoogleMap mapContainerStyle={mapContainerStyle} center={mapCenter} zoom={initialZoom} onLoad={onLoad}>
-                <MarkerF position={mapCenter} animation={google.maps.Animation.DROP} clickable={false} />
+                <OverlayViewF position={mapCenter} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      transform: 'translate(50%, -50%)',
+                      flexDirection: 'column',
+                      rowGap: 0.3,
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Image src={LocationPinIcon} alt="icon" width={38} height={38} />
+                    <Box sx={{ bgcolor: 'white', borderRadius: 100, px: 1, boxShadow: 1 }}>
+                      <Typography variant="caption" color="primary.main">
+                        {'חברים לרפואה'}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </OverlayViewF>
               </GoogleMap>
             )}
           </Box>

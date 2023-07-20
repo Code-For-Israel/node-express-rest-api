@@ -8,13 +8,13 @@ const FormProgress = ({ progress, totalSteps }: Props) => {
   return (
     <Box
       sx={{
-        width: '100%',
-        height: 10,
+        width: '95%',
+        height: 14,
         bgcolor: '#E3E3E3',
         overflow: 'hidden',
         position: 'relative',
         borderRadius: 20,
-        my: 2,
+        mb: 5,
       }}
     >
       <Box
@@ -23,7 +23,7 @@ const FormProgress = ({ progress, totalSteps }: Props) => {
           width: `${progressPercent}%`,
           position: 'absolute',
           left: 0,
-          height: 10,
+          height: 14,
           borderRadius: 20,
           background: 'linear-gradient(180deg, #F99F4F 0, #FF8600 100%)',
         }}
