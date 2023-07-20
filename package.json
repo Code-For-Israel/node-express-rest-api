@@ -4,6 +4,9 @@
   "description": "Haverim Lerefua Backend",
   "author": "Code4Israel",
   "license": "MIT",
+  "jest": {
+    "testPathIgnorePatterns": ["./frontend"]
+  },
   "scripts": {
     "build": "tsc",
     "deploy": "serverless deploy",
@@ -15,7 +18,8 @@
     "start:dist": "node dist/src/index",
     "start:dist:migrate": "npm run migrations:run && node dist/src/index",
     "migrations:generate": "prisma migrate dev --name",
-    "migrations:run": "prisma migrate deploy"
+    "migrations:run": "prisma migrate deploy",
+    "test": "jest"
   },
   "dependencies": {
     "@prisma/client": "^4.3.1",
@@ -50,6 +54,7 @@
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.6.1",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "prisma": "^4.3.1",
