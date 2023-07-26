@@ -37,9 +37,9 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, ...rest }: Props) =>
       <Stack
         direction={'row'}
         gap={2}
-        sx={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'space-between', position: 'absolute', right: 0, top: 0 }}
+        sx={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'space-between', position: 'absolute', right: 0, top: 0, px: 2 }}
       >
-        <ButtonBase onClick={handleClick} disableRipple>
+        <ButtonBase onClick={handleClick} disableRipple sx={{ width: '100%' }}>
           <Box
             sx={{
               borderRadius: 2,

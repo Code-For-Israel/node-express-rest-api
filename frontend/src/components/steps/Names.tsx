@@ -118,7 +118,7 @@ const Names = () => {
         layout
         transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
       >
-        <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
+        <Autocomplete autoFocus value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
         <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
           {isFetching && (
             <Box sx={{ position: 'absolute', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', right: 0, top: 40 }}>
@@ -141,6 +141,9 @@ const Names = () => {
               {t('no_medicines_found')}
             </Typography>
           )}
+          <Button variant="text" sx={{ mt: '25px', display: hideText || allMedicines.length > 0 ? 'none' : 'block' }} onClick={handleSkip}>
+            {t('want_to_skip')}
+          </Button>
         </Box>
       </motion.div>
       <Drawer
@@ -158,9 +161,6 @@ const Names = () => {
         onClick={handleDone}
       >
         {t('im_done')} ({allMedicines.length})
-      </Button>
-      <Button variant="text" sx={{ display: hideText || allMedicines.length > 0 ? 'none' : 'block' }} onClick={handleSkip}>
-        {t('want_to_skip')}
       </Button>
     </Stack>
   )

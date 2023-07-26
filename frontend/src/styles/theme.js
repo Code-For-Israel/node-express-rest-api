@@ -41,6 +41,11 @@ export const theme = createTheme({
         root: {
           textTransform: 'none',
           fontWeight: 700,
+          fontSize: '20px',
+          padding: '10px 32px 10px 32px',
+          fontStyle: 'normal',
+          letterSpacing: '0.5px',
+          lineHeight: '24px',
         },
         contained: {
           boxShadow: '0px 3px 5px 0px rgba(0, 0, 0, 0.12)',
@@ -61,6 +66,7 @@ export const theme = createTheme({
         },
         text: {
           color: '#252525',
+          fontSize: '16px',
           textDecoration: 'underline',
           fontWeight: 400,
           '&:hover': {

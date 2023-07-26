@@ -27,21 +27,21 @@ const Details = () => {
   }
 
   return (
-    <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'} component={'form'} onSubmit={handleSubmit(onSubmit)}>
+    <Stack gap={2} pb={1} alignItems={'center'} width={'100%'} justifyContent={'space-between'} component={'form'} onSubmit={handleSubmit(onSubmit)}>
       <Stack gap={1} alignItems={'center'} textAlign={'center'}>
         <Typography variant="h1">{t('details_page_title')}</Typography>
         <Typography variant="body1">{t('details_page_subtitle')}</Typography>
       </Stack>
-      <Stack gap={3} width={'100%'} flex={1} mt={2} px={0.5}>
+      <Stack gap={2} width={'100%'} flex={1} px={0.5}>
         <FormField name="fullName" label={t('full_name')} register={register} />
-        <FormField name="town" label={t('town')} register={register} />
         <FormField name="phoneNumber" label={t('phone_number')} register={register} />
+        <FormField name="town" label={t('town')} register={register} />
         <Box sx={{ display: 'grid', gap: 3, gridTemplateColumns: '2fr 1fr' }}>
           <FormField name="street" label={t('street')} register={register} />
           <FormField name="houseNumber" label={t('house_number')} register={register} type="number" />
         </Box>
       </Stack>
-      <Stack gap={3} width={'100%'} textAlign={'center'}>
+      <Stack gap={2} width={'100%'} textAlign={'center'}>
         <Button type="submit" disabled={!isValid}>
           {t('confirm')}
         </Button>

@@ -29,7 +29,9 @@ const Header = () => {
           <Image src={BackArrowIcon} alt="back arrow" />
         </IconButton>
       )}
-      <Typography variant="h3">{t('donate_for_health')}</Typography>
+      <Typography variant="body1" sx={{ fontWeight: 600 }}>
+        {t('donate_for_health')}
+      </Typography>
     </Stack>
   )
 }

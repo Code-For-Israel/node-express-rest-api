@@ -2,7 +2,7 @@ import AppDrawer from '@/components/elements/AppDrawer'
 import PlacePreviewItem from '@/components/elements/PlacePreviewItem'
 import MapFilters from '@/components/map/MapFilters'
 import MapLocationDialog from '@/components/map/MapLocationDialog'
-import { Box, ClickAwayListener, Container, Typography } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import { GoogleMap, OverlayView, OverlayViewF, useJsApiLoader } from '@react-google-maps/api'
 import { useQuery } from '@tanstack/react-query'
 import { PlaceType } from 'PlaceTypes'
@@ -152,35 +152,33 @@ const MapPage = () => {
             )}
           </Box>
           <MapLocationDialog open={openDialog} onClose={closeDialog} onLocationApproved={handleLocationApproved} />
-          <AppDrawer hideBackdrop open={openDrawer} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)}>
+          <AppDrawer open={openDrawer} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)} slotProps={{ backdrop: { invisible: true } }}>
             {!openDialog && (
-              <ClickAwayListener onClickAway={handleClickAway}>
-                <Box
-                  sx={{
-                    pb: 2,
-                    pl: 4,
-                    pr: 3,
-                    height: '100%',
-                    overflow: 'auto',
-                    width: '100%',
-                  }}
-                >
-                  {[...Array(10)].map((_, index) => (
-                    <PlacePreviewItem
-                      key={index}
-                      onClick={openNavigation}
-                      place={{
-                        name: 'סופר פארם',
-                        id: 1,
-                        address: 'מיכאל 12, רמת גן',
-                        distance: 1.2,
-                        type: 'pharmacy',
-                        hasCold: true,
-                      }}
-                    />
-                  ))}
-                </Box>
-              </ClickAwayListener>
+              <Box
+                sx={{
+                  pb: 2,
+                  pl: 4,
+                  pr: 3,
+                  height: '100%',
+                  overflow: 'auto',
+                  width: '100%',
+                }}
+              >
+                {[...Array(10)].map((_, index) => (
+                  <PlacePreviewItem
+                    key={index}
+                    onClick={openNavigation}
+                    place={{
+                      name: 'סופר פארם',
+                      id: 1,
+                      address: 'מיכאל 12, רמת גן',
+                      distance: 1.2,
+                      type: 'pharmacy',
+                      hasCold: true,
+                    }}
+                  />
+                ))}
+              </Box>
             )}
           </AppDrawer>
         </Box>

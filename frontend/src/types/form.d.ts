@@ -3,7 +3,6 @@ declare module 'FormTypes' {
   export interface FormStepType {
     path: string
     showProgress: boolean
-    progress: number
     component: ComponentType<any>
     finalStep: boolean
   }
