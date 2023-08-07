@@ -32,13 +32,19 @@ const Details = () => {
         <Typography variant="h1">{t('details_page_title')}</Typography>
         <Typography variant="body1">{t('details_page_subtitle')}</Typography>
       </Stack>
-      <Stack gap={2} width={'100%'} flex={1} px={0.5}>
+      <Stack gap={4} width={'100%'} flex={1} px={0.5}>
         <FormField name="fullName" label={t('full_name')} register={register} />
         <FormField name="phoneNumber" label={t('phone_number')} register={register} />
         <FormField name="town" label={t('town')} register={register} />
-        <Box sx={{ display: 'grid', gap: 3, gridTemplateColumns: '2fr 1fr' }}>
+        <Box sx={{ display: 'grid', gap: 3, gridTemplateColumns: '1fr 1fr' }}>
           <FormField name="street" label={t('street')} register={register} />
-          <FormField name="houseNumber" label={t('house_number')} register={register} type="number" />
+          <FormField
+            name="houseNumber"
+            label={t('house_number')}
+            register={register}
+            type="number"
+            InputProps={{ endAdornment: <img src="/icons/edit.svg" /> }}
+          />
         </Box>
       </Stack>
       <Stack gap={2} width={'100%'} textAlign={'center'}>
@@ -60,7 +66,8 @@ type FormFieldProps = {
   label: string
   register: UseFormRegister<FieldValues>
   type?: TextFieldProps['type']
-}
+} & TextFieldProps
+
 const FormField = ({ name, label, register, type, ...rest }: FormFieldProps) => {
   return (
     <TextField

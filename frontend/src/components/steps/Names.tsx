@@ -5,7 +5,7 @@ import useDebounce from '@/hooks/useDebounce'
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { secondaryColor } from '@/styles/theme'
-import { Box, Button, Drawer, Stack, Typography } from '@mui/material'
+import { Box, Button, Stack, SwipeableDrawer, Typography } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import { MedicineItemType } from 'MedicineTypes'
 import axios from 'axios'
@@ -29,7 +29,7 @@ const Names = () => {
   const [searchValue, setSearchValue] = useState('')
   const debouncedQuery = useDebounce(searchValue, 600)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
-  const { medicineQuantity } = formData
+  const { medicineQuantity, hasExpensive } = formData
   const isManyMedicines = medicineQuantity && medicineQuantity !== '1-10'
 
   const { t } = useStaticTranslation()
@@ -80,8 +80,12 @@ const Names = () => {
 
   const handleSkip = () => {
     if (isManyMedicines) {
-      submitData('map')
-      router.push('/map')
+      if (hasExpensive) {
+        stepTo('details')
+      } else {
+        submitData('map')
+        router.push('/map')
+      }
     } else {
       stepTo('cold-storage')
     }
@@ -146,14 +150,26 @@ const Names = () => {
           </Button>
         </Box>
       </motion.div>
-      <Drawer
+      <SwipeableDrawer
         anchor="bottom"
         open={!!selectedMedicine}
+        onOpen={() => false}
         onClose={handleClose}
         sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '55%' } }}
       >
+        <Box
+          sx={{
+            width: 40,
+            height: 4,
+            backgroundColor: '#696966',
+            borderRadius: 3,
+            position: 'absolute',
+            top: 12,
+            left: 'calc(50% - 20px)',
+          }}
+        />
         {selectedMedicine && <AddMedicine onSave={handleSave} medicine={selectedMedicine} />}
-      </Drawer>
+      </SwipeableDrawer>
       <Button
         variant="contained"
         disabled={allMedicines.length < 1}

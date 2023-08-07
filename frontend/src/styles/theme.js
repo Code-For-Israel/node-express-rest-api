@@ -1,4 +1,4 @@
-import { SvgIcon, createTheme } from '@mui/material'
+import { Box, SvgIcon, createTheme } from '@mui/material'
 
 export const primaryColor = '#4563CD'
 export const secondaryColor = '#ff8e00'
@@ -60,6 +60,7 @@ export const theme = createTheme({
           boxShadow: '0px 3px 5px 0px rgba(0, 0, 0, 0.12)',
           borderRadius: '8px',
           borderWidth: '2px',
+          border: `2px solid ${primaryColor}`,
           '&:hover': {
             borderWidth: '2px',
           },
@@ -80,6 +81,31 @@ export const theme = createTheme({
         color: 'primary',
         disableRipple: true,
         fullWidth: true,
+      },
+    },
+    MuiCheckbox: {
+      defaultProps: {
+        disableRipple: true,
+        size: 'small',
+        icon: <Box component={'span'} mt={'0.5px'} mx={'2px'} sx={{ border: '1px solid black', width: 18, height: 18, borderRadius: '2px' }} />,
+        checkedIcon: (
+          <Box
+            component={'span'}
+            mt={'0.5px'}
+            mx={'2px'}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              border: '1px solid black',
+              width: 18,
+              height: 18,
+              borderRadius: '2px',
+            }}
+          >
+            <img src={'/icons/checkbox-checked.svg'} width={14} height={14} />
+          </Box>
+        ),
       },
     },
     MuiRadio: {

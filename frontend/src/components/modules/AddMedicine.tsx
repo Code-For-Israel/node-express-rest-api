@@ -11,15 +11,12 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
     handleSubmit,
     control,
     formState: { isValid },
-    watch,
   } = useForm()
   const { t } = useStaticTranslation()
 
   const onSubmit = (data: any) => {
     onSave(medicine, data.expiredState)
   }
-
-  const expiredState = watch('expiredState')
 
   return (
     <Stack
@@ -34,7 +31,7 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
     >
       <Stack gap={2} pt={3} justifyContent={'center'} alignItems={'center'} textAlign={'center'}>
         <Typography variant="h3">{t('will_expire_soon')}</Typography>
-        <Box sx={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 10% 1fr' }}>
+        <Box sx={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 1em 1fr' }}>
           <Typography variant="body1" textAlign={'right'}>
             {medicine.name}
           </Typography>
@@ -53,9 +50,9 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
         rules={{ required: true }}
         render={({ field: { onChange, value } }) => (
           <RadioGroup sx={{ width: 'fit-content' }} aria-label="expired-state" value={value} onChange={onChange}>
-            <FormRadio value="inAMonth" label="כן" selected={expiredState} />
-            <FormRadio value="noOrUnknown" label="לא / לא ידוע" selected={expiredState} />
-            <FormRadio value="expired" label="פג תוקף" selected={expiredState} />
+            <FormRadio value="inAMonth" label="כן" />
+            <FormRadio value="noOrUnknown" label="לא / לא ידוע" />
+            <FormRadio value="expired" label="פג תוקף" />
           </RadioGroup>
         )}
       />

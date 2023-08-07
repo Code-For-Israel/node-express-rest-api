@@ -1,4 +1,3 @@
-import AppDrawer from '@/components/elements/AppDrawer'
 import PlacePreviewItem from '@/components/elements/PlacePreviewItem'
 import MapFilters from '@/components/map/MapFilters'
 import MapLocationDialog from '@/components/map/MapLocationDialog'
@@ -15,7 +14,7 @@ import { useCallback, useRef, useState } from 'react'
 
 const mapContainerStyle = {
   width: '100%',
-  height: '100%',
+  height: '60svh',
 }
 
 const mapCenter = {
@@ -23,7 +22,7 @@ const mapCenter = {
   lng: 34.8253887,
 }
 
-const initialZoom = 16
+const initialZoom = 15
 
 const getPlaces = (filter?: string | string[]) => async () => {
   const query = filter ? `?filter=${filter}` : ''
@@ -40,12 +39,12 @@ const MapPage = () => {
     query: { filter },
   } = router
 
-  const [openDrawer, setOpenDrawer] = useState(false)
   const [openDialog, setOpenDialog] = useState(true)
   const { data: places, isLoading } = useQuery(['places'], getPlaces(filter), { enabled: false })
   const mapRef = useRef<google.maps.Map>()
 
   const onLoad = useCallback((map: google.maps.Map) => {
+    mapRef.current = map
     map.setOptions({
       disableDefaultUI: true,
       zoomControl: true,
@@ -67,17 +66,8 @@ const MapPage = () => {
     })
   }, [])
 
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setOpenDrawer(newOpen)
-  }
-
   const closeDialog = () => {
-    setOpenDrawer(true)
     setOpenDialog(false)
-  }
-
-  const handleClickAway = () => {
-    setOpenDrawer(false)
   }
 
   const { isLoaded } = useJsApiLoader({
@@ -152,35 +142,44 @@ const MapPage = () => {
             )}
           </Box>
           <MapLocationDialog open={openDialog} onClose={closeDialog} onLocationApproved={handleLocationApproved} />
-          <AppDrawer open={openDrawer} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)} slotProps={{ backdrop: { invisible: true } }}>
-            {!openDialog && (
-              <Box
-                sx={{
-                  pb: 2,
-                  pl: 4,
-                  pr: 3,
-                  height: '100%',
-                  overflow: 'auto',
-                  width: '100%',
-                }}
-              >
-                {[...Array(10)].map((_, index) => (
-                  <PlacePreviewItem
-                    key={index}
-                    onClick={openNavigation}
-                    place={{
-                      name: 'סופר פארם',
-                      id: 1,
-                      address: 'מיכאל 12, רמת גן',
-                      distance: 1.2,
-                      type: 'pharmacy',
-                      hasCold: true,
-                    }}
-                  />
-                ))}
-              </Box>
-            )}
-          </AppDrawer>
+          <Box
+            sx={{
+              borderRadius: '30px 30px 0 0',
+              py: 2,
+              width: '100%',
+              background: 'white',
+              height: '45svh',
+              position: 'absolute',
+              bottom: 0,
+              boxShadow: '0px -3px 6px 0px rgba(0, 0, 0, 0.08)',
+            }}
+          >
+            <Box
+              sx={{
+                pb: 2,
+                pl: 4,
+                pr: 3,
+                height: '100%',
+                overflow: 'auto',
+                width: '100%',
+              }}
+            >
+              {[...Array(10)].map((_, index) => (
+                <PlacePreviewItem
+                  key={index}
+                  onClick={openNavigation}
+                  place={{
+                    name: 'סופר פארם',
+                    id: 1,
+                    address: 'מיכאל 12, רמת גן',
+                    distance: 1.2,
+                    type: 'pharmacy',
+                    hasCold: true,
+                  }}
+                />
+              ))}
+            </Box>
+          </Box>
         </Box>
       </Container>
     </>

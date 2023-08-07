@@ -49,7 +49,7 @@ const Cold = () => {
       <Box width={'100%'} textAlign={'center'}>
         <Typography variant="h1">{t('cold_page_title_many')}</Typography>
       </Box>
-      <Stack mt={6} flex={1} width={'100%'}>
+      <Stack mt={6} flex={1} gap={1.5} width={'100%'}>
         <FormControlLabel control={<Checkbox {...register('hasCold')} />} label={t('i_have_cold_medicine')} />
         <FormControlLabel control={<Checkbox {...register('hasExpensive')} />} label={t('i_have_expensive_medicine')} />
       </Stack>
