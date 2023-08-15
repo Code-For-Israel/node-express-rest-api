@@ -1,6 +1,8 @@
+import Autocomplete from '@/components/elements/Autocomplete'
 import PlacePreviewItem from '@/components/elements/PlacePreviewItem'
 import MapFilters from '@/components/map/MapFilters'
 import MapLocationDialog from '@/components/map/MapLocationDialog'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Container, Typography } from '@mui/material'
 import { GoogleMap, OverlayView, OverlayViewF, useJsApiLoader } from '@react-google-maps/api'
 import { useQuery } from '@tanstack/react-query'
@@ -39,6 +41,8 @@ const MapPage = () => {
     query: { filter },
   } = router
 
+  const { t } = useStaticTranslation()
+
   const [openDialog, setOpenDialog] = useState(true)
   const { data: places, isLoading } = useQuery(['places'], getPlaces(filter), { enabled: false })
   const mapRef = useRef<google.maps.Map>()
@@ -49,7 +53,7 @@ const MapPage = () => {
       disableDefaultUI: true,
       zoomControl: true,
       zoomControlOptions: {
-        position: google.maps.ControlPosition.RIGHT_TOP,
+        position: google.maps.ControlPosition.RIGHT_CENTER,
       },
       clickableIcons: false,
       gestureHandling: 'greedy',
@@ -116,6 +120,14 @@ const MapPage = () => {
               bgcolor: 'lightgray',
             }}
           >
+            <Box sx={{ position: 'absolute', top: 20, right: 0, width: '100%', px: '35px', zIndex: 1000 }}>
+              <Autocomplete
+                onValueChange={value => {
+                  console.log(value)
+                }}
+                placeholder={t('map_search_placeholder')}
+              />
+            </Box>
             <MapFilters />
             {isLoaded && (
               <GoogleMap mapContainerStyle={mapContainerStyle} center={mapCenter} zoom={initialZoom} onLoad={onLoad}>
