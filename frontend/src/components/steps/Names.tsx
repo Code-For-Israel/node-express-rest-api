@@ -10,6 +10,7 @@ import { useQuery } from '@tanstack/react-query'
 import { MedicineItemType } from 'MedicineTypes'
 import axios from 'axios'
 import { easeInOut, motion } from 'framer-motion'
+import mixpanel from 'mixpanel-browser'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { DotLoader } from 'react-spinners'
@@ -19,7 +20,7 @@ const searchMedicines = (query: string) => async () => {
     console.log(e)
   })
   if (response) {
-    console.log(response.data)
+    mixpanel.track('search_medicine', { query })
     return response.data.products
   }
   return []
@@ -27,6 +28,7 @@ const searchMedicines = (query: string) => async () => {
 
 const Names = () => {
   const [searchValue, setSearchValue] = useState('')
+  const [animate, setAnimate] = useState<number | null>(null)
   const debouncedQuery = useDebounce(searchValue, 600)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
   const { medicineQuantity, hasExpensive } = formData
@@ -59,6 +61,7 @@ const Names = () => {
 
   const handleSelect = (medicine: MedicineItemType) => {
     setSelectedMedicine(medicine)
+    setAnimate(medicine.id)
   }
 
   const handleSave = (medicine: MedicineItemType, state: string) => {
@@ -79,6 +82,7 @@ const Names = () => {
   }
 
   const handleSkip = () => {
+    mixpanel.track('skip_names')
     if (isManyMedicines) {
       if (hasExpensive) {
         stepTo('details')
@@ -131,13 +135,15 @@ const Names = () => {
           )}
           {hideText &&
             medicineData.length > 0 &&
-            medicineData.map((m: any) => (
+            medicineData.map((m: any, i: number) => (
               <MedicinePreviewItem
                 onClick={handleSelect}
-                disabled={isMedicineAdded(m.id)}
                 key={m.id}
+                selected={isMedicineAdded(m.id)}
+                index={i}
+                animate={animate}
                 medicine={{ id: m.id, name: m.title, englishName: m.brand }}
-                onRemove={isMedicineAdded(m.id) ? handleRemove : undefined}
+                onRemove={handleRemove}
               />
             ))}
           {isFetched && hideText && medicineData.length < 1 && (
