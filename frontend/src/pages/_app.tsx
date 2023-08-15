@@ -7,7 +7,7 @@ import { CacheProvider } from '@emotion/react'
 import { ThemeProvider } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { appWithTranslation } from 'next-i18next'
+import mixpanel from 'mixpanel-browser'
 import type { AppProps } from 'next/app'
 import { prefixer } from 'stylis'
 import rtlPlugin from 'stylis-plugin-rtl'
@@ -18,6 +18,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     key: 'muirtl',
     stylisPlugins: [prefixer, rtlPlugin],
   })
+  mixpanel.init('bbf32a8fc5fb35ea2d00c5b8975749b2', { track_pageview: true, persistence: 'localStorage' })
 
   return (
     <ThemeProvider theme={theme}>
@@ -35,4 +36,4 @@ const App = ({ Component, pageProps }: AppProps) => {
   )
 }
 
-export default appWithTranslation(App)
+export default App
