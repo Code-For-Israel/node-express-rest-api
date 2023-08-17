@@ -8,6 +8,7 @@ import { ThemeProvider } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import LogRocket from 'logrocket'
+import setupLogRocketReact from 'logrocket-react'
 import mixpanel from 'mixpanel-browser'
 import type { AppProps } from 'next/app'
 import { prefixer } from 'stylis'
@@ -20,8 +21,11 @@ const App = ({ Component, pageProps }: AppProps) => {
     stylisPlugins: [prefixer, rtlPlugin],
   })
 
-  mixpanel.init('bbf32a8fc5fb35ea2d00c5b8975749b2', { track_pageview: true, persistence: 'localStorage' })
-  LogRocket.init('ja6ip5/haverim-lerefua')
+  if (typeof window !== 'undefined') {
+    mixpanel.init('bbf32a8fc5fb35ea2d00c5b8975749b2', { track_pageview: true, persistence: 'localStorage' })
+    LogRocket.init('ja6ip5/haverim-lerefua')
+    setupLogRocketReact(LogRocket)
+  }
 
   return (
     <ThemeProvider theme={theme}>
