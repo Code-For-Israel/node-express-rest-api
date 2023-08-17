@@ -18,7 +18,7 @@ const Cold = () => {
       stepTo('names')
     } else {
       submitData('map')
-      router.push('/map')
+      router.push({ pathname: '/map', query: hasCold ? { filter: 'store_cold' } : undefined })
     }
   }
 
