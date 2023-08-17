@@ -12,9 +12,10 @@ type Props = {
   selected: boolean
   index?: number
   animate?: number | null
+  hideLastBorder?: boolean
 } & Omit<ButtonBaseProps, 'onClick'>
 
-const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, index = 0 }: Props) => {
+const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, hideLastBorder = false, index = 0 }: Props) => {
   const { name, englishName, image } = medicine
 
   const handleClick = () => {
@@ -33,7 +34,7 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, i
         borderBottom: '1px solid #B3B3B3',
         width: '100%',
         '&:last-of-type': {
-          borderBottom: 'none',
+          borderBottom: hideLastBorder ? 'none' : 'initial',
         },
         position: 'relative',
       }}
