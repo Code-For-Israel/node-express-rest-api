@@ -7,6 +7,7 @@ import { CacheProvider } from '@emotion/react'
 import { ThemeProvider } from '@mui/material'
 import CssBaseline from '@mui/material/CssBaseline'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import LogRocket from 'logrocket'
 import mixpanel from 'mixpanel-browser'
 import type { AppProps } from 'next/app'
 import { prefixer } from 'stylis'
@@ -18,7 +19,9 @@ const App = ({ Component, pageProps }: AppProps) => {
     key: 'muirtl',
     stylisPlugins: [prefixer, rtlPlugin],
   })
+
   mixpanel.init('bbf32a8fc5fb35ea2d00c5b8975749b2', { track_pageview: true, persistence: 'localStorage' })
+  LogRocket.init('ja6ip5/haverim-lerefua')
 
   return (
     <ThemeProvider theme={theme}>
