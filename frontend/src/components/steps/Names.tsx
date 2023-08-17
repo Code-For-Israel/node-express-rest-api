@@ -12,7 +12,7 @@ import axios from 'axios'
 import { easeInOut, motion } from 'framer-motion'
 import mixpanel from 'mixpanel-browser'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { DotLoader } from 'react-spinners'
 
 const searchMedicines = (query: string) => async () => {
@@ -69,12 +69,14 @@ const Names = () => {
     setAllMedicines([...allMedicines, medWithState])
     updateFormData({ medicines: [...allMedicines, medWithState] })
     setSelectedMedicine(null)
+    mixpanel.track('add_medicine', { medicine: medicine.englishName, state })
   }
 
   const handleRemove = (medicine: MedicineItemType) => {
     const newMedicines = allMedicines.filter((m: MedicineItemType) => m.id !== medicine.id)
     setAllMedicines(newMedicines)
     updateFormData({ ...formData, medicines: newMedicines })
+    mixpanel.track('remove_medicine', { medicine: medicine.englishName })
   }
 
   const handleDone = () => {
@@ -95,9 +97,12 @@ const Names = () => {
     }
   }
 
-  const isMedicineAdded = (id: number) => {
-    return allMedicines.some((m: MedicineItemType) => m.id === id)
-  }
+  const isMedicineAdded = useCallback(
+    (id: number) => {
+      return allMedicines.some((m: MedicineItemType) => m.id === id)
+    },
+    [allMedicines],
+  )
 
   const hideText = searchValue.trim().length > 0
 

@@ -3,6 +3,7 @@ import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, Checkbox, FormControlLabel, Stack, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
+import mixpanel from 'mixpanel-browser'
 import { useRouter } from 'next/router'
 import { ChangeEvent, useState } from 'react'
 
@@ -28,6 +29,7 @@ const NamesSummary = () => {
   }
 
   const toggleMoreProducts = (_: ChangeEvent<HTMLInputElement>, checked: boolean) => {
+    mixpanel.track('toggle_more_products', { checked })
     setHasMoreProducts(checked)
   }
 

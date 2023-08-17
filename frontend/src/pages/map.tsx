@@ -8,6 +8,7 @@ import { GoogleMap, OverlayView, OverlayViewF, useJsApiLoader } from '@react-goo
 import { useQuery } from '@tanstack/react-query'
 import { PlaceType } from 'PlaceTypes'
 import axios from 'axios'
+import mixpanel from 'mixpanel-browser'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -40,9 +41,7 @@ const MapPage = () => {
   const {
     query: { filter },
   } = router
-
   const { t } = useStaticTranslation()
-
   const [openDialog, setOpenDialog] = useState(true)
   const { data: places, isLoading } = useQuery(['places'], getPlaces(filter), { enabled: false })
   const mapRef = useRef<google.maps.Map>()
@@ -80,6 +79,7 @@ const MapPage = () => {
   })
 
   const handleLocationApproved = (position: GeolocationPosition) => {
+    mixpanel.track('location_approved')
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
     mapRef.current?.setCenter({ lat: latitude, lng: longitude })
@@ -88,6 +88,7 @@ const MapPage = () => {
   }
 
   const openNavigation = (place: PlaceType) => {
+    mixpanel.track('navigation_clicked', { placeId: place.id })
     const address = encodeURIComponent(place.address)
     const url = `https://www.google.com/maps/dir/?api=1&destination=${address}`
     window.open(url, '_blank')

@@ -1,6 +1,7 @@
 import { FormContext } from '@/context/FormWizardProvider'
 import { FormValuesType } from 'FormTypes'
 import axios from 'axios'
+import mixpanel from 'mixpanel-browser'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 
@@ -57,8 +58,8 @@ const useFormWizard = () => {
       data: formValues,
     }
     setLoading(true)
-    const res = await axios.post('https://hook.eu1.make.com/p1w8frxwpzbsdhles91kw2yzybbtsewz', request).catch(err => console.log(err))
-    console.log(res)
+    await axios.post('https://hook.eu1.make.com/p1w8frxwpzbsdhles91kw2yzybbtsewz', request).catch(err => console.log(err))
+    mixpanel.track('data_submitted', { endStage: endStage })
     setLoading(false)
   }
 

@@ -3,6 +3,7 @@ import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { generatWALink } from '@/util/whatsapp'
 import { Box, Button, Link, Stack, TextField, TextFieldProps, Typography } from '@mui/material'
 import { FormValuesType } from 'FormTypes'
+import mixpanel from 'mixpanel-browser'
 import { FieldValues, UseFormRegister, useForm } from 'react-hook-form'
 
 const Details = () => {
@@ -21,6 +22,7 @@ const Details = () => {
   const onSubmit = (data: FormValuesType) => {
     updateFormData(data)
     submitData('whatsapp')
+    mixpanel.track('whatsapp_details_sent')
     const waLink = generatWALink(123456789, t('whatsapp_message_with_cold', { fullName, street, houseNumber, town }))
     window.open(waLink, '_blank')
     stepTo('thank-you')
