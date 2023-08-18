@@ -55,7 +55,7 @@ const NamesSummary = () => {
           }}
         >
           {selectedMedicines?.map((m: MedicineItemType, i: number) => (
-            <MedicinePreviewItem medicine={m} key={i} onRemove={handleRemove} selected />
+            <MedicinePreviewItem medicine={m} key={i} onRemove={handleRemove} selected hideLastBorder />
           ))}
         </Stack>
       </Box>

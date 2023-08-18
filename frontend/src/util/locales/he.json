@@ -56,5 +56,8 @@
   "store_cold": "איחסון בקירור",
   "all_locations": "כל המוקדים",
   "404_page_text": "אופס, נראה שהגעת לעמוד שלא קיים",
-  "map_search_placeholder": "חיפוש מוקדי מסירה לפי כתובת"
+  "map_search_placeholder": "חיפוש מוקדי מסירה לפי כתובת",
+  "invalid_phone_number": "מספר טלפון לא תקין",
+  "invalid_name": "יש להזין אותיות בלבד",
+  "required_field": "שדה חובה"
 }
