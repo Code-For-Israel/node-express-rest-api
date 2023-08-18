@@ -32,7 +32,7 @@ const Details = () => {
         <Typography variant="h1">{t('details_page_title')}</Typography>
         <Typography variant="body1">{t('details_page_subtitle')}</Typography>
       </Stack>
-      <Stack gap={4} width={'100%'} flex={1} px={0.5}>
+      <Stack gap={3} width={'100%'} flex={1} px={0.5}>
         <FormField
           error={errors?.fullName}
           label={t('full_name')}
@@ -70,7 +70,11 @@ const Details = () => {
           <FormField
             label={t('street')}
             error={errors?.street}
-            {...register('street', { required: t('required_field'), minLength: { value: 2, message: t('required_field') } })}
+            {...register('street', {
+              required: t('required_field'),
+              pattern: /^(?!\d+$)[^:]+$/,
+              minLength: { value: 2, message: t('required_field') },
+            })}
           />
           <FormField
             label={t('house_number')}

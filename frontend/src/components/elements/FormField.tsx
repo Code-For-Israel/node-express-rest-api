@@ -16,7 +16,7 @@ const FormField = forwardRef(({ label, type, error, ...rest }: FormFieldProps, r
       variant="standard"
       type={type || 'text'}
       error={!!error}
-      helperText={error && `${error.message}`}
+      helperText={error ? `${error.message}` : ''}
       label={label}
       {...rest}
     />
