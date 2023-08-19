@@ -61,7 +61,6 @@
     "address": "שמואל הנביא 4, בני ברק",
     "position": { "lat": 32.0901294, "lng": 34.8253887 },
     "hasCold": false,
-    "phone": "03-5792220",
     "type": "private"
   },
   {
@@ -69,7 +68,7 @@
     "name": "חיה שפי",
     "address": "הל\"ה 61, גבעתיים",
     "hasCold": true,
-    "phone": "050-2611001",
+    "phone": "0502611001",
     "type": "private",
     "position": {
       "lat": 32.0738357,
@@ -81,7 +80,7 @@
     "name": "רבקה אור",
     "address": "הושעיה",
     "hasCold": true,
-    "phone": "050-5927623",
+    "phone": "0505927623",
     "type": "private",
     "position": {
       "lat": 32.757927,
@@ -93,7 +92,7 @@
     "name": "קרני לב",
     "address": "צופר, ערבה תיכונה",
     "hasCold": true,
-    "phone": "052-3666030",
+    "phone": "0523666030",
     "type": "private",
     "position": {
       "lat": 30.559394,
@@ -105,7 +104,7 @@
     "name": "קרן יאבו",
     "address": "מאור",
     "hasCold": true,
-    "phone": "054-4795381",
+    "phone": "0544795381",
     "type": "private",
     "position": {
       "lat": 32.425832,
@@ -117,7 +116,7 @@
     "name": "נוגה כהן-גיאר",
     "address": "סעדיה הכהן 5, רחובות",
     "hasCold": true,
-    "phone": "050-2254440",
+    "phone": "0502254440",
     "type": "private",
     "position": {
       "lat": 31.8852921,
