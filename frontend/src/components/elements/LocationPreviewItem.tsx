@@ -1,15 +1,15 @@
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Button, Chip, IconButton, Stack, Typography } from '@mui/material'
-import { PlaceType } from 'PlaceTypes'
+import type { Location } from 'LocationTypes'
 import Image from 'next/image'
 import WhatsAppIcon from 'public/icons/whatsapp.svg'
 
-type Props = { place: PlaceType; onClick: (place: PlaceType) => void }
+type Props = { location: Location; onClick: (location: Location) => void }
 
-const PlacePreviewItem = ({ place, onClick }: Props) => {
+const LocationPreviewItem = ({ location, onClick }: Props) => {
   const { t } = useStaticTranslation()
   const handleClick = () => {
-    onClick(place)
+    onClick(location)
   }
 
   return (
@@ -28,8 +28,8 @@ const PlacePreviewItem = ({ place, onClick }: Props) => {
     >
       <Stack direction={'column'} flex={1} gap={0.25} sx={{ width: 'fit-content' }}>
         <Stack gap={1.5} direction={'row'} alignItems={'center'}>
-          <Typography variant="h2">{place.name}</Typography>
-          {place.hasCold && (
+          <Typography variant="h2">{location.name}</Typography>
+          {location.hasCold && (
             <Chip
               size="small"
               sx={{
@@ -52,14 +52,18 @@ const PlacePreviewItem = ({ place, onClick }: Props) => {
         </Stack>
         <Stack direction={'row'} alignItems={'center'} gap={1}>
           <Button variant="text" sx={{ p: 0 }} onClick={handleClick} fullWidth={false}>
-            {`${t('street')} ${place.address}`}
+            {`${t('street')} ${location.address}`}
           </Button>
-          <span>|</span>
-          <Typography variant="body2">{`${place.distance} ${t('km')}`}</Typography>
+          {location.distance && (
+            <>
+              <span>|</span>
+              <Typography variant="body2">{`${location.distance} ${t('km')}`}</Typography>
+            </>
+          )}
         </Stack>
       </Stack>
-      {place.phone && (
-        <IconButton disableRipple href={`https://wa.me/${place.phone}`} target="_blank">
+      {location.phone && (
+        <IconButton disableRipple href={`https://api.whatsapp.com/send?phone=${location.phone}`} target="_blank">
           <Image src={WhatsAppIcon} alt="whatsapp" />
         </IconButton>
       )}
@@ -67,4 +71,4 @@ const PlacePreviewItem = ({ place, onClick }: Props) => {
   )
 }
 
-export default PlacePreviewItem
+export default LocationPreviewItem
