@@ -33,7 +33,7 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
         <Typography variant="h3">{t('will_expire_soon')}</Typography>
         <Box sx={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 1em 1fr' }}>
           <Typography variant="body1" textAlign={'right'}>
-            {medicine.name}
+            {medicine.Name}
           </Typography>
           <Typography variant="body1" textAlign={'center'}>
             |

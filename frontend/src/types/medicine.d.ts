@@ -1,7 +1,7 @@
 declare module 'MedicineTypes' {
   export interface MedicineItemType {
-    id: number
-    name: string
+    _id: string
+    Name: string
     englishName: string
     description?: string
     price?: number

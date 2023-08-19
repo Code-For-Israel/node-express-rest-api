@@ -34,7 +34,7 @@ const NamesSummary = () => {
   }
 
   const handleRemove = (medicine: MedicineItemType) => {
-    const newMedicines = selectedMedicines?.filter((m: MedicineItemType) => m.id !== medicine.id)
+    const newMedicines = selectedMedicines?.filter((m: MedicineItemType) => m._id !== medicine._id)
     updateFormData({ ...formData, medicines: newMedicines })
   }
 
