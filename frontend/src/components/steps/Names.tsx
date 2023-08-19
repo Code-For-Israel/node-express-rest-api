@@ -36,6 +36,7 @@ const searchMedicines = (query: string) => async () => {
 const Names = () => {
   const [searchValue, setSearchValue] = useState('')
   const [animate, setAnimate] = useState<string | null>(null)
+
   const debouncedQuery = useDebounce(searchValue, 600)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
   const { medicineQuantity, hasExpensive } = formData
