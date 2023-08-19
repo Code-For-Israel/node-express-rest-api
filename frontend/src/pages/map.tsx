@@ -1,12 +1,14 @@
-import AppDrawer from '@/components/elements/AppDrawer'
+import Autocomplete from '@/components/elements/Autocomplete'
 import PlacePreviewItem from '@/components/elements/PlacePreviewItem'
 import MapFilters from '@/components/map/MapFilters'
 import MapLocationDialog from '@/components/map/MapLocationDialog'
-import { Box, ClickAwayListener, Container, Typography } from '@mui/material'
+import useStaticTranslation from '@/hooks/useStaticTranslation'
+import { Box, Container, Typography } from '@mui/material'
 import { GoogleMap, OverlayView, OverlayViewF, useJsApiLoader } from '@react-google-maps/api'
 import { useQuery } from '@tanstack/react-query'
 import { PlaceType } from 'PlaceTypes'
 import axios from 'axios'
+import mixpanel from 'mixpanel-browser'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -15,7 +17,7 @@ import { useCallback, useRef, useState } from 'react'
 
 const mapContainerStyle = {
   width: '100%',
-  height: '100%',
+  height: '60svh',
 }
 
 const mapCenter = {
@@ -23,7 +25,7 @@ const mapCenter = {
   lng: 34.8253887,
 }
 
-const initialZoom = 16
+const initialZoom = 15
 
 const getPlaces = (filter?: string | string[]) => async () => {
   const query = filter ? `?filter=${filter}` : ''
@@ -39,18 +41,18 @@ const MapPage = () => {
   const {
     query: { filter },
   } = router
-
-  const [openDrawer, setOpenDrawer] = useState(false)
+  const { t } = useStaticTranslation()
   const [openDialog, setOpenDialog] = useState(true)
   const { data: places, isLoading } = useQuery(['places'], getPlaces(filter), { enabled: false })
   const mapRef = useRef<google.maps.Map>()
 
   const onLoad = useCallback((map: google.maps.Map) => {
+    mapRef.current = map
     map.setOptions({
       disableDefaultUI: true,
       zoomControl: true,
       zoomControlOptions: {
-        position: google.maps.ControlPosition.RIGHT_TOP,
+        position: google.maps.ControlPosition.RIGHT_CENTER,
       },
       clickableIcons: false,
       gestureHandling: 'greedy',
@@ -67,17 +69,8 @@ const MapPage = () => {
     })
   }, [])
 
-  const toggleDrawer = (newOpen: boolean) => () => {
-    setOpenDrawer(newOpen)
-  }
-
   const closeDialog = () => {
-    setOpenDrawer(true)
     setOpenDialog(false)
-  }
-
-  const handleClickAway = () => {
-    setOpenDrawer(false)
   }
 
   const { isLoaded } = useJsApiLoader({
@@ -86,6 +79,7 @@ const MapPage = () => {
   })
 
   const handleLocationApproved = (position: GeolocationPosition) => {
+    mixpanel.track('location_approved')
     const latitude = position.coords.latitude
     const longitude = position.coords.longitude
     mapRef.current?.setCenter({ lat: latitude, lng: longitude })
@@ -94,6 +88,7 @@ const MapPage = () => {
   }
 
   const openNavigation = (place: PlaceType) => {
+    mixpanel.track('navigation_clicked', { placeId: place.id })
     const address = encodeURIComponent(place.address)
     const url = `https://www.google.com/maps/dir/?api=1&destination=${address}`
     window.open(url, '_blank')
@@ -126,6 +121,14 @@ const MapPage = () => {
               bgcolor: 'lightgray',
             }}
           >
+            <Box sx={{ position: 'absolute', top: 20, right: 0, width: '100%', px: '35px', zIndex: 1000 }}>
+              <Autocomplete
+                onValueChange={value => {
+                  console.log(value)
+                }}
+                placeholder={t('map_search_placeholder')}
+              />
+            </Box>
             <MapFilters />
             {isLoaded && (
               <GoogleMap mapContainerStyle={mapContainerStyle} center={mapCenter} zoom={initialZoom} onLoad={onLoad}>
@@ -152,37 +155,44 @@ const MapPage = () => {
             )}
           </Box>
           <MapLocationDialog open={openDialog} onClose={closeDialog} onLocationApproved={handleLocationApproved} />
-          <AppDrawer hideBackdrop open={openDrawer} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)}>
-            {!openDialog && (
-              <ClickAwayListener onClickAway={handleClickAway}>
-                <Box
-                  sx={{
-                    pb: 2,
-                    pl: 4,
-                    pr: 3,
-                    height: '100%',
-                    overflow: 'auto',
-                    width: '100%',
+          <Box
+            sx={{
+              borderRadius: '30px 30px 0 0',
+              py: 2,
+              width: '100%',
+              background: 'white',
+              height: '45svh',
+              position: 'absolute',
+              bottom: 0,
+              boxShadow: '0px -3px 6px 0px rgba(0, 0, 0, 0.08)',
+            }}
+          >
+            <Box
+              sx={{
+                pb: 2,
+                pl: 4,
+                pr: 3,
+                height: '100%',
+                overflow: 'auto',
+                width: '100%',
+              }}
+            >
+              {[...Array(10)].map((_, index) => (
+                <PlacePreviewItem
+                  key={index}
+                  onClick={openNavigation}
+                  place={{
+                    name: 'סופר פארם',
+                    id: 1,
+                    address: 'מיכאל 12, רמת גן',
+                    distance: 1.2,
+                    type: 'pharmacy',
+                    hasCold: true,
                   }}
-                >
-                  {[...Array(10)].map((_, index) => (
-                    <PlacePreviewItem
-                      key={index}
-                      onClick={openNavigation}
-                      place={{
-                        name: 'סופר פארם',
-                        id: 1,
-                        address: 'מיכאל 12, רמת גן',
-                        distance: 1.2,
-                        type: 'pharmacy',
-                        hasCold: true,
-                      }}
-                    />
-                  ))}
-                </Box>
-              </ClickAwayListener>
-            )}
-          </AppDrawer>
+                />
+              ))}
+            </Box>
+          </Box>
         </Box>
       </Container>
     </>

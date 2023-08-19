@@ -3,6 +3,7 @@ import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, Checkbox, FormControlLabel, Stack, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
+import mixpanel from 'mixpanel-browser'
 import { useRouter } from 'next/router'
 import { ChangeEvent, useState } from 'react'
 
@@ -28,6 +29,7 @@ const NamesSummary = () => {
   }
 
   const toggleMoreProducts = (_: ChangeEvent<HTMLInputElement>, checked: boolean) => {
+    mixpanel.track('toggle_more_products', { checked })
     setHasMoreProducts(checked)
   }
 
@@ -40,9 +42,20 @@ const NamesSummary = () => {
     <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} position={'relative'} justifyContent={'space-between'}>
       <Typography variant="h1">{t('names_summary_page_title')}</Typography>
       <Box sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', mt: 3 }}>
-        <Stack sx={{ width: '100%', borderRadius: '12px', height: 'fit-content', px: 3, py: 1, boxShadow: '0.5px 1px 4px 2px rgba(0, 0, 0, 0.08)' }}>
+        <Stack
+          sx={{
+            width: '100%',
+            borderRadius: '12px',
+            height: 'fit-content',
+            maxHeight: '40svh',
+            overflowY: 'auto',
+            px: 3,
+            py: 1,
+            boxShadow: '0.5px 1px 4px 2px rgba(0, 0, 0, 0.08)',
+          }}
+        >
           {selectedMedicines?.map((m: MedicineItemType, i: number) => (
-            <MedicinePreviewItem medicine={m} key={i} onRemove={handleRemove} disabled />
+            <MedicinePreviewItem medicine={m} key={i} onRemove={handleRemove} selected hideLastBorder />
           ))}
         </Stack>
       </Box>

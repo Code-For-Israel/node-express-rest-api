@@ -42,10 +42,10 @@ const MapFilters = () => {
         justifyContent: 'center',
         boxShadow: '0px 2px 3px 0px rgba(0, 0, 0, 0.12)',
         position: 'absolute',
-        top: 20,
+        top: 80,
         right: '50%',
         transform: 'translateX(50%)',
-        zIndex: 10000,
+        zIndex: 900,
         p: 0.2,
         px: 1,
       }}

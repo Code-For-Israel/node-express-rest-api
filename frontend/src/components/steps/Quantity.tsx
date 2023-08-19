@@ -1,16 +1,16 @@
+import FormRadio from '@/components/elements/FormRadio'
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, RadioGroup, Stack, Typography } from '@mui/material'
 import { FormValuesType } from 'FormTypes'
 import { Controller, useForm } from 'react-hook-form'
-import FormRadio from '../elements/FormRadio'
+
 const Quantity = () => {
   const { updateFormData, stepTo } = useFormWizard()
   const {
     control,
     handleSubmit,
     formState: { isValid },
-    watch,
   } = useForm()
   const { t } = useStaticTranslation()
 
@@ -23,11 +23,9 @@ const Quantity = () => {
       stepTo('names')
     }
   }
-  const quantity = watch('medicineQuantity')
 
   return (
     <Stack
-      gap={2}
       pb={3}
       alignItems={'center'}
       width={'100%'}
@@ -40,7 +38,7 @@ const Quantity = () => {
       <Box
         sx={{
           flex: 1,
-          pt: 8,
+          pt: '60px',
           alignItems: 'start',
           display: 'flex',
           width: '100%',
@@ -52,10 +50,10 @@ const Quantity = () => {
           defaultValue={''}
           rules={{ required: true }}
           render={({ field: { onChange, value } }) => (
-            <RadioGroup aria-label="quantity" value={value} onChange={onChange} sx={{ rowGap: 1 }}>
-              <FormRadio value="1-10" label={t('max_10_items')} selected={quantity} />
-              <FormRadio value="11-40" label={t('max_40_items')} selected={quantity} />
-              <FormRadio value="40+" label={t('40_plus_items')} selected={quantity} />
+            <RadioGroup aria-label="quantity" value={value} onChange={onChange} sx={{ rowGap: '5px' }}>
+              <FormRadio value="1-10" label={t('max_10_items')} />
+              <FormRadio value="11-40" label={t('max_40_items')} />
+              <FormRadio value="40+" label={t('40_plus_items')} />
             </RadioGroup>
           )}
         />

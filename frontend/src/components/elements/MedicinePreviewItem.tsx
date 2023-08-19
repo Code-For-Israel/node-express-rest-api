@@ -1,5 +1,6 @@
 import { Box, ButtonBase, ButtonBaseProps, IconButton, Stack, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import CloseIcon from 'public/icons/close.svg'
 import PlaceholderIcon from 'public/icons/placeholder.svg'
@@ -7,10 +8,14 @@ import PlaceholderIcon from 'public/icons/placeholder.svg'
 type Props = {
   medicine: MedicineItemType
   onClick?: (medicine: MedicineItemType) => void
-  onRemove?: (medicine: MedicineItemType) => void
+  onRemove: (medicine: MedicineItemType) => void
+  selected: boolean
+  index?: number
+  animate?: number | null
+  hideLastBorder?: boolean
 } & Omit<ButtonBaseProps, 'onClick'>
 
-const MedicinePreviewItem = ({ medicine, onClick, onRemove, ...rest }: Props) => {
+const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, hideLastBorder = false, index = 0 }: Props) => {
   const { name, englishName, image } = medicine
 
   const handleClick = () => {
@@ -18,7 +23,7 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, ...rest }: Props) =>
   }
 
   const handleRemove = () => {
-    if (onRemove) onRemove(medicine)
+    onRemove(medicine)
   }
 
   return (
@@ -29,27 +34,41 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, ...rest }: Props) =>
         borderBottom: '1px solid #B3B3B3',
         width: '100%',
         '&:last-of-type': {
-          borderBottom: 'none',
+          borderBottom: hideLastBorder ? 'none' : 'initial',
         },
         position: 'relative',
       }}
     >
-      <Stack
-        direction={'row'}
-        gap={2}
-        sx={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'space-between', position: 'absolute', right: 0, top: 0 }}
-      >
-        <ButtonBase onClick={handleClick} disableRipple>
+      <Stack direction={'row'} gap={2} sx={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+        <ButtonBase onClick={handleClick} disabled={selected} disableRipple sx={{ width: '100%', position: 'relative' }}>
+          {selected && animate === medicine.id && (
+            <Box
+              component={motion.div}
+              animate={{
+                opacity: [1, 1, 1, 0],
+                scale: [1, 1.5, 1.5, 1],
+                x: ['calc(0px)', 'calc(-35vw)', 'calc(-40vw)', 'calc(-50vw + 62px)'],
+                y: ['0vh', '0vh', '60vh', '60vh'],
+                transitionEnd: {
+                  display: 'none',
+                },
+              }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, delay: 0.4 }}
+              sx={{
+                position: 'absolute',
+                left: 0,
+                zIndex: 1000 + index,
+                ...BASIC_IMAGE_STYLE,
+              }}
+            >
+              <Image src={image || PlaceholderIcon} alt="medicine" />
+            </Box>
+          )}
           <Box
             sx={{
-              borderRadius: 2,
-              width: 48,
-              height: 48,
               mr: 2,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              bgcolor: '#EEEEEE',
+              ...BASIC_IMAGE_STYLE,
             }}
           >
             <Image src={image || PlaceholderIcon} alt="medicine" />
@@ -66,7 +85,7 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, ...rest }: Props) =>
         </ButtonBase>
         <Box
           sx={{
-            display: !!onRemove ? 'block' : 'none',
+            display: !!selected ? 'block' : 'none',
           }}
         >
           <IconButton onClick={handleRemove} sx={{ p: 0 }}>
@@ -79,3 +98,13 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, ...rest }: Props) =>
 }
 
 export default MedicinePreviewItem
+
+const BASIC_IMAGE_STYLE = {
+  borderRadius: 2,
+  width: 48,
+  height: 48,
+  bgcolor: '#EEEEEE',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+}

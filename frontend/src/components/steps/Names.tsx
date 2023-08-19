@@ -5,13 +5,14 @@ import useDebounce from '@/hooks/useDebounce'
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { secondaryColor } from '@/styles/theme'
-import { Box, Button, Drawer, Stack, Typography } from '@mui/material'
+import { Box, Button, Stack, SwipeableDrawer, Typography } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import { MedicineItemType } from 'MedicineTypes'
 import axios from 'axios'
 import { easeInOut, motion } from 'framer-motion'
+import mixpanel from 'mixpanel-browser'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { DotLoader } from 'react-spinners'
 
 const searchMedicines = (query: string) => async () => {
@@ -19,7 +20,7 @@ const searchMedicines = (query: string) => async () => {
     console.log(e)
   })
   if (response) {
-    console.log(response.data)
+    mixpanel.track('search_medicine', { query })
     return response.data.products
   }
   return []
@@ -27,9 +28,10 @@ const searchMedicines = (query: string) => async () => {
 
 const Names = () => {
   const [searchValue, setSearchValue] = useState('')
+  const [animate, setAnimate] = useState<number | null>(null)
   const debouncedQuery = useDebounce(searchValue, 600)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
-  const { medicineQuantity } = formData
+  const { medicineQuantity, hasExpensive } = formData
   const isManyMedicines = medicineQuantity && medicineQuantity !== '1-10'
 
   const { t } = useStaticTranslation()
@@ -59,6 +61,7 @@ const Names = () => {
 
   const handleSelect = (medicine: MedicineItemType) => {
     setSelectedMedicine(medicine)
+    setAnimate(medicine.id)
   }
 
   const handleSave = (medicine: MedicineItemType, state: string) => {
@@ -66,12 +69,14 @@ const Names = () => {
     setAllMedicines([...allMedicines, medWithState])
     updateFormData({ medicines: [...allMedicines, medWithState] })
     setSelectedMedicine(null)
+    mixpanel.track('add_medicine', { medicine: medicine.englishName, state })
   }
 
   const handleRemove = (medicine: MedicineItemType) => {
     const newMedicines = allMedicines.filter((m: MedicineItemType) => m.id !== medicine.id)
     setAllMedicines(newMedicines)
     updateFormData({ ...formData, medicines: newMedicines })
+    mixpanel.track('remove_medicine', { medicine: medicine.englishName })
   }
 
   const handleDone = () => {
@@ -79,17 +84,25 @@ const Names = () => {
   }
 
   const handleSkip = () => {
+    mixpanel.track('skip_names')
     if (isManyMedicines) {
-      submitData('map')
-      router.push('/map')
+      if (hasExpensive) {
+        stepTo('details')
+      } else {
+        submitData('map')
+        router.push('/map')
+      }
     } else {
       stepTo('cold-storage')
     }
   }
 
-  const isMedicineAdded = (id: number) => {
-    return allMedicines.some((m: MedicineItemType) => m.id === id)
-  }
+  const isMedicineAdded = useCallback(
+    (id: number) => {
+      return allMedicines.some((m: MedicineItemType) => m.id === id)
+    },
+    [allMedicines],
+  )
 
   const hideText = searchValue.trim().length > 0
 
@@ -118,7 +131,7 @@ const Names = () => {
         layout
         transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
       >
-        <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
+        <Autocomplete autoFocus value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
         <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
           {isFetching && (
             <Box sx={{ position: 'absolute', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', right: 0, top: 40 }}>
@@ -127,13 +140,15 @@ const Names = () => {
           )}
           {hideText &&
             medicineData.length > 0 &&
-            medicineData.map((m: any) => (
+            medicineData.map((m: any, i: number) => (
               <MedicinePreviewItem
                 onClick={handleSelect}
-                disabled={isMedicineAdded(m.id)}
                 key={m.id}
+                selected={isMedicineAdded(m.id)}
+                index={i}
+                animate={animate}
                 medicine={{ id: m.id, name: m.title, englishName: m.brand }}
-                onRemove={isMedicineAdded(m.id) ? handleRemove : undefined}
+                onRemove={handleRemove}
               />
             ))}
           {isFetched && hideText && medicineData.length < 1 && (
@@ -141,16 +156,31 @@ const Names = () => {
               {t('no_medicines_found')}
             </Typography>
           )}
+          <Button variant="text" sx={{ mt: '25px', display: hideText || allMedicines.length > 0 ? 'none' : 'block' }} onClick={handleSkip}>
+            {t('want_to_skip')}
+          </Button>
         </Box>
       </motion.div>
-      <Drawer
+      <SwipeableDrawer
         anchor="bottom"
         open={!!selectedMedicine}
+        onOpen={() => false}
         onClose={handleClose}
         sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '55%' } }}
       >
+        <Box
+          sx={{
+            width: 40,
+            height: 4,
+            backgroundColor: '#696966',
+            borderRadius: 3,
+            position: 'absolute',
+            top: 12,
+            left: 'calc(50% - 20px)',
+          }}
+        />
         {selectedMedicine && <AddMedicine onSave={handleSave} medicine={selectedMedicine} />}
-      </Drawer>
+      </SwipeableDrawer>
       <Button
         variant="contained"
         disabled={allMedicines.length < 1}
@@ -158,9 +188,6 @@ const Names = () => {
         onClick={handleDone}
       >
         {t('im_done')} ({allMedicines.length})
-      </Button>
-      <Button variant="text" sx={{ display: hideText || allMedicines.length > 0 ? 'none' : 'block' }} onClick={handleSkip}>
-        {t('want_to_skip')}
       </Button>
     </Stack>
   )

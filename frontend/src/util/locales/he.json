@@ -28,7 +28,7 @@
   "add_medicine": "הוספת תרופה",
   "im_done": "סיימתי",
   "my_medicines_for_donation": "התרופות שלי לתרומה",
-  "back_to_medicine_search": "חזרה לחיפוש תרופות",
+  "back_to_medicine_search": "חזרה להוספת תרופות",
   "i_have_cold_medicine": "יש לי תרופה במקרר",
   "i_have_expensive_medicine": "יש לי תרופה יקרה",
   "no_dont_have": "לא, אין לי",
@@ -46,8 +46,8 @@
   "thank_you_page_subtitle": "קיבלנו את הפרטים  וניצור איתך קשר לאיסוף התרופות בהקדם",
   "whatsapp_message_with_cold": "שלום, קוראים לי {{fullName}} ואני מעוניין לתרום תרופות. יש לי תרופות מיוחדות ובקירור ואני גר ב{{street}} {{houseNumber}}, {{town}}. תודה!",
   "done": "סיום",
-  "map_dialog_title": "תודה על שיתוף הפעולה",
-  "map_dialog_text": "מיד נציג לך רשימת מוקדים בהם ניתן למסור את התרופות שלך. כדי שנוכל להציג לך את נקודות המסירה הקרובות אליך ביותר יש לאשר מיקום",
+  "map_dialog_title": " נשמח לקבל את התרופות!",
+  "map_dialog_text": "במסך הבא נציג מוקדים למסירת התרופות. \n להצגת המוקדים הקרובים אליך, יש לאשר מיקום",
   "allow_location": "אישור מיקום",
   "not_this_time": "לא הפעם",
   "i_have_more_products_to_donate": "יש לי גם מוצרי ספיגה (טיטולים, תחבושות) או מזון רפואי לתרומה",
@@ -55,5 +55,9 @@
   "km": "ק\"מ",
   "store_cold": "איחסון בקירור",
   "all_locations": "כל המוקדים",
-  "404_page_text": "אופס, נראה שהגעת לעמוד שלא קיים"
+  "404_page_text": "אופס, נראה שהגעת לעמוד שלא קיים",
+  "map_search_placeholder": "חיפוש מוקדי מסירה לפי כתובת",
+  "invalid_phone_number": "מספר טלפון לא תקין",
+  "invalid_name": "יש להזין אותיות בלבד",
+  "required_field": "שדה חובה"
 }

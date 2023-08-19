@@ -44,6 +44,7 @@ const MapLocationDialog = ({ open: openDialog, onClose, onLocationApproved }: Pr
           overflow: 'auto',
           textAlign: 'center',
           alignItems: 'center',
+          whiteSpace: 'pre-line',
         }}
       >
         <Typography variant="h1">{t('map_dialog_title')}</Typography>
