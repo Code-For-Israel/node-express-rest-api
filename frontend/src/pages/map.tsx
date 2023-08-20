@@ -1,18 +1,18 @@
 import Autocomplete from '@/components/elements/Autocomplete'
-import PlacePreviewItem from '@/components/elements/PlacePreviewItem'
+import LocationPreviewItem from '@/components/elements/LocationPreviewItem'
 import MapFilters from '@/components/map/MapFilters'
 import MapLocationDialog from '@/components/map/MapLocationDialog'
+import MapPin from '@/components/map/MapPin'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { Box, Container, Typography } from '@mui/material'
-import { GoogleMap, OverlayView, OverlayViewF, useJsApiLoader } from '@react-google-maps/api'
+import locations from '@/util/dummy-locations.json'
+import { Box, Container } from '@mui/material'
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api'
 import { useQuery } from '@tanstack/react-query'
-import { PlaceType } from 'PlaceTypes'
+import type { Location } from 'LocationTypes'
 import axios from 'axios'
 import mixpanel from 'mixpanel-browser'
 import Head from 'next/head'
-import Image from 'next/image'
 import { useRouter } from 'next/router'
-import LocationPinIcon from 'public/icons/location-pin.svg'
 import { useCallback, useRef, useState } from 'react'
 
 const mapContainerStyle = {
@@ -43,7 +43,7 @@ const MapPage = () => {
   } = router
   const { t } = useStaticTranslation()
   const [openDialog, setOpenDialog] = useState(true)
-  const { data: places, isLoading } = useQuery(['places'], getPlaces(filter), { enabled: false })
+  const { data: places } = useQuery(['places'], getPlaces(filter), { enabled: false })
   const mapRef = useRef<google.maps.Map>()
 
   const onLoad = useCallback((map: google.maps.Map) => {
@@ -87,12 +87,14 @@ const MapPage = () => {
     closeDialog()
   }
 
-  const openNavigation = (place: PlaceType) => {
-    mixpanel.track('navigation_clicked', { placeId: place.id })
-    const address = encodeURIComponent(place.address)
+  const openNavigation = (location: Location) => {
+    mixpanel.track('navigation_clicked', { locationId: location._id })
+    const address = encodeURIComponent(location.address)
     const url = `https://www.google.com/maps/dir/?api=1&destination=${address}`
     window.open(url, '_blank')
   }
+
+  const filteredLocations = (locations as Location[]).filter((l: Location) => (filter === 'store_cold' ? l.hasCold : true))
 
   return (
     <>
@@ -132,25 +134,9 @@ const MapPage = () => {
             <MapFilters />
             {isLoaded && (
               <GoogleMap mapContainerStyle={mapContainerStyle} center={mapCenter} zoom={initialZoom} onLoad={onLoad}>
-                <OverlayViewF position={mapCenter} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      transform: 'translate(50%, -50%)',
-                      flexDirection: 'column',
-                      rowGap: 0.3,
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <Image src={LocationPinIcon} alt="icon" width={38} height={38} />
-                    <Box sx={{ bgcolor: 'white', borderRadius: 100, px: 1, boxShadow: 1 }}>
-                      <Typography variant="caption" color="primary.main">
-                        {'חברים לרפואה'}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </OverlayViewF>
+                {(filteredLocations as Location[]).map((l, index) => (
+                  <MapPin key={index} location={l} />
+                ))}
               </GoogleMap>
             )}
           </Box>
@@ -177,19 +163,8 @@ const MapPage = () => {
                 width: '100%',
               }}
             >
-              {[...Array(10)].map((_, index) => (
-                <PlacePreviewItem
-                  key={index}
-                  onClick={openNavigation}
-                  place={{
-                    name: 'סופר פארם',
-                    id: 1,
-                    address: 'מיכאל 12, רמת גן',
-                    distance: 1.2,
-                    type: 'pharmacy',
-                    hasCold: true,
-                  }}
-                />
+              {(filteredLocations as Location[]).map((l, index) => (
+                <LocationPreviewItem key={index} onClick={openNavigation} location={l} />
               ))}
             </Box>
           </Box>

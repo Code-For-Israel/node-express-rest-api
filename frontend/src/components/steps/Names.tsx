@@ -16,19 +16,27 @@ import { useCallback, useState } from 'react'
 import { DotLoader } from 'react-spinners'
 
 const searchMedicines = (query: string) => async () => {
-  const response = await axios.get(`https://dummyjson.com/products/search?q=${query}`).catch(e => {
+  const res = await axios.get(`https://ep68mprwof.execute-api.us-east-1.amazonaws.com/opensearch-api-test?q=${query}`).catch(e => {
     console.log(e)
   })
-  if (response) {
+
+  if (res) {
     mixpanel.track('search_medicine', { query })
-    return response.data.products
+    const data = res.data.hits.hits.map((d: any) => ({
+      _id: d._source['Medicine: ID'],
+      Name: d._source['Medicine: Medicine Name'],
+      ...d._source,
+    }))
+    console.log(data)
+    return data
   }
   return []
 }
 
 const Names = () => {
   const [searchValue, setSearchValue] = useState('')
-  const [animate, setAnimate] = useState<number | null>(null)
+  const [animate, setAnimate] = useState<string | null>(null)
+
   const debouncedQuery = useDebounce(searchValue, 600)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
   const { medicineQuantity, hasExpensive } = formData
@@ -61,7 +69,7 @@ const Names = () => {
 
   const handleSelect = (medicine: MedicineItemType) => {
     setSelectedMedicine(medicine)
-    setAnimate(medicine.id)
+    setAnimate(medicine._id)
   }
 
   const handleSave = (medicine: MedicineItemType, state: string) => {
@@ -73,7 +81,7 @@ const Names = () => {
   }
 
   const handleRemove = (medicine: MedicineItemType) => {
-    const newMedicines = allMedicines.filter((m: MedicineItemType) => m.id !== medicine.id)
+    const newMedicines = allMedicines.filter((m: MedicineItemType) => m._id !== medicine._id)
     setAllMedicines(newMedicines)
     updateFormData({ ...formData, medicines: newMedicines })
     mixpanel.track('remove_medicine', { medicine: medicine.englishName })
@@ -98,8 +106,8 @@ const Names = () => {
   }
 
   const isMedicineAdded = useCallback(
-    (id: number) => {
-      return allMedicines.some((m: MedicineItemType) => m.id === id)
+    (id: string) => {
+      return allMedicines.some((m: MedicineItemType) => m._id === id)
     },
     [allMedicines],
   )
@@ -140,14 +148,14 @@ const Names = () => {
           )}
           {hideText &&
             medicineData.length > 0 &&
-            medicineData.map((m: any, i: number) => (
+            medicineData.map((m: MedicineItemType, i: number) => (
               <MedicinePreviewItem
                 onClick={handleSelect}
-                key={m.id}
-                selected={isMedicineAdded(m.id)}
+                key={m._id}
+                selected={isMedicineAdded(m._id)}
                 index={i}
                 animate={animate}
-                medicine={{ id: m.id, name: m.title, englishName: m.brand }}
+                medicine={m}
                 onRemove={handleRemove}
               />
             ))}

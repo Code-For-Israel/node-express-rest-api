@@ -1,0 +1,126 @@
+[
+  {
+    "name": "סופר פארם",
+    "_id": "a1b2c5a",
+    "address": "מיכאל 12, רמת גן",
+    "distance": 1.2,
+    "type": "pharmacy",
+    "hasCold": false,
+    "position": {
+      "lat": 32.0714467,
+      "lng": 34.8273863
+    }
+  },
+  {
+    "name": "סופר פארם",
+    "_id": "a1b2g3a",
+    "address": "צמרות 2, הרצליה",
+    "type": "pharmacy",
+    "hasCold": false,
+    "position": {
+      "lat": 32.1516266,
+      "lng": 34.843502
+    }
+  },
+  {
+    "name": "סופר פארם",
+    "_id": "a532c3a",
+    "address": "בורלא 5, ירושלים",
+    "type": "pharmacy",
+    "hasCold": false,
+    "position": {
+      "lat": 31.7671319,
+      "lng": 35.2019922
+    }
+  },
+  {
+    "name": "סופר פארם",
+    "_id": "h1b2c3a",
+    "address": "המשחררים 70, באר שבע",
+    "type": "pharmacy",
+    "hasCold": false,
+    "position": {
+      "lat": 31.2515225,
+      "lng": 34.7859247
+    }
+  },
+  {
+    "name": "סופר פארם",
+    "_id": "j1bak3a",
+    "address": "אבא הלל 301, קניון אילון, רמת גן",
+    "type": "pharmacy",
+    "hasCold": false,
+    "position": {
+      "lat": 32.1004415,
+      "lng": 34.8266107
+    }
+  },
+  {
+    "_id": "a1b2c3",
+    "name": "חברים לרפואה",
+    "address": "שמואל הנביא 4, בני ברק",
+    "position": { "lat": 32.0901294, "lng": 34.8253887 },
+    "hasCold": false,
+    "type": "private"
+  },
+  {
+    "_id": "d4e5f6",
+    "name": "חיה שפי",
+    "address": "הל\"ה 61, גבעתיים",
+    "hasCold": true,
+    "phone": "0502611001",
+    "type": "private",
+    "position": {
+      "lat": 32.0738357,
+      "lng": 34.8082949
+    }
+  },
+  {
+    "_id": "g7h8i9",
+    "name": "רבקה אור",
+    "address": "הושעיה",
+    "hasCold": true,
+    "phone": "0505927623",
+    "type": "private",
+    "position": {
+      "lat": 32.757927,
+      "lng": 35.29522499999999
+    }
+  },
+  {
+    "_id": "j0k1l2",
+    "name": "קרני לב",
+    "address": "צופר, ערבה תיכונה",
+    "hasCold": true,
+    "phone": "0523666030",
+    "type": "private",
+    "position": {
+      "lat": 30.559394,
+      "lng": 35.181474
+    }
+  },
+  {
+    "_id": "m3n4o5",
+    "name": "קרן יאבו",
+    "address": "מאור",
+    "hasCold": true,
+    "phone": "0544795381",
+    "type": "private",
+    "position": {
+      "lat": 32.425832,
+      "lng": 35.005289
+    }
+  },
+  {
+    "_id": "p6q7r8",
+    "name": "נוגה כהן-גיאר",
+    "address": "סעדיה הכהן 5, רחובות",
+    "hasCold": true,
+    "phone": "0502254440",
+    "type": "private",
+    "position": {
+      "lat": 31.8852921,
+      "lng": 34.8219836
+    }
+  }
+]

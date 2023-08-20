@@ -11,12 +11,12 @@ type Props = {
   onRemove: (medicine: MedicineItemType) => void
   selected: boolean
   index?: number
-  animate?: number | null
+  animate?: string | null
   hideLastBorder?: boolean
 } & Omit<ButtonBaseProps, 'onClick'>
 
 const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, hideLastBorder = false, index = 0 }: Props) => {
-  const { name, englishName, image } = medicine
+  const { Name, englishName, image } = medicine
 
   const handleClick = () => {
     if (onClick) onClick(medicine)
@@ -34,14 +34,14 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, h
         borderBottom: '1px solid #B3B3B3',
         width: '100%',
         '&:last-of-type': {
-          borderBottom: hideLastBorder ? 'none' : 'initial',
+          borderBottom: hideLastBorder ? 'none' : '1px solid #B3B3B3',
         },
         position: 'relative',
       }}
     >
       <Stack direction={'row'} gap={2} sx={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
         <ButtonBase onClick={handleClick} disabled={selected} disableRipple sx={{ width: '100%', position: 'relative' }}>
-          {selected && animate === medicine.id && (
+          {selected && animate === medicine._id && (
             <Box
               component={motion.div}
               animate={{
@@ -77,10 +77,15 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, h
             sx={{
               textAlign: 'start',
               flex: 1,
+              overflow: 'hidden',
             }}
           >
-            <Typography variant="body2">{name}</Typography>
-            <Typography variant="body2">{englishName}</Typography>
+            <Typography variant="body2" textTransform={'capitalize'}>
+              {Name.split(' ').slice(0, 2).join(' ').toLowerCase()}
+            </Typography>
+            <Typography variant="body2" textTransform={'capitalize'}>
+              {englishName?.toLowerCase() || ''}
+            </Typography>
           </Box>
         </ButtonBase>
         <Box
