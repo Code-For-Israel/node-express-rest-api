@@ -80,8 +80,12 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, h
               overflow: 'hidden',
             }}
           >
-            <Typography variant="body2">{Name.split(' ')[0]}</Typography>
-            <Typography variant="body2">{englishName || ''}</Typography>
+            <Typography variant="body2" textTransform={'capitalize'}>
+              {Name.split(' ').slice(0, 2).join(' ').toLowerCase()}
+            </Typography>
+            <Typography variant="body2" textTransform={'capitalize'}>
+              {englishName?.toLowerCase() || ''}
+            </Typography>
           </Box>
         </ButtonBase>
         <Box
