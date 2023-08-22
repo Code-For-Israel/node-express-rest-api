@@ -16,19 +16,23 @@ import { useCallback, useState } from 'react'
 import { DotLoader } from 'react-spinners'
 
 const searchMedicines = (query: string) => async () => {
-  const res = await axios.get(`https://ep68mprwof.execute-api.us-east-1.amazonaws.com/opensearch-api-test?q=${query}`).catch(e => {
-    console.log(e)
+  const res = await axios.post('https://israeldrugs.health.gov.il/GovServiceList/IDRServer/SearchByName', {
+    val: query,
+    prescription: false,
+    healthServices: false,
+    pageIndex: 1,
+    orderBy: 0,
   })
-
   if (res) {
     mixpanel.track('search_medicine', { query })
-    const data = res.data.hits.hits.map((d: any) => ({
-      _id: d._source['Medicine: ID'],
-      Name: d._source['Medicine: Medicine Name'],
-      ...d._source,
+    const data = res.data.results.map((d: any) => ({
+      _id: `${d.dragEnName}-${d.dragRegNum}`,
+      Name: d.dragHebName,
+      englishName: d.dragEnName,
+      ...d,
     }))
-    console.log(data)
-    return data
+    const deDuppedNames = data.filter((m: any, index: number, self: any) => self.findIndex((t: any) => t.englishName === m.englishName) === index)
+    return deDuppedNames
   }
   return []
 }
@@ -58,6 +62,7 @@ const Names = () => {
     retry: false,
     initialData: [],
   })
+  console.log(medicineData)
 
   const handleClose = () => {
     setSelectedMedicine(null)

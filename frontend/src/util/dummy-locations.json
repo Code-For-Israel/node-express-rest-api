@@ -1,126 +1,4895 @@
 [
   {
-    "name": "סופר פארם",
+    "Name_c": "סופר פארם",
     "_id": "a1b2c5a",
-    "address": "מיכאל 12, רמת גן",
-    "distance": 1.2,
-    "type": "pharmacy",
-    "hasCold": false,
-    "position": {
+    "Settelment_c": "רמת גן",
+    "Address_c": "מיכאל 12",
+    "FormattedAddress": "מיכאל 12, רמת גן",
+    "Type": "pharmacy",
+    "RefrigeratedMedicines_c": false,
+    "Coordinates_c": {
       "lat": 32.0714467,
       "lng": 34.8273863
     }
   },
   {
-    "name": "סופר פארם",
+    "Name_c": "סופר פארם",
     "_id": "a1b2g3a",
-    "address": "צמרות 2, הרצליה",
-    "type": "pharmacy",
-    "hasCold": false,
-    "position": {
+    "Settelment_c": "הרצליה",
+    "Address_c": "צמרות 2",
+    "FormattedAddress": "צמרות 2, הרצליה",
+    "Type": "pharmacy",
+    "RefrigeratedMedicines_c": false,
+    "Coordinates_c": {
       "lat": 32.1516266,
       "lng": 34.843502
     }
   },
   {
-    "name": "סופר פארם",
+    "Name_c": "סופר פארם",
     "_id": "a532c3a",
-    "address": "בורלא 5, ירושלים",
-    "type": "pharmacy",
-    "hasCold": false,
-    "position": {
+    "Settelment_c": "ירושלים",
+    "Address_c": "בורלא 5",
+    "FormattedAddress": "בורלא 5, ירושלים",
+    "Type": "pharmacy",
+    "RefrigeratedMedicines_c": false,
+    "Coordinates_c": {
       "lat": 31.7671319,
       "lng": 35.2019922
     }
   },
   {
-    "name": "סופר פארם",
+    "Name_c": "סופר פארם",
     "_id": "h1b2c3a",
-    "address": "המשחררים 70, באר שבע",
-    "type": "pharmacy",
-    "hasCold": false,
-    "position": {
+    "Settelment_c": "באר שבע",
+    "Address_c": "המשחררים 70",
+    "FormattedAddress": "המשחררים 70, באר שבע",
+    "Type": "pharmacy",
+    "RefrigeratedMedicines_c": false,
+    "Coordinates_c": {
       "lat": 31.2515225,
       "lng": 34.7859247
     }
   },
   {
-    "name": "סופר פארם",
+    "Name_c": "סופר פארם",
     "_id": "j1bak3a",
-    "address": "אבא הלל 301, קניון אילון, רמת גן",
-    "type": "pharmacy",
-    "hasCold": false,
-    "position": {
+    "Settelment_c": "רמת גן",
+    "Address_c": "אבא הלל 301, קניון אילון",
+    "FormattedAddress": "אבא הלל 301, קניון אילון, רמת גן",
+    "Type": "pharmacy",
+    "RefrigeratedMedicines_c": false,
+    "Coordinates_c": {
       "lat": 32.1004415,
       "lng": 34.8266107
     }
   },
   {
-    "_id": "a1b2c3",
-    "name": "חברים לרפואה",
-    "address": "שמואל הנביא 4, בני ברק",
-    "position": { "lat": 32.0901294, "lng": 34.8253887 },
-    "hasCold": false,
-    "type": "private"
-  },
-  {
-    "_id": "d4e5f6",
-    "name": "חיה שפי",
-    "address": "הל\"ה 61, גבעתיים",
-    "hasCold": true,
-    "phone": "0502611001",
-    "type": "private",
-    "position": {
+    "_id": "r5onqdnm",
+    "Name_c": "חיה שפי",
+    "Settelment_c": "גבעתיים",
+    "Address_c": "הל\"ה 61",
+    "FormattedAddress": "הל\"ה 61, גבעתיים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972502611001",
+    "Coordinates_c": {
       "lat": 32.0738357,
       "lng": 34.8082949
-    }
+    },
+    "Type": "private"
   },
   {
-    "_id": "g7h8i9",
-    "name": "רבקה אור",
-    "address": "הושעיה",
-    "hasCold": true,
-    "phone": "0505927623",
-    "type": "private",
-    "position": {
+    "_id": "7dfnxdta",
+    "Name_c": "רבקה אור",
+    "Settelment_c": "הושעיה",
+    "Address_c": null,
+    "FormattedAddress": "הושעיה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505927623",
+    "Coordinates_c": {
       "lat": 32.757927,
       "lng": 35.29522499999999
-    }
+    },
+    "Type": "private"
   },
   {
-    "_id": "j0k1l2",
-    "name": "קרני לב",
-    "address": "צופר, ערבה תיכונה",
-    "hasCold": true,
-    "phone": "0523666030",
-    "type": "private",
-    "position": {
+    "_id": "l5p86qd2",
+    "Name_c": "קרני לב",
+    "Settelment_c": "צופר , ערבה תיכונה",
+    "Address_c": null,
+    "FormattedAddress": "צופר , ערבה תיכונה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523666030",
+    "Coordinates_c": {
       "lat": 30.559394,
       "lng": 35.181474
-    }
+    },
+    "Type": "private"
   },
   {
-    "_id": "m3n4o5",
-    "name": "קרן יאבו",
-    "address": "מאור",
-    "hasCold": true,
-    "phone": "0544795381",
-    "type": "private",
-    "position": {
+    "_id": "vmn80n5o",
+    "Name_c": "קרן יאבו",
+    "Settelment_c": "מאור",
+    "Address_c": null,
+    "FormattedAddress": "מאור",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544795381",
+    "Type": "private",
+    "Coordinates_c": {
       "lat": 32.425832,
       "lng": 35.005289
     }
   },
   {
-    "_id": "p6q7r8",
-    "name": "נוגה כהן-גיאר",
-    "address": "סעדיה הכהן 5, רחובות",
-    "hasCold": true,
-    "phone": "0502254440",
-    "type": "private",
-    "position": {
+    "_id": "so35reit",
+    "Name_c": "נוגה כהן-גיאר",
+    "Settelment_c": "רחובות",
+    "Address_c": "סעדיה הכהן 5",
+    "FormattedAddress": "סעדיה הכהן 5, רחובות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972502254440",
+    "Coordinates_c": {
       "lat": 31.8852921,
       "lng": 34.8219836
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "rtrdc63u",
+    "Name_c": "רבקה חי",
+    "Settelment_c": "קרית אונו",
+    "Address_c": "צה\"ל 85",
+    "FormattedAddress": "צה\"ל 85, קרית אונו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972546787835",
+    "Coordinates_c": {
+      "lat": 32.0505038,
+      "lng": 34.8600064
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "hiu0pc15",
+    "Name_c": "נתנאלה נתי גורמן",
+    "Settelment_c": "באר שבע",
+    "Address_c": "השלום 17",
+    "FormattedAddress": "השלום 17, באר שבע",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526014631",
+    "Coordinates_c": {
+      "lat": 31.2527569,
+      "lng": 34.8028274
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ocfyp4jg",
+    "Name_c": "טרם - מודיעין עלית",
+    "Settelment_c": "מודיעין עילית",
+    "Address_c": "אבני נזר 46",
+    "FormattedAddress": "אבני נזר 46, מודיעין עילית",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": null,
+    "Coordinates_c": {
+      "lat": 31.9301249,
+      "lng": 35.0387316
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "jsguca6h",
+    "Name_c": "טרם ירושלים - סניף שרי ישראל",
+    "Settelment_c": "ירושלים",
+    "Address_c": "שרי ישראל 15 פינת יפו",
+    "FormattedAddress": "שרי ישראל 15 פינת יפו, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": null,
+    "Coordinates_c": {
+      "lat": 31.7891446,
+      "lng": 35.2061448
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "bp28w09n",
+    "Name_c": "טרם - בני ברק",
+    "Settelment_c": "בני ברק",
+    "Address_c": "ז'בוטינסקי 160",
+    "FormattedAddress": "ז'בוטינסקי 160, בני ברק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": null,
+    "Coordinates_c": {
+      "lat": 32.0857517,
+      "lng": 34.7948192
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "favbrbds",
+    "Name_c": "שרה גולדווסר",
+    "Settelment_c": "ערד",
+    "Address_c": "החומה 11",
+    "FormattedAddress": "החומה 11, ערד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548524649",
+    "Coordinates_c": {
+      "lat": 31.2591534,
+      "lng": 35.2241624
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "8p43a8yt",
+    "Name_c": "אלה אזבנד",
+    "Settelment_c": "נטור",
+    "Address_c": null,
+    "FormattedAddress": "נטור",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972502288528",
+    "Coordinates_c": {
+      "lat": 32.854068,
+      "lng": 35.752574
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "7uwsoall",
+    "Name_c": "הדס קליין",
+    "Settelment_c": "תל אביב",
+    "Address_c": "גרונר דב , רמת אביב",
+    "FormattedAddress": "גרונר דב , רמת אביב, תל אביב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508788190",
+    "Coordinates_c": {
+      "lat": 32.107476,
+      "lng": 34.795951
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "o1ewge2s",
+    "Name_c": "ליאורה אודיז",
+    "Settelment_c": "תל אביב",
+    "Address_c": "דרך נמיר מרדכי 110",
+    "FormattedAddress": "דרך נמיר מרדכי 110, תל אביב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523636911",
+    "Coordinates_c": {
+      "lat": 32.0935402,
+      "lng": 34.7950373
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "em7f2yfy",
+    "Name_c": "חיים מוסקוביץ",
+    "Settelment_c": "מודיעין",
+    "Address_c": "נחל פארן 26",
+    "FormattedAddress": "נחל פארן 26, מודיעין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508678888",
+    "Coordinates_c": {
+      "lat": 31.8951315,
+      "lng": 35.0178377
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "j4ew6a47",
+    "Name_c": "מאיר רוזנברג",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": null,
+    "FormattedAddress": "פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972502859371",
+    "Coordinates_c": {
+      "lat": 32.084041,
+      "lng": 34.887762
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "p5uhlp1n",
+    "Name_c": "מכון טכנולוגי חולון",
+    "Settelment_c": "חולון",
+    "Address_c": "גולומב 52",
+    "FormattedAddress": "גולומב 52, חולון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528701943",
+    "Coordinates_c": {
+      "lat": 32.0160707,
+      "lng": 34.773338
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "kr2ug09p",
+    "Name_c": "עזריאל הופמן",
+    "Settelment_c": "קרני שומרון",
+    "Address_c": "כלי שיר 76",
+    "FormattedAddress": "כלי שיר 76, קרני שומרון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526071101",
+    "Coordinates_c": {
+      "lat": 32.1699785,
+      "lng": 35.1080459
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "soahbqtf",
+    "Name_c": "יובב גוניקמן",
+    "Settelment_c": "יהוד",
+    "Address_c": "מבוא יסמין 15",
+    "FormattedAddress": "מבוא יסמין 15, יהוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522738625",
+    "Coordinates_c": {
+      "lat": 32.0359562,
+      "lng": 34.8780282
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5n2ld3f4",
+    "Name_c": "כרמית גל נס",
+    "Settelment_c": "נס ציונה",
+    "Address_c": "רחבעם זאבי 31",
+    "FormattedAddress": "רחבעם זאבי 31, נס ציונה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972547697335",
+    "Coordinates_c": {
+      "lat": 31.9276404,
+      "lng": 34.8105439
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "zuqpv39s",
+    "Name_c": "עמותת ימין סעד",
+    "Settelment_c": "חיפה",
+    "Address_c": "ארלוזורוב 7",
+    "FormattedAddress": "ארלוזורוב 7, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97248671313",
+    "Coordinates_c": {
+      "lat": 32.80664,
+      "lng": 35.0008191
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9kiwv5va",
+    "Name_c": "טל ביגר וולך",
+    "Settelment_c": "תל אביב",
+    "Address_c": "הקונגרס 17",
+    "FormattedAddress": "הקונגרס 17, תל אביב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544390122",
+    "Coordinates_c": {
+      "lat": 32.0569572,
+      "lng": 34.7743598
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "oohsa85m",
+    "Name_c": "אבי גז",
+    "Settelment_c": "חולון",
+    "Address_c": "קפלן 14",
+    "FormattedAddress": "קפלן 14, חולון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526252488",
+    "Coordinates_c": {
+      "lat": 32.0264959,
+      "lng": 34.7722525
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "x68m639m",
+    "Name_c": "אביבה כהן",
+    "Settelment_c": "הוד השרון",
+    "Address_c": "חנה סנש 18",
+    "FormattedAddress": "חנה סנש 18, הוד השרון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506416016",
+    "Coordinates_c": {
+      "lat": 32.150448,
+      "lng": 34.8878249
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "fvt2el8w",
+    "Name_c": "אביבה קליין",
+    "Settelment_c": "יהוד-נווה אפרים",
+    "Address_c": "גירון אברהם 4",
+    "FormattedAddress": "גירון אברהם 4, יהוד-נווה אפרים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522227224",
+    "Coordinates_c": {
+      "lat": 32.0271539,
+      "lng": 34.8943279
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "hwd2rqzg",
+    "Name_c": "אביבה שלומוביץ",
+    "Settelment_c": "ירושלים",
+    "Address_c": "שאולזון 40",
+    "FormattedAddress": "שאולזון 40, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972504195959",
+    "Coordinates_c": {
+      "lat": 31.768319,
+      "lng": 35.21371
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "2eojkt3n",
+    "Name_c": "אביגיל לובין",
+    "Settelment_c": "גבעת יערים",
+    "Address_c": "מרבד הקסמים 266",
+    "FormattedAddress": "מרבד הקסמים 266, גבעת יערים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507243336",
+    "Coordinates_c": {
+      "lat": 31.7843893,
+      "lng": 35.1003225
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "qezj54c7",
+    "Name_c": "אבירם פיירברגר",
+    "Settelment_c": "כרמיה",
+    "Address_c": null,
+    "FormattedAddress": "כרמיה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508577734",
+    "Coordinates_c": {
+      "lat": 31.60269499999999,
+      "lng": 34.540413
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "w1v52ybx",
+    "Name_c": "אברהם ראבד",
+    "Settelment_c": "חיננית",
+    "Address_c": "אלונים 64/א",
+    "FormattedAddress": "אלונים 64/א, חיננית",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508763773",
+    "Coordinates_c": {
+      "lat": 32.4833232,
+      "lng": 35.159109
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "elwklxhf",
+    "Name_c": "אגד חיפה והצפון - מודיעין מרכזית חוף הכרמל",
+    "Settelment_c": "חיפה",
+    "Address_c": "עמדת המודיעין, מרכז חוף הכרמל רח' זורע מאיר 1",
+    "FormattedAddress": "עמדת המודיעין, מרכז חוף הכרמל רח' זורע מאיר 1, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239142237",
+    "Coordinates_c": {
+      "lat": 32.7940463,
+      "lng": 34.989571
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "cq1adljm",
+    "Name_c": "אדית זק",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "לוי אשכול",
+    "FormattedAddress": "לוי אשכול, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544960314",
+    "Coordinates_c": {
+      "lat": 32.1113546,
+      "lng": 34.7894498
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "cqy2oytt",
+    "Name_c": "אודליה פרנצוס",
+    "Settelment_c": "אלון שבות",
+    "Address_c": "התמר 8",
+    "FormattedAddress": "התמר 8, אלון שבות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97229933953",
+    "Coordinates_c": {
+      "lat": 31.654871,
+      "lng": 35.125256
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "c15fl9u6",
+    "Name_c": "אוה פינקלשטיין",
+    "Settelment_c": "כפר סבא",
+    "Address_c": "אהרונוביץ 14",
+    "FormattedAddress": "אהרונוביץ 14, כפר סבא",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972546462933",
+    "Coordinates_c": {
+      "lat": 32.1718282,
+      "lng": 34.9028639
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "u23uq66w",
+    "Name_c": "אוניברסיטת אריאל בשומרון",
+    "Settelment_c": "אריאל",
+    "Address_c": null,
+    "FormattedAddress": "אריאל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972547776461",
+    "Coordinates_c": {
+      "lat": 32.104637,
+      "lng": 35.17451399999999
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "nqnoahvg",
+    "Name_c": "אוקי בלכמן",
+    "Settelment_c": "זכרון יעקב",
+    "Address_c": "סמטת אילת השחר 1 ג'",
+    "FormattedAddress": "סמטת אילת השחר 1 ג', זכרון יעקב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246391494",
+    "Coordinates_c": {
+      "lat": 32.575977,
+      "lng": 34.951473
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ibgpb4qj",
+    "Name_c": "אורית אריאב",
+    "Settelment_c": "בנימינה-גבעת עדה",
+    "Address_c": null,
+    "FormattedAddress": "בנימינה-גבעת עדה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544748046",
+    "Coordinates_c": {
+      "lat": 32.517078,
+      "lng": 34.955096
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5x9wmw4m",
+    "Name_c": "אורית חרמון",
+    "Settelment_c": "מודיעין",
+    "Address_c": "נחל עמוד 23",
+    "FormattedAddress": "נחל עמוד 23, מודיעין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505994800",
+    "Coordinates_c": {
+      "lat": 31.8915369,
+      "lng": 35.0088863
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "2o8hs6w8",
+    "Name_c": "אורלי עזרא",
+    "Settelment_c": "נתניה",
+    "Address_c": "יפתח הגלעדי 25",
+    "FormattedAddress": "יפתח הגלעדי 25, נתניה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972525560316",
+    "Coordinates_c": {
+      "lat": 32.3353862,
+      "lng": 34.8700911
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "hkfj87js",
+    "Name_c": "אורנה קידר",
+    "Settelment_c": "כפר תבור",
+    "Address_c": "הזית 7א'",
+    "FormattedAddress": "הזית 7א', כפר תבור",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523493034",
+    "Coordinates_c": {
+      "lat": 32.691546,
+      "lng": 35.417841
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "s45foqoc",
+    "Name_c": "איה קוטסי",
+    "Settelment_c": "מגדל העמק",
+    "Address_c": "נחל צבי 40",
+    "FormattedAddress": "נחל צבי 40, מגדל העמק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972543013929",
+    "Coordinates_c": {
+      "lat": 32.6830948,
+      "lng": 35.24217489999999
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5kv6ly4e",
+    "Name_c": "איהאב סמארה",
+    "Settelment_c": "נצרת",
+    "Address_c": "רחוב 3008",
+    "FormattedAddress": "רחוב 3008, נצרת",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972547440368",
+    "Coordinates_c": {
+      "lat": 32.6905053,
+      "lng": 35.2953427
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "wsmzkdwf",
+    "Name_c": "איחוד הצלה",
+    "Settelment_c": "ירושלים",
+    "Address_c": "ירמיהו 78",
+    "FormattedAddress": "ירמיהו 78, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97225002020",
+    "Coordinates_c": {
+      "lat": 31.7910459,
+      "lng": 35.2011747
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "qdox99fj",
+    "Name_c": "אייל נווה",
+    "Settelment_c": "אומץ",
+    "Address_c": "הראשונים 2",
+    "FormattedAddress": "הראשונים 2, אומץ",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523001717",
+    "Coordinates_c": {
+      "lat": 32.3648533,
+      "lng": 34.9903755
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "nttu7bfu",
+    "Name_c": "אייל שמש",
+    "Settelment_c": "באר טוביה",
+    "Address_c": null,
+    "FormattedAddress": "באר טוביה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972504022211",
+    "Coordinates_c": {
+      "lat": 31.737127,
+      "lng": 34.72557
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "pa4vd7h6",
+    "Name_c": "איילה ארץ הצבי",
+    "Settelment_c": "אבני איתן",
+    "Address_c": null,
+    "FormattedAddress": "אבני איתן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505604000",
+    "Coordinates_c": {
+      "lat": 32.824808,
+      "lng": 35.765777
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "iowfms0g",
+    "Name_c": "אילן סבג",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "בגין מנחם 48",
+    "FormattedAddress": "בגין מנחם 48, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526158158",
+    "Coordinates_c": {
+      "lat": 32.0732703,
+      "lng": 34.9065131
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "3dww8jlo",
+    "Name_c": "אילן פיין",
+    "Settelment_c": "ירושלים",
+    "Address_c": "מטה ארצי - משטרת ישראל",
+    "FormattedAddress": "מטה ארצי - משטרת ישראל, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505074885",
+    "Coordinates_c": {
+      "lat": 31.7793249,
+      "lng": 35.2395068
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "bvuxy3xe",
+    "Name_c": "אילנה ליבנה",
+    "Settelment_c": "אפיק",
+    "Address_c": null,
+    "FormattedAddress": "אפיק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505368001",
+    "Type": "private",
+    "Coordinates_c": {
+      "lat": 32.779428,
+      "lng": 35.702994
     }
+  },
+  {
+    "_id": "ke6h9cbn",
+    "Name_c": "איריס כהן",
+    "Settelment_c": "כפר יונה",
+    "Address_c": "השיטה 5",
+    "FormattedAddress": "השיטה 5, כפר יונה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508900340",
+    "Coordinates_c": {
+      "lat": 32.3158534,
+      "lng": 34.9254235
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "3b7wpm8p",
+    "Name_c": "אירית בן אריה",
+    "Settelment_c": "כרמי קטיף",
+    "Address_c": "הסמדר 46",
+    "FormattedAddress": "הסמדר 46, כרמי קטיף",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972546673722",
+    "Coordinates_c": {
+      "lat": 31.5367459,
+      "lng": 34.9116831
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "1mumi0pd",
+    "Name_c": "אירית לב-רן",
+    "Settelment_c": "אשקלון",
+    "Address_c": "חודשי השנה 16/1",
+    "FormattedAddress": "חודשי השנה 16/1, אשקלון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972527201623",
+    "Coordinates_c": {
+      "lat": 31.6746707,
+      "lng": 34.5773074
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "436r9jfv",
+    "Name_c": "איתמר רותם רוזנטל",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "אבולעפיה 14",
+    "FormattedAddress": "אבולעפיה 14, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507374764",
+    "Coordinates_c": {
+      "lat": 32.053361,
+      "lng": 34.7693601
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5pnhp5ve",
+    "Name_c": "אלונה בדולח",
+    "Settelment_c": "בן שמן",
+    "Address_c": "דרך הזית 14",
+    "FormattedAddress": "דרך הזית 14, בן שמן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972532853545",
+    "Coordinates_c": {
+      "lat": 31.954922,
+      "lng": 34.923849
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "uldg117k",
+    "Name_c": "אליענה יהודה",
+    "Settelment_c": "מצפה נטופה",
+    "Address_c": null,
+    "FormattedAddress": "מצפה נטופה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972504234222",
+    "Coordinates_c": {
+      "lat": 32.801748,
+      "lng": 35.383501
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "s750l9xh",
+    "Name_c": "אסנת אברהם",
+    "Settelment_c": "צורן-קדימה",
+    "Address_c": "ההדרים 13",
+    "FormattedAddress": "ההדרים 13, צורן-קדימה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972545726643",
+    "Coordinates_c": {
+      "lat": 32.289318,
+      "lng": 34.9402182
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "1crlcwro",
+    "Name_c": "אסנת ישראל",
+    "Settelment_c": "נתיבות",
+    "Address_c": "יובל 60/1",
+    "FormattedAddress": "יובל 60/1, נתיבות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548462095",
+    "Coordinates_c": {
+      "lat": 31.422948,
+      "lng": 34.578255
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "db1inovl",
+    "Name_c": "אסנת רואה",
+    "Settelment_c": "נתניה",
+    "Address_c": "הרימון 29",
+    "FormattedAddress": "הרימון 29, נתניה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972525322247",
+    "Coordinates_c": {
+      "lat": 32.3523077,
+      "lng": 34.8639845
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "c8t33i83",
+    "Name_c": "אסתר אטיאס",
+    "Settelment_c": "טירת כרמל",
+    "Address_c": "ז'בוטינסקי 49/16",
+    "FormattedAddress": "ז'בוטינסקי 49/16, טירת כרמל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972775594065",
+    "Coordinates_c": {
+      "lat": 32.760005,
+      "lng": 34.972196
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "bzf8l77f",
+    "Name_c": "אסתר מנהיימר",
+    "Settelment_c": "רמת השרון",
+    "Address_c": "השפלה 3",
+    "FormattedAddress": "השפלה 3, רמת השרון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522462748",
+    "Coordinates_c": {
+      "lat": 32.1505827,
+      "lng": 34.8434086
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9fmv4qxh",
+    "Name_c": "אסתר קינן",
+    "Settelment_c": "יד בנימין",
+    "Address_c": "כרמל 11",
+    "FormattedAddress": "כרמל 11, יד בנימין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528379900",
+    "Coordinates_c": {
+      "lat": 31.7973092,
+      "lng": 34.8184359
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ldy3mw89",
+    "Name_c": "אסתר רט",
+    "Settelment_c": "נתניה",
+    "Address_c": "גולומב 36",
+    "FormattedAddress": "גולומב 36, נתניה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97298627070",
+    "Coordinates_c": {
+      "lat": 32.3409963,
+      "lng": 34.863556
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "jwpoo4iu",
+    "Name_c": "אפריים רביד",
+    "Settelment_c": "קרית מוצקין",
+    "Address_c": "הרב קוק 21",
+    "FormattedAddress": "הרב קוק 21, קרית מוצקין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97248705845",
+    "Coordinates_c": {
+      "lat": 32.8241035,
+      "lng": 35.0761444
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "qsv97ajb",
+    "Name_c": "ארז קלמן",
+    "Settelment_c": "גני תקווה",
+    "Address_c": "הכרמל 18",
+    "FormattedAddress": "הכרמל 18, גני תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972584005000",
+    "Coordinates_c": {
+      "lat": 32.0592061,
+      "lng": 34.8817777
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "sz0it2xy",
+    "Name_c": "אריאלה פינס",
+    "Settelment_c": "פרדס חנה-כרכור",
+    "Address_c": "השקמה 14",
+    "FormattedAddress": "השקמה 14, פרדס חנה-כרכור",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246371016",
+    "Coordinates_c": {
+      "lat": 32.4728028,
+      "lng": 34.9742001
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "vh9dnbw1",
+    "Name_c": "אריאלה שפירא",
+    "Settelment_c": "ירושלים",
+    "Address_c": "שח\"ל 83,  גבעת מרדכי",
+    "FormattedAddress": "שח\"ל 83,  גבעת מרדכי, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972545702077",
+    "Coordinates_c": {
+      "lat": 31.76619849999999,
+      "lng": 35.1940402
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "2qlbxgag",
+    "Name_c": "אריה אלימלך",
+    "Settelment_c": "אשדוד",
+    "Address_c": "חנה סנש 5 א'",
+    "FormattedAddress": "חנה סנש 5 א', אשדוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972549522472",
+    "Coordinates_c": {
+      "lat": 31.7998628,
+      "lng": 34.6635665
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "6fwiqxkc",
+    "Name_c": "אתי ברוך",
+    "Settelment_c": "חיפה",
+    "Address_c": "דרך אלנבי 127",
+    "FormattedAddress": "דרך אלנבי 127, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522366116",
+    "Coordinates_c": {
+      "lat": 32.8227857,
+      "lng": 34.9803534
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "nx18tsk5",
+    "Name_c": "אתי שטרית",
+    "Settelment_c": "טבריה",
+    "Address_c": "הדקל",
+    "FormattedAddress": "הדקל, טבריה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507655226",
+    "Coordinates_c": {
+      "lat": 32.785924,
+      "lng": 35.527351
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "dy0tq5rr",
+    "Name_c": "אהרון בברלי",
+    "Settelment_c": "בית רימון",
+    "Address_c": null,
+    "FormattedAddress": "בית רימון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544509629",
+    "Coordinates_c": {
+      "lat": 32.781845,
+      "lng": 35.327738
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "e929rc96",
+    "Name_c": "בית אגד - בית דגן",
+    "Settelment_c": "בית דגן",
+    "Address_c": "שדרות מנחם בגין 5",
+    "FormattedAddress": "שדרות מנחם בגין 5, בית דגן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507380058",
+    "Coordinates_c": {
+      "lat": 32.0033356,
+      "lng": 34.8270821
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "s20bwoo9",
+    "Name_c": "בית רפאל",
+    "Settelment_c": "אילת",
+    "Address_c": null,
+    "FormattedAddress": "אילת",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286339916",
+    "Coordinates_c": {
+      "lat": 29.557669,
+      "lng": 34.951925
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "euc9hyb3",
+    "Name_c": "בלומה רט",
+    "Settelment_c": "נתניה",
+    "Address_c": "בובר 7",
+    "FormattedAddress": "בובר 7, נתניה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972543978625",
+    "Coordinates_c": {
+      "lat": 32.3403135,
+      "lng": 34.8685166
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "3fig3myk",
+    "Name_c": "בן מיטרני",
+    "Settelment_c": "עין החורש",
+    "Address_c": null,
+    "FormattedAddress": "עין החורש",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972535457804",
+    "Coordinates_c": {
+      "lat": 32.385871,
+      "lng": 34.939994
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "xjpyo0r5",
+    "Name_c": "בני קליבנסקי",
+    "Settelment_c": "ירושלים",
+    "Address_c": "זכריהו אוריאלי 1",
+    "FormattedAddress": "זכריהו אוריאלי 1, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97225909291",
+    "Coordinates_c": {
+      "lat": 31.7530739,
+      "lng": 35.2426178
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "jj19egj1",
+    "Name_c": "בנימין אליאס",
+    "Settelment_c": "אשדוד",
+    "Address_c": "טבת 27",
+    "FormattedAddress": "טבת 27, אשדוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97288554159",
+    "Coordinates_c": {
+      "lat": 31.7812791,
+      "lng": 34.6400123
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "nav9a1u7",
+    "Name_c": "ברוך פרסקי",
+    "Settelment_c": "נוף איילון",
+    "Address_c": "מוריה 32",
+    "FormattedAddress": "מוריה 32, נוף איילון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972527726066",
+    "Coordinates_c": {
+      "lat": 31.8645965,
+      "lng": 34.9861096
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "i18qisez",
+    "Name_c": "ברנדה שרון",
+    "Settelment_c": "אלונים",
+    "Address_c": null,
+    "FormattedAddress": "אלונים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523494554",
+    "Coordinates_c": {
+      "lat": 32.721459,
+      "lng": 35.143399
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "pyc9mzv9",
+    "Name_c": "בתאל חלילי",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "ישראל גורי 12",
+    "FormattedAddress": "ישראל גורי 12, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548819935",
+    "Coordinates_c": {
+      "lat": 32.0409773,
+      "lng": 34.7771043
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ty32060x",
+    "Name_c": "גולן דהוקרקר",
+    "Settelment_c": "אור עקיבא",
+    "Address_c": "הר סיני 10/8",
+    "FormattedAddress": "הר סיני 10/8, אור עקיבא",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972585587676",
+    "Coordinates_c": {
+      "lat": 32.5217587,
+      "lng": 34.9167256
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "j88r3bcl",
+    "Name_c": "גיא פארן",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "קדיש לוז 5",
+    "FormattedAddress": "קדיש לוז 5, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972543456048",
+    "Coordinates_c": {
+      "lat": 32.08933,
+      "lng": 34.8716191
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "g5z13mu3",
+    "Name_c": "גיא שקולניק",
+    "Settelment_c": "קרית טבעון",
+    "Address_c": "יזרעאל 2",
+    "FormattedAddress": "יזרעאל 2, קרית טבעון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249833436",
+    "Coordinates_c": {
+      "lat": 32.7093628,
+      "lng": 35.128808
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ksrr96ri",
+    "Name_c": "גילה נחום",
+    "Settelment_c": "קריית חיים, חיפה",
+    "Address_c": "יבניאלי 16",
+    "FormattedAddress": "יבניאלי 16, קריית חיים, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528159595",
+    "Coordinates_c": {
+      "lat": 32.8340986,
+      "lng": 35.0667691
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "avt50qcp",
+    "Name_c": "גילעד בן פז",
+    "Settelment_c": "חיפה",
+    "Address_c": "העלייה השנייה 20/6",
+    "FormattedAddress": "העלייה השנייה 20/6, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506654749",
+    "Coordinates_c": {
+      "lat": 32.8322393,
+      "lng": 34.9813598
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "uj7r7beu",
+    "Name_c": "גלי ברק",
+    "Settelment_c": "רמות מנשה",
+    "Address_c": null,
+    "FormattedAddress": "רמות מנשה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972542872525",
+    "Coordinates_c": {
+      "lat": 32.597042,
+      "lng": 35.057177
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "cnw9ybvj",
+    "Name_c": "גלית טפר",
+    "Settelment_c": "דן",
+    "Address_c": null,
+    "FormattedAddress": "דן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526302899",
+    "Type": "private"
+  },
+  {
+    "_id": "zu85nevr",
+    "Name_c": "גרשון רובין",
+    "Settelment_c": "רכסים",
+    "Address_c": "הרקפות 3",
+    "FormattedAddress": "הרקפות 3, רכסים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972527623476",
+    "Coordinates_c": {
+      "lat": 32.7527739,
+      "lng": 35.104837
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "bj5ipqmi",
+    "Name_c": "דב גלזר",
+    "Settelment_c": "נהריה",
+    "Address_c": "געתון 20",
+    "FormattedAddress": "געתון 20, נהריה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249928643",
+    "Coordinates_c": {
+      "lat": 33.007175,
+      "lng": 35.0921472
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "rr9rjzrw",
+    "Name_c": "דוד אלישע",
+    "Settelment_c": "טבריה",
+    "Address_c": "הגליל 19 - משרד תיווך הגליל",
+    "FormattedAddress": "הגליל 19 - משרד תיווך הגליל, טבריה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246726100",
+    "Coordinates_c": {
+      "lat": 32.7866016,
+      "lng": 35.5398393
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "rklvposf",
+    "Name_c": "דוד גליק",
+    "Settelment_c": "רחובות",
+    "Address_c": "אליעזר יעקבסון 5",
+    "FormattedAddress": "אליעזר יעקבסון 5, רחובות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972527673040",
+    "Coordinates_c": {
+      "lat": 31.8929419,
+      "lng": 34.8250642
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "pn5rme8d",
+    "Name_c": "דוד דלפן",
+    "Settelment_c": "עופרה",
+    "Address_c": "ההגנה 28",
+    "FormattedAddress": "ההגנה 28, עופרה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526176946",
+    "Coordinates_c": {
+      "lat": 32.0225435,
+      "lng": 34.752799
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "519jyy1e",
+    "Name_c": "דוד חיון",
+    "Settelment_c": "הוד השרון",
+    "Address_c": "אנשי בראשית 17",
+    "FormattedAddress": "אנשי בראשית 17, הוד השרון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97297406934",
+    "Coordinates_c": {
+      "lat": 32.1534393,
+      "lng": 34.8888181
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "qakk6xod",
+    "Name_c": "דוד קורנט",
+    "Settelment_c": "נתניה",
+    "Address_c": "ירושלים 11",
+    "FormattedAddress": "ירושלים 11, נתניה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972547476677",
+    "Coordinates_c": {
+      "lat": 32.3249964,
+      "lng": 34.8530036
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "cc852wh5",
+    "Name_c": "דורית אליאסון",
+    "Settelment_c": "בנימינה-גבעת עדה",
+    "Address_c": "חרוב 6 א'",
+    "FormattedAddress": "חרוב 6 א', בנימינה-גבעת עדה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972543941445",
+    "Coordinates_c": {
+      "lat": 32.524548,
+      "lng": 34.9391961
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "1twwhyl2",
+    "Name_c": "דורית קנט",
+    "Settelment_c": "גבעת חיים איחוד",
+    "Address_c": "מרפאה",
+    "FormattedAddress": "מרפאה, גבעת חיים איחוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523218865",
+    "Coordinates_c": {
+      "lat": 32.396745,
+      "lng": 34.932978
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "wqrex0dk",
+    "Name_c": "דורית שטרן",
+    "Settelment_c": "פרדסיה",
+    "Address_c": null,
+    "FormattedAddress": "פרדסיה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544802640",
+    "Coordinates_c": {
+      "lat": 32.305011,
+      "lng": 34.911731
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "yxl27tgn",
+    "Name_c": "דן טויטו",
+    "Settelment_c": "זכרון יעקב",
+    "Address_c": "מולדת 5",
+    "FormattedAddress": "מולדת 5, זכרון יעקב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246290949",
+    "Coordinates_c": {
+      "lat": 32.5680321,
+      "lng": 34.9603718
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "15ha37bh",
+    "Name_c": "דניאל הלפרין",
+    "Settelment_c": "מודיעין",
+    "Address_c": "נחל בצת 11",
+    "FormattedAddress": "נחל בצת 11, מודיעין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289752246",
+    "Coordinates_c": {
+      "lat": 31.8979364,
+      "lng": 35.0184426
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "k4xtun7e",
+    "Name_c": "דניאל שוב",
+    "Settelment_c": "שעלבים",
+    "Address_c": null,
+    "FormattedAddress": "שעלבים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505777718",
+    "Coordinates_c": {
+      "lat": 31.870235,
+      "lng": 34.984304
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "6v6wtitj",
+    "Name_c": "דניאלה לרנר",
+    "Settelment_c": "ירושלים",
+    "Address_c": null,
+    "FormattedAddress": "ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97225633668",
+    "Coordinates_c": {
+      "lat": 31.768319,
+      "lng": 35.21371
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ft18vvw5",
+    "Name_c": "דניאלה נהון",
+    "Settelment_c": "רעננה",
+    "Address_c": "יהודה בורלא 1",
+    "FormattedAddress": "יהודה בורלא 1, רעננה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97297729851",
+    "Coordinates_c": {
+      "lat": 32.1915228,
+      "lng": 34.8657075
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "vaj87ez5",
+    "Name_c": "דפנה כרמלי",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": null,
+    "FormattedAddress": "תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97236120526",
+    "Coordinates_c": {
+      "lat": 32.0852999,
+      "lng": 34.78176759999999
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "h1v5vzcl",
+    "Name_c": "דפנה סתוי",
+    "Settelment_c": "גשר הזיו",
+    "Address_c": null,
+    "FormattedAddress": "גשר הזיו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544489503",
+    "Coordinates_c": {
+      "lat": 33.040532,
+      "lng": 35.110563
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ii1ua938",
+    "Name_c": "דקל פרת",
+    "Settelment_c": "כפר הס",
+    "Address_c": null,
+    "FormattedAddress": "כפר הס",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972543202030",
+    "Coordinates_c": {
+      "lat": 32.247721,
+      "lng": 34.935137
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "8ghtptbd",
+    "Name_c": "הודיה מוקדם",
+    "Settelment_c": "בת ים",
+    "Address_c": null,
+    "FormattedAddress": "בת ים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972527125264",
+    "Coordinates_c": {
+      "lat": 32.013186,
+      "lng": 34.748019
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "lzn8x93m",
+    "Name_c": "הילה",
+    "Settelment_c": "אורנית",
+    "Address_c": null,
+    "FormattedAddress": "אורנית",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548842683",
+    "Coordinates_c": {
+      "lat": 32.131924,
+      "lng": 34.99081
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "iww18uxe",
+    "Name_c": "הילה ורנר",
+    "Settelment_c": "אליקים",
+    "Address_c": "משק 29",
+    "FormattedAddress": "משק 29, אליקים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528419298",
+    "Coordinates_c": {
+      "lat": 32.633345,
+      "lng": 35.067613
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ag0vfjx3",
+    "Name_c": "הילה קליין",
+    "Settelment_c": "מודיעין",
+    "Address_c": "ענבר 18",
+    "FormattedAddress": "ענבר 18, מודיעין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972525211361",
+    "Coordinates_c": {
+      "lat": 31.9054743,
+      "lng": 34.9950792
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "e4aau3x4",
+    "Name_c": "הילה שגיב",
+    "Settelment_c": "אשקלון",
+    "Address_c": "הנשיא 22",
+    "FormattedAddress": "הנשיא 22, אשקלון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544545063",
+    "Coordinates_c": {
+      "lat": 31.6736167,
+      "lng": 34.5655164
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9e9gbhzh",
+    "Name_c": "הלנה זיו",
+    "Settelment_c": "אל-רום",
+    "Address_c": "צפון הגולן",
+    "FormattedAddress": "צפון הגולן, אל-רום",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505902017",
+    "Coordinates_c": {
+      "lat": 33.180519,
+      "lng": 35.770095
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "bq1ig1z3",
+    "Name_c": "הנרי טוביאס",
+    "Settelment_c": "מעלה אדומים",
+    "Address_c": "השמינית 17",
+    "FormattedAddress": "השמינית 17, מעלה אדומים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544727171",
+    "Coordinates_c": {
+      "lat": 31.77757429999999,
+      "lng": 35.2936075
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "mi0o93se",
+    "Name_c": "ורד ברום",
+    "Settelment_c": "גבעת אלה",
+    "Address_c": null,
+    "FormattedAddress": "גבעת אלה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508512868",
+    "Coordinates_c": {
+      "lat": 32.722007,
+      "lng": 35.244822
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "itd7ccqs",
+    "Name_c": "ורדית בארי",
+    "Settelment_c": "רמות",
+    "Address_c": null,
+    "FormattedAddress": "רמות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246737938",
+    "Coordinates_c": {
+      "lat": 32.850365,
+      "lng": 35.665245
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "zzd0efoq",
+    "Name_c": "ורה בן  יצחק",
+    "Settelment_c": "קשת",
+    "Address_c": null,
+    "FormattedAddress": "קשת",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528348512",
+    "Type": "private"
+  },
+  {
+    "_id": "sl9b7txa",
+    "Name_c": "חברים לרפואה",
+    "Settelment_c": "בני ברק",
+    "Address_c": "שמואל הנביא 4",
+    "FormattedAddress": "שמואל הנביא 4, בני ברק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235792220",
+    "Coordinates_c": {
+      "lat": 32.0901671,
+      "lng": 34.8254961
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "3ghq1oor",
+    "Name_c": "חגית ביטמן",
+    "Settelment_c": "אושה",
+    "Address_c": null,
+    "FormattedAddress": "אושה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972542558324",
+    "Coordinates_c": {
+      "lat": 32.796458,
+      "lng": 35.114584
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "3pqr3yhy",
+    "Name_c": "חגית יוסף",
+    "Settelment_c": "טלמון",
+    "Address_c": "הגפן 15, נריה",
+    "FormattedAddress": "הגפן 15, נריה, טלמון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544769445",
+    "Coordinates_c": {
+      "lat": 31.95370599999999,
+      "lng": 35.127511
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "icv3pob5",
+    "Name_c": "חדוה סגל",
+    "Settelment_c": "עפולה",
+    "Address_c": "שרת 17",
+    "FormattedAddress": "שרת 17, עפולה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972545520540",
+    "Coordinates_c": {
+      "lat": 32.609553,
+      "lng": 35.2861011
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "mxjz207j",
+    "Name_c": "חוי פילוסוף",
+    "Settelment_c": "שוהם",
+    "Address_c": "קדם 84",
+    "FormattedAddress": "קדם 84, שוהם",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972542450785",
+    "Coordinates_c": {
+      "lat": 31.9949793,
+      "lng": 34.9503001
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "o80697rk",
+    "Name_c": "חיה חסידה",
+    "Settelment_c": "אלומה",
+    "Address_c": "שדה גת",
+    "FormattedAddress": "שדה גת, אלומה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972533150045",
+    "Type": "private"
+  },
+  {
+    "_id": "zmbzsef1",
+    "Name_c": "חיים ויעל סאבו",
+    "Settelment_c": "קרית מוצקין",
+    "Address_c": "יהודה הלוי 11",
+    "FormattedAddress": "יהודה הלוי 11, קרית מוצקין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526769555",
+    "Coordinates_c": {
+      "lat": 32.8342593,
+      "lng": 35.0750314
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "m7ok4eso",
+    "Name_c": "חנה אורבך",
+    "Settelment_c": "ראשון לציון",
+    "Address_c": "בילינסון 11",
+    "FormattedAddress": "בילינסון 11, ראשון לציון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239650107",
+    "Coordinates_c": {
+      "lat": 31.9957441,
+      "lng": 34.7507542
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "cnpy0p1e",
+    "Name_c": "חנה זאם",
+    "Settelment_c": "ירושלים",
+    "Address_c": "מרדכי אלקחי 16/12",
+    "FormattedAddress": "מרדכי אלקחי 16/12, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97226718270",
+    "Coordinates_c": {
+      "lat": 31.7500156,
+      "lng": 35.23185830000001
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9op1781k",
+    "Name_c": "חנה פרידמן",
+    "Settelment_c": "עלי זהב",
+    "Address_c": "החיל 36",
+    "FormattedAddress": "החיל 36, עלי זהב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507119363",
+    "Coordinates_c": {
+      "lat": 32.072227,
+      "lng": 35.064135
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "4kkn6t0e",
+    "Name_c": "חנות שפע רמות",
+    "Settelment_c": "ירושלים",
+    "Address_c": "המשורר אצ\"ג 2",
+    "FormattedAddress": "המשורר אצ\"ג 2, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97225713346",
+    "Coordinates_c": {
+      "lat": 31.8209956,
+      "lng": 35.1874592
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "l9mstyu5",
+    "Name_c": "חני שכטר",
+    "Settelment_c": "אלעד",
+    "Address_c": "יונתן בן עוזיאל 24",
+    "FormattedAddress": "יונתן בן עוזיאל 24, אלעד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239160411",
+    "Coordinates_c": {
+      "lat": 32.0487439,
+      "lng": 34.9603917
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "tklbmivb",
+    "Name_c": "טופז בר-גיל",
+    "Settelment_c": "מודיעין",
+    "Address_c": "גולדה מאיר 30",
+    "FormattedAddress": "גולדה מאיר 30, מודיעין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523667667",
+    "Coordinates_c": {
+      "lat": 31.9026333,
+      "lng": 34.9866646
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "k2mufrs1",
+    "Name_c": "טל ליאון",
+    "Settelment_c": "ניר עציון",
+    "Address_c": null,
+    "FormattedAddress": "ניר עציון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972503238006",
+    "Coordinates_c": {
+      "lat": 32.699125,
+      "lng": 34.992526
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "55t50ozj",
+    "Name_c": "טלי דורי",
+    "Settelment_c": "אשקלון",
+    "Address_c": "קיסריה 17",
+    "FormattedAddress": "קיסריה 17, אשקלון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508496712",
+    "Coordinates_c": {
+      "lat": 31.6661807,
+      "lng": 34.5794438
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "n39q81yb",
+    "Name_c": "טלי שקד",
+    "Settelment_c": "חיפה",
+    "Address_c": "חביבה רייך 47",
+    "FormattedAddress": "חביבה רייך 47, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507736937",
+    "Coordinates_c": {
+      "lat": 32.7781808,
+      "lng": 35.0081244
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "d3dlg8g0",
+    "Name_c": "טליה בר זיו",
+    "Settelment_c": "הסוללים",
+    "Address_c": "אלה 98",
+    "FormattedAddress": "אלה 98, הסוללים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544322210",
+    "Coordinates_c": {
+      "lat": 32.749443,
+      "lng": 35.240512
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ft2lhjrr",
+    "Name_c": "יבה פרייליך",
+    "Settelment_c": "מעלות-תרשיחא",
+    "Address_c": "דם המכבים 8",
+    "FormattedAddress": "דם המכבים 8, מעלות-תרשיחא",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972503046787",
+    "Coordinates_c": {
+      "lat": 33.025465,
+      "lng": 35.2783496
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "m9j9ps7k",
+    "Name_c": "יהודה שוורץ",
+    "Settelment_c": "צפריה",
+    "Address_c": "רימון 5",
+    "FormattedAddress": "רימון 5, צפריה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239606290",
+    "Coordinates_c": {
+      "lat": 32.006729,
+      "lng": 34.856598
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "7p26m2yf",
+    "Name_c": "יואב קליגר",
+    "Settelment_c": "פרדס חנה-כרכור",
+    "Address_c": "הבוטנים 8",
+    "FormattedAddress": "הבוטנים 8, פרדס חנה-כרכור",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548086281",
+    "Coordinates_c": {
+      "lat": 32.4661316,
+      "lng": 34.9762732
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "kxy03ol0",
+    "Name_c": "יואב שורץ",
+    "Settelment_c": "צור יגאל",
+    "Address_c": "נוף הרים 190",
+    "FormattedAddress": "נוף הרים 190, צור יגאל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972543099923",
+    "Coordinates_c": {
+      "lat": 32.21729,
+      "lng": 34.9948337
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "o6yusxkw",
+    "Name_c": "יוני פורטנוי",
+    "Settelment_c": "צופים",
+    "Address_c": "החרוב 163",
+    "FormattedAddress": "החרוב 163, צופים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548350178",
+    "Coordinates_c": {
+      "lat": 32.198965,
+      "lng": 35.010245
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "pe1n4faq",
+    "Name_c": "יוסי אלי",
+    "Settelment_c": "נען",
+    "Address_c": null,
+    "FormattedAddress": "נען",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507400012",
+    "Coordinates_c": {
+      "lat": 31.883208,
+      "lng": 34.859237
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "3iru53hv",
+    "Name_c": "יוסי אסולין",
+    "Settelment_c": "קרית מוצקין",
+    "Address_c": "האלה 10",
+    "FormattedAddress": "האלה 10, קרית מוצקין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97248767570",
+    "Coordinates_c": {
+      "lat": 32.84302,
+      "lng": 35.08585
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "03mndkfw",
+    "Name_c": "יוסף נינוה",
+    "Settelment_c": "תל מונד",
+    "Address_c": "היסמין 19",
+    "FormattedAddress": "היסמין 19, תל מונד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97297962656",
+    "Coordinates_c": {
+      "lat": 32.247325,
+      "lng": 34.913263
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "31wg0fi7",
+    "Name_c": "יוסף שובל",
+    "Settelment_c": "ראש העין",
+    "Address_c": "שבזי 140",
+    "FormattedAddress": "שבזי 140, ראש העין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523525282",
+    "Coordinates_c": {
+      "lat": 32.090304,
+      "lng": 34.947393
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "fs1foh35",
+    "Name_c": "יניב קריגר",
+    "Settelment_c": "מדרשת בן גוריון",
+    "Address_c": "עין מור 4",
+    "FormattedAddress": "עין מור 4, מדרשת בן גוריון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507608753",
+    "Coordinates_c": {
+      "lat": 30.8521227,
+      "lng": 34.7778825
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "80aptby5",
+    "Name_c": "יעל נדלר",
+    "Settelment_c": "בית גמליאל",
+    "Address_c": "התאנה 210",
+    "FormattedAddress": "התאנה 210, בית גמליאל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506282376",
+    "Coordinates_c": {
+      "lat": 31.8586256,
+      "lng": 34.7614337
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "x7b5m70t",
+    "Name_c": "יעל נזרי",
+    "Settelment_c": "מעלה אדומים",
+    "Address_c": "הר סרטבה 12",
+    "FormattedAddress": "הר סרטבה 12, מעלה אדומים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506232205",
+    "Coordinates_c": {
+      "lat": 31.76916619999999,
+      "lng": 35.29974
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "z2qkieqo",
+    "Name_c": "יעקב לוי",
+    "Settelment_c": "יקנעם (מושבה)",
+    "Address_c": "מעלה הרקפות",
+    "FormattedAddress": "מעלה הרקפות, יקנעם (מושבה)",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249893978",
+    "Coordinates_c": {
+      "lat": 32.653194,
+      "lng": 35.11231
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "11i2f96i",
+    "Name_c": "יפה ויל",
+    "Settelment_c": "רעננה",
+    "Address_c": "סוקולוב 13",
+    "FormattedAddress": "סוקולוב 13, רעננה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97297744863",
+    "Coordinates_c": {
+      "lat": 32.1803646,
+      "lng": 34.8673686
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "3lu681rf",
+    "Name_c": "יפה כהן",
+    "Settelment_c": "חדרה",
+    "Address_c": "שניר 3",
+    "FormattedAddress": "שניר 3, חדרה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522947003",
+    "Coordinates_c": {
+      "lat": 32.4300971,
+      "lng": 34.9323015
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "aa8n5r5x",
+    "Name_c": "יפעת יגל",
+    "Settelment_c": "עלומים",
+    "Address_c": null,
+    "FormattedAddress": "עלומים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972547792863",
+    "Type": "private"
+  },
+  {
+    "_id": "cgdxudi8",
+    "Name_c": "יצחק פלוצקי",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "רוזובסקי 3",
+    "FormattedAddress": "רוזובסקי 3, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548448496",
+    "Coordinates_c": {
+      "lat": 32.0689625,
+      "lng": 34.9143409
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "dicqjlnh",
+    "Name_c": "ישראל פופר",
+    "Settelment_c": "חיפה",
+    "Address_c": "אהבת ישראל 6",
+    "FormattedAddress": "אהבת ישראל 6, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972583200881",
+    "Coordinates_c": {
+      "lat": 32.8006444,
+      "lng": 35.0040746
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "why0six7",
+    "Name_c": "כדיה סולימן",
+    "Settelment_c": "רעננה",
+    "Address_c": "שמואל הנגיד 49",
+    "FormattedAddress": "שמואל הנגיד 49, רעננה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97297717172",
+    "Coordinates_c": {
+      "lat": 32.1916445,
+      "lng": 34.8729741
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "kexjx2k5",
+    "Name_c": "לאה גולד",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "מסקין 25",
+    "FormattedAddress": "מסקין 25, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97236191640",
+    "Coordinates_c": {
+      "lat": 32.0731418,
+      "lng": 34.875752
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "l481vww4",
+    "Name_c": "לאה וינטר",
+    "Settelment_c": "כפר מימון",
+    "Address_c": "הזית 78",
+    "FormattedAddress": "הזית 78, כפר מימון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972527052237",
+    "Coordinates_c": {
+      "lat": 31.430102,
+      "lng": 34.533331
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "7wytwwuo",
+    "Name_c": "לאה פרידמן",
+    "Settelment_c": "בארות יצחק",
+    "Address_c": null,
+    "FormattedAddress": "בארות יצחק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505972437",
+    "Coordinates_c": {
+      "lat": 32.042025,
+      "lng": 34.910221
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "zc9tclw0",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "חולון",
+    "Address_c": "דון יוסף הנשיא 6",
+    "FormattedAddress": "דון יוסף הנשיא 6, חולון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235086860",
+    "Coordinates_c": {
+      "lat": 32.0240167,
+      "lng": 34.7696935
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "db5egoqt",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "קרית מוצקין",
+    "Address_c": "גושן 1",
+    "FormattedAddress": "גושן 1, קרית מוצקין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249008980",
+    "Coordinates_c": {
+      "lat": 32.824202,
+      "lng": 35.0786808
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "kg4bws4u",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "עכו",
+    "Address_c": "דרך הארבעה 22",
+    "FormattedAddress": "דרך הארבעה 22, עכו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97248184284",
+    "Coordinates_c": {
+      "lat": 32.9262836,
+      "lng": 35.0792119
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ykcx6fmg",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "חיים לבנון 94, רמת אביב",
+    "FormattedAddress": "חיים לבנון 94, רמת אביב, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235086890",
+    "Coordinates_c": {
+      "lat": 32.1208363,
+      "lng": 34.8025004
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "neydwjp6",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "גבעתיים",
+    "Address_c": "כצנלסון 142",
+    "FormattedAddress": "כצנלסון 142, גבעתיים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235086880",
+    "Coordinates_c": {
+      "lat": 32.0761216,
+      "lng": 34.8172127
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "e2tb72ul",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "רמלה",
+    "Address_c": "הרצל 59",
+    "FormattedAddress": "הרצל 59, רמלה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286217170",
+    "Coordinates_c": {
+      "lat": 31.929941,
+      "lng": 34.8704996
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "1i9i4yz1",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "אצ\"ל 40",
+    "FormattedAddress": "אצ\"ל 40, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235086830",
+    "Coordinates_c": {
+      "lat": 32.0513382,
+      "lng": 34.791493
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "rpx87gcp",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "אשדוד",
+    "Address_c": "הבנים 5",
+    "FormattedAddress": "הבנים 5, אשדוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286196280",
+    "Coordinates_c": {
+      "lat": 31.7950651,
+      "lng": 34.6400176
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "seezcnut",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "הרצליה",
+    "Address_c": "בן גוריון 21",
+    "FormattedAddress": "בן גוריון 21, הרצליה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97297886492",
+    "Coordinates_c": {
+      "lat": 32.1633125,
+      "lng": 34.8427737
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "zf3m8hjg",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "איכילוב 11",
+    "FormattedAddress": "איכילוב 11, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235086825",
+    "Coordinates_c": {
+      "lat": 32.0874967,
+      "lng": 34.8839791
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ew1ye19t",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "רחובות",
+    "Address_c": "טלר 21",
+    "FormattedAddress": "טלר 21, רחובות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289571938",
+    "Coordinates_c": {
+      "lat": 31.895651,
+      "lng": 34.8104504
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "o945cscm",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה",
+    "Settelment_c": "חיפה",
+    "Address_c": "חורי 1",
+    "FormattedAddress": "חורי 1, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246771000",
+    "Coordinates_c": {
+      "lat": 32.8151432,
+      "lng": 34.9970288
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9s1svt0k",
+    "Name_c": "לב זהב - שרותי סיעוד ורווחה - משרדי ההנהלה",
+    "Settelment_c": "חולון",
+    "Address_c": "הכישור 30",
+    "FormattedAddress": "הכישור 30, חולון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235086888",
+    "Coordinates_c": {
+      "lat": 32.0040079,
+      "lng": 34.8022417
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "hr13pvr3",
+    "Name_c": "ליאורה בן אריה",
+    "Settelment_c": "חיפה",
+    "Address_c": "קלר 2",
+    "FormattedAddress": "קלר 2, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505945955",
+    "Coordinates_c": {
+      "lat": 32.8036369,
+      "lng": 34.9837026
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "oyjpript",
+    "Name_c": "ליאת איילון",
+    "Settelment_c": "בית אריה",
+    "Address_c": "השירה העברית 51",
+    "FormattedAddress": "השירה העברית 51, בית אריה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522907597",
+    "Coordinates_c": {
+      "lat": 32.040672,
+      "lng": 35.045892
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "zck1vc3k",
+    "Name_c": "ליז טל",
+    "Settelment_c": "גן יאשיה",
+    "Address_c": null,
+    "FormattedAddress": "גן יאשיה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544865014",
+    "Coordinates_c": {
+      "lat": 32.349487,
+      "lng": 34.996245
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "aqk8k2r0",
+    "Name_c": "לימור מיכאלי",
+    "Settelment_c": "בית חירות",
+    "Address_c": "האגוז 162",
+    "FormattedAddress": "האגוז 162, בית חירות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97298664583",
+    "Coordinates_c": {
+      "lat": 32.3753526,
+      "lng": 34.8748453
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "kfea49hs",
+    "Name_c": "לינוי משה",
+    "Settelment_c": "ראשון לציון",
+    "Address_c": null,
+    "FormattedAddress": "ראשון לציון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972543019401",
+    "Coordinates_c": {
+      "lat": 31.9730015,
+      "lng": 34.7925013
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "8zuhwqs8",
+    "Name_c": "לירז מדינה",
+    "Settelment_c": "שדרות",
+    "Address_c": "משעול הערבה 1/3",
+    "FormattedAddress": "משעול הערבה 1/3, שדרות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972525409457",
+    "Coordinates_c": {
+      "lat": 31.52269399999999,
+      "lng": 34.595581
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "bylfoa1o",
+    "Name_c": "מאיר דניאל",
+    "Settelment_c": "יהוד-נווה אפרים",
+    "Address_c": "הרצל 16",
+    "FormattedAddress": "הרצל 16, יהוד-נווה אפרים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972525459091",
+    "Coordinates_c": {
+      "lat": 32.0318089,
+      "lng": 34.8861378
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5nac9yio",
+    "Name_c": "מאיר ודינה פלג",
+    "Settelment_c": "חיפה",
+    "Address_c": "נתיב חן 1",
+    "FormattedAddress": "נתיב חן 1, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97248222192",
+    "Coordinates_c": {
+      "lat": 32.7961471,
+      "lng": 35.0100183
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "fdrh36nz",
+    "Name_c": "מאירי-איתן תמי",
+    "Settelment_c": "ירושלים",
+    "Address_c": "קוסטה ריקה 42",
+    "FormattedAddress": "קוסטה ריקה 42, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249581284",
+    "Coordinates_c": {
+      "lat": 31.7514897,
+      "lng": 35.17264249999999
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "jg5u3tjd",
+    "Name_c": "מוטי גולן",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": null,
+    "FormattedAddress": "פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505607290",
+    "Coordinates_c": {
+      "lat": 32.084041,
+      "lng": 34.887762
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "8rlpmcqi",
+    "Name_c": "מועדון גמלאי ארגון עובדי צה\"ל",
+    "Settelment_c": "רמת גן",
+    "Address_c": "קריניצי 6",
+    "FormattedAddress": "קריניצי 6, רמת גן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544878989",
+    "Coordinates_c": {
+      "lat": 32.0790204,
+      "lng": 34.8155635
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "hlmtww85",
+    "Name_c": "מועדון גמלאי בזק",
+    "Settelment_c": "ירושלים",
+    "Address_c": "בית הדפוס 11 ק3 - לובי 4",
+    "FormattedAddress": "בית הדפוס 11 ק3 - לובי 4, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97225671111",
+    "Coordinates_c": {
+      "lat": 31.7860922,
+      "lng": 35.1918269
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "56wwdtj9",
+    "Name_c": "מועדון גמלאי בזק",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "המסגר 45",
+    "FormattedAddress": "המסגר 45, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97236265444",
+    "Coordinates_c": {
+      "lat": 32.0666876,
+      "lng": 34.7865203
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "lri81fod",
+    "Name_c": "מועצה אזורית אשכול",
+    "Settelment_c": "מועצה אזורית אשכול",
+    "Address_c": null,
+    "FormattedAddress": "מועצה אזורית אשכול",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289929111",
+    "Coordinates_c": {
+      "lat": 31.2068084,
+      "lng": 34.4641848
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ybxryz7y",
+    "Name_c": "מור שלו",
+    "Settelment_c": "מזכרת בתיה",
+    "Address_c": "האחים יעקב וצבי ארקין 12",
+    "FormattedAddress": "האחים יעקב וצבי ארקין 12, מזכרת בתיה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972546331687",
+    "Coordinates_c": {
+      "lat": 31.8509378,
+      "lng": 34.8506391
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ksqg5m55",
+    "Name_c": "מורין גילוני",
+    "Settelment_c": "הרצליה",
+    "Address_c": "פנחס רוזן 50",
+    "FormattedAddress": "פנחס רוזן 50, הרצליה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97299510697",
+    "Coordinates_c": {
+      "lat": 32.1667848,
+      "lng": 34.8161548
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "qrof7dco",
+    "Name_c": "מטב  אילת",
+    "Settelment_c": "אילת",
+    "Address_c": "קרית המשרדים, חט' הנגב 9",
+    "FormattedAddress": "קרית המשרדים, חט' הנגב 9, אילת",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286375924",
+    "Coordinates_c": {
+      "lat": 29.557669,
+      "lng": 34.951925
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "8kcu7gr7",
+    "Name_c": "מטב אופקים",
+    "Settelment_c": "אופקים",
+    "Address_c": "שדרות הרצל 5",
+    "FormattedAddress": "שדרות הרצל 5, אופקים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289926088",
+    "Coordinates_c": {
+      "lat": 31.320138,
+      "lng": 34.6200799
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "a608zb32",
+    "Name_c": "מטב אור יהודה",
+    "Settelment_c": "אור יהודה",
+    "Address_c": "יוני נתניהו 6",
+    "FormattedAddress": "יוני נתניהו 6, אור יהודה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972722160078",
+    "Coordinates_c": {
+      "lat": 32.0225334,
+      "lng": 34.8597006
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "1e6f5wms",
+    "Name_c": "מטב אשדוד",
+    "Settelment_c": "אשדוד",
+    "Address_c": "הבנים 1",
+    "FormattedAddress": "הבנים 1, אשדוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97288652701",
+    "Coordinates_c": {
+      "lat": 31.7951091,
+      "lng": 34.639741
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "sr7yxemp",
+    "Name_c": "מטב אשקלון",
+    "Settelment_c": "אשקלון",
+    "Address_c": "הרצל 5 קומה 3 (בנין בנק ירושלים)",
+    "FormattedAddress": "הרצל 5 קומה 3 (בנין בנק ירושלים), אשקלון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286725725",
+    "Coordinates_c": {
+      "lat": 31.6687885,
+      "lng": 34.5742523
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "4axvj1aj",
+    "Name_c": "מטב באר שבע",
+    "Settelment_c": "באר שבע",
+    "Address_c": "שד' יצחק רגר 51, קומת משרדים (1)",
+    "FormattedAddress": "שד' יצחק רגר 51, קומת משרדים (1), באר שבע",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286276033",
+    "Coordinates_c": {
+      "lat": 31.253348,
+      "lng": 34.798483
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "vzdmfmu0",
+    "Name_c": "מטב בית שמש",
+    "Settelment_c": "בית שמש",
+    "Address_c": "קניון נעימי, דרך יצחק רבין 2 בנין A ק. 2",
+    "FormattedAddress": "קניון נעימי, דרך יצחק רבין 2 בנין A ק. 2, בית שמש",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97229913291",
+    "Coordinates_c": {
+      "lat": 31.747717,
+      "lng": 34.9930791
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "4b97ytq4",
+    "Name_c": "מטב בני ברק",
+    "Settelment_c": "בני ברק",
+    "Address_c": "הירדן 37 - מגדלי שקל",
+    "FormattedAddress": "הירדן 37 - מגדלי שקל, בני ברק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235792381",
+    "Coordinates_c": {
+      "lat": 32.0923029,
+      "lng": 34.8390917
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "b4td002a",
+    "Name_c": "מטב בת ים",
+    "Settelment_c": "בת ים",
+    "Address_c": "בת-ימון, ניסנבאום יצחק 33 (קומה א')",
+    "FormattedAddress": "בת-ימון, ניסנבאום יצחק 33 (קומה א'), בת ים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97237717788",
+    "Coordinates_c": {
+      "lat": 32.0102909,
+      "lng": 34.7439066
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "hxwohnjj",
+    "Name_c": "מטב גדרה",
+    "Settelment_c": "גדרה",
+    "Address_c": "בן גוריון 105, קניון לב המושבה (קומה 1)",
+    "FormattedAddress": "בן גוריון 105, קניון לב המושבה (קומה 1), גדרה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97288593027",
+    "Coordinates_c": {
+      "lat": 31.8042301,
+      "lng": 34.7838441
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "jqgniiyc",
+    "Name_c": "מטב דימונה",
+    "Settelment_c": "דימונה",
+    "Address_c": "זבוטינסקי 1",
+    "FormattedAddress": "זבוטינסקי 1, דימונה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286557649",
+    "Coordinates_c": {
+      "lat": 31.06547299999999,
+      "lng": 35.032565
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "w0uvfr3v",
+    "Name_c": "מטב הרצליה",
+    "Settelment_c": "הרצליה",
+    "Address_c": "הדר 2 (קומה 5)",
+    "FormattedAddress": "הדר 2 (קומה 5), הרצליה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97299563105",
+    "Coordinates_c": {
+      "lat": 32.1675895,
+      "lng": 34.8492667
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "yxikqblj",
+    "Name_c": "מטב זכרון יעקב - מרחבי כרמל",
+    "Settelment_c": "זכרון יעקב",
+    "Address_c": "הנדיב 14",
+    "FormattedAddress": "הנדיב 14, זכרון יעקב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249125757",
+    "Coordinates_c": {
+      "lat": 32.5741036,
+      "lng": 34.9534991
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "hobxikim",
+    "Name_c": "מטב חדרה",
+    "Settelment_c": "חדרה",
+    "Address_c": "הרצל 25",
+    "FormattedAddress": "הרצל 25, חדרה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246345961",
+    "Coordinates_c": {
+      "lat": 32.437068,
+      "lng": 34.9188089
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "jtn350p7",
+    "Name_c": "מטב חולון",
+    "Settelment_c": "חולון",
+    "Address_c": "ההסתדרות 35",
+    "FormattedAddress": "ההסתדרות 35, חולון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235024400",
+    "Coordinates_c": {
+      "lat": 32.0183059,
+      "lng": 34.7709615
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ylttod3h",
+    "Name_c": "מטב חיפה",
+    "Settelment_c": "חיפה",
+    "Address_c": "חורי 1 (קומה 7)",
+    "FormattedAddress": "חורי 1 (קומה 7), חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97248640642",
+    "Coordinates_c": {
+      "lat": 32.8151432,
+      "lng": 34.9970288
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "cejc3iq0",
+    "Name_c": "מטב טבריה",
+    "Settelment_c": "טבריה",
+    "Address_c": "הגליל 52 , בנין גליל סנטר קומה ג'",
+    "FormattedAddress": "הגליל 52 , בנין גליל סנטר קומה ג', טבריה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246790013",
+    "Coordinates_c": {
+      "lat": 32.7842076,
+      "lng": 35.541299
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "lbnhlri3",
+    "Name_c": "מטב יבנה",
+    "Settelment_c": "יבנה",
+    "Address_c": "שד' דואני 18",
+    "FormattedAddress": "שד' דואני 18, יבנה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289332358",
+    "Coordinates_c": {
+      "lat": 31.8733271,
+      "lng": 34.7386009
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9csnmgok",
+    "Name_c": "מטב יהוד",
+    "Settelment_c": "יהוד-נווה אפרים",
+    "Address_c": "סעדיה חתוכה 41",
+    "FormattedAddress": "סעדיה חתוכה 41, יהוד-נווה אפרים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97237504355",
+    "Coordinates_c": {
+      "lat": 32.0316804,
+      "lng": 34.8884266
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5hoch4d0",
+    "Name_c": "מטב יפו",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "בן צבי 2 (קומה 4) - בית דחף",
+    "FormattedAddress": "בן צבי 2 (קומה 4) - בית דחף, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97236836610",
+    "Coordinates_c": {
+      "lat": 32.0505784,
+      "lng": 34.7593084
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "y2pktlja",
+    "Name_c": "מטב ירושלים",
+    "Settelment_c": "ירושלים",
+    "Address_c": "אגריפס 42 בנין כי\"ח (קומה 2)",
+    "FormattedAddress": "אגריפס 42 בנין כי\"ח (קומה 2), ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97226233047",
+    "Coordinates_c": {
+      "lat": 31.78430789999999,
+      "lng": 35.2142372
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "txqorwy6",
+    "Name_c": "מטב כרמיאל",
+    "Settelment_c": "כרמיאל",
+    "Address_c": "קניון לב כרמיאל - מורד הגיא 100",
+    "FormattedAddress": "קניון לב כרמיאל - מורד הגיא 100, כרמיאל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249885189",
+    "Coordinates_c": {
+      "lat": 32.9085443,
+      "lng": 35.2928099
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "fh5buybt",
+    "Name_c": "מטב לוד",
+    "Settelment_c": "לוד",
+    "Address_c": "שד' הציונות 1 (קומה 8) -  מגדל קיסר",
+    "FormattedAddress": "שד' הציונות 1 (קומה 8) -  מגדל קיסר, לוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289248397",
+    "Coordinates_c": {
+      "lat": 31.9455125,
+      "lng": 34.89340790000001
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "m9wees8v",
+    "Name_c": "מטב מגדל העמק",
+    "Settelment_c": "מגדל העמק",
+    "Address_c": "דרך העמק 8 קניון לב העמק  קומה 2",
+    "FormattedAddress": "דרך העמק 8 קניון לב העמק  קומה 2, מגדל העמק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246436262",
+    "Coordinates_c": {
+      "lat": 32.6759949,
+      "lng": 35.2402267
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "uebelcrh",
+    "Name_c": "מטב מודיעין",
+    "Settelment_c": "מודיעין",
+    "Address_c": "קניון עזריאלי - בית יהונתן (קומה 5)",
+    "FormattedAddress": "קניון עזריאלי - בית יהונתן (קומה 5), מודיעין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286371031",
+    "Coordinates_c": {
+      "lat": 31.89911699999999,
+      "lng": 35.00741600000001
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "c5djh79g",
+    "Name_c": "מטב נהריה",
+    "Settelment_c": "נהריה",
+    "Address_c": "הרצל 64",
+    "FormattedAddress": "הרצל 64, נהריה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249925347",
+    "Coordinates_c": {
+      "lat": 33.0069231,
+      "lng": 35.0962626
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "iea3ihsx",
+    "Name_c": "מטב נתיבות",
+    "Settelment_c": "נתיבות",
+    "Address_c": "ירושלים 35",
+    "FormattedAddress": "ירושלים 35, נתיבות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289945933",
+    "Coordinates_c": {
+      "lat": 31.423515,
+      "lng": 34.597638
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "qyct4qtg",
+    "Name_c": "מטב נתניה",
+    "Settelment_c": "נתניה",
+    "Address_c": "פינסקר 18",
+    "FormattedAddress": "פינסקר 18, נתניה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97298622603",
+    "Coordinates_c": {
+      "lat": 32.3261584,
+      "lng": 34.8582663
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "e5zwxa68",
+    "Name_c": "מטב עפולה",
+    "Settelment_c": "עפולה",
+    "Address_c": "יהושע חנקין 34, בית עטרת",
+    "FormattedAddress": "יהושע חנקין 34, בית עטרת, עפולה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972722160726",
+    "Coordinates_c": {
+      "lat": 32.60323899999999,
+      "lng": 35.2973399
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "o2qyrur6",
+    "Name_c": "מטב פתח תקווה",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "שטמפפר 45 ק.2",
+    "FormattedAddress": "שטמפפר 45 ק.2, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239344504",
+    "Coordinates_c": {
+      "lat": 32.0916639,
+      "lng": 34.887778
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "09tyli7j",
+    "Name_c": "מטב קריות",
+    "Settelment_c": "חיפה",
+    "Address_c": "שד' ההסתדרות 25",
+    "FormattedAddress": "שד' ההסתדרות 25, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97248494606",
+    "Coordinates_c": {
+      "lat": 32.7909455,
+      "lng": 35.0326324
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "cjismjaq",
+    "Name_c": "מטב קרית אונו",
+    "Settelment_c": "קרית אונו",
+    "Address_c": "לוי אשכול 68, בנין משרדים B קומה 2",
+    "FormattedAddress": "לוי אשכול 68, בנין משרדים B קומה 2, קרית אונו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97236353393",
+    "Coordinates_c": {
+      "lat": 32.054863,
+      "lng": 34.85885800000001
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9641bioi",
+    "Name_c": "מטב קרית מלאכי",
+    "Settelment_c": "קרית מלאכי",
+    "Address_c": "מנחם בגין 1/8",
+    "FormattedAddress": "מנחם בגין 1/8, קרית מלאכי",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97288501270",
+    "Coordinates_c": {
+      "lat": 31.7307107,
+      "lng": 34.7531323
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "orzx7hol",
+    "Name_c": "מטב קרית שמונה",
+    "Settelment_c": "קרית שמונה",
+    "Address_c": "תל חי 77",
+    "FormattedAddress": "תל חי 77, קרית שמונה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246951717",
+    "Coordinates_c": {
+      "lat": 33.2183753,
+      "lng": 35.571068
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "g3ts5gmk",
+    "Name_c": "מטב ראש העין",
+    "Settelment_c": "ראש העין",
+    "Address_c": "שבזי 26",
+    "FormattedAddress": "שבזי 26, ראש העין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239021522",
+    "Coordinates_c": {
+      "lat": 32.0278854,
+      "lng": 34.89731
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "y7uwjd8y",
+    "Name_c": "מטב ראשון לציון",
+    "Settelment_c": "ראשון לציון",
+    "Address_c": "ישראל גלילי 9",
+    "FormattedAddress": "ישראל גלילי 9, ראשון לציון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239662706",
+    "Coordinates_c": {
+      "lat": 31.9701472,
+      "lng": 34.7804112
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "03z3wmaq",
+    "Name_c": "מטב רחובות",
+    "Settelment_c": "רחובות",
+    "Address_c": "המדע 1, פארק המדע",
+    "FormattedAddress": "המדע 1, פארק המדע, רחובות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972732291201",
+    "Coordinates_c": {
+      "lat": 31.9123178,
+      "lng": 34.803695
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "68g4bjtq",
+    "Name_c": "מטב רמלה",
+    "Settelment_c": "רמלה",
+    "Address_c": "בית רוחם - הרצל 59 (קומה 2)",
+    "FormattedAddress": "בית רוחם - הרצל 59 (קומה 2), רמלה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286217272",
+    "Coordinates_c": {
+      "lat": 31.929941,
+      "lng": 34.8704996
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "nueh77ef",
+    "Name_c": "מטב רמת גן",
+    "Settelment_c": "רמת גן",
+    "Address_c": "רח' שילה 2 פינת צומת לבבי 4",
+    "FormattedAddress": "רח' שילה 2 פינת צומת לבבי 4, רמת גן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97236730723",
+    "Coordinates_c": {
+      "lat": 32.0828317,
+      "lng": 34.8152017
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "f3hmogdr",
+    "Name_c": "מטב שדרות",
+    "Settelment_c": "שדרות",
+    "Address_c": "כיכר הנשיא 5",
+    "FormattedAddress": "כיכר הנשיא 5, שדרות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286890482",
+    "Coordinates_c": {
+      "lat": 31.52269399999999,
+      "lng": 34.595581
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "t5himtgm",
+    "Name_c": "מיכל יוסילביץ",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": null,
+    "FormattedAddress": "פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506867127",
+    "Coordinates_c": {
+      "lat": 32.084041,
+      "lng": 34.887762
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ruuma7jv",
+    "Name_c": "מיכל מרציאנו",
+    "Settelment_c": "אשדוד",
+    "Address_c": null,
+    "FormattedAddress": "אשדוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548480436",
+    "Coordinates_c": {
+      "lat": 31.804381,
+      "lng": 34.655314
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "p1t7acqe",
+    "Name_c": "מיכל ניב",
+    "Settelment_c": "גבעת שמואל",
+    "Address_c": "דוד אלעזר 5",
+    "FormattedAddress": "דוד אלעזר 5, גבעת שמואל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528646666",
+    "Coordinates_c": {
+      "lat": 32.080073,
+      "lng": 34.8474895
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "vmlypmy5",
+    "Name_c": "מיכל שלף",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "אריה דולצ'ין 3",
+    "FormattedAddress": "אריה דולצ'ין 3, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526407282",
+    "Coordinates_c": {
+      "lat": 32.1181881,
+      "lng": 34.7922057
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "llewuk04",
+    "Name_c": "מירה פלד",
+    "Settelment_c": "דפנה",
+    "Address_c": "יובלים 1",
+    "FormattedAddress": "יובלים 1, דפנה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544667697",
+    "Coordinates_c": {
+      "lat": 33.23075,
+      "lng": 35.638268
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "mmpkfck1",
+    "Name_c": "מירי חנגה זלמנוביץ",
+    "Settelment_c": "חיפה",
+    "Address_c": "הרדוף",
+    "FormattedAddress": "הרדוף, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972504257744",
+    "Coordinates_c": {
+      "lat": 32.8101236,
+      "lng": 34.9714039
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "hnooqhyn",
+    "Name_c": "מנורה-מבטחים",
+    "Settelment_c": "רמת גן",
+    "Address_c": "ז'בוטינסקי 23",
+    "FormattedAddress": "ז'בוטינסקי 23, רמת גן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972723152908",
+    "Coordinates_c": {
+      "lat": 32.0892602,
+      "lng": 34.7760174
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "sif5rkg6",
+    "Name_c": "מנחם וינגרטן",
+    "Settelment_c": "מודיעין עילית",
+    "Address_c": "נתיבות המשפט 41",
+    "FormattedAddress": "נתיבות המשפט 41, מודיעין עילית",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972535312624",
+    "Coordinates_c": {
+      "lat": 31.9301581,
+      "lng": 35.04527
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ajn66shs",
+    "Name_c": "מעיין",
+    "Settelment_c": "זיתן",
+    "Address_c": null,
+    "FormattedAddress": "זיתן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972502410106",
+    "Coordinates_c": {
+      "lat": 31.975178,
+      "lng": 34.891732
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "vjbd7dx2",
+    "Name_c": "מר פרץ מאיה",
+    "Settelment_c": "רמת גן",
+    "Address_c": "עזריאל 14 א'",
+    "FormattedAddress": "עזריאל 14 א', רמת גן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508240017",
+    "Coordinates_c": {
+      "lat": 32.0506692,
+      "lng": 34.8182591
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "xkk50rrt",
+    "Name_c": "מרדכי עציון",
+    "Settelment_c": "ירושלים",
+    "Address_c": "הסביון 11/2",
+    "FormattedAddress": "הסביון 11/2, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97226430874",
+    "Coordinates_c": {
+      "lat": 31.7541232,
+      "lng": 35.164925
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "4r5y0elt",
+    "Name_c": "מרדכי רובין",
+    "Settelment_c": "מודיעין עילית",
+    "Address_c": "מסילת יוסף 21",
+    "FormattedAddress": "מסילת יוסף 21, מודיעין עילית",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289760985",
+    "Coordinates_c": {
+      "lat": 31.926859,
+      "lng": 35.0426428
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "mj12rt8d",
+    "Name_c": "מרים ברינר",
+    "Settelment_c": "אלקנה",
+    "Address_c": "שיר השירים 119 פ. צרור המור 1 (חניה)",
+    "FormattedAddress": "שיר השירים 119 פ. צרור המור 1 (חניה), אלקנה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239362057",
+    "Coordinates_c": {
+      "lat": 32.1100272,
+      "lng": 35.0314076
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "0clkviz9",
+    "Name_c": "מרים יהושע",
+    "Settelment_c": "ניר יצחק",
+    "Address_c": null,
+    "FormattedAddress": "ניר יצחק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289983449",
+    "Coordinates_c": {
+      "lat": 31.23604,
+      "lng": 34.356702
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "y4izi8el",
+    "Name_c": "מרים לימונד",
+    "Settelment_c": "הרצליה",
+    "Address_c": "גולומב אליהו / זלמן ארן 12",
+    "FormattedAddress": "גולומב אליהו / זלמן ארן 12, הרצליה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972546318139",
+    "Coordinates_c": {
+      "lat": 32.1743986,
+      "lng": 34.8454168
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ykfm9iqk",
+    "Name_c": "מרים תורג'מן",
+    "Settelment_c": "בית שאן",
+    "Address_c": "צבעוני 3",
+    "FormattedAddress": "צבעוני 3, בית שאן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522776126",
+    "Coordinates_c": {
+      "lat": 32.49435200000001,
+      "lng": 35.490681
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "f7yrlhs9",
+    "Name_c": "מרכז דורות בגלבוע",
+    "Settelment_c": "גלבוע",
+    "Address_c": null,
+    "FormattedAddress": "גלבוע",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246421050",
+    "Coordinates_c": {
+      "lat": 32.482477,
+      "lng": 35.4213702
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "4jnap0al",
+    "Name_c": "מרכז יום \"לוסטיגר\"",
+    "Settelment_c": "בת ים",
+    "Address_c": "הרצל 74",
+    "FormattedAddress": "הרצל 74, בת ים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": null,
+    "Coordinates_c": {
+      "lat": 32.0197835,
+      "lng": 34.7434202
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "lm3qf7qy",
+    "Name_c": "מרכז יום גבעת שמואל - הבית על הגבעה",
+    "Settelment_c": "גבעת שמואל",
+    "Address_c": null,
+    "FormattedAddress": "גבעת שמואל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235327060",
+    "Coordinates_c": {
+      "lat": 32.077299,
+      "lng": 34.849206
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "x260wkc2",
+    "Name_c": "מרכז יום לקשיש",
+    "Settelment_c": "יבנה",
+    "Address_c": "נורית 2",
+    "FormattedAddress": "נורית 2, יבנה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97289330066",
+    "Coordinates_c": {
+      "lat": 31.8805692,
+      "lng": 34.7369154
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "w2wo3wh8",
+    "Name_c": "מרכז קהילתי תקוותנו",
+    "Settelment_c": "רחובות",
+    "Address_c": "הרצל 108",
+    "FormattedAddress": "הרצל 108, רחובות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526575663",
+    "Coordinates_c": {
+      "lat": 31.8881445,
+      "lng": 34.813989
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "fdh485aw",
+    "Name_c": "מרכז רייך - לאזרחים ותיקים",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "ארלוזרוב 106",
+    "FormattedAddress": "ארלוזרוב 106, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235220773",
+    "Coordinates_c": {
+      "lat": 32.0848373,
+      "lng": 34.7825805
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "jz5j2lyt",
+    "Name_c": "מרכז תרבות וקהילה בית ראשונים",
+    "Settelment_c": "גבעתיים",
+    "Address_c": "גורדון 24",
+    "FormattedAddress": "גורדון 24, גבעתיים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97236739383",
+    "Coordinates_c": {
+      "lat": 32.0769135,
+      "lng": 34.8104769
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "8dibzjvu",
+    "Name_c": "משה שדה - תשמישי קדושה יודאיקה מתנות",
+    "Settelment_c": "אשדוד",
+    "Address_c": "כינרת 5",
+    "FormattedAddress": "כינרת 5, אשדוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523951001",
+    "Coordinates_c": {
+      "lat": 31.7859077,
+      "lng": 34.6317101
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9mj5bytb",
+    "Name_c": "מתנ\"ס אור יהודה",
+    "Settelment_c": "אור יהודה",
+    "Address_c": "אליהו סעדון 87",
+    "FormattedAddress": "אליהו סעדון 87, אור יהודה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97237353535",
+    "Coordinates_c": {
+      "lat": 32.0261583,
+      "lng": 34.8568297
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "y12n0iei",
+    "Name_c": "מתנ\"ס נווה גן",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "גרינשפן 2 קומה ב'",
+    "FormattedAddress": "גרינשפן 2 קומה ב', פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235742724",
+    "Coordinates_c": {
+      "lat": 32.0958891,
+      "lng": 34.8740452
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "39hz9h9t",
+    "Name_c": "מתנ\"ס עולמות",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "שולזינגר 10",
+    "FormattedAddress": "שולזינגר 10, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239334324",
+    "Coordinates_c": {
+      "lat": 32.084041,
+      "lng": 34.887762
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "gcnzcemi",
+    "Name_c": "מתנ\"ס פרדס כץ",
+    "Settelment_c": "פרדס כץ",
+    "Address_c": "אברבאנל 60",
+    "FormattedAddress": "אברבאנל 60, פרדס כץ",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97236197240",
+    "Type": "private",
+    "Coordinates_c": {
+      "lat": 32.093681,
+      "lng": 34.837008
+    }
+  },
+  {
+    "_id": "8uommc3m",
+    "Name_c": "מתנ\"ס רמת ורבר",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "הפורצים 18",
+    "FormattedAddress": "הפורצים 18, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522586948",
+    "Coordinates_c": {
+      "lat": 32.087676,
+      "lng": 34.876793
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "xwxpt4x3",
+    "Name_c": "מתתיהו רייך",
+    "Settelment_c": "שדה אילן",
+    "Address_c": "הגורן 12",
+    "FormattedAddress": "הגורן 12, שדה אילן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246767617",
+    "Coordinates_c": {
+      "lat": 32.7468577,
+      "lng": 35.42291
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "orx94kng",
+    "Name_c": "נאוה בר",
+    "Settelment_c": "חדרה",
+    "Address_c": "לכיש 21",
+    "FormattedAddress": "לכיש 21, חדרה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972775612279",
+    "Coordinates_c": {
+      "lat": 32.4277512,
+      "lng": 34.9361674
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "o86cs5um",
+    "Name_c": "נאוה מלאכי",
+    "Settelment_c": "חיפה",
+    "Address_c": "שבעת המינים 8",
+    "FormattedAddress": "שבעת המינים 8, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97248713470",
+    "Coordinates_c": {
+      "lat": 32.832138,
+      "lng": 35.0665731
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "750fkmxf",
+    "Name_c": "נגה זאבי",
+    "Settelment_c": "אשדות יעקב איחוד",
+    "Address_c": null,
+    "FormattedAddress": "אשדות יעקב איחוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508652521",
+    "Coordinates_c": {
+      "lat": 32.65877,
+      "lng": 35.579637
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "6cejfk3u",
+    "Name_c": "נדין יוסט",
+    "Settelment_c": "מעלה מכמש",
+    "Address_c": null,
+    "FormattedAddress": "מעלה מכמש",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97225902095",
+    "Coordinates_c": {
+      "lat": 31.879131,
+      "lng": 35.305902
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "bjmn6lu1",
+    "Name_c": "נחמה ישר",
+    "Settelment_c": "עכו",
+    "Address_c": "החרות 3",
+    "FormattedAddress": "החרות 3, עכו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249810459",
+    "Coordinates_c": {
+      "lat": 32.9339104,
+      "lng": 35.0926611
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "78jejv8y",
+    "Name_c": "נטע רודברג",
+    "Settelment_c": "כפר חיים",
+    "Address_c": "הדולב 29",
+    "FormattedAddress": "הדולב 29, כפר חיים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972775601732",
+    "Coordinates_c": {
+      "lat": 32.3557217,
+      "lng": 34.8988545
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "3cqlqiy5",
+    "Name_c": "ניות פצ'ניק",
+    "Settelment_c": "ניצן",
+    "Address_c": "משעול האתרוג 1",
+    "FormattedAddress": "משעול האתרוג 1, ניצן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972547775346",
+    "Coordinates_c": {
+      "lat": 31.732569,
+      "lng": 34.633386
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "juj4awb4",
+    "Name_c": "נילי בלנקי",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "שד' ההשכלה",
+    "FormattedAddress": "שד' ההשכלה, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972524735459",
+    "Coordinates_c": {
+      "lat": 32.068306,
+      "lng": 34.796201
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5xcb4r1n",
+    "Name_c": "נילי ברזל",
+    "Settelment_c": "נתניה",
+    "Address_c": "הוורדים 41",
+    "FormattedAddress": "הוורדים 41, נתניה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508786171",
+    "Coordinates_c": {
+      "lat": 32.270907,
+      "lng": 34.842416
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "iq9oz2wo",
+    "Name_c": "ניסים בשירי",
+    "Settelment_c": "אשדוד",
+    "Address_c": "יסוד המעלה 2",
+    "FormattedAddress": "יסוד המעלה 2, אשדוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97288653273",
+    "Coordinates_c": {
+      "lat": 31.7819082,
+      "lng": 34.6574944
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "xtgmn3z4",
+    "Name_c": "ניסים כהן",
+    "Settelment_c": "מודיעין",
+    "Address_c": "מגדל ים 6/1",
+    "FormattedAddress": "מגדל ים 6/1, מודיעין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506665806",
+    "Coordinates_c": {
+      "lat": 31.9064781,
+      "lng": 34.9941193
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "drb5ixw8",
+    "Name_c": "ניר סודרי",
+    "Settelment_c": "נס ציונה",
+    "Address_c": "משה לרר 16",
+    "FormattedAddress": "משה לרר 16, נס ציונה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505407956",
+    "Coordinates_c": {
+      "lat": 31.930033,
+      "lng": 34.7878156
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "4j4d6y8o",
+    "Name_c": "נירה אגמון",
+    "Settelment_c": "ניר עציון",
+    "Address_c": null,
+    "FormattedAddress": "ניר עציון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246899823",
+    "Coordinates_c": {
+      "lat": 32.699125,
+      "lng": 34.992526
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "zvjju3dm",
+    "Name_c": "נתנאלה ויונה יוניוב",
+    "Settelment_c": "נתיבות",
+    "Address_c": "נצר חזני 2",
+    "FormattedAddress": "נצר חזני 2, נתיבות",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972504174464",
+    "Coordinates_c": {
+      "lat": 31.417696,
+      "lng": 34.570017
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "16ukw56m",
+    "Name_c": "סבטלנה אברמוב",
+    "Settelment_c": "חולון",
+    "Address_c": "הסתדרות 64",
+    "FormattedAddress": "הסתדרות 64, חולון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523983766",
+    "Coordinates_c": {
+      "lat": 32.017341,
+      "lng": 34.7763
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "trlvaqn0",
+    "Name_c": "סיגלית ז",
+    "Settelment_c": "נתניה",
+    "Address_c": null,
+    "FormattedAddress": "נתניה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507925104",
+    "Coordinates_c": {
+      "lat": 32.321458,
+      "lng": 34.853196
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9l3vs5c1",
+    "Name_c": "סימונה שימרלינג",
+    "Settelment_c": "רמת ישי",
+    "Address_c": "מעלה דולב",
+    "FormattedAddress": "מעלה דולב, רמת ישי",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972547557398",
+    "Coordinates_c": {
+      "lat": 32.7039622,
+      "lng": 35.1613826
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "6zve8d40",
+    "Name_c": "סמדר אושרת בסו",
+    "Settelment_c": "נהריה",
+    "Address_c": "חניתה 2/2",
+    "FormattedAddress": "חניתה 2/2, נהריה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972527331468",
+    "Coordinates_c": {
+      "lat": 33.0161953,
+      "lng": 35.0959191
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "sb5gg0f3",
+    "Name_c": "עאדל אבו עיד",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "שפרינצק 5",
+    "FormattedAddress": "שפרינצק 5, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544471123",
+    "Coordinates_c": {
+      "lat": 32.0779111,
+      "lng": 34.8907867
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "babggji4",
+    "Name_c": "עוזי דובי",
+    "Settelment_c": "עומר",
+    "Address_c": "אשל 118",
+    "FormattedAddress": "אשל 118, עומר",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522448854",
+    "Coordinates_c": {
+      "lat": 31.2631113,
+      "lng": 34.8435534
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "sa9lh85g",
+    "Name_c": "עופר ליכטמן",
+    "Settelment_c": "מורן",
+    "Address_c": null,
+    "FormattedAddress": "מורן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972547673830",
+    "Type": "private",
+    "Coordinates_c": {
+      "lat": 32.921637,
+      "lng": 35.39481
+    }
+  },
+  {
+    "_id": "3s1vwaim",
+    "Name_c": "עידית אמסטר",
+    "Settelment_c": "רמת השרון",
+    "Address_c": "השרון 21",
+    "FormattedAddress": "השרון 21, רמת השרון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972503770707",
+    "Coordinates_c": {
+      "lat": 32.1503746,
+      "lng": 34.8404805
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "1mkdkaej",
+    "Name_c": "עיירית קרית מוצקין - אגף הרווחה",
+    "Settelment_c": "קרית מוצקין",
+    "Address_c": "שד' בן גוריון 80",
+    "FormattedAddress": "שד' בן גוריון 80, קרית מוצקין",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249874410",
+    "Coordinates_c": {
+      "lat": 32.83977,
+      "lng": 35.08208219999999
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "czdpiurm",
+    "Name_c": "עינת כהן מימון",
+    "Settelment_c": "נעלה",
+    "Address_c": "טופז 2א",
+    "FormattedAddress": "טופז 2א, נעלה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972526710304",
+    "Coordinates_c": {
+      "lat": 31.9622345,
+      "lng": 35.0583312
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ina3l721",
+    "Name_c": "עירית ריינגולד",
+    "Settelment_c": "אשחר",
+    "Address_c": "התבור 7",
+    "FormattedAddress": "התבור 7, אשחר",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972503046688",
+    "Coordinates_c": {
+      "lat": 32.8852246,
+      "lng": 35.2983444
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "214axca4",
+    "Name_c": "עירית שטקלמכר",
+    "Settelment_c": "כורזים",
+    "Address_c": null,
+    "FormattedAddress": "כורזים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972524827887",
+    "Coordinates_c": {
+      "lat": 32.911112,
+      "lng": 35.55015
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "iomjsxvn",
+    "Name_c": "עליזה אבנעים",
+    "Settelment_c": "מעלה אדומים",
+    "Address_c": "דרך מצפה נבו 85/4",
+    "FormattedAddress": "דרך מצפה נבו 85/4, מעלה אדומים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508296046",
+    "Coordinates_c": {
+      "lat": 31.7935697,
+      "lng": 35.3031943
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "l9ap6vzj",
+    "Name_c": "עמוס ליברמן",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "אחד העם 110",
+    "FormattedAddress": "אחד העם 110, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548000448",
+    "Coordinates_c": {
+      "lat": 32.0688698,
+      "lng": 34.7775748
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "womxewcd",
+    "Name_c": "עמותת ימין סעד",
+    "Settelment_c": "חיפה",
+    "Address_c": "ארלוזורוב 7",
+    "FormattedAddress": "ארלוזורוב 7, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97248671313",
+    "Coordinates_c": {
+      "lat": 32.80664,
+      "lng": 35.0008191
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "r68z4z2i",
+    "Name_c": "עמותת שלהב\"ת",
+    "Settelment_c": "קרית טבעון",
+    "Address_c": "סמטת הלבנה 2",
+    "FormattedAddress": "סמטת הלבנה 2, קרית טבעון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249535750",
+    "Coordinates_c": {
+      "lat": 32.7175369,
+      "lng": 35.1260715
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "b7whrx2h",
+    "Name_c": "עמיהוד שקוביצקי",
+    "Settelment_c": "בני ברק",
+    "Address_c": "חברון 9",
+    "FormattedAddress": "חברון 9, בני ברק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972524508902",
+    "Coordinates_c": {
+      "lat": 32.0837828,
+      "lng": 34.8261509
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "vlpa21jr",
+    "Name_c": "עמית שורין",
+    "Settelment_c": "גבעתיים",
+    "Address_c": null,
+    "FormattedAddress": "גבעתיים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506617231",
+    "Coordinates_c": {
+      "lat": 32.072176,
+      "lng": 34.808871
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "namdx1rk",
+    "Name_c": "ענת מידן",
+    "Settelment_c": "בית דגן",
+    "Address_c": null,
+    "FormattedAddress": "בית דגן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972525382955",
+    "Coordinates_c": {
+      "lat": 32.0017816,
+      "lng": 34.8297087
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "4ojmvqco",
+    "Name_c": "ערן סרברניק",
+    "Settelment_c": "כפר יונה",
+    "Address_c": "שוהם 23",
+    "FormattedAddress": "שוהם 23, כפר יונה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528488853",
+    "Coordinates_c": {
+      "lat": 32.308894,
+      "lng": 34.934942
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "auccrl61",
+    "Name_c": "פאולה סגל",
+    "Settelment_c": "מרכז שפירא",
+    "Address_c": "הזית 14",
+    "FormattedAddress": "הזית 14, מרכז שפירא",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544641562",
+    "Coordinates_c": {
+      "lat": 31.696512,
+      "lng": 34.705509
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "mqfda666",
+    "Name_c": "פיני רבהון - ניקוי יבש",
+    "Settelment_c": "לוד",
+    "Address_c": "שכונת גני איילון - אחיסמך , שבטי ישראל 10",
+    "FormattedAddress": "שכונת גני איילון - אחיסמך , שבטי ישראל 10, לוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972525943333",
+    "Coordinates_c": {
+      "lat": 31.931906,
+      "lng": 34.908576
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "x0cy8qb4",
+    "Name_c": "פנינה גוטמן",
+    "Settelment_c": "מישר",
+    "Address_c": "הדוכיפת 69",
+    "FormattedAddress": "הדוכיפת 69, מישר",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97288591693",
+    "Coordinates_c": {
+      "lat": 31.8190713,
+      "lng": 34.7563312
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "sciheu2t",
+    "Name_c": "פרידה יוסלביץ",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "פנחס חגין 11",
+    "FormattedAddress": "פנחס חגין 11, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506868127",
+    "Coordinates_c": {
+      "lat": 32.0738562,
+      "lng": 34.8681562
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "sordr4px",
+    "Name_c": "פרידה ריין",
+    "Settelment_c": "ביתר עילית",
+    "Address_c": "חיי יצחק 9",
+    "FormattedAddress": "חיי יצחק 9, ביתר עילית",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548410828",
+    "Coordinates_c": {
+      "lat": 31.7014985,
+      "lng": 35.1208784
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "g59pbk7o",
+    "Name_c": "צבי עמרני",
+    "Settelment_c": "מעלה גלבוע",
+    "Address_c": null,
+    "FormattedAddress": "מעלה גלבוע",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505865880",
+    "Coordinates_c": {
+      "lat": 32.476065,
+      "lng": 35.420637
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "qmpo2ikw",
+    "Name_c": "צביקה שכטר",
+    "Settelment_c": "חיפה",
+    "Address_c": "הרי\"ף 7/1",
+    "FormattedAddress": "הרי\"ף 7/1, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523526929",
+    "Coordinates_c": {
+      "lat": 32.7940463,
+      "lng": 34.989571
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "zeoipx4t",
+    "Name_c": "ציפי ברוטפלד",
+    "Settelment_c": "גמזו",
+    "Address_c": "האלון 24",
+    "FormattedAddress": "האלון 24, גמזו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507881009",
+    "Coordinates_c": {
+      "lat": 31.9249338,
+      "lng": 34.9354587
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "zl6yntz6",
+    "Name_c": "ציפי לוי",
+    "Settelment_c": "גבעת שמואל",
+    "Address_c": "יהודה הלוי 42",
+    "FormattedAddress": "יהודה הלוי 42, גבעת שמואל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972545321018",
+    "Coordinates_c": {
+      "lat": 32.0806759,
+      "lng": 34.8488076
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "owiukfri",
+    "Name_c": "קולין גורפיל",
+    "Settelment_c": "חופית",
+    "Address_c": "השלדג 46",
+    "FormattedAddress": "השלדג 46, חופית",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522750541",
+    "Coordinates_c": {
+      "lat": 32.3853385,
+      "lng": 34.8780861
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "aez2qjlv",
+    "Name_c": "ראובן קומפנאץ (קומפה)",
+    "Settelment_c": "מגל",
+    "Address_c": null,
+    "FormattedAddress": "מגל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972525017569",
+    "Type": "private",
+    "Coordinates_c": {
+      "lat": 32.385556,
+      "lng": 35.036147
+    }
+  },
+  {
+    "_id": "irdpabf2",
+    "Name_c": "רבקה ולדמן",
+    "Settelment_c": "צפת",
+    "Address_c": "זלמן שזר",
+    "FormattedAddress": "זלמן שזר, צפת",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246920605",
+    "Coordinates_c": {
+      "lat": 32.9674357,
+      "lng": 35.5055134
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5mz0qvwy",
+    "Name_c": "רבקה ליפשיץ",
+    "Settelment_c": "שמשית",
+    "Address_c": null,
+    "FormattedAddress": "שמשית",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972548884615",
+    "Coordinates_c": {
+      "lat": 32.732527,
+      "lng": 35.246518
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "yvqm6hts",
+    "Name_c": "רויטל גולד",
+    "Settelment_c": "גבעת שמואל",
+    "Address_c": "התומר 4",
+    "FormattedAddress": "התומר 4, גבעת שמואל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235621555",
+    "Coordinates_c": {
+      "lat": 32.0692323,
+      "lng": 34.8456148
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5h06jqnh",
+    "Name_c": "רוית גברא",
+    "Settelment_c": "גבעת שמואל",
+    "Address_c": "הזיתים 88",
+    "FormattedAddress": "הזיתים 88, גבעת שמואל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506796408",
+    "Coordinates_c": {
+      "lat": 32.0840797,
+      "lng": 34.8523212
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "lhytyzc0",
+    "Name_c": "רון חנן",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "מרטין בובר 11, כפר גנים א",
+    "FormattedAddress": "מרטין בובר 11, כפר גנים א, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972525496460",
+    "Coordinates_c": {
+      "lat": 32.08244,
+      "lng": 34.877282
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "crbei2z0",
+    "Name_c": "רוני נגר",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "הדר המושבות",
+    "FormattedAddress": "הדר המושבות, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544516106",
+    "Coordinates_c": {
+      "lat": 32.103463,
+      "lng": 34.872945
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "7uk27b64",
+    "Name_c": "רונית חן",
+    "Settelment_c": "גדרה",
+    "Address_c": "ספיר 9/2",
+    "FormattedAddress": "ספיר 9/2, גדרה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528810764",
+    "Coordinates_c": {
+      "lat": 31.801383,
+      "lng": 34.7785224
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "egbm7nic",
+    "Name_c": "רועי גוטמן",
+    "Settelment_c": "קרית גת",
+    "Address_c": null,
+    "FormattedAddress": "קרית גת",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507931007",
+    "Coordinates_c": {
+      "lat": 31.611148,
+      "lng": 34.768459
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "uowr9xnz",
+    "Name_c": "רותי יוסף",
+    "Settelment_c": "מעלות-תרשיחא",
+    "Address_c": "קורנית 33",
+    "FormattedAddress": "קורנית 33, מעלות-תרשיחא",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972777974957",
+    "Coordinates_c": {
+      "lat": 33.0139873,
+      "lng": 35.2915016
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "r56u2vy6",
+    "Name_c": "רחל בן שושן",
+    "Settelment_c": "חולון",
+    "Address_c": "חנקין 84",
+    "FormattedAddress": "חנקין 84, חולון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972775540025",
+    "Coordinates_c": {
+      "lat": 32.0187175,
+      "lng": 34.7785589
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "lqrk9r4s",
+    "Name_c": "רחל מאיה חיים",
+    "Settelment_c": "הרצליה",
+    "Address_c": "כ\"ג 3",
+    "FormattedAddress": "כ\"ג 3, הרצליה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972527184262",
+    "Coordinates_c": {
+      "lat": 32.170779,
+      "lng": 34.8150243
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "twphbi1f",
+    "Name_c": "רחל ממון",
+    "Settelment_c": "נס ציונה",
+    "Address_c": "חיים בר לב 3/2",
+    "FormattedAddress": "חיים בר לב 3/2, נס ציונה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972542121930",
+    "Coordinates_c": {
+      "lat": 31.9236884,
+      "lng": 34.7822212
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "loqoz0t7",
+    "Name_c": "רחל שוורץ",
+    "Settelment_c": "זכרון יעקב",
+    "Address_c": "הרצל 28",
+    "FormattedAddress": "הרצל 28, זכרון יעקב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523607106",
+    "Coordinates_c": {
+      "lat": 32.5726039,
+      "lng": 34.9524282
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "86dwyl1n",
+    "Name_c": "רינה יחיאלי",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "פרופ' שור 14",
+    "FormattedAddress": "פרופ' שור 14, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528022718",
+    "Coordinates_c": {
+      "lat": 32.0899976,
+      "lng": 34.785723
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "p6hb5amw",
+    "Name_c": "ריקרדו כטס",
+    "Settelment_c": "מבשרת ציון",
+    "Address_c": null,
+    "FormattedAddress": "מבשרת ציון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972508529557",
+    "Coordinates_c": {
+      "lat": 31.804052,
+      "lng": 35.157891
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "0lzx7zl9",
+    "Name_c": "רפאל גנני",
+    "Settelment_c": "חמרה",
+    "Address_c": null,
+    "FormattedAddress": "חמרה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97229409075",
+    "Coordinates_c": {
+      "lat": 32.199688,
+      "lng": 35.43735
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "k25b2xqt",
+    "Name_c": "רפי בטיטו",
+    "Settelment_c": "אופקים",
+    "Address_c": "הרב קוק 13",
+    "FormattedAddress": "הרב קוק 13, אופקים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972522965604",
+    "Coordinates_c": {
+      "lat": 31.3189774,
+      "lng": 34.6182791
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9lsez80b",
+    "Name_c": "שבח שרותי סיעוד",
+    "Settelment_c": "בת ים",
+    "Address_c": "ירושלים 33",
+    "FormattedAddress": "ירושלים 33, בת ים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97235626969",
+    "Coordinates_c": {
+      "lat": 32.0261587,
+      "lng": 34.74684370000001
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "b1cbhfci",
+    "Name_c": "שבח שרותי סיעוד",
+    "Settelment_c": "חדרה",
+    "Address_c": "הנשיא 82",
+    "FormattedAddress": "הנשיא 82, חדרה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97246322110",
+    "Coordinates_c": {
+      "lat": 32.4377843,
+      "lng": 34.9264502
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "poltjo3l",
+    "Name_c": "שבח שרותי סיעוד",
+    "Settelment_c": "יבנה",
+    "Address_c": "שד' דואני 49",
+    "FormattedAddress": "שד' דואני 49, יבנה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97286102413",
+    "Coordinates_c": {
+      "lat": 31.8694923,
+      "lng": 34.7448402
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "k15qzd0a",
+    "Name_c": "שבח שרותי סיעוד",
+    "Settelment_c": "אשדוד",
+    "Address_c": "העצמאות 87",
+    "FormattedAddress": "העצמאות 87, אשדוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97288654080",
+    "Coordinates_c": {
+      "lat": 31.788054,
+      "lng": 34.64405199999999
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "hsbf5rek",
+    "Name_c": "שבח שרותי סיעוד",
+    "Settelment_c": "נתניה",
+    "Address_c": "רמז 13",
+    "FormattedAddress": "רמז 13, נתניה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97293730244",
+    "Coordinates_c": {
+      "lat": 32.3279834,
+      "lng": 34.8533843
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "oedspcy0",
+    "Name_c": "שבח שרותי סיעוד",
+    "Settelment_c": "רמת גן",
+    "Address_c": "ז'בוטינסקי 129",
+    "FormattedAddress": "ז'בוטינסקי 129, רמת גן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97237523899",
+    "Coordinates_c": {
+      "lat": 32.0866455,
+      "lng": 34.7913622
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "r5frti17",
+    "Name_c": "שבח שרותי סיעוד",
+    "Settelment_c": "רעננה",
+    "Address_c": "אחוזה 120",
+    "FormattedAddress": "אחוזה 120, רעננה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97297487336",
+    "Coordinates_c": {
+      "lat": 32.1807763,
+      "lng": 34.8742857
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "xtggtkpp",
+    "Name_c": "שבח שרותי סיעוד",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "מונטיפיורי 11",
+    "FormattedAddress": "מונטיפיורי 11, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97237754127",
+    "Coordinates_c": {
+      "lat": 32.0882717,
+      "lng": 34.8822468
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "c089bif2",
+    "Name_c": "שולה וייס",
+    "Settelment_c": "כפר עציון",
+    "Address_c": null,
+    "FormattedAddress": "כפר עציון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506305680",
+    "Coordinates_c": {
+      "lat": 31.649486,
+      "lng": 35.115234
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "gf6u1ywk",
+    "Name_c": "שוש חנניה",
+    "Settelment_c": "רמת השרון",
+    "Address_c": "המלאכה 6",
+    "FormattedAddress": "המלאכה 6, רמת השרון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972524642736",
+    "Coordinates_c": {
+      "lat": 32.1383445,
+      "lng": 34.8372439
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "dqduozsz",
+    "Name_c": "שוש סערוני",
+    "Settelment_c": "פתח תקווה",
+    "Address_c": "בן גוריון 40",
+    "FormattedAddress": "בן גוריון 40, פתח תקווה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507663884",
+    "Coordinates_c": {
+      "lat": 32.076067,
+      "lng": 34.870059
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "yc6jbz0g",
+    "Name_c": "שי אלבוגן",
+    "Settelment_c": "קרית שמונה",
+    "Address_c": "שדרות האצל 23",
+    "FormattedAddress": "שדרות האצל 23, קרית שמונה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972534304054",
+    "Coordinates_c": {
+      "lat": 33.2176398,
+      "lng": 35.5677247
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ncinoacd",
+    "Name_c": "שיר אלסון",
+    "Settelment_c": "רמת גן",
+    "Address_c": "ארלוזורוב",
+    "FormattedAddress": "ארלוזורוב, רמת גן",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544670466",
+    "Coordinates_c": {
+      "lat": 32.081104,
+      "lng": 34.8088843
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "m6wcg7cj",
+    "Name_c": "שירה חדד",
+    "Settelment_c": "צפת",
+    "Address_c": "זגגי 26",
+    "FormattedAddress": "זגגי 26, צפת",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523805704",
+    "Coordinates_c": {
+      "lat": 32.962528,
+      "lng": 35.492322
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "tcmxdjyo",
+    "Name_c": "שירה חייט",
+    "Settelment_c": "כוכב יעקב",
+    "Address_c": "מבשר טוב 89",
+    "FormattedAddress": "מבשר טוב 89, כוכב יעקב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528109169",
+    "Coordinates_c": {
+      "lat": 31.8783467,
+      "lng": 35.2475323
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "i225w05s",
+    "Name_c": "שירלי בר",
+    "Settelment_c": "אפיקים",
+    "Address_c": null,
+    "FormattedAddress": "אפיקים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972507694070",
+    "Coordinates_c": {
+      "lat": 32.680564,
+      "lng": 35.57773
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "2xfj98zq",
+    "Name_c": "שלומית  הופמן",
+    "Settelment_c": "נוב",
+    "Address_c": "עקבי הצאן 303",
+    "FormattedAddress": "עקבי הצאן 303, נוב",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972527470202",
+    "Coordinates_c": {
+      "lat": 32.832852,
+      "lng": 35.783574
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9o3qrp3m",
+    "Name_c": "שלי יעל נגר",
+    "Settelment_c": "תל מונד",
+    "Address_c": "הנוטע 19",
+    "FormattedAddress": "הנוטע 19, תל מונד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972503306000",
+    "Coordinates_c": {
+      "lat": 32.2509084,
+      "lng": 34.91292660000001
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "0q45ei9b",
+    "Name_c": "שמואל ישראל אלימלך",
+    "Settelment_c": "מרכז שפירא",
+    "Address_c": "הזית 36",
+    "FormattedAddress": "הזית 36, מרכז שפירא",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528660663",
+    "Coordinates_c": {
+      "lat": 31.693544,
+      "lng": 34.7041621
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "9nwo196l",
+    "Name_c": "שמעון לוין",
+    "Settelment_c": "קרית ביאליק",
+    "Address_c": null,
+    "FormattedAddress": "קרית ביאליק",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972528464344",
+    "Coordinates_c": {
+      "lat": 32.832154,
+      "lng": 35.088407
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "o3j17lip",
+    "Name_c": "שני צרפתי",
+    "Settelment_c": "כפר הרא\"ה",
+    "Address_c": "מעלה הגבעה בית חזון",
+    "FormattedAddress": "מעלה הגבעה בית חזון, כפר הרא\"ה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972545640730",
+    "Coordinates_c": {
+      "lat": 32.387178,
+      "lng": 34.91291
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "i8hqcyie",
+    "Name_c": "שני קסדין",
+    "Settelment_c": "ירושלים",
+    "Address_c": "יעקב אלעזר 19",
+    "FormattedAddress": "יעקב אלעזר 19, ירושלים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972546464810",
+    "Coordinates_c": {
+      "lat": 31.8140856,
+      "lng": 35.207302
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "1yl3n6df",
+    "Name_c": "שרה כץ",
+    "Settelment_c": "תל אביב יפו",
+    "Address_c": "איינשטין 34",
+    "FormattedAddress": "איינשטין 34, תל אביב יפו",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972546699034",
+    "Coordinates_c": {
+      "lat": 32.1123967,
+      "lng": 34.7930845
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "4dka0eoz",
+    "Name_c": "שרה שוורץ",
+    "Settelment_c": "חיפה",
+    "Address_c": "יקינטון 38",
+    "FormattedAddress": "יקינטון 38, חיפה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544262608",
+    "Coordinates_c": {
+      "lat": 32.7790742,
+      "lng": 35.0008791
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "8ume9mf0",
+    "Name_c": "שרון בר דיין",
+    "Settelment_c": "כפר האורנים",
+    "Address_c": "אהוד 21",
+    "FormattedAddress": "אהוד 21, כפר האורנים",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972545211384",
+    "Type": "private",
+    "Coordinates_c": {
+      "lat": 31.922267,
+      "lng": 35.0351274
+    }
+  },
+  {
+    "_id": "sebf6yfx",
+    "Name_c": "שרון ליברמן",
+    "Settelment_c": "אלעד",
+    "Address_c": "המאירי 10",
+    "FormattedAddress": "המאירי 10, אלעד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97239097337",
+    "Coordinates_c": {
+      "lat": 32.0514935,
+      "lng": 34.966589
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "cwb21q57",
+    "Name_c": "שרית בן משה",
+    "Settelment_c": "יקיר",
+    "Address_c": "נחל עוז 243",
+    "FormattedAddress": "נחל עוז 243, יקיר",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972558853273",
+    "Coordinates_c": {
+      "lat": 32.148435,
+      "lng": 35.110382
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "5hzahm8h",
+    "Name_c": "שרית יונה",
+    "Settelment_c": "חצור הגלילית",
+    "Address_c": "הירדן 6653",
+    "FormattedAddress": "הירדן 6653, חצור הגלילית",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972587657837",
+    "Coordinates_c": {
+      "lat": 32.9829561,
+      "lng": 35.5450834
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "qhor8n4b",
+    "Name_c": "תומר צורדקר",
+    "Settelment_c": "אשדוד",
+    "Address_c": "המלך רחבעם",
+    "FormattedAddress": "המלך רחבעם, אשדוד",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972506317765",
+    "Coordinates_c": {
+      "lat": 31.779073,
+      "lng": 34.642873
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ja5m0gfq",
+    "Name_c": "תמר דגן",
+    "Settelment_c": "כפר יחזקאל",
+    "Address_c": null,
+    "FormattedAddress": "כפר יחזקאל",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972544672797",
+    "Coordinates_c": {
+      "lat": 32.566949,
+      "lng": 35.360888
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "ih3jfdmq",
+    "Name_c": "תמר פלדמן",
+    "Settelment_c": "סביון",
+    "Address_c": "השקמה 8, מועדון בית הראשונים",
+    "FormattedAddress": "השקמה 8, מועדון בית הראשונים, סביון",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972523582261",
+    "Coordinates_c": {
+      "lat": 32.047992,
+      "lng": 34.8752488
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "0mutf639",
+    "Name_c": "תמר צוקרמן",
+    "Settelment_c": "בית שמש",
+    "Address_c": "נחל קטלב 10",
+    "FormattedAddress": "נחל קטלב 10, בית שמש",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "972505883438",
+    "Coordinates_c": {
+      "lat": 31.7167169,
+      "lng": 34.9962426
+    },
+    "Type": "private"
+  },
+  {
+    "_id": "zqjx0dv6",
+    "Name_c": "תנועת של\"מ",
+    "Settelment_c": "נהריה",
+    "Address_c": "אחד העם 8 א' (מאחורי קופת חולים מכבי)",
+    "FormattedAddress": "אחד העם 8 א' (מאחורי קופת חולים מכבי), נהריה",
+    "RefrigeratedMedicines_c": true,
+    "WhatsappNumber_c": "97249001552",
+    "Coordinates_c": {
+      "lat": 33.0071374,
+      "lng": 35.0976276
+    },
+    "Type": "private"
   }
 ]

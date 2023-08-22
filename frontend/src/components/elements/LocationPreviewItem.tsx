@@ -28,8 +28,8 @@ const LocationPreviewItem = ({ location, onClick }: Props) => {
     >
       <Stack direction={'column'} flex={1} gap={0.25} sx={{ width: 'fit-content' }}>
         <Stack gap={1.5} direction={'row'} alignItems={'center'}>
-          <Typography variant="h2">{location.name}</Typography>
-          {location.hasCold && (
+          <Typography variant="h2">{location.Name_c}</Typography>
+          {location.RefrigeratedMedicines_c && (
             <Chip
               size="small"
               sx={{
@@ -52,18 +52,22 @@ const LocationPreviewItem = ({ location, onClick }: Props) => {
         </Stack>
         <Stack direction={'row'} alignItems={'center'} gap={1}>
           <Button variant="text" sx={{ p: 0 }} onClick={handleClick} fullWidth={false}>
-            {`${t('street')} ${location.address}`}
+            {`${t('street')} ${location.FormattedAddress}`}
           </Button>
           {location.distance && (
             <>
               <span>|</span>
-              <Typography variant="body2">{`${location.distance} ${t('km')}`}</Typography>
+              {location.distance >= 1000 ? (
+                <Typography variant="body2">{`${(location.distance / 1000).toFixed(1)} ${t('km')}`}</Typography>
+              ) : (
+                <Typography variant="body2">{`${location.distance.toFixed(0)} ${t('meter')}`}</Typography>
+              )}
             </>
           )}
         </Stack>
       </Stack>
-      {location.phone && (
-        <IconButton disableRipple href={`https://api.whatsapp.com/send?phone=${location.phone}`} target="_blank">
+      {location.WhatsappNumber_c && (
+        <IconButton disableRipple href={`https://api.whatsapp.com/send?phone=${location.WhatsappNumber_c}`} target="_blank">
           <Image src={WhatsAppIcon} alt="whatsapp" />
         </IconButton>
       )}

@@ -38,7 +38,7 @@
   "full_name": "שם מלא",
   "phone_number": "מספר טלפון",
   "town": "יישוב",
-  "street": "רחוב",
+  "street": "רח׳",
   "house_number": "מספר בית",
   "confirm": "אישור",
   "send_on_whatsapp": "מסירת בפרטים ב-WhatsApp",
@@ -53,11 +53,13 @@
   "i_have_more_products_to_donate": "יש לי גם מוצרי ספיגה (טיטולים, תחבושות) או מזון רפואי לתרומה",
   "no_medicines_found": "לא נמצאו תרופות התואמות לחיפוש שלך",
   "km": "ק\"מ",
+  "meter": "מטרים",
   "store_cold": "איחסון בקירור",
   "all_locations": "כל המוקדים",
   "404_page_text": "אופס, נראה שהגעת לעמוד שלא קיים",
   "map_search_placeholder": "חיפוש מוקדי מסירה לפי כתובת",
   "invalid_phone_number": "מספר טלפון לא תקין",
   "invalid_name": "יש להזין אותיות בלבד",
-  "required_field": "שדה חובה"
+  "required_field": "שדה חובה",
+  "no_locations_found": "לא נמצאו מוקדים באיזור המוגדר, נסה להגדיל את הטווח או לחפש בכתובת אחרת"
 }
