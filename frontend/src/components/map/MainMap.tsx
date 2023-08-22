@@ -1,16 +1,17 @@
 import Autocomplete from '@/components/elements/Autocomplete'
-import LocationPreviewItem from '@/components/elements/LocationPreviewItem'
 import MapFilters from '@/components/map/MapFilters'
 import MapLocationDialog from '@/components/map/MapLocationDialog'
 import MapPin from '@/components/map/MapPin'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
+import { secondaryColor } from '@/styles/theme'
 import { calculateDistance } from '@/util/mapFunctions'
 import { Box, Typography } from '@mui/material'
 import { GoogleMap, MarkerF } from '@react-google-maps/api'
 import type { Location } from 'LocationTypes'
 import mixpanel from 'mixpanel-browser'
-import { useRouter } from 'next/router'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { DotLoader } from 'react-spinners'
+import LocationPreviewItem from '../elements/LocationPreviewItem'
 
 const mapContainerStyle = {
   width: '100%',
@@ -24,35 +25,41 @@ const mapCenter = {
 
 const initialZoom = 14
 
-type Props = { locations: Location[]; openDialog: boolean; closeDialog: () => void; handleNavigation: (l: Location) => void }
+type Props = {
+  locations: Location[]
+  openDialog: boolean
+  closeDialog: () => void
+  handleNavigation: (l: Location) => void
+  loadingLocations: boolean
+  filter?: string | string[]
+}
 
-const MainMap = ({ locations, openDialog, closeDialog, handleNavigation }: Props) => {
-  const router = useRouter()
-  const {
-    query: { filter },
-  } = router
+const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog, handleNavigation }: Props) => {
   const { t } = useStaticTranslation()
   const mapRef = useRef<google.maps.Map>()
   const [userPosition, setUserPosition] = useState<google.maps.LatLngLiteral | null>(null)
   const [mapLocations, setMapLocations] = useState<Location[]>(locations)
   const sortedCache = useRef<{ [key: string]: Location[] }>({})
 
-  const updateLocationsCoordinates = (position: google.maps.LatLngLiteral) => {
-    const cached = sortedCache.current[JSON.stringify(position)]
-    if (cached) {
-      return cached
-    }
-    const locs = locations.reduce((acc: Location[], l: Location) => {
-      if (l.Coordinates_c) {
-        const distance = calculateDistance(position, l.Coordinates_c)
-        return [...acc, { ...l, distance }]
+  const updateLocationsCoordinates = useCallback(
+    (position: google.maps.LatLngLiteral) => {
+      const cached = sortedCache.current[JSON.stringify(position)]
+      if (cached) {
+        return cached
       }
-      return acc
-    }, [])
-    const sorted = locs.sort((a, b) => (a?.distance as number) - (b.distance as number))
-    sortedCache.current = { [JSON.stringify(position)]: sorted }
-    return sorted
-  }
+      const locs = locations.reduce((acc: Location[], l: Location) => {
+        if (l.Coordinates_c) {
+          const distance = calculateDistance(position, l.Coordinates_c)
+          return [...acc, { ...l, distance }]
+        }
+        return acc
+      }, [])
+      const sorted = locs.sort((a, b) => (a?.distance as number) - (b.distance as number))
+      sortedCache.current = { [JSON.stringify(position)]: sorted }
+      return sorted
+    },
+    [locations, sortedCache.current],
+  )
 
   const onLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map
@@ -76,6 +83,7 @@ const MainMap = ({ locations, openDialog, closeDialog, handleNavigation }: Props
       ],
     })
   }, [])
+
   const filteredLocations = mapLocations.filter((l: Location) => (filter === 'store_cold' ? l.RefrigeratedMedicines_c : true)).slice(0, 12)
 
   const handleMapIdle = useCallback(() => {
@@ -86,7 +94,12 @@ const MainMap = ({ locations, openDialog, closeDialog, handleNavigation }: Props
     }
     const filtered = locs.filter(l => !!l.Coordinates_c && bounds?.contains(l.Coordinates_c))
     setMapLocations(filtered)
-  }, [userPosition])
+  }, [userPosition, locations])
+
+  useEffect(() => {
+    setMapLocations(locations)
+    handleMapIdle()
+  }, [locations])
 
   const handleLocationApproved = (position: GeolocationPosition) => {
     mixpanel.track('location_approved')
@@ -165,10 +178,25 @@ const MainMap = ({ locations, openDialog, closeDialog, handleNavigation }: Props
             width: '100%',
           }}
         >
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              left: 0,
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              height: '100%',
+              alignItems: 'center',
+            }}
+          >
+            <DotLoader color={secondaryColor} loading={loadingLocations} size={30} speedMultiplier={2} />
+          </Box>
           {filteredLocations.map((l, index) => (
             <LocationPreviewItem key={index} onClick={handleNavigation} location={l} />
           ))}
-          {filteredLocations.length < 1 && (
+          {!loadingLocations && filteredLocations.length < 1 && (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>
               <Typography variant="body1">{t('no_locations_found')}</Typography>
             </Box>

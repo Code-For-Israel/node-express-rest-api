@@ -1,5 +1,4 @@
 import MainMap from '@/components/map/MainMap'
-import baseLocations from '@/util/dummy-locations.json'
 import { Container } from '@mui/material'
 import { useJsApiLoader } from '@react-google-maps/api'
 import { useQuery } from '@tanstack/react-query'
@@ -31,7 +30,7 @@ const MapPage = () => {
     query: { filter },
   } = router
 
-  const { data: locations } = useQuery<Location[]>(['locations', filter], fetchLocations(filter), { placeholderData: baseLocations })
+  const locationData = useQuery<Location[]>(['locations'], fetchLocations(), { placeholderData: [] })
   const [openDialog, setOpenDialog] = useState(true)
 
   const closeDialog = () => {
@@ -59,7 +58,16 @@ const MapPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container maxWidth={'md'} sx={{ boxShadow: 2, p: 0, position: 'relative' }}>
-        {isMapLoaded && <MainMap closeDialog={closeDialog} openDialog={openDialog} locations={locations || []} handleNavigation={openNavigation} />}
+        {isMapLoaded && !locationData.isError && !locationData.isLoading && (
+          <MainMap
+            closeDialog={closeDialog}
+            openDialog={openDialog}
+            filter={filter}
+            locations={locationData.data}
+            loadingLocations={locationData.isFetching}
+            handleNavigation={openNavigation}
+          />
+        )}
       </Container>
     </>
   )
