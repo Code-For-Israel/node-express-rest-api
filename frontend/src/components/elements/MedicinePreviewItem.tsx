@@ -16,7 +16,7 @@ type Props = {
 } & Omit<ButtonBaseProps, 'onClick'>
 
 const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, hideLastBorder = false, index = 0 }: Props) => {
-  const { Name, englishName, image } = medicine
+  const { Name, englishName } = medicine
 
   const handleClick = () => {
     if (onClick) onClick(medicine)
@@ -62,7 +62,7 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, h
                 ...BASIC_IMAGE_STYLE,
               }}
             >
-              <Image src={image || PlaceholderIcon} alt="medicine" />
+              <Image src={PlaceholderIcon} alt="medicine" />
             </Box>
           )}
           <Box
@@ -71,7 +71,7 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, h
               ...BASIC_IMAGE_STYLE,
             }}
           >
-            <Image src={image || PlaceholderIcon} alt="medicine" />
+            <Image src={PlaceholderIcon} alt="medicine" />
           </Box>
           <Box
             sx={{
@@ -81,7 +81,7 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, h
             }}
           >
             <Typography variant="body2" textTransform={'capitalize'}>
-              {Name.split(' ').slice(0, 2).join(' ').toLowerCase()}
+              {Name}
             </Typography>
             <Typography variant="body2" textTransform={'capitalize'}>
               {englishName?.toLowerCase() || ''}

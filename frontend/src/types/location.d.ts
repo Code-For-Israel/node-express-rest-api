@@ -1,12 +1,15 @@
 declare module 'LocationTypes' {
   export interface Location {
     _id: string
-    name: string
-    address: string
-    type: 'private' | 'business' | 'pharmacy' | 'other'
-    hasCold: boolean
-    position?: google.maps.LatLngLiteral | google.maps.LatLng
+    SiteId?: string
+    Name_c?: string
+    FormattedAddress: string
+    Settelment_c: string
+    Address_c?: string | null
+    Type: string
+    RefrigeratedMedicines_c: boolean
+    Coordinates_c?: google.maps.LatLngLiteral | google.maps.LatLng
     distance?: number
-    phone?: string
+    WhatsappNumber_c?: string | null
   }
 }

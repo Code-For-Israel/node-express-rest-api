@@ -3,9 +3,6 @@ declare module 'MedicineTypes' {
     _id: string
     Name: string
     englishName: string
-    description?: string
-    price?: number
-    image?: string
     needCold?: boolean
   }
 }
