@@ -5,7 +5,7 @@ import MapPin from '@/components/map/MapPin'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { secondaryColor } from '@/styles/theme'
 import { calculateDistance } from '@/util/mapFunctions'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import { GoogleMap, MarkerF } from '@react-google-maps/api'
 import type { Location } from 'LocationTypes'
 import mixpanel from 'mixpanel-browser'
@@ -32,9 +32,11 @@ type Props = {
   handleNavigation: (l: Location) => void
   loadingLocations: boolean
   filter?: string | string[]
+  hasLotsOfMedicine?: boolean
+  handleCantGo: () => void
 }
 
-const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog, handleNavigation }: Props) => {
+const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog, handleCantGo, hasLotsOfMedicine, handleNavigation }: Props) => {
   const { t } = useStaticTranslation()
   const mapRef = useRef<google.maps.Map>()
   const [userPosition, setUserPosition] = useState<google.maps.LatLngLiteral | null>(null)
@@ -63,25 +65,6 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
 
   const onLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map
-    map.setOptions({
-      disableDefaultUI: true,
-      zoomControl: true,
-      zoomControlOptions: {
-        position: google.maps.ControlPosition.RIGHT_CENTER,
-      },
-      clickableIcons: false,
-      gestureHandling: 'greedy',
-      styles: [
-        {
-          featureType: 'poi',
-          stylers: [
-            {
-              visibility: 'off',
-            },
-          ],
-        },
-      ],
-    })
   }, [])
 
   const filteredLocations = mapLocations.filter((l: Location) => (filter === 'store_cold' ? l.RefrigeratedMedicines_c : true)).slice(0, 12)
@@ -138,7 +121,32 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
           />
         </Box>
         <MapFilters />
-        <GoogleMap onIdle={handleMapIdle} mapContainerStyle={mapContainerStyle} center={mapCenter} zoom={initialZoom} onLoad={onLoad}>
+        <GoogleMap
+          onIdle={handleMapIdle}
+          mapContainerStyle={mapContainerStyle}
+          center={mapCenter}
+          zoom={initialZoom}
+          onLoad={onLoad}
+          options={{
+            disableDefaultUI: true,
+            zoomControl: true,
+            zoomControlOptions: {
+              position: google.maps.ControlPosition.RIGHT_CENTER,
+            },
+            clickableIcons: false,
+            gestureHandling: 'greedy',
+            styles: [
+              {
+                featureType: 'poi',
+                stylers: [
+                  {
+                    visibility: 'off',
+                  },
+                ],
+              },
+            ],
+          }}
+        >
           {filteredLocations.map((l, index) => {
             if (l.Coordinates_c) {
               return <MapPin key={index} location={l} />
@@ -166,6 +174,9 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
           position: 'absolute',
           bottom: 0,
           boxShadow: '0px -3px 6px 0px rgba(0, 0, 0, 0.08)',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
         }}
       >
         <Box
@@ -202,6 +213,13 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
             </Box>
           )}
         </Box>
+        {hasLotsOfMedicine && (
+          <Box sx={{ width: '100%', pt: 1, display: 'flex', justifyContent: 'center' }}>
+            <Button variant="text" fullWidth={false} onClick={handleCantGo}>
+              {t('cant_go_to_location')}
+            </Button>
+          </Box>
+        )}
       </Box>
     </Box>
   )

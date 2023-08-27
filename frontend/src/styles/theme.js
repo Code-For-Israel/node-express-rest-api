@@ -146,5 +146,12 @@ export const theme = createTheme({
         },
       },
     },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          fontSize: '20px',
+        },
+      },
+    },
   },
 })

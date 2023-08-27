@@ -30,7 +30,7 @@ const MapLocationDialog = ({ open: openDialog, onClose, onLocationApproved }: Pr
   }
 
   return (
-    <Dialog open={openDialog} onClose={onClose} sx={{ '& .MuiPaper-root': { width: '100%', borderRadius: '24px' } }}>
+    <Dialog open={openDialog} onClose={onClose} sx={{ '& .MuiPaper-root': { width: '100%', borderRadius: '24px', margin: '20px' } }}>
       <DialogTitle sx={{ m: 0, py: 2.5 }}>
         <IconButton
           aria-label="close"

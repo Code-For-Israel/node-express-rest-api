@@ -1,34 +1,21 @@
 import FormRadio from '@/components/elements/FormRadio'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { Box, Button, RadioGroup, Stack, Typography } from '@mui/material'
+import { Box, RadioGroup, Stack, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
-import { Controller, useForm } from 'react-hook-form'
+import { ChangeEvent } from 'react'
 
 type Props = { medicine: MedicineItemType; onSave: (medicine: MedicineItemType, state: string) => void }
 
 const AddMedicine = ({ medicine, onSave }: Props) => {
-  const {
-    handleSubmit,
-    control,
-    formState: { isValid },
-  } = useForm()
   const { t } = useStaticTranslation()
 
-  const onSubmit = (data: any) => {
-    onSave(medicine, data.expiredState)
+  const handlePick = (e: ChangeEvent<HTMLInputElement>, value: string) => {
+    onSave(medicine, value)
+    console.log(e)
   }
 
   return (
-    <Stack
-      direction={'column'}
-      component={'form'}
-      gap={1}
-      py={3}
-      px={4}
-      justifyContent={'space-between'}
-      sx={{ height: '100%', width: '100%', overflowY: 'auto' }}
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <Stack direction={'column'} gap={7} py={3} px={4} sx={{ width: '100%', overflowY: 'auto' }}>
       <Stack gap={2} pt={3} justifyContent={'center'} alignItems={'center'} textAlign={'center'}>
         <Typography variant="h3">{t('will_expire_soon')}</Typography>
         <Box sx={{ width: '100%', display: 'grid', gridTemplateColumns: '1fr 1em 1fr' }}>
@@ -43,22 +30,11 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
           </Typography>
         </Box>
       </Stack>
-      <Controller
-        name="expiredState"
-        control={control}
-        defaultValue={''}
-        rules={{ required: true }}
-        render={({ field: { onChange, value } }) => (
-          <RadioGroup sx={{ width: 'fit-content' }} aria-label="expired-state" value={value} onChange={onChange}>
-            <FormRadio value="inAMonth" label="כן" />
-            <FormRadio value="noOrUnknown" label="לא / לא ידוע" />
-            <FormRadio value="expired" label="פג תוקף" />
-          </RadioGroup>
-        )}
-      />
-      <Button variant="contained" sx={{ mb: 3 }} disabled={!isValid} type="submit">
-        {t('add_medicine')}
-      </Button>
+      <RadioGroup sx={{ width: 'fit-content', pl: 4, rowGap: 1 }} aria-label="expired-state" onChange={handlePick}>
+        <FormRadio value="inAMonth" label="כן" />
+        <FormRadio value="noOrUnknown" label="לא / לא ידוע" />
+        <FormRadio value="expired" label="פג תוקף" />
+      </RadioGroup>
     </Stack>
   )
 }
