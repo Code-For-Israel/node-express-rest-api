@@ -50,7 +50,7 @@ const Names = () => {
   const router = useRouter()
 
   const [selectedMedicine, setSelectedMedicine] = useState<MedicineItemType | null>(null)
-  const [allMedicines, setAllMedicines] = useState<MedicineItemType[]>(formData?.medicines || [])
+  const [savedMedicines, setSavedMedicines] = useState<MedicineItemType[]>(formData?.medicines || [])
 
   const {
     data: medicineData,
@@ -79,15 +79,15 @@ const Names = () => {
 
   const handleSave = (medicine: MedicineItemType, state: string) => {
     const medWithState = { ...medicine, state }
-    setAllMedicines([...allMedicines, medWithState])
-    updateFormData({ medicines: [...allMedicines, medWithState] })
+    setSavedMedicines([...savedMedicines, medWithState])
+    updateFormData({ medicines: [...savedMedicines, medWithState] })
     setSelectedMedicine(null)
     mixpanel.track('add_medicine', { medicine: medicine.englishName, state })
   }
 
   const handleRemove = (medicine: MedicineItemType) => {
-    const newMedicines = allMedicines.filter((m: MedicineItemType) => m._id !== medicine._id)
-    setAllMedicines(newMedicines)
+    const newMedicines = savedMedicines.filter((m: MedicineItemType) => m._id !== medicine._id)
+    setSavedMedicines(newMedicines)
     updateFormData({ ...formData, medicines: newMedicines })
     mixpanel.track('remove_medicine', { medicine: medicine.englishName })
   }
@@ -112,9 +112,9 @@ const Names = () => {
 
   const isMedicineAdded = useCallback(
     (id: string) => {
-      return allMedicines.some((m: MedicineItemType) => m._id === id)
+      return savedMedicines.some((m: MedicineItemType) => m._id === id)
     },
-    [allMedicines],
+    [savedMedicines],
   )
 
   const hideText = searchValue.trim().length > 0
@@ -144,7 +144,7 @@ const Names = () => {
         layout
         transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
       >
-        <Autocomplete autoFocus value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
+        <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
         <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
           {isFetching && (
             <Box sx={{ position: 'absolute', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', right: 0, top: 40 }}>
@@ -169,7 +169,7 @@ const Names = () => {
               {t('no_medicines_found')}
             </Typography>
           )}
-          <Button variant="text" sx={{ mt: '25px', display: hideText || allMedicines.length > 0 ? 'none' : 'block' }} onClick={handleSkip}>
+          <Button variant="text" sx={{ mt: '25px', display: medicineData.length > 0 ? 'none' : 'block' }} onClick={handleSkip}>
             {t('want_to_skip')}
           </Button>
         </Box>
@@ -179,7 +179,7 @@ const Names = () => {
         open={!!selectedMedicine}
         onOpen={() => false}
         onClose={handleClose}
-        sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '55%' } }}
+        sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '45%' } }}
       >
         <Box
           sx={{
@@ -196,11 +196,11 @@ const Names = () => {
       </SwipeableDrawer>
       <Button
         variant="contained"
-        disabled={allMedicines.length < 1}
-        sx={{ opacity: allMedicines.length > 0 || (allMedicines.length < 1 && hideText) ? 1 : 0 }}
+        disabled={savedMedicines.length < 1}
+        sx={{ opacity: savedMedicines.length > 0 || (savedMedicines.length < 1 && hideText) ? 1 : 0 }}
         onClick={handleDone}
       >
-        {t('im_done')} ({allMedicines.length})
+        {t('im_done')} ({savedMedicines.length})
       </Button>
     </Stack>
   )

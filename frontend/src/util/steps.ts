@@ -1,4 +1,4 @@
-import Cold from '@/components/steps/Cold'
+import Cold from '@/components/steps/cold/Cold'
 import Details from '@/components/steps/Details'
 import Home from '@/components/steps/Home'
 import Names from '@/components/steps/Names'

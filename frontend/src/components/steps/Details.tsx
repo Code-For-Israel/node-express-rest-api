@@ -36,7 +36,7 @@ const Details = () => {
         <FormField
           error={errors?.fullName}
           label={t('full_name')}
-          {...register('fullName', { required: true, minLength: 3, pattern: { value: /^[a-z\u0590-\u05fe]+$/i, message: t('invalid_name') } })}
+          {...register('fullName', { required: true, minLength: 3, pattern: { value: /^[a-z\u0590-\u05fe -]+$/i, message: t('invalid_name') } })}
         />
         <Controller
           control={control}
@@ -76,12 +76,7 @@ const Details = () => {
               minLength: { value: 2, message: t('required_field') },
             })}
           />
-          <FormField
-            label={t('house_number')}
-            type="number"
-            InputProps={{ endAdornment: <img src="/icons/edit.svg" /> }}
-            {...register('houseNumber')}
-          />
+          <FormField label={t('house_number')} type="number" {...register('houseNumber')} />
         </Box>
       </Stack>
       <Stack gap={2} width={'100%'} textAlign={'center'}>

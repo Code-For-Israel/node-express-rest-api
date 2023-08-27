@@ -1,4 +1,5 @@
 import MainMap from '@/components/map/MainMap'
+import useFormWizard from '@/hooks/useFormWizard'
 import { Container } from '@mui/material'
 import { useJsApiLoader } from '@react-google-maps/api'
 import { useQuery } from '@tanstack/react-query'
@@ -29,6 +30,10 @@ const MapPage = () => {
   const {
     query: { filter },
   } = router
+  const {
+    formData: { medicineQuantity },
+    stepTo,
+  } = useFormWizard()
 
   const locationData = useQuery<Location[]>(['locations'], fetchLocations(), { placeholderData: [] })
   const [openDialog, setOpenDialog] = useState(true)
@@ -49,6 +54,12 @@ const MapPage = () => {
     window.open(url, '_blank')
   }
 
+  const goToDetails = () => {
+    mixpanel.track('cant_go_clicked')
+    router.replace('/', undefined, { shallow: true })
+    stepTo('details')
+  }
+
   return (
     <>
       <Head>
@@ -66,6 +77,8 @@ const MapPage = () => {
             locations={locationData.data}
             loadingLocations={locationData.isFetching}
             handleNavigation={openNavigation}
+            handleCantGo={goToDetails}
+            hasLotsOfMedicine={medicineQuantity && medicineQuantity !== '1-10'}
           />
         )}
       </Container>

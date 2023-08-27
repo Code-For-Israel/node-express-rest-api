@@ -4,6 +4,7 @@ import { Box, Button, Icon, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import BoxHeart from 'public/icons/box-heart.svg'
 import CheckIcon from 'public/icons/check.svg'
+
 const Home = () => {
   const { stepTo } = useFormWizard()
   const startForm = () => stepTo('quantity')

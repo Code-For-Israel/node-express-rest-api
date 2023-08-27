@@ -84,10 +84,29 @@ export const theme = createTheme({
       },
     },
     MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          '&.Mui-disabled > span': {
+            border: '1px solid rgba(0, 0, 0, 0.38)',
+          },
+        },
+      },
       defaultProps: {
         disableRipple: true,
         size: 'small',
-        icon: <Box component={'span'} mt={'0.5px'} mx={'2px'} sx={{ border: '1px solid black', width: 18, height: 18, borderRadius: '2px' }} />,
+        icon: (
+          <Box
+            component={'span'}
+            mt={'0.5px'}
+            mx={'2px'}
+            sx={{
+              border: '1px solid black',
+              width: 18,
+              height: 18,
+              borderRadius: '2px',
+            }}
+          />
+        ),
         checkedIcon: (
           <Box
             component={'span'}
@@ -124,6 +143,13 @@ export const theme = createTheme({
         root: {
           marginRight: 10,
           color: '#979797',
+        },
+      },
+    },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          fontSize: '20px',
         },
       },
     },

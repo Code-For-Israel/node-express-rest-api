@@ -39,8 +39,13 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, h
         position: 'relative',
       }}
     >
-      <Stack direction={'row'} gap={2} sx={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
-        <ButtonBase onClick={handleClick} disabled={selected} disableRipple sx={{ width: '100%', position: 'relative' }}>
+      <Stack direction="row" gap={2} sx={{ width: '100%', height: '100%', alignItems: 'center', justifyContent: 'space-between' }}>
+        <ButtonBase
+          onClick={handleClick}
+          disabled={selected}
+          disableRipple
+          sx={{ width: 'calc(100% - 30px)', position: 'relative', justifyContent: 'start' }}
+        >
           {selected && animate === medicine._id && (
             <Box
               component={motion.div}
@@ -76,21 +81,21 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, h
           <Box
             sx={{
               textAlign: 'start',
-              flex: 1,
-              overflow: 'hidden',
+              whiteSpace: 'nowrap',
+              width: 'calc(100% - 70px)',
             }}
           >
-            <Typography variant="body2" textTransform={'capitalize'}>
+            <Typography variant="body2" textTransform={'capitalize'} sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {Name}
             </Typography>
-            <Typography variant="body2" textTransform={'capitalize'}>
+            <Typography variant="body2" textTransform={'capitalize'} sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {englishName?.toLowerCase() || ''}
             </Typography>
           </Box>
         </ButtonBase>
         <Box
           sx={{
-            display: !!selected ? 'block' : 'none',
+            opacity: !!selected ? 1 : 0,
           }}
         >
           <IconButton onClick={handleRemove} sx={{ p: 0 }}>

@@ -31,7 +31,7 @@
   "back_to_medicine_search": "חזרה להוספת תרופות",
   "i_have_cold_medicine": "יש לי תרופה במקרר",
   "i_have_expensive_medicine": "יש לי תרופה יקרה",
-  "no_dont_have": "לא, אין לי",
+  "dont_have": "אין לי",
   "want_to_skip": "רוצה לדלג",
   "details_page_title": "נשמח לבוא ולאסוף ממך את התרופות!",
   "details_page_subtitle": " כדי שנוכל לתאם את האיסוף, נבקש לקבל את הפרטים שלך",
@@ -53,13 +53,15 @@
   "i_have_more_products_to_donate": "יש לי גם מוצרי ספיגה (טיטולים, תחבושות) או מזון רפואי לתרומה",
   "no_medicines_found": "לא נמצאו תרופות התואמות לחיפוש שלך",
   "km": "ק\"מ",
-  "meter": "מטרים",
-  "store_cold": "איחסון בקירור",
+  "meter": "מטר",
+  "store_cold": "אחסון בקירור",
   "all_locations": "כל המוקדים",
   "404_page_text": "אופס, נראה שהגעת לעמוד שלא קיים",
   "map_search_placeholder": "חיפוש מוקדי מסירה לפי כתובת",
   "invalid_phone_number": "מספר טלפון לא תקין",
   "invalid_name": "יש להזין אותיות בלבד",
   "required_field": "שדה חובה",
-  "no_locations_found": "לא נמצאו מוקדים באיזור המוגדר, נסה להגדיל את הטווח או לחפש בכתובת אחרת"
+  "no_locations_found": "לא נמצאו מוקדים באיזור המוגדר, נסה להגדיל את הטווח או לחפש בכתובת אחרת",
+  "location_declined": "הגישה למיקום נדחתה. יש לאשר מיקום על מנת להציג את המוקדים הקרובים אליך",
+  "cant_go_to_location": "אין לי אפשרות להגיע למוקד"
 }

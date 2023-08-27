@@ -1,18 +1,15 @@
 import MedicinePreviewItem from '@/components/elements/MedicinePreviewItem'
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { Box, Button, Checkbox, FormControlLabel, Stack, Typography } from '@mui/material'
+import { Box, Button, Stack, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
-import mixpanel from 'mixpanel-browser'
 import { useRouter } from 'next/router'
-import { ChangeEvent, useState } from 'react'
 
 const NamesSummary = () => {
-  const [hasMoreProducts, setHasMoreProducts] = useState(false)
   const { stepTo, stepBack, formData, updateFormData, submitData } = useFormWizard()
   const { t } = useStaticTranslation()
   const router = useRouter()
-
+  const { hasMoreProducts } = formData
   const selectedMedicines = formData?.medicines
 
   const handleFinish = () => {
@@ -26,11 +23,6 @@ const NamesSummary = () => {
 
   const handleBack = () => {
     stepBack()
-  }
-
-  const toggleMoreProducts = (_: ChangeEvent<HTMLInputElement>, checked: boolean) => {
-    mixpanel.track('toggle_more_products', { checked })
-    setHasMoreProducts(checked)
   }
 
   const handleRemove = (medicine: MedicineItemType) => {
@@ -59,11 +51,6 @@ const NamesSummary = () => {
           ))}
         </Stack>
       </Box>
-      <FormControlLabel
-        sx={{ alignItems: 'flex-start', width: '105%', mr: -1 }}
-        control={<Checkbox size="small" sx={{ p: 0, px: 1, py: 0.5 }} checked={hasMoreProducts} onChange={toggleMoreProducts} />}
-        label={t('i_have_more_products_to_donate')}
-      />
       <Button variant="contained" sx={{ mt: 4 }} onClick={handleFinish}>
         {t('continue')}
       </Button>

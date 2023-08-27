@@ -2,6 +2,7 @@ import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Button, Dialog, DialogTitle, IconButton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import CloseIcon from 'public/icons/close.svg'
+import { useState } from 'react'
 
 type Props = {
   open: boolean
@@ -10,18 +11,26 @@ type Props = {
 }
 
 const MapLocationDialog = ({ open: openDialog, onClose, onLocationApproved }: Props) => {
+  const [error, setError] = useState<string | null>(null)
   const { t } = useStaticTranslation()
 
   const handleLocationSelected = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(onLocationApproved, onClose)
+      navigator.geolocation.getCurrentPosition(onLocationApproved, error => {
+        if (error.code == error.PERMISSION_DENIED) {
+          console.log('User denied the request for Geolocation.')
+          setError(t('location_declined'))
+        } else {
+          onClose()
+        }
+      })
     } else {
       console.log('Geolocation not supported')
     }
   }
 
   return (
-    <Dialog open={openDialog} onClose={onClose} sx={{ '& .MuiPaper-root': { width: '100%', borderRadius: '24px' } }}>
+    <Dialog open={openDialog} onClose={onClose} sx={{ '& .MuiPaper-root': { width: '100%', borderRadius: '24px', margin: '20px' } }}>
       <DialogTitle sx={{ m: 0, py: 2.5 }}>
         <IconButton
           aria-label="close"
@@ -54,6 +63,11 @@ const MapLocationDialog = ({ open: openDialog, onClose, onLocationApproved }: Pr
         <Button variant="contained" sx={{ mt: 4 }} onClick={handleLocationSelected}>
           {t('allow_location')}
         </Button>
+        {!!error && (
+          <Typography fontSize={15} variant="body1" color={'error.main'}>
+            {error}
+          </Typography>
+        )}
         <Button variant="text" onClick={onClose}>
           {t('not_this_time')}
         </Button>
