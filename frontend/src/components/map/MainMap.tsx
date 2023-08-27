@@ -43,25 +43,22 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
   const [mapLocations, setMapLocations] = useState<Location[]>(locations)
   const sortedCache = useRef<{ [key: string]: Location[] }>({})
 
-  const updateLocationsCoordinates = useCallback(
-    (position: google.maps.LatLngLiteral) => {
-      const cached = sortedCache.current[JSON.stringify(position)]
-      if (cached) {
-        return cached
+  const updateLocationsCoordinates = (position: google.maps.LatLngLiteral) => {
+    const cached = sortedCache.current[JSON.stringify(position)]
+    if (cached) {
+      return cached
+    }
+    const locs = locations.reduce((acc: Location[], l: Location) => {
+      if (l.Coordinates_c) {
+        const distance = calculateDistance(position, l.Coordinates_c)
+        return [...acc, { ...l, distance }]
       }
-      const locs = locations.reduce((acc: Location[], l: Location) => {
-        if (l.Coordinates_c) {
-          const distance = calculateDistance(position, l.Coordinates_c)
-          return [...acc, { ...l, distance }]
-        }
-        return acc
-      }, [])
-      const sorted = locs.sort((a, b) => (a?.distance as number) - (b.distance as number))
-      sortedCache.current = { [JSON.stringify(position)]: sorted }
-      return sorted
-    },
-    [locations, sortedCache.current],
-  )
+      return acc
+    }, [])
+    const sorted = locs.sort((a, b) => (a.distance as number) - (b.distance as number))
+    sortedCache.current = { [JSON.stringify(position)]: sorted }
+    return sorted
+  }
 
   const onLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map

@@ -1,16 +1,19 @@
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, Checkbox, FormControlLabel, Stack, Typography } from '@mui/material'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 const ColdManyItems = () => {
   const { t } = useStaticTranslation()
-  const { stepTo, updateFormData } = useFormWizard()
+  const { stepTo, updateFormData, submitData } = useFormWizard()
   const [data, setData] = useState({
     hasCold: false,
     hasExpensive: false,
     noExpensiveOrCold: false,
   })
+  const router = useRouter()
+
   const { hasCold, hasExpensive, noExpensiveOrCold: noBoth } = data
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,11 +34,16 @@ const ColdManyItems = () => {
 
   const onSubmit = () => {
     updateFormData(data)
-    stepTo('names')
+    if (!!noBoth) {
+      submitData('map')
+      router.push({ pathname: '/map' })
+    } else {
+      stepTo('names')
+    }
   }
 
   return (
-    <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'} component="form" onSubmit={onSubmit}>
+    <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
       <Box width={'100%'} textAlign={'center'}>
         <Typography variant="h1">{t('cold_page_title_many')}</Typography>
       </Box>
@@ -53,7 +61,7 @@ const ColdManyItems = () => {
         <FormControlLabel control={<Checkbox onChange={handleChange} checked={noBoth} name="noExpensiveOrCold" />} label={t('dont_have')} />
       </Stack>
       <Stack gap={2} width={'100%'}>
-        <Button variant="contained" disabled={!hasCold && !hasExpensive && !noBoth} type="submit">
+        <Button variant="contained" disabled={!hasCold && !hasExpensive && !noBoth} onClick={onSubmit}>
           {t('continue')}
         </Button>
       </Stack>

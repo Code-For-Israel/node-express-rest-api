@@ -9,15 +9,15 @@ const NamesSummary = () => {
   const { stepTo, stepBack, formData, updateFormData, submitData } = useFormWizard()
   const { t } = useStaticTranslation()
   const router = useRouter()
-  const { hasMoreProducts } = formData
+  const { hasMoreProducts, hasCold, hasExpensive } = formData
   const selectedMedicines = formData?.medicines
 
   const handleFinish = () => {
-    if (!!formData?.hasExpensive || hasMoreProducts) {
+    if (hasExpensive || hasMoreProducts) {
       stepTo('details')
     } else {
       submitData('map')
-      router.push('/map')
+      router.push({ pathname: '/map', query: hasCold ? { filter: 'store_cold' } : undefined })
     }
   }
 
