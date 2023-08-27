@@ -15,7 +15,7 @@ import LocationPreviewItem from '../elements/LocationPreviewItem'
 
 const mapContainerStyle = {
   width: '100%',
-  height: '60svh',
+  height: '65svh',
 }
 
 const mapCenter = {
@@ -92,6 +92,16 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
     setUserPosition({ lat, lng })
     closeDialog()
   }
+
+  const focusMap = useCallback(
+    (location: Location) => {
+      if (location.Coordinates_c) {
+        mapRef.current?.setCenter(location.Coordinates_c)
+        mapRef.current?.setZoom(15)
+      }
+    },
+    [mapRef.current],
+  )
 
   return (
     <Box
@@ -170,7 +180,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
           py: 2,
           width: '100%',
           background: 'white',
-          height: '45svh',
+          height: '40svh',
           position: 'absolute',
           bottom: 0,
           boxShadow: '0px -3px 6px 0px rgba(0, 0, 0, 0.08)',
@@ -205,7 +215,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
             <DotLoader color={secondaryColor} loading={loadingLocations} size={30} speedMultiplier={2} />
           </Box>
           {filteredLocations.map((l, index) => (
-            <LocationPreviewItem key={index} onClick={handleNavigation} location={l} />
+            <LocationPreviewItem key={index} onClick={handleNavigation} location={l} focusMap={focusMap} />
           ))}
           {!loadingLocations && filteredLocations.length < 1 && (
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>
