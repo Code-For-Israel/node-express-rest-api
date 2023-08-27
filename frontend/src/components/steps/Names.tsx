@@ -144,7 +144,7 @@ const Names = () => {
         layout
         transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
       >
-        <Autocomplete autoFocus value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
+        <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
         <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
           {isFetching && (
             <Box sx={{ position: 'absolute', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', right: 0, top: 40 }}>
