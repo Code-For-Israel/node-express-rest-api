@@ -1,7 +1,7 @@
 import FormRadio from '@/components/elements/FormRadio'
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { Box, Button, RadioGroup, Stack, Typography } from '@mui/material'
+import { Box, Button, Checkbox, FormControlLabel, RadioGroup, Stack, Typography } from '@mui/material'
 import { FormValuesType } from 'FormTypes'
 import { Controller, useForm } from 'react-hook-form'
 
@@ -11,6 +11,7 @@ const Quantity = () => {
     control,
     handleSubmit,
     formState: { isValid },
+    register,
   } = useForm()
   const { t } = useStaticTranslation()
 
@@ -58,6 +59,11 @@ const Quantity = () => {
           )}
         />
       </Box>
+      <FormControlLabel
+        sx={{ alignItems: 'flex-start', ml: -1, mb: 3.5 }}
+        control={<Checkbox {...register('hasMoreProducts')} size="small" sx={{ p: 0, px: 1, py: 0.5 }} />}
+        label={t('i_have_more_products_to_donate')}
+      />
       <Button type="submit" disabled={!isValid}>
         המשך
       </Button>
