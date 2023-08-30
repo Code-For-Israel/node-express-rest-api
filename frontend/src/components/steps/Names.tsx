@@ -43,7 +43,7 @@ const Names = () => {
 
   const debouncedQuery = useDebounce(searchValue, 600)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
-  const { medicineQuantity, hasExpensive } = formData
+  const { medicineQuantity, hasExpensive, hasCold } = formData
   const isManyMedicines = medicineQuantity && medicineQuantity !== '1-10'
 
   const { t } = useStaticTranslation()
@@ -57,12 +57,11 @@ const Names = () => {
     isFetching,
     isFetched,
   } = useQuery(['medicines', debouncedQuery], searchMedicines(debouncedQuery), {
-    enabled: debouncedQuery.trim().length > 0,
+    enabled: debouncedQuery.trim().length > 3,
     refetchOnWindowFocus: false,
     retry: false,
     initialData: [],
   })
-  console.log(medicineData)
 
   const handleClose = () => {
     setSelectedMedicine(null)
@@ -103,7 +102,7 @@ const Names = () => {
         stepTo('details')
       } else {
         submitData('map')
-        router.push('/map')
+        router.push({ pathname: '/map', query: hasCold ? { filter: 'store_cold' } : undefined })
       }
     } else {
       stepTo('cold-storage')
@@ -147,7 +146,19 @@ const Names = () => {
         <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
         <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
           {isFetching && (
-            <Box sx={{ position: 'absolute', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', right: 0, top: 40 }}>
+            <Box
+              sx={{
+                position: 'absolute',
+                background: 'rgba(255, 255, 255, 0.8)',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                right: 0,
+                top: 50,
+                zIndex: 1000,
+              }}
+            >
               <DotLoader color={secondaryColor} loading={isFetching} size={30} speedMultiplier={2} />
             </Box>
           )}
