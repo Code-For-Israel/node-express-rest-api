@@ -5,7 +5,9 @@
   "author": "Code4Israel",
   "license": "MIT",
   "jest": {
-    "testPathIgnorePatterns": ["./frontend"]
+    "testPathIgnorePatterns": [
+      "./frontend"
+    ]
   },
   "scripts": {
     "build": "tsc",
@@ -26,6 +28,7 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
+    "electron-to-chromium": "^1.4.508",
     "envalid": "^7.3.1",
     "express": "^4.18.2",
     "express-list-endpoints": "^6.0.0",
