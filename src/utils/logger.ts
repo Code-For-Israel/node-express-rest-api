@@ -9,7 +9,7 @@ if (!config.IS_CLOUD) {
 }
 
 export const logger = winston.createLogger({
-  level: config.isDevelopment ? 'debug' : 'info',
+  level: config.isDevelopment ? 'debug' :  process.env.LOG_LEVEL || 'info',
   format: winston.format.combine(...logFormatters),
   defaultMeta: { service: name, version },
   transports: [new winston.transports.Console()],
