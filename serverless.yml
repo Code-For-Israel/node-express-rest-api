@@ -8,14 +8,36 @@ plugins:
 #  profiles:
 #    dev: dev
 #    prod: prod
+custom:
+  profiles:
+    dev: dev
+    prod: prod
+  table-names:
+    medicines: ${self:service}-${self:provider.profile}-medicines
+    medicine-names: ${self:service}-${self:provider.profile}-medicine-names
+    collection-sites: ${self:service}-${self:provider.profile}-sites
 
 provider:
   name: aws
   runtime: nodejs18.x
 #  profile: ${self:custom.profiles.${sls:stage}}
 
+  profile: ${self:custom.profiles.${sls:stage}}
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+          Resource: !GetAtt MedicineNameTable.Arn
 functions:
   api:
     handler: src/index.handler
     events:
       - httpApi: '*'
+    environment:
+      MEDICINE_NAMES_TABLE: ${self:custom.table-names.medicine-names}
+      LOG_LEVEL: info
+
+resources:
+  - ${file(infra/dynamo-db.yml)}

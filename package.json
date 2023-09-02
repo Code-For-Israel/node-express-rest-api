@@ -5,11 +5,13 @@
   "author": "Code4Israel",
   "license": "MIT",
   "jest": {
-    "testPathIgnorePatterns": ["./frontend"]
+    "testPathIgnorePatterns": [
+      "./frontend"
+    ]
   },
   "scripts": {
     "build": "tsc",
-    "deploy": "serverless deploy",
+    "deploy": "serverless deploy --region eu-central-1",
     "deploy:function": "serverless deploy function --function api",
     "lint": "eslint --ignore-path .gitignore --ext .ts src/",
     "lint:fix": "npm run lint -- --fix",
@@ -26,19 +28,19 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
+    "electron-to-chromium": "^1.4.508",
     "envalid": "^7.3.1",
     "express": "^4.18.2",
     "express-list-endpoints": "^6.0.0",
     "helmet": "^6.0.0",
     "http-status-codes": "^2.2.0",
-    "i18next": "^23.2.6",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
-    "react-i18next": "^13.0.1",
     "serverless-http": "^2.6.1",
     "winston": "^3.8.2"
   },
   "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.370.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.12",
     "@types/dotenv": "^8.2.0",
@@ -49,18 +51,20 @@
     "@types/lodash": "^4.14.184",
     "@types/node": "^18.7.16",
     "@types/winston": "^2.4.4",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.33.1",
     "jest": "^29.6.1",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "prisma": "^4.3.1",
     "serverless-plugin-typescript": "^2.1.4",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "xlsx": "^0.18.5"
   },
   "prettier": {
     "printWidth": 150,

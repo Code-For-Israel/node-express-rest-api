@@ -1,0 +1,44 @@
+Resources:
+  MedicineTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.table-names.medicines}
+      AttributeDefinitions:
+        - AttributeName: medicine_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: medicine_id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      TimeToLiveSpecification:
+        Enabled: false
+  MedicineNameTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.table-names.medicine-names}
+      AttributeDefinitions:
+        - AttributeName: first_letter
+          AttributeType: S
+        - AttributeName: name_in_upper_case
+          AttributeType: S
+      KeySchema:
+        - AttributeName: first_letter
+          KeyType: HASH
+        - AttributeName: name_in_upper_case
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+      TimeToLiveSpecification:
+        Enabled: false
+  SitesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: ${self:custom.table-names.collection-sites}
+      AttributeDefinitions:
+        - AttributeName: site-id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: site-id
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
+      TimeToLiveSpecification:
+        Enabled: false

@@ -1,6 +1,11 @@
-export interface Medicine {
-    medicineId: string,
-    names: string[]
+export interface MedicineName {
+    medicine_id: string,
+    name: string,
+    name_in_second_lang: string
+};
+
+export function dbItems2MedicineNames(items: any[]): MedicineName[] {
+    return items.map(({ medicine_id, name, name_in_second_lang }) => ({ medicine_id, name, name_in_second_lang }));
 };
 
 export interface MedicineDetails {
