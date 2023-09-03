@@ -55,7 +55,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
           <Typography variant="h2" overflow={'hidden'} textOverflow={'ellipsis'} whiteSpace={'nowrap'}>
             {location.Name_c}
           </Typography>
-          {location.RefrigeratedMedicines_c && (
+          {Boolean(location.RefrigeratedMedicines_c) && (
             <Chip
               size="small"
               sx={{

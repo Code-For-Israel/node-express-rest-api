@@ -57,7 +57,7 @@ const Names = () => {
     isFetching,
     isFetched,
   } = useQuery(['medicines', debouncedQuery], searchMedicines(debouncedQuery), {
-    enabled: debouncedQuery.trim().length > 3,
+    enabled: debouncedQuery.trim().length > 2,
     refetchOnWindowFocus: false,
     retry: false,
     initialData: [],
@@ -116,7 +116,7 @@ const Names = () => {
     [savedMedicines],
   )
 
-  const hideText = searchValue.trim().length > 0
+  const hideText = searchValue.trim().length > 2
 
   return (
     <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} position={'relative'} justifyContent={'space-between'}>
