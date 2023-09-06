@@ -1,4 +1,3 @@
-import Autocomplete from '@/components/elements/Autocomplete'
 import MapFilters from '@/components/map/MapFilters'
 import MapLocationDialog from '@/components/map/MapLocationDialog'
 import MapPin from '@/components/map/MapPin'
@@ -12,6 +11,7 @@ import mixpanel from 'mixpanel-browser'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { DotLoader } from 'react-spinners'
 import LocationPreviewItem from '../elements/LocationPreviewItem'
+import PlacesAutocomplete from './PlacesAutocomplete'
 
 const mapContainerStyle = {
   width: '100%',
@@ -64,7 +64,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
     mapRef.current = map
   }, [])
 
-  const filteredLocations = mapLocations.filter((l: Location) => (filter === 'store_cold' ? Boolean(l.RefrigeratedMedicines_c) : true)).slice(0, 12)
+  const filteredLocations = mapLocations.filter((l: Location) => (filter === 'store_cold' ? l.RefrigeratedMedicines_c == true : true)).slice(0, 12)
 
   const handleMapIdle = useCallback(() => {
     const bounds = mapRef.current?.getBounds()
@@ -91,11 +91,9 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
   }
 
   const focusMap = useCallback(
-    (location: Location) => {
-      if (location.Coordinates_c) {
-        mapRef.current?.setCenter(location.Coordinates_c)
-        mapRef.current?.setZoom(15)
-      }
+    (location: google.maps.LatLngLiteral) => {
+      mapRef.current?.setCenter(location)
+      mapRef.current?.setZoom(15)
     },
     [mapRef.current],
   )
@@ -120,12 +118,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
         }}
       >
         <Box sx={{ position: 'absolute', top: 20, right: 0, width: '100%', px: '35px', zIndex: 1000 }}>
-          <Autocomplete
-            onValueChange={value => {
-              console.log(value)
-            }}
-            placeholder={t('map_search_placeholder')}
-          />
+          <PlacesAutocomplete onSelect={place => focusMap(place)} />
         </Box>
         <MapFilters />
         <GoogleMap

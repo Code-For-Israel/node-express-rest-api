@@ -1,7 +1,7 @@
 import FormField from '@/components/elements/FormField'
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { generatWALink } from '@/util/whatsapp'
+import { generateWALink } from '@/util/whatsapp'
 import { Box, Button, Link, Stack, Typography } from '@mui/material'
 import { FormValuesType } from 'FormTypes'
 import { formatIncompletePhoneNumber, isValidPhoneNumber } from 'libphonenumber-js'
@@ -10,7 +10,7 @@ import { Controller, useForm } from 'react-hook-form'
 
 const Details = () => {
   const { stepTo, updateFormData, submitData } = useFormWizard()
-  const link = generatWALink()
+  const link = generateWALink()
   const { t } = useStaticTranslation()
   const { register, handleSubmit, formState, watch, control } = useForm({ mode: 'onChange' })
 
@@ -21,7 +21,7 @@ const Details = () => {
     updateFormData(data)
     submitData('whatsapp')
     mixpanel.track('whatsapp_details_sent')
-    const waLink = generatWALink(123456789, t('whatsapp_message_with_cold', { fullName, street, houseNumber, town }))
+    const waLink = generateWALink(t('whatsapp_message_with_cold', { fullName, street, houseNumber, town }))
     window.open(waLink, '_blank')
     stepTo('thank-you')
   }
@@ -81,7 +81,7 @@ const Details = () => {
       </Stack>
       <Stack gap={2} width={'100%'} textAlign={'center'}>
         <Button type="submit" disabled={!isValid}>
-          {t('confirm')}
+          {t('connect_to_rep')}
         </Button>
         <Link color={'inherit'} href={link} target="_blank">
           {t('send_on_whatsapp')}

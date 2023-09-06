@@ -190,7 +190,7 @@ const Names = () => {
         open={!!selectedMedicine}
         onOpen={() => false}
         onClose={handleClose}
-        sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '45%' } }}
+        sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '50%' } }}
       >
         <Box
           sx={{

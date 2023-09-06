@@ -1,11 +1,12 @@
 import useStaticTranslation from '@/hooks/useStaticTranslation'
+import { generateWALink } from '@/util/whatsapp'
 import { Button, Chip, IconButton, Stack, Typography } from '@mui/material'
 import type { Location } from 'LocationTypes'
 import Image from 'next/image'
 import LocationPinIcon from 'public/icons/location-pin.svg'
 import WhatsAppIcon from 'public/icons/whatsapp.svg'
 
-type Props = { location: Location; onClick: (location: Location) => void; focusMap: (location: Location) => void }
+type Props = { location: Location; onClick: (location: Location) => void; focusMap: (location: google.maps.LatLngLiteral) => void }
 
 const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
   const { t } = useStaticTranslation()
@@ -37,7 +38,9 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
           gap: 0.5,
           pr: 2,
         }}
-        onClick={() => focusMap(location)}
+        onClick={() => {
+          location.Coordinates_c && focusMap(location.Coordinates_c)
+        }}
       >
         <Image src={LocationPinIcon} alt="Location Icon" width={38} />
         {location.distance && (
@@ -55,7 +58,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
           <Typography variant="h2" overflow={'hidden'} textOverflow={'ellipsis'} whiteSpace={'nowrap'}>
             {location.Name_c}
           </Typography>
-          {Boolean(location.RefrigeratedMedicines_c) && (
+          {location.RefrigeratedMedicines_c == true && (
             <Chip
               size="small"
               sx={{
@@ -93,7 +96,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
         </Button>
       </Stack>
       {location.WhatsappNumber_c && (
-        <IconButton disableRipple href={`https://api.whatsapp.com/send?phone=${location.WhatsappNumber_c}`} target="_blank">
+        <IconButton disableRipple href={generateWALink('', location.WhatsappNumber_c)} target="_blank">
           <Image src={WhatsAppIcon} alt="whatsapp" />
         </IconButton>
       )}
