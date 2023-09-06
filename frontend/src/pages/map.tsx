@@ -10,6 +10,8 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
+const LIBRARIES = ['places'] as any
+
 const fetchLocations = (filter?: string | string[]) => async () => {
   const query = filter ? `?filter=${filter}` : ''
   const res = await axios.get(`https://kh152rtckc.execute-api.us-east-1.amazonaws.com/items${query}`)
@@ -46,6 +48,7 @@ const MapPage = () => {
 
   const { isLoaded: isMapLoaded } = useJsApiLoader({
     id: 'google-map-script',
+    libraries: LIBRARIES,
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
   })
 

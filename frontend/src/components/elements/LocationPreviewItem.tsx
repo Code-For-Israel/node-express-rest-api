@@ -6,7 +6,7 @@ import Image from 'next/image'
 import LocationPinIcon from 'public/icons/location-pin.svg'
 import WhatsAppIcon from 'public/icons/whatsapp.svg'
 
-type Props = { location: Location; onClick: (location: Location) => void; focusMap: (location: Location) => void }
+type Props = { location: Location; onClick: (location: Location) => void; focusMap: (location: google.maps.LatLngLiteral) => void }
 
 const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
   const { t } = useStaticTranslation()
@@ -38,7 +38,9 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
           gap: 0.5,
           pr: 2,
         }}
-        onClick={() => focusMap(location)}
+        onClick={() => {
+          location.Coordinates_c && focusMap(location.Coordinates_c)
+        }}
       >
         <Image src={LocationPinIcon} alt="Location Icon" width={38} />
         {location.distance && (

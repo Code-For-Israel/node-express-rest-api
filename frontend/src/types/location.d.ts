@@ -8,7 +8,7 @@ declare module 'LocationTypes' {
     Address_c?: string | null
     Type: string
     RefrigeratedMedicines_c: boolean
-    Coordinates_c?: google.maps.LatLngLiteral | google.maps.LatLng
+    Coordinates_c?: google.maps.LatLngLiteral
     distance?: number
     WhatsappNumber_c?: string | null
   }
