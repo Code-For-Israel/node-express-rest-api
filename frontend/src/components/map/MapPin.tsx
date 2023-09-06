@@ -24,7 +24,7 @@ const MapPin = ({ location }: Props) => {
         }}
       >
         <Image src={LocationPinIcon} alt="icon" width={38} height={38} />
-        <Box sx={{ bgcolor: 'white', borderRadius: 100, px: 1, boxShadow: 1 }}>
+        <Box sx={{ bgcolor: 'white', borderRadius: 100, px: 1, boxShadow: '0px 3px 5px 0px rgba(0, 0, 0, 0.08)' }}>
           <Typography variant="caption" color="primary.main">
             {location.Name_c}
           </Typography>

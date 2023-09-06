@@ -23,9 +23,6 @@ const PlacesAutocomplete = ({ onSelect }: Props) => {
     debounce: 500,
   })
 
-  console.log(status)
-  console.log(data)
-
   const handleInput = (text: string) => {
     setValue(text)
   }
