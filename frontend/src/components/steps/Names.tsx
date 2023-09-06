@@ -76,10 +76,20 @@ const Names = () => {
     setAnimate(medicine._id)
   }
 
-  const handleSave = (medicine: MedicineItemType, state: string) => {
-    const medWithState = { ...medicine, state }
+  const checkIfCold = (medicine: MedicineItemType) => {
+    // const barcode = medicine.barcodes.split(' ')[0]
+    // if (barcode.trim().length < 1) return false
+    // const isStoredCold = await axios.get(`https://1ltqbahdcl.execute-api.us-east-1.amazonaws.com/default/items/${barcode}`)
+    if (medicine.Name.includes('מנופור')) return true
+    return false
+  }
+
+  const handleSave = async (medicine: MedicineItemType, state: string) => {
+    const isCold = checkIfCold(medicine)
+    const medWithState = { ...medicine, state, storeCold: isCold }
     setSavedMedicines([...savedMedicines, medWithState])
-    updateFormData({ medicines: [...savedMedicines, medWithState] })
+    const hasCold = medWithState.storeCold || savedMedicines.some((m: MedicineItemType) => m.storeCold)
+    updateFormData({ medicines: [...savedMedicines, medWithState], hasExpensive: hasCold })
     setSelectedMedicine(null)
     mixpanel.track('add_medicine', { medicine: medicine.englishName, state })
   }
@@ -144,7 +154,7 @@ const Names = () => {
         transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
       >
         <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
-        <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
+        <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%' }}>
           {isFetching && (
             <Box
               sx={{

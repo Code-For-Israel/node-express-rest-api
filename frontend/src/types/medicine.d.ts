@@ -3,6 +3,7 @@ declare module 'MedicineTypes' {
     _id: string
     Name: string
     englishName: string
-    needCold?: boolean
+    barcodes: string
+    storeCold?: boolean
   }
 }

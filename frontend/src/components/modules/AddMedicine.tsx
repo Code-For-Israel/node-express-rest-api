@@ -11,7 +11,6 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
 
   const handlePick = (e: ChangeEvent<HTMLInputElement>, value: string) => {
     onSave(medicine, value)
-    console.log(e)
   }
 
   return (
