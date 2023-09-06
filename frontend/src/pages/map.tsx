@@ -13,13 +13,15 @@ import { useState } from 'react'
 const fetchLocations = (filter?: string | string[]) => async () => {
   const query = filter ? `?filter=${filter}` : ''
   const res = await axios.get(`https://kh152rtckc.execute-api.us-east-1.amazonaws.com/items${query}`)
+
   if (res.data) {
     res.data.forEach((l: any) => {
       l.Coordinates_c = {
-        lat: Number(l.Coordinates_lat_c),
-        lng: Number(l.Coordinates_lng_c),
+        lat: Number(l['Coordinates_c/lat']),
+        lng: Number(l['Coordinates_c/lng']),
       }
     })
+    console.log(res.data)
     return res.data
   }
   return []
@@ -56,7 +58,7 @@ const MapPage = () => {
 
   const goToDetails = () => {
     mixpanel.track('cant_go_clicked')
-    router.replace('/', undefined, { shallow: true })
+    router.push('/', undefined, { shallow: true })
     stepTo('details')
   }
 
