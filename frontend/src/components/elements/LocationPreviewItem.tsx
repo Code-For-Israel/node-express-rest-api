@@ -1,4 +1,5 @@
 import useStaticTranslation from '@/hooks/useStaticTranslation'
+import { generateWALink } from '@/util/whatsapp'
 import { Button, Chip, IconButton, Stack, Typography } from '@mui/material'
 import type { Location } from 'LocationTypes'
 import Image from 'next/image'
@@ -55,7 +56,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
           <Typography variant="h2" overflow={'hidden'} textOverflow={'ellipsis'} whiteSpace={'nowrap'}>
             {location.Name_c}
           </Typography>
-          {Boolean(location.RefrigeratedMedicines_c) && (
+          {location.RefrigeratedMedicines_c == true && (
             <Chip
               size="small"
               sx={{
@@ -93,7 +94,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
         </Button>
       </Stack>
       {location.WhatsappNumber_c && (
-        <IconButton disableRipple href={`https://api.whatsapp.com/send?phone=${location.WhatsappNumber_c}`} target="_blank">
+        <IconButton disableRipple href={generateWALink('', location.WhatsappNumber_c)} target="_blank">
           <Image src={WhatsAppIcon} alt="whatsapp" />
         </IconButton>
       )}
