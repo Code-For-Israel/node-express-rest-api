@@ -6,11 +6,11 @@ import { useState } from 'react'
 
 const ColdManyItems = () => {
   const { t } = useStaticTranslation()
-  const { stepTo, updateFormData, submitData } = useFormWizard()
+  const { stepTo, updateFormData, submitData, formData } = useFormWizard()
   const [data, setData] = useState({
-    hasCold: false,
-    hasExpensive: false,
-    noExpensiveOrCold: false,
+    hasCold: formData.hasCold || false,
+    hasExpensive: formData.hasExpensive || false,
+    noExpensiveOrCold: formData.noExpensiveOrCold || false,
   })
   const router = useRouter()
 
