@@ -5,5 +5,9 @@ declare module 'MedicineTypes' {
     englishName: string
     barcodes: string
     storeCold?: boolean
+    isExpensive?: boolean
+    isRare?: boolean
+    dragRegNum: string
+    customerPrice: number
   }
 }

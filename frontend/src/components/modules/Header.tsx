@@ -19,6 +19,7 @@ const Header = () => {
         px: 2,
         mb: 4,
         height: 55,
+        minHeight: 55,
         width: '100vw',
         position: 'relative',
         boxShadow: '0px 2px 0px 0px rgba(0, 0, 0, 0.10)',
