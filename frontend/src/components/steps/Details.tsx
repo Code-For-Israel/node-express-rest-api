@@ -32,7 +32,7 @@ const Details = () => {
         <Typography variant="h1">{t('details_page_title')}</Typography>
         <Typography variant="body1">{t('details_page_subtitle')}</Typography>
       </Stack>
-      <Stack gap={3} width={'100%'} flex={1} px={0.5} sx={{ overflow: 'auto' }}>
+      <Stack gap={3} width={'100%'} maxHeight={'calc(100% - 250px)'} flexGrow={1} px={0.5} sx={{ overflow: 'auto' }}>
         <FormField
           error={errors?.fullName}
           label={t('full_name')}

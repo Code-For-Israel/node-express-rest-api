@@ -14,7 +14,7 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
   }
 
   return (
-    <Stack direction={'column'} gap={7} py={3} px={4} sx={{ width: '100%', overflowY: 'auto' }}>
+    <Stack direction={'column'} gap={7} py={3} px={4} sx={{ width: '100%' }}>
       <Stack gap={2} pt={3} justifyContent={'center'} alignItems={'center'} textAlign={'center'}>
         <Typography variant="h3">{t('will_expire_soon')}</Typography>
         <Stack>
@@ -27,9 +27,9 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
         </Stack>
       </Stack>
       <RadioGroup sx={{ width: 'fit-content', pl: 4, rowGap: 1 }} aria-label="expired-state" onChange={handlePick}>
-        <FormRadio value="inAMonth" label="כן" />
-        <FormRadio value="noOrUnknown" label="לא / לא ידוע" />
-        <FormRadio value="expired" label="פג תוקף" />
+        <FormRadio value="noOrUnknown" label={t('no_unknown')} />
+        <FormRadio value="inAMonth" label={t('yes')} />
+        <FormRadio value="expired" label={t('expired')} />
       </RadioGroup>
     </Stack>
   )

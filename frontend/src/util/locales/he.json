@@ -21,7 +21,7 @@
   "cold_page_title_many": "האם יש לך תרופות במקרר או יקרות?",
   "yes": "כן",
   "no": "לא",
-  "unknown": "לא ידוע",
+  "no_unknown": "לא / לא ידוע",
   "continue": "המשך",
   "expired": "פג תוקף",
   "will_expire_soon": "האם תוקף התרופה יפוג בחודש הקרוב?",

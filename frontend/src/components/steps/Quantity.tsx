@@ -18,11 +18,7 @@ const Quantity = () => {
   const onSubmit = (data: FormValuesType) => {
     if (!isValid) return
     updateFormData(data)
-    if (data.medicineQuantity !== '1-10') {
-      stepTo('cold-storage')
-    } else {
-      stepTo('names')
-    }
+    stepTo('cold-storage')
   }
 
   return (

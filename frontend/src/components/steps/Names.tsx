@@ -76,29 +76,47 @@ const Names = () => {
     setAnimate(medicine._id)
   }
 
-  const checkIfCold = (medicine: MedicineItemType) => {
-    // const barcode = medicine.barcodes.split(' ')[0]
-    // if (barcode.trim().length < 1) return false
-    // const isStoredCold = await axios.get(`https://1ltqbahdcl.execute-api.us-east-1.amazonaws.com/default/items/${barcode}`)
-    if (medicine.Name.includes('מנופור')) return true
-    return false
+  const checkMedicineDetails = async (medicine: MedicineItemType) => {
+    let barcode = medicine.barcodes.split(' ')[0]
+    const isExpensive = medicine.customerPrice >= 1000
+    const isRare = false
+    if (barcode.trim().length < 1) {
+      const medicineDetails = await axios
+        .post('https://israeldrugs.health.gov.il/GovServiceList/IDRServer/GetSpecificDrug', {
+          dragRegNum: medicine.dragRegNum,
+        })
+        .catch(e => {
+          console.log(e)
+        })
+      if (medicineDetails && medicineDetails.data) {
+        barcode = medicineDetails.data.packages.filter((p: any) => p.barcode)[0].barcode
+        console.log(medicineDetails.data)
+      }
+      // const getRare = await axios.get(`https://1ltqbahdcl.execute-api.us-east-1.amazonaws.com/default/items/${barcode}`).catch(e => console.log(e))
+    }
+
+    return { isExpensive, isRare }
   }
 
   const handleSave = async (medicine: MedicineItemType, state: string) => {
-    const isCold = checkIfCold(medicine)
-    const medWithState = { ...medicine, state, storeCold: isCold }
-    setSavedMedicines([...savedMedicines, medWithState])
-    const hasCold = medWithState.storeCold || savedMedicines.some((m: MedicineItemType) => m.storeCold)
-    updateFormData({ medicines: [...savedMedicines, medWithState], hasExpensive: hasCold })
+    const { isExpensive, isRare } = await checkMedicineDetails(medicine)
+    const medWithState = { ...medicine, state, isRare, isExpensive }
+    const newMedicineList = [...savedMedicines, medWithState]
+    saveFormState(newMedicineList)
     setSelectedMedicine(null)
     mixpanel.track('add_medicine', { medicine: medicine.englishName, state })
   }
 
   const handleRemove = (medicine: MedicineItemType) => {
-    const newMedicines = savedMedicines.filter((m: MedicineItemType) => m._id !== medicine._id)
-    setSavedMedicines(newMedicines)
-    updateFormData({ ...formData, medicines: newMedicines })
+    const newMedicineList = savedMedicines.filter((m: MedicineItemType) => m._id !== medicine._id)
+    saveFormState(newMedicineList)
     mixpanel.track('remove_medicine', { medicine: medicine.englishName })
+  }
+
+  const saveFormState = (medicinList: MedicineItemType[]) => {
+    setSavedMedicines(medicinList)
+    const hasExpensive = medicinList.some((m: MedicineItemType) => m.isRare || m.isExpensive)
+    updateFormData({ medicines: medicinList, hasExpensive })
   }
 
   const handleDone = () => {
@@ -107,15 +125,11 @@ const Names = () => {
 
   const handleSkip = () => {
     mixpanel.track('skip_names')
-    if (isManyMedicines) {
-      if (hasExpensive) {
-        stepTo('details')
-      } else {
-        submitData('map')
-        router.push({ pathname: '/map', query: hasCold ? { filter: 'store_cold' } : undefined })
-      }
+    if (hasExpensive) {
+      stepTo('details')
     } else {
-      stepTo('cold-storage')
+      submitData('map')
+      router.push({ pathname: '/map', query: hasCold ? { filter: 'store_cold' } : undefined })
     }
   }
 
@@ -154,7 +168,7 @@ const Names = () => {
         transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
       >
         <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
-        <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%' }}>
+        <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
           {isFetching && (
             <Box
               sx={{
@@ -200,7 +214,7 @@ const Names = () => {
         open={!!selectedMedicine}
         onOpen={() => false}
         onClose={handleClose}
-        sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '50%' } }}
+        sx={{ '& .MuiPaper-root': { borderTopLeftRadius: 36, borderTopRightRadius: 36, height: '55%', overflow: 'hidden' } }}
       >
         <Box
           sx={{
