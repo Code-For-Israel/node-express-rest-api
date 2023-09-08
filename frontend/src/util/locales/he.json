@@ -46,7 +46,7 @@
   "thank_you_page_title": "תודה לך!",
   "thank_you_page_subtitle": "קיבלנו את הפרטים  וניצור איתך קשר לאיסוף התרופות בהקדם",
   "whatsapp_message_with_cold": "שלום, קוראים לי {{fullName}} ואני מעוניין לתרום תרופות. יש לי תרופות מיוחדות ובקירור ואני גר ב{{street}} {{houseNumber}}, {{town}}. תודה!",
-  "whatsapp_message_with_medicine": "שלום, קוראים לי {{fullName}} אני גר ב{{street}} {{houseNumber}}, {{town}}. ואשמח לתרום את התרופות הבאות: {{medicinList}} תודה!",
+  "whatsapp_message_with_medicines": "שלום, שמי {{fullName}}, כתובת לאיסוף התרופות: {{fullAddress}}.\nהתרופות שברצוני לתרום:\n{{medicineListString}}",
   "done": "סיום",
   "map_dialog_title": " נשמח לקבל את התרופות!",
   "map_dialog_text": "במסך הבא נציג מוקדים למסירת התרופות. \n להצגת המוקדים הקרובים אליך, יש לאשר מיקום",

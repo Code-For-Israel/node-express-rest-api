@@ -43,7 +43,7 @@ const Names = () => {
 
   const debouncedQuery = useDebounce(searchValue, 600)
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
-  const { medicineQuantity, hasExpensive, hasCold } = formData
+  const { medicineQuantity, hasExpensive, hasCold, expensiveDetected } = formData
   const isManyMedicines = medicineQuantity && medicineQuantity !== '1-10'
 
   const { t } = useStaticTranslation()
@@ -89,11 +89,15 @@ const Names = () => {
           console.log(e)
         })
       if (medicineDetails && medicineDetails.data) {
-        barcode = medicineDetails.data.packages.filter((p: any) => p.barcode)[0].barcode
-        console.log(medicineDetails.data)
+        console.log(medicineDetails.data.packages)
+        const packageWithBarcode = medicineDetails.data.packages.filter((p: any) => p.barcode.trim().length > 0)
+        if (packageWithBarcode.length > 0) {
+          barcode = packageWithBarcode[0].barcode
+        }
       }
       // const getRare = await axios.get(`https://1ltqbahdcl.execute-api.us-east-1.amazonaws.com/default/items/${barcode}`).catch(e => console.log(e))
     }
+    console.log(barcode)
 
     return { isExpensive, isRare }
   }
@@ -116,7 +120,7 @@ const Names = () => {
   const saveFormState = (medicinList: MedicineItemType[]) => {
     setSavedMedicines(medicinList)
     const hasExpensive = medicinList.some((m: MedicineItemType) => m.isRare || m.isExpensive)
-    updateFormData({ medicines: medicinList, hasExpensive })
+    updateFormData({ medicines: medicinList, expensiveDetected: hasExpensive })
   }
 
   const handleDone = () => {
@@ -125,7 +129,7 @@ const Names = () => {
 
   const handleSkip = () => {
     mixpanel.track('skip_names')
-    if (hasExpensive) {
+    if (hasExpensive || expensiveDetected) {
       stepTo('details')
     } else {
       submitData('map')

@@ -9,11 +9,11 @@ import mixpanel from 'mixpanel-browser'
 import { Controller, useForm } from 'react-hook-form'
 
 const Details = () => {
-  const { stepTo, updateFormData, submitData } = useFormWizard()
+  const { stepTo, updateFormData, submitData, formData } = useFormWizard()
   const link = generateWALink()
   const { t } = useStaticTranslation()
   const { register, handleSubmit, formState, watch, control } = useForm({ mode: 'onChange' })
-
+  const { medicines } = formData
   const { fullName, town, street, houseNumber } = watch()
   const { isValid, errors } = formState
 
@@ -21,7 +21,10 @@ const Details = () => {
     updateFormData(data)
     submitData('whatsapp')
     mixpanel.track('whatsapp_details_sent')
-    const waLink = generateWALink(t('whatsapp_message_with_cold', { fullName, street, houseNumber, town }))
+    const medicineListString = medicines ? medicines.map(m => m.Name).join('\n') : ''
+    const waLink = generateWALink(
+      t('whatsapp_message_with_medicines', { fullName, fullAddress: `${street} ${houseNumber}, ${town}`, medicineListString }),
+    )
     window.open(waLink, '_blank')
     stepTo('thank-you')
   }
@@ -35,12 +38,13 @@ const Details = () => {
       <Stack gap={3} width={'100%'} maxHeight={'calc(100% - 250px)'} flexGrow={1} px={0.5} sx={{ overflow: 'auto' }}>
         <FormField
           error={errors?.fullName}
+          defaultValue={formData.fullName || ''}
           label={t('full_name')}
           {...register('fullName', { required: true, minLength: 3, pattern: { value: /^[a-z\u0590-\u05fe -]+$/i, message: t('invalid_name') } })}
         />
         <Controller
           control={control}
-          defaultValue={''}
+          defaultValue={formData.phoneNumber || ''}
           render={({ field }) => (
             <FormField
               label={t('phone_number')}
@@ -63,6 +67,7 @@ const Details = () => {
         />
         <FormField
           label={t('town')}
+          defaultValue={formData.town || ''}
           error={errors?.town}
           {...register('town', { required: t('required_field'), minLength: { value: 3, message: t('required_field') } })}
         />
@@ -70,13 +75,14 @@ const Details = () => {
           <FormField
             label={t('street')}
             error={errors?.street}
+            defaultValue={formData.street || ''}
             {...register('street', {
               required: t('required_field'),
               pattern: /^(?!\d+$)[^:]+$/,
               minLength: { value: 2, message: t('required_field') },
             })}
           />
-          <FormField label={t('house_number')} type="number" {...register('houseNumber')} />
+          <FormField label={t('house_number')} defaultValue={formData.houseNumber || ''} type="number" {...register('houseNumber')} />
         </Box>
       </Stack>
       <Stack gap={2} width={'100%'} textAlign={'center'}>

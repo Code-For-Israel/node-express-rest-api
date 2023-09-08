@@ -9,11 +9,11 @@ const NamesSummary = () => {
   const { stepTo, stepBack, formData, updateFormData, submitData } = useFormWizard()
   const { t } = useStaticTranslation()
   const router = useRouter()
-  const { hasMoreProducts, hasCold, hasExpensive } = formData
+  const { hasMoreProducts, hasCold, hasExpensive, expensiveDetected } = formData
   const selectedMedicines = formData?.medicines
 
   const handleFinish = () => {
-    if (hasExpensive || hasMoreProducts) {
+    if (hasExpensive || expensiveDetected || hasMoreProducts) {
       stepTo('details')
     } else {
       submitData('map')
