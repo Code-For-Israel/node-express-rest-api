@@ -1,10 +1,10 @@
 import Autocomplete from '@/components/elements/Autocomplete'
-import MedicinePreviewItem from '@/components/elements/MedicinePreviewItem'
 import AddMedicine from '@/components/modules/AddMedicine'
+import MedicineSuggestions from '@/components/modules/names/MedicineSuggestions'
 import useDebounce from '@/hooks/useDebounce'
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { secondaryColor } from '@/styles/theme'
+import { checkMedicineDetails } from '@/util/medicineFunctions'
 import { Box, Button, Stack, SwipeableDrawer, Typography } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import { MedicineItemType } from 'MedicineTypes'
@@ -12,8 +12,7 @@ import axios from 'axios'
 import { easeInOut, motion } from 'framer-motion'
 import mixpanel from 'mixpanel-browser'
 import { useRouter } from 'next/router'
-import { useCallback, useState } from 'react'
-import { DotLoader } from 'react-spinners'
+import { useState } from 'react'
 
 const searchMedicines = (query: string) => async () => {
   const res = await axios.post('https://israeldrugs.health.gov.il/GovServiceList/IDRServer/SearchByName', {
@@ -45,6 +44,7 @@ const Names = () => {
   const { stepTo, formData, updateFormData, submitData } = useFormWizard()
   const { medicineQuantity, hasExpensive, hasCold, expensiveDetected } = formData
   const isManyMedicines = medicineQuantity && medicineQuantity !== '1-10'
+  const hideText = searchValue.trim().length > 2
 
   const { t } = useStaticTranslation()
   const router = useRouter()
@@ -74,32 +74,6 @@ const Names = () => {
   const handleSelect = (medicine: MedicineItemType) => {
     setSelectedMedicine(medicine)
     setAnimate(medicine._id)
-  }
-
-  const checkMedicineDetails = async (medicine: MedicineItemType) => {
-    let barcode = medicine.barcodes.split(' ')[0]
-    const isExpensive = medicine.customerPrice >= 1000
-    const isRare = false
-    if (barcode.trim().length < 1) {
-      const medicineDetails = await axios
-        .post('https://israeldrugs.health.gov.il/GovServiceList/IDRServer/GetSpecificDrug', {
-          dragRegNum: medicine.dragRegNum,
-        })
-        .catch(e => {
-          console.log(e)
-        })
-      if (medicineDetails && medicineDetails.data) {
-        console.log(medicineDetails.data.packages)
-        const packageWithBarcode = medicineDetails.data.packages.filter((p: any) => p.barcode.trim().length > 0)
-        if (packageWithBarcode.length > 0) {
-          barcode = packageWithBarcode[0].barcode
-        }
-      }
-      // const getRare = await axios.get(`https://1ltqbahdcl.execute-api.us-east-1.amazonaws.com/default/items/${barcode}`).catch(e => console.log(e))
-    }
-    console.log(barcode)
-
-    return { isExpensive, isRare }
   }
 
   const handleSave = async (medicine: MedicineItemType, state: string) => {
@@ -137,15 +111,6 @@ const Names = () => {
     }
   }
 
-  const isMedicineAdded = useCallback(
-    (id: string) => {
-      return savedMedicines.some((m: MedicineItemType) => m._id === id)
-    },
-    [savedMedicines],
-  )
-
-  const hideText = searchValue.trim().length > 2
-
   return (
     <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} position={'relative'} justifyContent={'space-between'}>
       <Stack
@@ -172,46 +137,18 @@ const Names = () => {
         transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
       >
         <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
-        <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
-          {isFetching && (
-            <Box
-              sx={{
-                position: 'absolute',
-                background: 'rgba(255, 255, 255, 0.8)',
-                width: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                right: 0,
-                top: 50,
-                zIndex: 1000,
-              }}
-            >
-              <DotLoader color={secondaryColor} loading={isFetching} size={30} speedMultiplier={2} />
-            </Box>
-          )}
-          {hideText &&
-            medicineData.length > 0 &&
-            medicineData.map((m: MedicineItemType, i: number) => (
-              <MedicinePreviewItem
-                onClick={handleSelect}
-                key={m._id}
-                selected={isMedicineAdded(m._id)}
-                index={i}
-                animate={animate}
-                medicine={m}
-                onRemove={handleRemove}
-              />
-            ))}
-          {isFetched && hideText && medicineData.length < 1 && (
-            <Typography variant="body1" textAlign={'center'}>
-              {t('no_medicines_found')}
-            </Typography>
-          )}
-          <Button variant="text" sx={{ mt: '25px', display: medicineData.length > 0 ? 'none' : 'block' }} onClick={handleSkip}>
-            {t('want_to_skip')}
-          </Button>
-        </Box>
+        <MedicineSuggestions
+          searchValue={searchValue}
+          onRemove={handleRemove}
+          onSelect={handleSelect}
+          onSkip={handleSkip}
+          isFetched={isFetched}
+          isFetching={isFetching}
+          savedMedicines={savedMedicines}
+          animate={animate}
+          hideText={hideText}
+          medicineData={medicineData}
+        />
       </motion.div>
       <SwipeableDrawer
         anchor="bottom"

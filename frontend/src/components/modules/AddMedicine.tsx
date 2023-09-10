@@ -21,7 +21,7 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
           <Typography variant="body1" textAlign={'center'} textTransform={'capitalize'}>
             {medicine.englishName.toLowerCase()}
           </Typography>
-          <Typography variant="body1" textAlign={'center'}>
+          <Typography variant="body1" textAlign={'center'} sx={{ display: medicine.Name === medicine.englishName ? 'none' : 'block' }}>
             {medicine.Name}
           </Typography>
         </Stack>

@@ -8,6 +8,6 @@ declare module 'MedicineTypes' {
     isExpensive?: boolean
     isRare?: boolean
     dragRegNum: string
-    customerPrice: number
+    customerPrice?: number
   }
 }
