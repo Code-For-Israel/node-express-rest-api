@@ -1,19 +1,16 @@
 import useFormWizard from '@/hooks/useFormWizard'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Button, Stack, Typography } from '@mui/material'
-import { useRouter } from 'next/router'
 import ColdManyItems from './ColdManyItems'
 
 const Cold = () => {
-  const { updateFormData, formData, submitData } = useFormWizard()
+  const { updateFormData, formData, stepTo } = useFormWizard()
   const { medicineQuantity } = formData
   const { t } = useStaticTranslation()
-  const router = useRouter()
 
   const handleNext = (hasCold: boolean) => () => {
     updateFormData({ hasCold: hasCold })
-    submitData('map')
-    router.push({ pathname: '/map', query: hasCold ? { filter: 'store_cold' } : undefined })
+    stepTo('names')
   }
 
   if (medicineQuantity && medicineQuantity === '1-10')

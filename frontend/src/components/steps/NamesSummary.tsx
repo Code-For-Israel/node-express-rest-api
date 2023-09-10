@@ -9,11 +9,11 @@ const NamesSummary = () => {
   const { stepTo, stepBack, formData, updateFormData, submitData } = useFormWizard()
   const { t } = useStaticTranslation()
   const router = useRouter()
-  const { hasMoreProducts, hasCold, hasExpensive } = formData
+  const { hasMoreProducts, hasCold, hasExpensive, expensiveDetected } = formData
   const selectedMedicines = formData?.medicines
 
   const handleFinish = () => {
-    if (hasExpensive || hasMoreProducts) {
+    if (hasExpensive || expensiveDetected || hasMoreProducts) {
       stepTo('details')
     } else {
       submitData('map')
@@ -54,7 +54,7 @@ const NamesSummary = () => {
       <Button variant="contained" sx={{ mt: 4 }} onClick={handleFinish}>
         {t('continue')}
       </Button>
-      <Button variant="text" onClick={handleBack}>
+      <Button variant="text" color="info" onClick={handleBack}>
         {t('back_to_medicine_search')}
       </Button>
     </Stack>

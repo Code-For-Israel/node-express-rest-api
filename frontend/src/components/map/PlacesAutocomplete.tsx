@@ -45,7 +45,7 @@ const PlacesAutocomplete = ({ onSelect }: Props) => {
         structured_formatting: { main_text, secondary_text },
       } = suggestion
       return (
-        <ListItem key={place_id}>
+        <ListItem key={place_id} disablePadding sx={{ borderBottom: '1px solid #DFDFDF', ':last-of-type': { borderBottom: 'none' } }}>
           <ListItemButton onClick={handleSelect(suggestion)}>
             <ListItemText>
               <strong>{main_text}</strong>

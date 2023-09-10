@@ -6,7 +6,7 @@ import { FormValuesType } from 'FormTypes'
 import { Controller, useForm } from 'react-hook-form'
 
 const Quantity = () => {
-  const { updateFormData, stepTo } = useFormWizard()
+  const { updateFormData, stepTo, formData } = useFormWizard()
   const {
     control,
     handleSubmit,
@@ -18,11 +18,7 @@ const Quantity = () => {
   const onSubmit = (data: FormValuesType) => {
     if (!isValid) return
     updateFormData(data)
-    if (data.medicineQuantity !== '1-10') {
-      stepTo('cold-storage')
-    } else {
-      stepTo('names')
-    }
+    stepTo('cold-storage')
   }
 
   return (
@@ -48,7 +44,7 @@ const Quantity = () => {
         <Controller
           name="medicineQuantity"
           control={control}
-          defaultValue={''}
+          defaultValue={formData.medicineQuantity || ''}
           rules={{ required: true }}
           render={({ field: { onChange, value } }) => (
             <RadioGroup aria-label="quantity" value={value} onChange={onChange} sx={{ rowGap: '5px' }}>
@@ -61,7 +57,9 @@ const Quantity = () => {
       </Box>
       <FormControlLabel
         sx={{ alignItems: 'flex-start', ml: -1, mb: 3.5 }}
-        control={<Checkbox {...register('hasMoreProducts')} size="small" sx={{ p: 0, px: 1, py: 0.5 }} />}
+        control={
+          <Checkbox {...register('hasMoreProducts')} defaultChecked={formData.hasMoreProducts || false} size="small" sx={{ p: 0, px: 1, py: 0.5 }} />
+        }
         label={t('i_have_more_products_to_donate')}
       />
       <Button type="submit" disabled={!isValid}>

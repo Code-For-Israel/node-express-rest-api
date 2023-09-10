@@ -22,6 +22,9 @@ export const theme = createTheme({
     body1: {
       fontSize: 18,
     },
+    body2: {
+      fontSize: 16,
+    },
     fontFamily: ['Assistant', 'sans-serif'].join(','),
     color: '#252525',
     fontSize: 18,
@@ -36,6 +39,23 @@ export const theme = createTheme({
     },
   },
   components: {
+    MuiBackdrop: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgba(37, 37, 37, 0.40)',
+        },
+      },
+    },
+    MuiDialog: {
+      styleOverrides: {
+        paper: {
+          boxShadow: '0px 3px 3px 0px rgba(0, 0, 0, 0.12)',
+          borderRadius: '24px',
+          margin: '20px',
+          width: '100%',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -46,6 +66,12 @@ export const theme = createTheme({
           fontStyle: 'normal',
           letterSpacing: '0.5px',
           lineHeight: '24px',
+        },
+        textPrimary: {
+          color: primaryColor,
+        },
+        textInfo: {
+          color: '#252525',
         },
         contained: {
           boxShadow: '0px 3px 5px 0px rgba(0, 0, 0, 0.12)',

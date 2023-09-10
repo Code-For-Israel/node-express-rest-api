@@ -41,7 +41,7 @@ const steps: FormStepType[] = [
   },
   {
     path: 'details',
-    showProgress: true,
+    showProgress: false,
     finalStep: true,
     component: Details,
   },
