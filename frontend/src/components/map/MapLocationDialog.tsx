@@ -1,8 +1,7 @@
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { Button, Dialog, DialogTitle, IconButton, Stack, Typography } from '@mui/material'
-import Image from 'next/image'
-import CloseIcon from 'public/icons/close.svg'
+import { Button, Stack, Typography } from '@mui/material'
 import { useState } from 'react'
+import BaseDialog from '../elements/BaseDialog'
 
 type Props = {
   open: boolean
@@ -30,20 +29,7 @@ const MapLocationDialog = ({ open: openDialog, onClose, onLocationApproved }: Pr
   }
 
   return (
-    <Dialog open={openDialog} onClose={onClose} sx={{ '& .MuiPaper-root': { width: '100%', borderRadius: '24px', margin: '20px' } }}>
-      <DialogTitle sx={{ m: 0, py: 2.5 }}>
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: 'absolute',
-            right: 18,
-            top: 18,
-          }}
-        >
-          <Image src={CloseIcon} alt="close" />
-        </IconButton>
-      </DialogTitle>
+    <BaseDialog open={openDialog} onClose={onClose}>
       <Stack
         gap={2}
         sx={{
@@ -68,11 +54,11 @@ const MapLocationDialog = ({ open: openDialog, onClose, onLocationApproved }: Pr
             {error}
           </Typography>
         )}
-        <Button variant="text" onClick={onClose}>
+        <Button variant="text" color="info" onClick={onClose}>
           {t('not_this_time')}
         </Button>
       </Stack>
-    </Dialog>
+    </BaseDialog>
   )
 }
 

@@ -2,14 +2,13 @@ import MapFilters from '@/components/map/MapFilters'
 import MapLocationDialog from '@/components/map/MapLocationDialog'
 import MapPin from '@/components/map/MapPin'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { secondaryColor } from '@/styles/theme'
 import { calculateDistance } from '@/util/mapFunctions'
 import { Box, Button, Typography } from '@mui/material'
 import { GoogleMap, MarkerF } from '@react-google-maps/api'
 import type { Location } from 'LocationTypes'
 import mixpanel from 'mixpanel-browser'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { DotLoader } from 'react-spinners'
+import LoaderOverlay from '../elements/LoaderOverlay'
 import LocationPreviewItem from '../elements/LocationPreviewItem'
 import PlacesAutocomplete from './PlacesAutocomplete'
 
@@ -189,21 +188,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
             width: '100%',
           }}
         >
-          <Box
-            sx={{
-              position: 'absolute',
-              top: 0,
-              right: 0,
-              left: 0,
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              height: '100%',
-              alignItems: 'center',
-            }}
-          >
-            <DotLoader color={secondaryColor} loading={loadingLocations} size={30} speedMultiplier={2} />
-          </Box>
+          <LoaderOverlay loading={loadingLocations} />
           {filteredLocations.map((l, index) => (
             <LocationPreviewItem key={index} onClick={handleNavigation} location={l} focusMap={focusMap} />
           ))}
@@ -215,7 +200,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
         </Box>
         {hasLotsOfMedicine && (
           <Box sx={{ width: '100%', pt: 1, display: 'flex', justifyContent: 'center' }}>
-            <Button variant="text" fullWidth={false} onClick={handleCantGo}>
+            <Button variant="text" color="info" fullWidth={false} onClick={handleCantGo}>
               {t('cant_go_to_location')}
             </Button>
           </Box>

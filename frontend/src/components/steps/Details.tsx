@@ -21,7 +21,7 @@ const Details = () => {
     updateFormData(data)
     submitData('whatsapp')
     mixpanel.track('whatsapp_details_sent')
-    const medicineListString = medicines ? medicines.map(m => m.Name).join('\n') : ''
+    const medicineListString = medicines?.map(m => m.Name).join('\n') ?? ''
     const waLink = generateWALink(
       t('whatsapp_message_with_medicines', { fullName, fullAddress: `${street} ${houseNumber}, ${town}`, medicineListString }),
     )

@@ -1,9 +1,9 @@
 import FormProgress from '@/components/form/FormProgress'
+import Header from '@/components/modules/Header'
 import useFormWizard from '@/hooks/useFormWizard'
 import { Box } from '@mui/material'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import Header from '../modules/Header'
 
 const FormStep = () => {
   const { activeStep, getStepDetails, totalSteps, stepBack, stepHistory } = useFormWizard()
@@ -46,6 +46,7 @@ const FormStep = () => {
           sx={{
             display: 'flex',
             width: '100%',
+            height: showProgress ? 'calc(100% - 150px)' : '100%',
             position: 'relative',
             flex: 1,
           }}

@@ -14,7 +14,7 @@ const FormProgress = ({ progress, totalSteps }: Props) => {
         overflow: 'hidden',
         position: 'relative',
         borderRadius: 20,
-        mb: 5,
+        mb: 4,
       }}
     >
       <Box

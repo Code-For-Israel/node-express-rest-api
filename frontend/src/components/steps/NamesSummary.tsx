@@ -54,7 +54,7 @@ const NamesSummary = () => {
       <Button variant="contained" sx={{ mt: 4 }} onClick={handleFinish}>
         {t('continue')}
       </Button>
-      <Button variant="text" onClick={handleBack}>
+      <Button variant="text" color="info" onClick={handleBack}>
         {t('back_to_medicine_search')}
       </Button>
     </Stack>

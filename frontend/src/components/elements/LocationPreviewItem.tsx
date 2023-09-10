@@ -81,6 +81,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
         </Stack>
         <Button
           variant="text"
+          color="info"
           sx={{
             p: 0,
             textAlign: 'start',
