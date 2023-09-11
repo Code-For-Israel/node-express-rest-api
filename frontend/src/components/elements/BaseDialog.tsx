@@ -3,9 +3,9 @@ import Image from 'next/image'
 import CloseIcon from 'public/icons/close.svg'
 import { ReactNode } from 'react'
 
-type Props = { children: ReactNode; onClose?: () => void } & Omit<DialogProps, 'onClose'>
+export type BaseDialogProps = { children: ReactNode; onClose?: () => void } & Omit<DialogProps, 'onClose'>
 
-const BaseDialog = ({ children, onClose, ...rest }: Props) => {
+const BaseDialog = ({ children, onClose, ...rest }: BaseDialogProps) => {
   return (
     <Dialog {...rest} onClose={onClose}>
       <DialogTitle sx={{ m: 0, py: 2.5 }}>

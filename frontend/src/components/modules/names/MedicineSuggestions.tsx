@@ -1,10 +1,10 @@
-import BaseDialog from '@/components/elements/BaseDialog'
 import LoaderOverlay from '@/components/elements/LoaderOverlay'
 import MedicinePreviewItem from '@/components/elements/MedicinePreviewItem'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
 import { useState } from 'react'
+import NewMedicineDialog from './NewMedicineDialog'
 
 type Props = {
   medicineData: MedicineItemType[]
@@ -32,6 +32,7 @@ const MedicineSuggestions = ({
   animate,
 }: Props) => {
   const [openDialog, setOpenDialog] = useState(false)
+
   const { t } = useStaticTranslation()
 
   const isMedicineAdded = (id: string) => savedMedicines.some((m: MedicineItemType) => m._id === id)
@@ -43,11 +44,11 @@ const MedicineSuggestions = ({
     setOpenDialog(true)
   }
 
-  const handleAddNew = () => {
+  const handleAddNew = (medicineName: string) => {
     onSelect({
-      _id: `unknown-medicine-${searchValue}`,
-      Name: searchValue,
-      englishName: searchValue,
+      _id: `unknown-medicine-${medicineName}`,
+      Name: medicineName,
+      englishName: medicineName,
       dragRegNum: '',
       barcodes: '',
     })
@@ -57,19 +58,7 @@ const MedicineSuggestions = ({
   return (
     <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
       <LoaderOverlay loading={isFetching} />
-      <BaseDialog open={openDialog} onClose={closeNewMedicineDialog}>
-        <Stack gap={2} sx={{ py: 2, px: 4 }}>
-          <Typography variant="h2" textAlign={'center'} color={'inherit'}>
-            {t('want_to_donate_unknown', { medicine: searchValue })}
-          </Typography>
-          <Button variant="contained" color="primary" sx={{ mt: 2, width: '100%' }} onClick={handleAddNew}>
-            {t('yes_correct_medicine')}
-          </Button>
-          <Button variant="text" color="info" onClick={closeNewMedicineDialog}>
-            {t('want_to_type_again')}
-          </Button>
-        </Stack>
-      </BaseDialog>
+      {openDialog && <NewMedicineDialog initialValue={searchValue} onAddNew={handleAddNew} open={openDialog} onClose={closeNewMedicineDialog} />}
       {hideText &&
         medicineData.length > 0 &&
         medicineData.map((m: MedicineItemType, i: number) => (
@@ -84,16 +73,26 @@ const MedicineSuggestions = ({
           />
         ))}
       {isFetched && hideText && medicineData.length < 1 && (
-        <Box sx={{ mt: '20px' }}>
+        <Box sx={{ mt: '20px', textAlign: 'center' }}>
           <Typography variant="body2" textAlign={'center'}>
             {t('no_medicines_found')}
           </Typography>
-          <Button variant="text" onClick={openNewMedicineDialog} color="primary" sx={{ mt: 0.5, fontSize: 18, fontWeight: 600 }}>
+          <Button
+            variant="text"
+            onClick={openNewMedicineDialog}
+            color="primary"
+            sx={{ width: 'fit-content', textAlign: 'center', margin: 'auto', mt: 0.5, fontSize: 18, fontWeight: 600 }}
+          >
             {t('add_new_medicine')}
           </Button>
         </Box>
       )}
-      <Button variant="text" color="info" sx={{ mt: 1, display: medicineData.length > 0 ? 'none' : 'block' }} onClick={onSkip}>
+      <Button
+        variant="text"
+        color="info"
+        sx={{ width: 'fit-content', textAlign: 'center', margin: 'auto', mt: 1, display: medicineData.length > 0 ? 'none' : 'block' }}
+        onClick={onSkip}
+      >
         {t('want_to_skip')}
       </Button>
     </Box>
