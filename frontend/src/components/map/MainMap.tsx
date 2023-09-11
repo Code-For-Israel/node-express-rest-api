@@ -63,7 +63,9 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
     mapRef.current = map
   }, [])
 
-  const filteredLocations = mapLocations.filter((l: Location) => (filter === 'store_cold' ? l.RefrigeratedMedicines_c == true : true)).slice(0, 12)
+  const filteredLocations = mapLocations
+    .filter((l: Location) => (filter === 'store_cold' ? `${l.RefrigeratedMedicines_c}`.toLowerCase() === 'true' : true))
+    .slice(0, 12)
 
   const handleMapIdle = useCallback(() => {
     const bounds = mapRef.current?.getBounds()

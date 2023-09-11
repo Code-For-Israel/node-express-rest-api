@@ -1,3 +1,8 @@
+import type { Location } from 'LocationTypes'
+import LocationPinIcon from 'public/icons/location-pin.svg'
+import MizrahiIcon from 'public/icons/mizrahi-icon.svg'
+import SuperPharmIcon from 'public/icons/superpharm-icon.svg'
+
 type Coordinates =
   | {
       lat: number
@@ -16,4 +21,15 @@ export const calculateDistance = (point1: Coordinates, point2: Coordinates): num
   const dLon = toRad(point2.lng - point1.lng)
   const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+}
+
+export const renderLocationIcon = (location: Location) => {
+  switch (location?.OrganizationName_c || '') {
+    case 'SuperPharm':
+      return SuperPharmIcon
+    case 'MizrahiBank':
+      return MizrahiIcon
+    default:
+      return LocationPinIcon
+  }
 }
