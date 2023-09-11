@@ -82,6 +82,7 @@ const Names = () => {
     const newMedicineList = [...savedMedicines, medWithState]
     saveFormState(newMedicineList)
     setSelectedMedicine(null)
+    setAnimate(null)
     mixpanel.track('add_medicine', { medicine: medicine.englishName, state })
   }
 
@@ -123,7 +124,9 @@ const Names = () => {
           display: hideText ? 'none' : 'flex',
         }}
       >
-        <Typography variant="h1">{isManyMedicines ? t('names_page_many_title') : t('names_page_title')}</Typography>
+        <Typography variant="h1" textAlign={'center'}>
+          {isManyMedicines ? t('names_page_many_title') : t('names_page_title')}
+        </Typography>
         <Typography variant="body1" textAlign={'center'}>
           {isManyMedicines ? t('names_page_many_subtitle') : t('names_page_subtitle')}
         </Typography>
