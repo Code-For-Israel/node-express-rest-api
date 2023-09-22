@@ -12,14 +12,14 @@ const Home = () => {
 
   return (
     <Stack pb={2} alignItems={'center'} width={'100%'} justifyContent={'space-between'}>
-      <Stack gap={1} mb={'60px'} alignItems={'center'}>
+      <Stack gap={1} mb={'8svh'} alignItems={'center'}>
         <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
           <Image src={BoxHeart} alt="box" />
         </Box>
         <Typography variant="h1">{t('welcome_title')}</Typography>
         <Typography variant="body1">{t('welcome_subtitle')}</Typography>
       </Stack>
-      <Stack gap={'14px'} flex="1" width={'100%'}>
+      <Stack gap={'14px'} alignSelf={'self-start'} height={'100%'} width={'100%'}>
         {['1', '2', '3'].map((num, index) => (
           <Stack key={index} direction="row" gap={2} width={'100%'} justifyContent={'center'} alignItems={'center'} position={'relative'}>
             <Icon
@@ -37,7 +37,7 @@ const Home = () => {
           </Stack>
         ))}
       </Stack>
-      <Button sx={{ mt: 1 }} onClick={startForm}>
+      <Button sx={{ mt: '8svh' }} onClick={startForm}>
         {t('welcome_start_cta')}
       </Button>
     </Stack>
