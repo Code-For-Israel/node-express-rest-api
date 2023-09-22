@@ -5,7 +5,7 @@ import { Button, IconButton, Popover, Stack, Typography } from '@mui/material'
 import type { Location } from 'LocationTypes'
 import Image from 'next/image'
 import WhatsAppIcon from 'public/icons/whatsapp.svg'
-import { MouseEvent, useState } from 'react'
+import { MouseEvent, memo, useState } from 'react'
 import AppChip from './AppChip'
 
 type Props = { location: Location; onClick: (location: Location) => void; focusMap: (location: google.maps.LatLngLiteral) => void }
@@ -16,7 +16,6 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
     onClick(location)
   }
   const [showHoursEl, setShowHoursEl] = useState<HTMLButtonElement | null>(null)
-
   const openShowHours = (event: MouseEvent<HTMLButtonElement>) => {
     setShowHoursEl(event.currentTarget)
   }
@@ -145,4 +144,4 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
   )
 }
 
-export default LocationPreviewItem
+export default memo(LocationPreviewItem)

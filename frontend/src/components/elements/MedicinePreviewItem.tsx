@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import CloseIcon from 'public/icons/close.svg'
 import PlaceholderIcon from 'public/icons/placeholder.svg'
+import { memo } from 'react'
 
 type Props = {
   medicine: MedicineItemType
@@ -107,7 +108,7 @@ const MedicinePreviewItem = ({ medicine, onClick, onRemove, selected, animate, h
   )
 }
 
-export default MedicinePreviewItem
+export default memo(MedicinePreviewItem)
 
 const BASIC_IMAGE_STYLE = {
   borderRadius: 2,

@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material'
 import { OverlayView, OverlayViewF } from '@react-google-maps/api'
 import type { Location } from 'LocationTypes'
 import Image from 'next/image'
+import { memo } from 'react'
 
 type Props = {
   location: Location
@@ -41,4 +42,4 @@ const MapPin = ({ location }: Props) => {
   )
 }
 
-export default MapPin
+export default memo(MapPin)
