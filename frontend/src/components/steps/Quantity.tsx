@@ -35,7 +35,8 @@ const Quantity = () => {
       <Box
         sx={{
           flex: 1,
-          pt: '60px',
+          pt: '6svh',
+          pb: '4svh',
           alignItems: 'start',
           display: 'flex',
           width: '100%',
