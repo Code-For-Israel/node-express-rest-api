@@ -80,24 +80,25 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
   useEffect(() => {
     setMapLocations(locations)
     handleMapIdle()
-  }, [locations])
+  }, [locations, loadingLocations])
 
   const handleLocationApproved = (position: GeolocationPosition) => {
     mixpanel.track('location_approved')
     const { latitude: lat, longitude: lng } = position.coords
-    mapRef.current?.setCenter({ lat, lng })
     mapRef.current?.setZoom(14)
+    mapRef.current?.panTo({ lat, lng })
     setUserPosition({ lat, lng })
     closeDialog()
   }
 
-  const focusMap = useCallback(
-    (location: google.maps.LatLngLiteral) => {
-      mapRef.current?.setCenter(location)
+  const focusMap = (address: google.maps.LatLngLiteral | google.maps.LatLng, bounds?: google.maps.LatLngBounds) => {
+    if (bounds) {
+      mapRef.current?.fitBounds(bounds)
+    } else {
       mapRef.current?.setZoom(15)
-    },
-    [mapRef.current],
-  )
+      mapRef.current?.panTo(address)
+    }
+  }
 
   return (
     <Box
@@ -119,7 +120,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
         }}
       >
         <Box sx={{ position: 'absolute', top: 20, right: 0, width: '100%', px: '35px', zIndex: 1000 }}>
-          <PlacesAutocomplete onSelect={place => focusMap(place)} />
+          <PlacesAutocomplete onSelect={focusMap} />
         </Box>
         <MapFilters />
         <GoogleMap
@@ -131,6 +132,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
           options={{
             disableDefaultUI: true,
             zoomControl: true,
+            maxZoom: 16,
             zoomControlOptions: {
               position: google.maps.ControlPosition.RIGHT_CENTER,
             },

@@ -2,23 +2,20 @@ import { Icon, IconButton, OutlinedInput, OutlinedInputProps } from '@mui/materi
 import Image from 'next/image'
 import ClearhIcon from 'public/icons/clear.svg'
 import SearchIcon from 'public/icons/search.svg'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent } from 'react'
 
 type Props = OutlinedInputProps & {
   onValueChange: (value: string) => void
+  searchValue: string
 }
 
-const Autocomplete = ({ onValueChange, ...rest }: Props) => {
-  const [searchValue, setSearchValue] = useState('')
-
+const Autocomplete = ({ onValueChange, searchValue, ...rest }: Props) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
-    setSearchValue(value)
     onValueChange(value)
   }
 
   const clearSearch = () => {
-    setSearchValue('')
     onValueChange('')
   }
 

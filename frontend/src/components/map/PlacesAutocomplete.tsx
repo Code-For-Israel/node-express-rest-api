@@ -3,7 +3,7 @@ import { Box, ClickAwayListener, List, ListItem, ListItemButton, ListItemText } 
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete'
 import Autocomplete from '../elements/Autocomplete'
 
-type Props = { onSelect: (suggestion: any) => void }
+type Props = { onSelect: (address: google.maps.LatLngLiteral | google.maps.LatLng, bounds?: google.maps.LatLngBounds) => void }
 
 const PlacesAutocomplete = ({ onSelect }: Props) => {
   const { t } = useStaticTranslation()
@@ -16,7 +16,7 @@ const PlacesAutocomplete = ({ onSelect }: Props) => {
   } = usePlacesAutocomplete({
     callbackName: 'initPlaces',
     requestOptions: {
-      types: ['address'],
+      types: ['locality', 'street_address', 'route'],
       language: 'he',
       componentRestrictions: { country: 'il' },
     },
@@ -33,8 +33,13 @@ const PlacesAutocomplete = ({ onSelect }: Props) => {
       setValue(description, false)
       clearSuggestions()
       getGeocode({ address: description }).then(results => {
-        const { lat, lng } = getLatLng(results[0])
-        onSelect({ lat, lng })
+        const place = results[0]
+        const isTown = place.types.includes('locality')
+        if (isTown) {
+          onSelect(place.geometry.location, place.geometry.bounds)
+          return
+        }
+        onSelect(getLatLng(place))
       })
     }
 
@@ -58,7 +63,7 @@ const PlacesAutocomplete = ({ onSelect }: Props) => {
     })
   return (
     <>
-      <Autocomplete onValueChange={handleInput} value={value} disabled={!ready} placeholder={t('map_search_placeholder')} />
+      <Autocomplete onValueChange={handleInput} searchValue={value} disabled={!ready} placeholder={t('map_search_placeholder')} />
       {status === 'OK' && (
         <ClickAwayListener onClickAway={clearSuggestions}>
           <Box
