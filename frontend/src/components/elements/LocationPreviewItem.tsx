@@ -1,3 +1,4 @@
+import AppChip from '@/components/elements/AppChip'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { renderLocationIcon } from '@/util/mapFunctions'
 import { generateWALink } from '@/util/whatsapp'
@@ -6,7 +7,6 @@ import type { Location } from 'LocationTypes'
 import Image from 'next/image'
 import WhatsAppIcon from 'public/icons/whatsapp.svg'
 import { MouseEvent, memo, useState } from 'react'
-import AppChip from './AppChip'
 
 type Props = { location: Location; onClick: (location: Location) => void; focusMap: (location: google.maps.LatLngLiteral) => void }
 
@@ -39,6 +39,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
         textAlign: 'start',
         position: 'relative',
       }}
+      id={`listLocation-${location._id}`}
     >
       <Stack
         sx={{

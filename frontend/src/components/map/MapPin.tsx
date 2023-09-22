@@ -7,13 +7,18 @@ import { memo } from 'react'
 
 type Props = {
   location: Location
+  onClick: (l: Location) => void
 }
 
-const MapPin = ({ location }: Props) => {
+const MapPin = ({ location, onClick }: Props) => {
   const { Coordinates_c } = location
 
+  const handleClick = () => {
+    onClick(location)
+  }
+
   return (
-    <OverlayViewF position={Coordinates_c} mapPaneName={OverlayView.MARKER_LAYER}>
+    <OverlayViewF position={Coordinates_c} mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}>
       <Box
         sx={{
           display: 'flex',
@@ -23,6 +28,7 @@ const MapPin = ({ location }: Props) => {
           alignItems: 'center',
           justifyContent: 'center',
         }}
+        onClick={handleClick}
       >
         <Box
           component={Image}

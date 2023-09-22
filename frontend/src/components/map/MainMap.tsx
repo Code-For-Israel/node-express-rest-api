@@ -7,7 +7,7 @@ import { Box, Button, Typography } from '@mui/material'
 import { GoogleMap, MarkerF } from '@react-google-maps/api'
 import type { Location } from 'LocationTypes'
 import mixpanel from 'mixpanel-browser'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import LoaderOverlay from '../elements/LoaderOverlay'
 import LocationPreviewItem from '../elements/LocationPreviewItem'
 import PlacesAutocomplete from './PlacesAutocomplete'
@@ -65,7 +65,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
 
   const filteredLocations = mapLocations
     .filter((l: Location) => (filter === 'store_cold' ? `${l.RefrigeratedMedicines_c}`.toLowerCase() === 'true' : true))
-    .slice(0, 12)
+    .slice(0, 20)
 
   const handleMapIdle = useCallback(() => {
     const bounds = mapRef.current?.getBounds()
@@ -94,10 +94,16 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
   const focusMap = (address: google.maps.LatLngLiteral | google.maps.LatLng, bounds?: google.maps.LatLngBounds) => {
     if (bounds) {
       mapRef.current?.fitBounds(bounds)
+      mapRef.current?.setZoom(14)
     } else {
       mapRef.current?.setZoom(15)
       mapRef.current?.panTo(address)
     }
+  }
+
+  const handlePinClick = (location: Location) => {
+    const listItem = document.getElementById(`listLocation-${location._id}`)
+    listItem?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
@@ -152,7 +158,7 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
         >
           {filteredLocations.map((l, index) => {
             if (l.Coordinates_c) {
-              return <MapPin key={index} location={l} />
+              return <MapPin key={index} location={l} onClick={handlePinClick} />
             }
           })}
           {userPosition && (
@@ -214,4 +220,4 @@ const MainMap = ({ locations, openDialog, filter, loadingLocations, closeDialog,
   )
 }
 
-export default MainMap
+export default memo(MainMap)
