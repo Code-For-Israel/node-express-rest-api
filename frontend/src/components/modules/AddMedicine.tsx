@@ -4,13 +4,13 @@ import { RadioGroup, Stack, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
 import { ChangeEvent } from 'react'
 
-type Props = { medicine: MedicineItemType; onSave: (medicine: MedicineItemType, state: string) => void }
+type Props = { medicine: MedicineItemType; onSave: (medicine: MedicineItemType, state: MedicineItemType['expiryState']) => void }
 
 const AddMedicine = ({ medicine, onSave }: Props) => {
   const { t } = useStaticTranslation()
 
-  const handlePick = (e: ChangeEvent<HTMLInputElement>, value: string) => {
-    onSave(medicine, value)
+  const handlePick = (_: ChangeEvent<HTMLInputElement>, value: string) => {
+    onSave(medicine, value as MedicineItemType['expiryState'])
   }
 
   return (

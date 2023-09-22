@@ -1,4 +1,5 @@
 declare module 'MedicineTypes' {
+  type ExpiryState = 'expired' | 'inAMonth' | 'noOrUnknown'
   export interface MedicineItemType {
     _id: string
     Name: string
@@ -9,5 +10,6 @@ declare module 'MedicineTypes' {
     isRare?: boolean
     dragRegNum: string
     customerPrice?: number
+    expiryState?: ExpiryState
   }
 }
