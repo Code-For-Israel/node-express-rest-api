@@ -32,9 +32,7 @@ const MedicineSuggestions = ({
   animate,
 }: Props) => {
   const [openDialog, setOpenDialog] = useState(false)
-
   const { t } = useStaticTranslation()
-
   const isMedicineAdded = (id: string) => savedMedicines.some((m: MedicineItemType) => m._id === id)
 
   const closeNewMedicineDialog = () => {
@@ -55,13 +53,17 @@ const MedicineSuggestions = ({
     closeNewMedicineDialog()
   }
 
+  const orderedData = medicineData
+    .filter(m => m.englishName.toLowerCase().startsWith(searchValue.toLowerCase()))
+    .concat(medicineData.filter(m => !m.englishName.toLowerCase().startsWith(searchValue.toLowerCase())))
+
   return (
     <Box pt={2} position={'relative'} sx={{ width: '100%', height: '100%', maxHeight: 'calc(90svh - 250px)', overflowY: 'auto' }}>
       <LoaderOverlay loading={isFetching} />
       {openDialog && <NewMedicineDialog initialValue={searchValue} onAddNew={handleAddNew} open={openDialog} onClose={closeNewMedicineDialog} />}
       {hideText &&
-        medicineData.length > 0 &&
-        medicineData.map((m: MedicineItemType, i: number) => (
+        orderedData.length > 0 &&
+        orderedData.map((m: MedicineItemType, i: number) => (
           <MedicinePreviewItem
             onClick={onSelect}
             key={m._id}
