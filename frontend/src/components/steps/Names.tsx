@@ -73,17 +73,18 @@ const Names = () => {
 
   const handleSelect = (medicine: MedicineItemType) => {
     setSelectedMedicine(medicine)
-    setAnimate(medicine._id)
   }
 
-  const handleSave = async (medicine: MedicineItemType, state: string) => {
+  const handleSave = async (medicine: MedicineItemType, expiryState: MedicineItemType['expiryState']) => {
     const { isExpensive, isRare } = await checkMedicineDetails(medicine)
-    const medWithState = { ...medicine, state, isRare, isExpensive }
+    const medWithState = { ...medicine, expiryState, isRare, isExpensive }
+    console.log(medWithState)
     const newMedicineList = [...savedMedicines, medWithState]
     saveFormState(newMedicineList)
     setSelectedMedicine(null)
-    setAnimate(null)
-    mixpanel.track('add_medicine', { medicine: medicine.englishName, state })
+    setSearchValue('')
+    // setAnimate(medicine._id)
+    mixpanel.track('add_medicine', { medicine: medicine.englishName, expiryState })
   }
 
   const handleRemove = (medicine: MedicineItemType) => {
@@ -94,8 +95,9 @@ const Names = () => {
 
   const saveFormState = (medicinList: MedicineItemType[]) => {
     setSavedMedicines(medicinList)
-    const hasExpensive = medicinList.some((m: MedicineItemType) => m.isRare || m.isExpensive)
-    updateFormData({ medicines: medicinList, expensiveDetected: hasExpensive })
+    const expensiveDetected = medicinList.some((m: MedicineItemType) => m.isRare || m.isExpensive)
+    const expiringDetected = medicinList.some((m: MedicineItemType) => m.expiryState === 'inAMonth')
+    updateFormData({ medicines: medicinList, expensiveDetected, expiringDetected })
   }
 
   const handleDone = () => {
@@ -137,9 +139,9 @@ const Names = () => {
           flex: 1,
         }}
         layout
-        transition={{ ease: easeInOut, type: 'spring', duration: 0.35 }}
+        transition={{ ease: easeInOut, type: 'tween', duration: 0.35 }}
       >
-        <Autocomplete value={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
+        <Autocomplete searchValue={searchValue} onValueChange={handleSearch} placeholder={t('names_search_placeholder')} />
         <MedicineSuggestions
           searchValue={searchValue}
           onRemove={handleRemove}
