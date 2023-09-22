@@ -1,3 +1,4 @@
+import LoaderOverlay from '@/components/elements/LoaderOverlay'
 import MainMap from '@/components/map/MainMap'
 import useFormWizard from '@/hooks/useFormWizard'
 import { Container } from '@mui/material'
@@ -17,7 +18,7 @@ const fetchLocations = (filter?: string | string[]) => async () => {
   const res = await axios.get(`https://92e9pbwbok.execute-api.il-central-1.amazonaws.com/default/items${query}`)
 
   if (res.data) {
-    const locs = await JSON.parse(res.data.body)
+    const locs: Location[] = await JSON.parse(res.data.body)
     locs.forEach((l: any) => {
       l.Coordinates_c = {
         lat: Number(l.CoordinateLat_c),
@@ -27,8 +28,6 @@ const fetchLocations = (filter?: string | string[]) => async () => {
         l.FormattedAddress = `${l.Address_c}, ${l.Settelment_c}`
       }
     })
-    console.log(locs)
-
     return locs
   }
   return []
@@ -44,7 +43,7 @@ const MapPage = () => {
     stepTo,
   } = useFormWizard()
 
-  const locationData = useQuery<Location[]>(['locations'], fetchLocations())
+  const locationRquest = useQuery<Location[]>(['locations'], fetchLocations(), { refetchOnWindowFocus: false })
   const [openDialog, setOpenDialog] = useState(true)
 
   const closeDialog = () => {
@@ -78,14 +77,15 @@ const MapPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container maxWidth={'md'} sx={{ boxShadow: 2, p: 0, position: 'relative' }}>
-        {isMapLoaded && !locationData.isError && !locationData.isLoading && (
+      <Container maxWidth={'md'} sx={{ boxShadow: 2, p: 0, position: 'relative', height: '100svh' }}>
+        <LoaderOverlay loading={locationRquest.isFetching || locationRquest.isLoading} />
+        {isMapLoaded && locationRquest.data && (
           <MainMap
             closeDialog={closeDialog}
             openDialog={openDialog}
             filter={filter}
-            locations={locationData.data}
-            loadingLocations={locationData.isFetching}
+            locations={locationRquest.data}
+            loadingLocations={locationRquest.isFetching || locationRquest.isLoading}
             handleNavigation={openNavigation}
             handleCantGo={goToDetails}
             hasLotsOfMedicine={medicineQuantity && medicineQuantity !== '1-10'}
