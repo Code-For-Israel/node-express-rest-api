@@ -3,6 +3,7 @@ import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { IconButton, Stack, Typography } from '@mui/material'
 import Image from 'next/image'
 import BackArrowIcon from 'public/icons/back-arrow.svg'
+import { memo } from 'react'
 
 const Header = () => {
   const { t } = useStaticTranslation()
@@ -25,7 +26,7 @@ const Header = () => {
         boxShadow: '0px 2px 0px 0px rgba(0, 0, 0, 0.10)',
       }}
     >
-      {(stepHistory.length > 0 || !!finalStep) && (
+      {stepHistory.length > 0 && !finalStep && (
         <IconButton disableRipple onClick={stepBack} sx={{ position: 'absolute', left: 20 }}>
           <Image src={BackArrowIcon} alt="back arrow" />
         </IconButton>
@@ -37,4 +38,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default memo(Header)

@@ -7,6 +7,7 @@ import DoneIcon from 'public/icons/done.svg'
 const ThankYou = () => {
   const { stepTo, resetFormData } = useFormWizard()
   const { t } = useStaticTranslation()
+
   const handleClose = () => {
     resetFormData()
     stepTo('start')

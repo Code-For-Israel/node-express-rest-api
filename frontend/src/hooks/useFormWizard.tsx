@@ -44,6 +44,7 @@ const useFormWizard = () => {
   const resetFormData = () => {
     setFormValues({})
     setStepHistory([])
+    router.reload()
   }
 
   const submitData = async (endStage: string) => {

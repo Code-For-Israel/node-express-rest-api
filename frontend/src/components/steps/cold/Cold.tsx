@@ -9,7 +9,7 @@ const Cold = () => {
   const { t } = useStaticTranslation()
 
   const handleNext = (hasCold: boolean) => () => {
-    updateFormData({ hasCold: hasCold })
+    updateFormData({ hasCold: hasCold, hasExpensive: false })
     stepTo('names')
   }
 
