@@ -48,6 +48,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
           borderRight: '1px solid #DFDFDF',
           justifyContent: 'center',
           alignItems: 'center',
+          textAlign: 'center',
           gap: 0.5,
           pr: 2,
         }}
@@ -59,7 +60,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
         {location.distance && (
           <>
             {location.distance >= 1000 ? (
-              <Typography variant="body2" fontSize={16}>{`${(location.distance / 1000).toFixed(1)} ${t('km')}`}</Typography>
+              <Typography variant="body2" fontSize={16}>{`${(location.distance / 1000).toFixed(0)} ${t('km')}`}</Typography>
             ) : (
               <Typography variant="body2" fontSize={16}>{`${location.distance.toFixed(0)} ${t('meter')}`}</Typography>
             )}
@@ -85,7 +86,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
           onClick={handleClick}
           fullWidth={false}
         >
-          <Typography sx={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{`${t('street')} ${
+          <Typography sx={{ width: '100%', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{`${t('street_short')} ${
             location.FormattedAddress
           }`}</Typography>
         </Button>
@@ -137,7 +138,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
       </Stack>
       {location.WhatsappNumber_c && (
         <IconButton disableRipple href={generateWALink('', location.WhatsappNumber_c)} target="_blank">
-          <Image src={WhatsAppIcon} alt="whatsapp" />
+          <Image src={WhatsAppIcon} alt="whatsapp" width={30} height={30} />
         </IconButton>
       )}
     </Stack>

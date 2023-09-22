@@ -30,11 +30,9 @@ const MapPin = ({ location }: Props) => {
           }}
           src={renderLocationIcon(location)}
           alt="icon"
-          width={38}
-          height={38}
         />
-        <Box sx={{ bgcolor: 'white', borderRadius: 100, px: 1, boxShadow: '0px 3px 5px 0px rgba(0, 0, 0, 0.08)' }}>
-          <Typography variant="caption" color="primary.main">
+        <Box sx={{ bgcolor: 'white', borderRadius: 100, px: '8px', mt: '2px', boxShadow: '0px 3px 5px 0px rgba(0, 0, 0, 0.08)' }}>
+          <Typography variant="caption" fontSize={'12px'} lineHeight={'24px'} fontWeight={600} color="primary.main">
             {location.Name_c}
           </Typography>
         </Box>
