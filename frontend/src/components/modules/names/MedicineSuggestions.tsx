@@ -3,7 +3,7 @@ import MedicinePreviewItem from '@/components/elements/MedicinePreviewItem'
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, Button, Typography } from '@mui/material'
 import { MedicineItemType } from 'MedicineTypes'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import NewMedicineDialog from './NewMedicineDialog'
 
 type Props = {
@@ -101,4 +101,4 @@ const MedicineSuggestions = ({
   )
 }
 
-export default MedicineSuggestions
+export default memo(MedicineSuggestions)

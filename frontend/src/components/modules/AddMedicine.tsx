@@ -14,17 +14,39 @@ const AddMedicine = ({ medicine, onSave }: Props) => {
   }
 
   return (
-    <Stack direction={'column'} gap={7} py={3} px={4} sx={{ width: '100%' }}>
-      <Stack gap={2} pt={3} justifyContent={'center'} alignItems={'center'} textAlign={'center'}>
-        <Typography variant="h3">{t('will_expire_soon')}</Typography>
-        <Stack>
-          <Typography variant="body1" textAlign={'center'} textTransform={'capitalize'}>
-            {medicine.englishName.toLowerCase()}
-          </Typography>
-          <Typography variant="body1" textAlign={'center'} sx={{ display: medicine.Name === medicine.englishName ? 'none' : 'block' }}>
-            {medicine.Name}
-          </Typography>
-        </Stack>
+    <Stack
+      direction={'column'}
+      gap={'5svh'}
+      pb={2}
+      mt={'25px'}
+      px={4}
+      sx={{ width: '100%', overflowY: 'auto', overflowX: 'hidden', position: 'relative' }}
+    >
+      <Stack pt={3} justifyContent={'center'} alignItems={'center'} textAlign={'center'} overflow={'hidden'} whiteSpace={'nowrap'}>
+        <Typography variant="h3" sx={{ mb: 2 }}>
+          {t('will_expire_soon')}
+        </Typography>
+        <Typography
+          variant="body1"
+          textAlign={'center'}
+          textTransform={'capitalize'}
+          sx={{ direction: 'rtl', overflow: 'hidden', width: '100%', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}
+        >
+          {medicine.englishName.toLowerCase()}
+        </Typography>
+        <Typography
+          variant="body1"
+          textAlign={'center'}
+          sx={{
+            overflow: 'hidden',
+            width: '100%',
+            whiteSpace: 'nowrap',
+            textOverflow: 'ellipsis',
+            display: medicine.Name === medicine.englishName ? 'none' : 'block',
+          }}
+        >
+          {medicine.Name}
+        </Typography>
       </Stack>
       <RadioGroup sx={{ width: 'fit-content', pl: 4, rowGap: 1 }} aria-label="expired-state" onChange={handlePick}>
         <FormRadio value="noOrUnknown" label={t('no_unknown')} />
