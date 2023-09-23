@@ -78,7 +78,6 @@ const Names = () => {
   const handleSave = async (medicine: MedicineItemType, expiryState: MedicineItemType['expiryState']) => {
     const { isExpensive, isRare } = await checkMedicineDetails(medicine)
     const medWithState = { ...medicine, expiryState, isRare, isExpensive }
-    console.log(medWithState)
     const newMedicineList = [...savedMedicines, medWithState]
     saveFormState(newMedicineList)
     setSelectedMedicine(null)

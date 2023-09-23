@@ -1,5 +1,6 @@
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Box, ClickAwayListener, List, ListItem, ListItemButton, ListItemText } from '@mui/material'
+import { memo } from 'react'
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete'
 import Autocomplete from '../elements/Autocomplete'
 
@@ -84,4 +85,4 @@ const PlacesAutocomplete = ({ onSelect }: Props) => {
   )
 }
 
-export default PlacesAutocomplete
+export default memo(PlacesAutocomplete)

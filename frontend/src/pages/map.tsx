@@ -1,12 +1,10 @@
 import LoaderOverlay from '@/components/elements/LoaderOverlay'
 import MainMap from '@/components/map/MainMap'
-import useFormWizard from '@/hooks/useFormWizard'
 import { Container } from '@mui/material'
 import { useJsApiLoader } from '@react-google-maps/api'
 import { useQuery } from '@tanstack/react-query'
 import type { Location } from 'LocationTypes'
 import axios from 'axios'
-import mixpanel from 'mixpanel-browser'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
@@ -38,10 +36,6 @@ const MapPage = () => {
   const {
     query: { filter },
   } = router
-  const {
-    formData: { medicineQuantity },
-    stepTo,
-  } = useFormWizard()
 
   const locationRquest = useQuery<Location[]>(['locations'], fetchLocations(), { refetchOnWindowFocus: false })
   const [openDialog, setOpenDialog] = useState(true)
@@ -55,19 +49,6 @@ const MapPage = () => {
     libraries: LIBRARIES,
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
   })
-
-  const openNavigation = (location: Location) => {
-    mixpanel.track('navigation_clicked', { locationId: location._id })
-    const address = encodeURIComponent(location.FormattedAddress)
-    const url = `https://www.google.com/maps/dir/?api=1&destination=${address}`
-    window.open(url, '_blank')
-  }
-
-  const goToDetails = () => {
-    mixpanel.track('cant_go_clicked')
-    router.push('/', undefined, { shallow: true })
-    stepTo('details')
-  }
 
   return (
     <>
@@ -86,9 +67,6 @@ const MapPage = () => {
             filter={filter}
             locations={locationRquest.data}
             loadingLocations={locationRquest.isFetching || locationRquest.isLoading}
-            handleNavigation={openNavigation}
-            handleCantGo={goToDetails}
-            hasLotsOfMedicine={medicineQuantity && medicineQuantity !== '1-10'}
           />
         )}
       </Container>

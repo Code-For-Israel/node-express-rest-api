@@ -1,6 +1,6 @@
 import useStaticTranslation from '@/hooks/useStaticTranslation'
 import { Button, Stack, Typography } from '@mui/material'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import BaseDialog from '../elements/BaseDialog'
 
 type Props = {
@@ -62,4 +62,4 @@ const MapLocationDialog = ({ open: openDialog, onClose, onLocationApproved }: Pr
   )
 }
 
-export default MapLocationDialog
+export default memo(MapLocationDialog)
