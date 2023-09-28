@@ -13,6 +13,7 @@ type FormContextType = {
   loading: boolean
   setLoading: (loading: boolean) => void
 }
+
 export const FormContext = createContext<FormContextType>({
   activeStep: 0,
   setActiveStep: () => undefined,

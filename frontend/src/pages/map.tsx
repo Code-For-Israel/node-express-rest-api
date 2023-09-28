@@ -1,43 +1,25 @@
 import LoaderOverlay from '@/components/elements/LoaderOverlay'
 import MainMap from '@/components/map/MainMap'
+import { calculateDistance } from '@/util/mapFunctions'
 import { Container } from '@mui/material'
 import { useJsApiLoader } from '@react-google-maps/api'
-import { useQuery } from '@tanstack/react-query'
 import type { Location } from 'LocationTypes'
 import axios from 'axios'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const LIBRARIES = ['places'] as any
-
-const fetchLocations = (filter?: string | string[]) => async () => {
-  const query = filter ? `?filter=${filter}` : ''
-  const res = await axios.get(`https://92e9pbwbok.execute-api.il-central-1.amazonaws.com/default/items${query}`)
-
-  if (res.data) {
-    const locs: Location[] = await JSON.parse(res.data.body)
-    locs.forEach((l: any) => {
-      l.Coordinates_c = {
-        lat: Number(l.CoordinateLat_c),
-        lng: Number(l.CoordinateLng_c),
-      }
-      if (!l.FormattedAddress) {
-        l.FormattedAddress = `${l.Address_c}, ${l.Settelment_c}`
-      }
-    })
-    return locs
-  }
-  return []
-}
 
 const MapPage = () => {
   const router = useRouter()
   const {
     query: { filter },
   } = router
+  const [locations, setLocations] = useState<Location[]>([])
+  const [isFetching, setIsFetching] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  const locationRquest = useQuery<Location[]>(['locations'], fetchLocations(), { refetchOnWindowFocus: false })
   const [openDialog, setOpenDialog] = useState(true)
 
   const closeDialog = () => {
@@ -50,6 +32,50 @@ const MapPage = () => {
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string,
   })
 
+  useEffect(() => {
+    const fetchLocations = async () => {
+      try {
+        const query = filter ? `?filter=${filter}` : ''
+        const res = await axios.get(`https://92e9pbwbok.execute-api.il-central-1.amazonaws.com/default/items${query}`)
+
+        if (res.data) {
+          const locs: Location[] = await JSON.parse(res.data.body)
+          locs.forEach((l: any) => {
+            l.Coordinates_c = {
+              lat: Number(l.CoordinateLat_c),
+              lng: Number(l.CoordinateLng_c),
+            }
+            if (!l.FormattedAddress) {
+              l.FormattedAddress = `${l.Address_c}, ${l.Settelment_c}`
+            }
+          })
+          setLocations(locs)
+        }
+      } catch (e: any) {
+        setError(e.message)
+      } finally {
+        setIsFetching(false)
+      }
+    }
+    fetchLocations()
+  }, [])
+
+  const updateLocationsCoordinates = (position: google.maps.LatLngLiteral) => {
+    const locs = locations.reduce((acc: Location[], l: Location) => {
+      if (l.Coordinates_c) {
+        const distance = calculateDistance(position, l.Coordinates_c)
+        return [...acc, { ...l, distance }]
+      }
+      return acc
+    }, [])
+    const sorted = locs.sort((a, b) => (a.distance as number) - (b.distance as number))
+    setLocations(sorted)
+  }
+
+  const filteredLocations = locations.filter((l: Location) =>
+    filter === 'store_cold' ? `${l.RefrigeratedMedicines_c}`.toLowerCase() === 'true' : true,
+  )
+
   return (
     <>
       <Head>
@@ -58,15 +84,15 @@ const MapPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container maxWidth={'md'} sx={{ boxShadow: 2, p: 0, position: 'relative', height: '100svh' }}>
-        <LoaderOverlay loading={locationRquest.isFetching || locationRquest.isLoading} />
-        {isMapLoaded && locationRquest.data && (
+      <Container maxWidth={'md'} sx={{ boxShadow: 2, p: 0, height: '100svh' }}>
+        <LoaderOverlay loading={isFetching} />
+        {isMapLoaded && (
           <MainMap
             closeDialog={closeDialog}
             openDialog={openDialog}
-            filter={filter}
-            locations={locationRquest.data}
-            loadingLocations={locationRquest.isFetching || locationRquest.isLoading}
+            locations={filteredLocations}
+            loadingLocations={isFetching}
+            updateLocationsCoordinates={updateLocationsCoordinates}
           />
         )}
       </Container>

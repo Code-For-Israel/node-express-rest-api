@@ -44,6 +44,7 @@ const MapDrawer = ({ locations, loadingLocations, focusMap }: Props) => {
         background: 'white',
         height: '40svh',
         position: 'absolute',
+        left: 0,
         bottom: 0,
         boxShadow: '0px -3px 6px 0px rgba(0, 0, 0, 0.08)',
         display: 'flex',
@@ -65,7 +66,7 @@ const MapDrawer = ({ locations, loadingLocations, focusMap }: Props) => {
         {locations.map((l, index) => (
           <LocationPreviewItem key={index} onClick={handleNavigation} location={l} focusMap={focusMap} />
         ))}
-        {!loadingLocations && locations.length < 1 && (
+        {!loadingLocations && locations.length === 0 && (
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>
             <Typography variant="body1">{t('no_locations_found')}</Typography>
           </Box>
