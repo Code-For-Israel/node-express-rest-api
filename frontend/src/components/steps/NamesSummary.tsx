@@ -10,7 +10,7 @@ const NamesSummary = () => {
   const { t } = useStaticTranslation()
   const router = useRouter()
   const { hasMoreProducts, hasCold, hasExpensive, expensiveDetected, expiringDetected } = formData
-  const selectedMedicines = formData?.medicines
+  const selectedMedicines = formData?.medicines || []
 
   const handleFinish = () => {
     if (hasExpensive || expensiveDetected || hasMoreProducts || expiringDetected) {
@@ -34,7 +34,7 @@ const NamesSummary = () => {
     <Stack gap={2} pb={2} alignItems={'center'} width={'100%'} position={'relative'} justifyContent={'space-between'}>
       <Typography variant="h1">{t('names_summary_page_title')}</Typography>
       <Box sx={{ display: 'flex', flex: 1, width: '100%', height: '100%', mt: 3 }}>
-        {selectedMedicines?.length === 0 && (
+        {selectedMedicines.length > 0 && (
           <Stack
             sx={{
               width: '100%',
