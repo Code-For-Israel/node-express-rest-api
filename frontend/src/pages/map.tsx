@@ -16,7 +16,7 @@ const MapPage = () => {
   const {
     query: { filter },
   } = router
-  const [locations, setLocations] = useState<Location[]>([])
+  const [locations, setLocations] = useState<Location[] | null>(null)
   const [isFetching, setIsFetching] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -37,7 +37,6 @@ const MapPage = () => {
       try {
         const query = filter ? `?filter=${filter}` : ''
         const res = await axios.get(`https://92e9pbwbok.execute-api.il-central-1.amazonaws.com/default/items${query}`)
-
         if (res.data) {
           const locs: Location[] = await JSON.parse(res.data.body)
           locs.forEach((l: any) => {
@@ -61,6 +60,7 @@ const MapPage = () => {
   }, [])
 
   const updateLocationsCoordinates = (position: google.maps.LatLngLiteral) => {
+    if (!locations) return
     const locs = locations.reduce((acc: Location[], l: Location) => {
       if (l.Coordinates_c) {
         const distance = calculateDistance(position, l.Coordinates_c)
@@ -72,7 +72,7 @@ const MapPage = () => {
     setLocations(sorted)
   }
 
-  const filteredLocations = locations.filter((l: Location) =>
+  const filteredLocations = locations?.filter((l: Location) =>
     filter === 'store_cold' ? `${l.RefrigeratedMedicines_c}`.toLowerCase() === 'true' : true,
   )
 

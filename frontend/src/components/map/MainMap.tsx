@@ -22,7 +22,7 @@ const mapCenter = {
 const initialZoom = 14
 
 type Props = {
-  locations: Location[]
+  locations?: Location[]
   openDialog: boolean
   closeDialog: () => void
   loadingLocations: boolean
@@ -32,20 +32,17 @@ type Props = {
 const MainMap = ({ locations, openDialog, loadingLocations, closeDialog, updateLocationsCoordinates }: Props) => {
   const mapRef = useRef<google.maps.Map>()
   const [userPosition, setUserPosition] = useState<google.maps.LatLngLiteral | null>(null)
-  const [mapLocations, setMapLocations] = useState<Location[]>([])
+  const [mapLocations, setMapLocations] = useState<Location[] | undefined>(locations)
 
   const onLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map
   }, [])
 
   const handleMapIdle = useCallback(() => {
+    if (!mapRef.current || !locations) return
     const bounds = mapRef.current?.getBounds()
     const filtered = locations.filter(l => !!l.Coordinates_c && bounds?.contains(l.Coordinates_c))
     setMapLocations(filtered)
-  }, [locations])
-
-  useEffect(() => {
-    handleMapIdle()
   }, [locations])
 
   const handleLocationApproved = (position: GeolocationPosition) => {
@@ -68,10 +65,16 @@ const MainMap = ({ locations, openDialog, loadingLocations, closeDialog, updateL
     }
   }
 
+  useEffect(() => {
+    handleMapIdle()
+  }, [locations])
+
   const handlePinClick = (location: Location) => {
     const listItem = document.getElementById(`listLocation-${location._id}`)
     listItem?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
   }
+
+  const slicedLocations = mapLocations?.slice(0, 20)
 
   return (
     <Box
@@ -123,11 +126,12 @@ const MainMap = ({ locations, openDialog, loadingLocations, closeDialog, updateL
             ],
           }}
         >
-          {mapLocations.slice(0, 20).map((l, index) => {
-            if (l.Coordinates_c) {
-              return <MapPin key={index} location={l} onClick={handlePinClick} />
-            }
-          })}
+          {slicedLocations &&
+            slicedLocations.map((l, index) => {
+              if (l.Coordinates_c) {
+                return <MapPin key={index} location={l} onClick={handlePinClick} />
+              }
+            })}
           {userPosition && (
             <MarkerF
               position={userPosition}
@@ -140,7 +144,7 @@ const MainMap = ({ locations, openDialog, loadingLocations, closeDialog, updateL
         </GoogleMap>
       </Box>
       <MapLocationDialog open={openDialog} onClose={closeDialog} onLocationApproved={handleLocationApproved} />
-      <MapDrawer locations={mapLocations.slice(0, 20)} focusMap={focusMap} loadingLocations={loadingLocations} />
+      <MapDrawer locations={slicedLocations} focusMap={focusMap} loadingLocations={loadingLocations} />
     </Box>
   )
 }

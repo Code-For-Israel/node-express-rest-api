@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 import { memo } from 'react'
 
 type Props = {
-  locations: Location[]
+  locations?: Location[]
   loadingLocations: boolean
   focusMap: (address: google.maps.LatLngLiteral | google.maps.LatLng, bounds?: google.maps.LatLngBounds) => void
 }
@@ -62,11 +62,9 @@ const MapDrawer = ({ locations, loadingLocations, focusMap }: Props) => {
           width: '100%',
         }}
       >
-        <LoaderOverlay loading={loadingLocations} />
-        {locations.map((l, index) => (
-          <LocationPreviewItem key={index} onClick={handleNavigation} location={l} focusMap={focusMap} />
-        ))}
-        {!loadingLocations && locations.length === 0 && (
+        <LoaderOverlay loading={loadingLocations || !locations} />
+        {locations && locations.map((l, index) => <LocationPreviewItem key={index} onClick={handleNavigation} location={l} focusMap={focusMap} />)}
+        {!loadingLocations && locations && locations.length === 0 && (
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>
             <Typography variant="body1">{t('no_locations_found')}</Typography>
           </Box>
