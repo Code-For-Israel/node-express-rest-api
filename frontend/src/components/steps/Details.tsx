@@ -6,25 +6,42 @@ import { Box, Button, Link, Stack, Typography } from '@mui/material'
 import { FormValuesType } from 'FormTypes'
 import { formatIncompletePhoneNumber, isValidPhoneNumber } from 'libphonenumber-js'
 import mixpanel from 'mixpanel-browser'
+import { memo, useMemo } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 const Details = () => {
   const { stepTo, updateFormData, submitData, formData } = useFormWizard()
-  const link = generateWALink()
   const { t } = useStaticTranslation()
-  const { register, handleSubmit, formState, watch, control } = useForm({ mode: 'onChange' })
-  const { medicines } = formData
-  const { fullName, town, street, houseNumber } = watch()
+  const { register, handleSubmit, formState, control } = useForm({ mode: 'onChange' })
+  const { medicines, hasCold, hasExpensive, hasMoreProducts, medicineQuantity } = formData
   const { isValid, errors } = formState
+
+  const buildMessage = (data?: FormValuesType) => {
+    const messageArr = [t('wa_app_intro'), `${t('hello')},`, t('wa_app_intro_2')]
+    if (data) {
+      const { fullName, town, street, houseNumber } = data
+      messageArr.splice(1, 1, t('wa_personal_info', { fullName, fullAddress: `${street} ${houseNumber}, ${town}` }))
+    }
+    const medicineListString = medicines?.map(m => `${m.Name}${m.expiryState === 'inAMonth' && ` - ${t('close_to_expire')}`}`).join('\n')
+    if (medicineListString) {
+      messageArr.push(medicineListString)
+    } else {
+      hasExpensive && messageArr.push(t('expensive_medicine'))
+      hasCold && messageArr.push(t('cold_medicine'))
+    }
+    hasMoreProducts && messageArr.push(t('soaking_product'))
+    medicineQuantity === '40+' && messageArr.push(`${t('i_have')} ${t('40_plus_items')}`)
+    return messageArr.join('\n')
+  }
+
+  const link = useMemo(() => generateWALink(buildMessage()), [])
 
   const onSubmit = (data: FormValuesType) => {
     updateFormData(data)
     submitData('whatsapp')
     mixpanel.track('whatsapp_details_sent')
-    const medicineListString = medicines?.map(m => m.Name).join('\n') ?? ''
-    const waLink = generateWALink(
-      t('whatsapp_message_with_medicines', { fullName, fullAddress: `${street} ${houseNumber}, ${town}`, medicineListString }),
-    )
+    const waMessage = buildMessage(data)
+    const waLink = generateWALink(waMessage)
     window.open(waLink, '_blank')
     stepTo('thank-you')
   }
@@ -97,4 +114,4 @@ const Details = () => {
   )
 }
 
-export default Details
+export default memo(Details)

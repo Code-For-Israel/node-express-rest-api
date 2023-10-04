@@ -137,7 +137,7 @@ const LocationPreviewItem = ({ location, onClick, focusMap }: Props) => {
         )}
       </Stack>
       {location.WhatsappNumber_c && (
-        <IconButton disableRipple href={generateWALink('', location.WhatsappNumber_c)} target="_blank">
+        <IconButton disableRipple href={generateWALink(t('wa_default_text'), location.WhatsappNumber_c)} target="_blank">
           <Image src={WhatsAppIcon} alt="whatsapp" width={30} height={30} />
         </IconButton>
       )}
