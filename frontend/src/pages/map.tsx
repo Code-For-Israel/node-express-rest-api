@@ -19,7 +19,6 @@ const MapPage = () => {
   const [locations, setLocations] = useState<Location[] | null>(null)
   const [isFetching, setIsFetching] = useState(true)
   const [error, setError] = useState<string | null>(null)
-
   const [openDialog, setOpenDialog] = useState(true)
 
   const closeDialog = () => {
@@ -35,8 +34,8 @@ const MapPage = () => {
   useEffect(() => {
     const fetchLocations = async () => {
       try {
-        const query = filter ? `?filter=${filter}` : ''
-        const res = await axios.get(`https://92e9pbwbok.execute-api.il-central-1.amazonaws.com/default/items${query}`)
+        // const query = filter ? `?filter=${filter}` : ''
+        const res = await axios.get(`https://92e9pbwbok.execute-api.il-central-1.amazonaws.com/default/items`)
         if (res.data) {
           const locs: Location[] = await JSON.parse(res.data.body)
           locs.forEach((l: any) => {
@@ -51,11 +50,14 @@ const MapPage = () => {
           setLocations(locs)
         }
       } catch (e: any) {
+        console.log(e.message)
         setError(e.message)
+        setLocations([])
       } finally {
         setIsFetching(false)
       }
     }
+
     fetchLocations()
   }, [])
 
@@ -92,6 +94,7 @@ const MapPage = () => {
             openDialog={openDialog}
             locations={filteredLocations}
             loadingLocations={isFetching}
+            fetchError={error}
             updateLocationsCoordinates={updateLocationsCoordinates}
           />
         )}

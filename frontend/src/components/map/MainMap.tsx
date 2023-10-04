@@ -27,9 +27,10 @@ type Props = {
   closeDialog: () => void
   loadingLocations: boolean
   updateLocationsCoordinates: (position: google.maps.LatLngLiteral) => void
+  fetchError: string | null
 }
 
-const MainMap = ({ locations, openDialog, loadingLocations, closeDialog, updateLocationsCoordinates }: Props) => {
+const MainMap = ({ locations, openDialog, loadingLocations, closeDialog, fetchError, updateLocationsCoordinates }: Props) => {
   const mapRef = useRef<google.maps.Map>()
   const [userPosition, setUserPosition] = useState<google.maps.LatLngLiteral | null>(null)
   const [mapLocations, setMapLocations] = useState<Location[] | undefined>(locations)
@@ -144,7 +145,7 @@ const MainMap = ({ locations, openDialog, loadingLocations, closeDialog, updateL
         </GoogleMap>
       </Box>
       <MapLocationDialog open={openDialog} onClose={closeDialog} onLocationApproved={handleLocationApproved} />
-      <MapDrawer locations={slicedLocations} focusMap={focusMap} loadingLocations={loadingLocations} />
+      <MapDrawer fetchError={fetchError} locations={slicedLocations} focusMap={focusMap} loadingLocations={loadingLocations} />
     </Box>
   )
 }

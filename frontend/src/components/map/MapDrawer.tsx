@@ -10,11 +10,12 @@ import { memo } from 'react'
 
 type Props = {
   locations?: Location[]
+  fetchError: string | null
   loadingLocations: boolean
   focusMap: (address: google.maps.LatLngLiteral | google.maps.LatLng, bounds?: google.maps.LatLngBounds) => void
 }
 
-const MapDrawer = ({ locations, loadingLocations, focusMap }: Props) => {
+const MapDrawer = ({ locations, loadingLocations, fetchError, focusMap }: Props) => {
   const { t } = useStaticTranslation()
   const router = useRouter()
   const {
@@ -64,9 +65,19 @@ const MapDrawer = ({ locations, loadingLocations, focusMap }: Props) => {
       >
         <LoaderOverlay loading={loadingLocations || !locations} />
         {locations && locations.map((l, index) => <LocationPreviewItem key={index} onClick={handleNavigation} location={l} focusMap={focusMap} />)}
-        {!loadingLocations && locations && locations.length === 0 && (
+        {!fetchError && locations && locations.length === 0 && (
           <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>
             <Typography variant="body1">{t('no_locations_found')}</Typography>
+          </Box>
+        )}
+        {fetchError && (
+          <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', height: '100%' }}>
+            <Typography variant="body1" color="red">
+              {t('fetch_error')}
+            </Typography>
+            <Button variant="text" color="info" onClick={() => router.reload()}>
+              {t('refresh')}
+            </Button>
           </Box>
         )}
       </Box>
